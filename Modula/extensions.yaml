@@ -1,0 +1,10 @@
+# Read by Theme Options (0.29+): it notifies the user about recommended add-ons that are not installed
+# and offers to open their add-on pages. Ids are add-on database AddonId values.
+# Nothing is listed as Required: Required shows a blocking dialog at every start, and the theme
+# works without any of these (each integration hides itself when its add-on is missing).
+Recommended:
+  - felixkmh_Extras_Plugin
+  - playnite-thememodifier-plugin
+  - ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429
+  - playnite-howlongtobeat-plugin
+  - PlayniteAchievements

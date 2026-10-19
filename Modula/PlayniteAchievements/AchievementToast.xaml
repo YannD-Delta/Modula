@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PlayniteAchievements unlock notification in the Modula look.
+     The plugin reads this file from the theme folder when "Use my theme's design when available"
+     is on in its Notifications settings. DataContext: AchievementToastViewModel.
+     It is loaded as loose XAML: no clr-namespace without an assembly. -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <BooleanToVisibilityConverter x:Key="HndToastBoolToVisibility" />
+
+    <DataTemplate x:Key="PlayAch.Template.AchievementToast">
+        <Grid MinWidth="340" MaxWidth="420" Margin="12">
+            <Border CornerRadius="10" BorderThickness="1" BorderBrush="{Binding AccentBrush}">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <!-- window colors of the theme, so the card follows the color profile -->
+                        <GradientStop Color="{DynamicResource WindowBackgroundGradientColor1}" Offset="0" />
+                        <GradientStop Color="{DynamicResource WindowBackgroundGradientColor2}" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="18" ShadowDepth="0" Opacity="0.7" RenderingBias="Performance" />
+                </Border.Effect>
+            </Border>
+            <!-- accent spine on the left -->
+            <Border Width="4" HorizontalAlignment="Left" CornerRadius="10,0,0,10" Background="{Binding AccentBrush}" />
+
+            <Grid Margin="16,12,14,14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Width="60" Height="60" CornerRadius="8" VerticalAlignment="Top" Margin="0,2,12,0"
+                        BorderThickness="1" BorderBrush="#33FFFFFF">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding IconImage}" Stretch="UniformToFill" />
+                    </Border.Background>
+                </Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock FontSize="11" FontWeight="SemiBold" Foreground="#B3FFFFFF" TextTrimming="CharacterEllipsis">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="{Binding HeaderText}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsGameCompleted}" Value="True">
+                                        <Setter Property="Text" Value="{Binding CompletionHeaderText}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsProgressUpdate}" Value="True">
+                                        <Setter Property="Text" Value="{Binding ProgressHeaderText}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Text="{Binding TitleText}" Foreground="{Binding TitleBrush}" FontSize="16" FontWeight="SemiBold"
+                               Margin="0,2,0,0" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="{Binding Description}" Foreground="#D9FFFFFF" FontSize="12" Margin="0,3,0,0"
+                               TextWrapping="Wrap" MaxHeight="34" TextTrimming="CharacterEllipsis" />
+                    <DockPanel Margin="0,6,0,0" LastChildFill="False">
+                        <TextBlock DockPanel.Dock="Left" Text="{Binding GameName}" Foreground="#99FFFFFF" FontSize="11"
+                                   TextTrimming="CharacterEllipsis" MaxWidth="200" />
+                        <TextBlock DockPanel.Dock="Right" Foreground="#99FFFFFF" FontSize="11" Margin="8,0,0,0">
+                            <Run Text="{Binding UnlockedCount, Mode=OneWay}" /><Run Text=" / " /><Run Text="{Binding TotalCount, Mode=OneWay}" />
+                        </TextBlock>
+                        <TextBlock DockPanel.Dock="Right" Text="{Binding PercentText}" Foreground="{Binding AccentBrush}" FontSize="11"
+                                   FontWeight="SemiBold" Margin="8,0,0,0" />
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+
+            <!-- countdown: the plugin animates the ScaleX of every element with this name -->
+            <Border x:Name="PART_ToastCountdown" Height="3" VerticalAlignment="Bottom" Margin="6,0,6,1" CornerRadius="1.5"
+                    Background="{Binding AccentBrush}" RenderTransformOrigin="0,0.5"
+                    Visibility="{Binding ShowCountdownBar, Converter={StaticResource HndToastBoolToVisibility}}" />
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

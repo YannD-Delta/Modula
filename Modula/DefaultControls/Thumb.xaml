@@ -1,0 +1,36 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    mc:Ignorable="d">
+
+    <Style TargetType="{x:Type Thumb}">
+        <Setter Property="Width" Value="Auto" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="Background" Value="{DynamicResource ThumbBackgroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="Bar" HorizontalAlignment="Center" VerticalAlignment="Stretch" MinHeight="14"
+                                Width="{DynamicResource ScrollbarThumbWidth}"
+                                CornerRadius="8" Background="{TemplateBinding Background}"
+                                BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bar" Property="Background" Value="{DynamicResource ThumbIsMouseOverBackgroundBrush}" />
+                            <Setter TargetName="Bar" Property="Width" Value="{DynamicResource ScrollbarThumbHoverWidth}" />
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="True">
+                            <Setter TargetName="Bar" Property="Background" Value="{DynamicResource ThumbIsMouseOverBackgroundBrush}" />
+                            <Setter TargetName="Bar" Property="Width" Value="{DynamicResource ScrollbarThumbHoverWidth}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

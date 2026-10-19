@@ -1,0 +1,15 @@
+ThemeApiVersion: 2.10.0
+Mode: Desktop
+Id: 42f3aebe-d455-44a7-bd7f-2dd8afaec9a6
+Name: Modula
+Author: YannD-Delta
+Version: 3.0
+Links:
+  - Name: GitHub
+    Url: https://github.com/YannD-Delta/Modula
+  - Name: Based on Neon (Xenor)
+    Url: https://github.com/XenorPLxx/Neon
+  - Name: Based on Helium (darklinkpower)
+    Url: https://github.com/darklinkpower/Helium
+  - Name: Based on Dune Rev (hugsyf)
+    Url: https://github.com/hugsyf/dune-rev

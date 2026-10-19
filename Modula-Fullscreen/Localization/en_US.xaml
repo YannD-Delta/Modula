@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="LOCHNDFsHeaderLook">Look</sys:String>
+    <sys:String x:Key="LOCHNDFsOptGlyphColor">Accent</sys:String>
+    <sys:String x:Key="LOCHNDFsOptGlyphLightColor">Accent, light end</sys:String>
+    <sys:String x:Key="LOCHNDFsOptControlBackgroundColor">Panel colour</sys:String>
+    <sys:String x:Key="LOCHNDFsOptControlBackgroundColorDark">Dark panel colour</sys:String>
+    <sys:String x:Key="LOCHNDFsHeaderCards">Cards and focus</sys:String>
+    <sys:String x:Key="LOCHNDFsOptCardCornerRadius">Card corners</sys:String>
+    <sys:String x:Key="LOCHNDFsOptCardRimCornerRadius">Focus ring corners</sys:String>
+    <sys:String x:Key="LOCHNDFsOptFocusRingThickness">Focus ring thickness</sys:String>
+    <sys:String x:Key="LOCHNDFsOptFocusGlowOpacity">Focus glow</sys:String>
+    <sys:String x:Key="LOCHNDFsOptFocusGlowBlur">Focus glow size</sys:String>
+    <sys:String x:Key="LOCHNDFsOptGlassRimOpacity">Glass edge</sys:String>
+    <sys:String x:Key="LOCHNDFsOptTitleStripOpacity">Title strip</sys:String>
+    <sys:String x:Key="LOCHNDFsHeaderDetails">Tiles and buttons</sys:String>
+    <sys:String x:Key="LOCHNDFsOptCoverCornerRadius">Cover corners (details page)</sys:String>
+    <sys:String x:Key="LOCHNDFsOptTileCornerRadius">Info tile corners</sys:String>
+    <sys:String x:Key="LOCHNDFsOptTileGlassOpacity">Info tile glass</sys:String>
+    <sys:String x:Key="LOCHNDFsOptButtonCornerRadius">Button corners</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetAccent">Accent colour</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetAccentDefault">Neon blue (default)</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetAccentViolet">Violet</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetAccentMint">Mint</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetAccentAmber">Amber</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetAccentRose">Rose</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetAccentCyan">Cyan</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetCorners">Corner rounding</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetCornersDefault">Rounded (default)</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetCornersSquare">Square</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetCornersSubtle">Subtle</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetCornersRound">Very round</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetGlow">Focus glow</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetGlowDefault">Normal (default)</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetGlowOff">Off (lightest on the GPU)</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetGlowSoft">Soft</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetGlowStrong">Strong</sys:String>
+    <sys:String x:Key="LOCHNDFsOptPanelCornerRadius">Menu and dialog corners</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetInfoCards">Information cards</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetInfoCardsDefault">Default (time, platform, performance, scores)</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetInfoCardsEssentials">Essentials (time, last played, platform, scores)</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetInfoCardsPerformance">Performance in one card (FPS, CPU, GPU, RAM)</sys:String>
+    <sys:String x:Key="LOCHNDFsPresetInfoCardsEverything">Everything (cards, performance, details)</sys:String>
+</ResourceDictionary>

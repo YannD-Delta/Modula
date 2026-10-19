@@ -1,0 +1,503 @@
+# Layout Studio options of the Modula Fullscreen theme (read by tools/convert_options.py, which writes layout-studio.schema.json).
+# Every key here is a constant of Constants.xaml; defaults must equal the values there (tools/check-theme.py compares them).
+Presets:
+    Accent:
+        Name: 'Accent colour'
+        LocKey: LOCHNDFsPresetAccent
+        Presets:
+            Default:
+                Name: 'Neon blue'
+                LocKey: LOCHNDFsPresetAccentDefault
+            Violet:
+                Name: 'Violet'
+                LocKey: LOCHNDFsPresetAccentViolet
+                Constants:
+                    GlyphColor:
+                        Type: Color
+                        Value: '#FFA66BFF'
+                    GlyphLightColor:
+                        Type: Color
+                        Value: '#FFD0B0FF'
+            Mint:
+                Name: 'Mint'
+                LocKey: LOCHNDFsPresetAccentMint
+                Constants:
+                    GlyphColor:
+                        Type: Color
+                        Value: '#FF3DE0B0'
+                    GlyphLightColor:
+                        Type: Color
+                        Value: '#FF9AF5DC'
+            Amber:
+                Name: 'Amber'
+                LocKey: LOCHNDFsPresetAccentAmber
+                Constants:
+                    GlyphColor:
+                        Type: Color
+                        Value: '#FFFFB347'
+                    GlyphLightColor:
+                        Type: Color
+                        Value: '#FFFFD79A'
+            Rose:
+                Name: 'Rose'
+                LocKey: LOCHNDFsPresetAccentRose
+                Constants:
+                    GlyphColor:
+                        Type: Color
+                        Value: '#FFFF6B9A'
+                    GlyphLightColor:
+                        Type: Color
+                        Value: '#FFFFB0CC'
+            Cyan:
+                Name: 'Cyan'
+                LocKey: LOCHNDFsPresetAccentCyan
+                Constants:
+                    GlyphColor:
+                        Type: Color
+                        Value: '#FF34E7FF'
+                    GlyphLightColor:
+                        Type: Color
+                        Value: '#FF9AF2FF'
+    Corners:
+        Name: 'Corner rounding'
+        LocKey: LOCHNDFsPresetCorners
+        Presets:
+            Default:
+                Name: 'Rounded'
+                LocKey: LOCHNDFsPresetCornersDefault
+            Square:
+                Name: 'Square'
+                LocKey: LOCHNDFsPresetCornersSquare
+                Constants:
+                    FsPanelCornerRadius:
+                        Type: CornerRadius
+                        Value: '0'
+                    FsCardCornerRadius:
+                        Type: CornerRadius
+                        Value: '0'
+                    FsCardRimCornerRadius:
+                        Type: CornerRadius
+                        Value: '0'
+                    FsCoverCornerRadius:
+                        Type: CornerRadius
+                        Value: '0'
+                    FsTileCornerRadius:
+                        Type: CornerRadius
+                        Value: '0'
+                    FsButtonCornerRadius:
+                        Type: CornerRadius
+                        Value: '0'
+            Subtle:
+                Name: 'Subtle'
+                LocKey: LOCHNDFsPresetCornersSubtle
+                Constants:
+                    FsPanelCornerRadius:
+                        Type: CornerRadius
+                        Value: '8'
+                    FsCardCornerRadius:
+                        Type: CornerRadius
+                        Value: '6'
+                    FsCardRimCornerRadius:
+                        Type: CornerRadius
+                        Value: '8'
+                    FsCoverCornerRadius:
+                        Type: CornerRadius
+                        Value: '8'
+                    FsTileCornerRadius:
+                        Type: CornerRadius
+                        Value: '6'
+                    FsButtonCornerRadius:
+                        Type: CornerRadius
+                        Value: '5'
+            Round:
+                Name: 'Round'
+                LocKey: LOCHNDFsPresetCornersRound
+                Constants:
+                    FsPanelCornerRadius:
+                        Type: CornerRadius
+                        Value: '34'
+                    FsCardCornerRadius:
+                        Type: CornerRadius
+                        Value: '24'
+                    FsCardRimCornerRadius:
+                        Type: CornerRadius
+                        Value: '26'
+                    FsCoverCornerRadius:
+                        Type: CornerRadius
+                        Value: '30'
+                    FsTileCornerRadius:
+                        Type: CornerRadius
+                        Value: '24'
+                    FsButtonCornerRadius:
+                        Type: CornerRadius
+                        Value: '20'
+    Glow:
+        Name: 'Focus glow'
+        LocKey: LOCHNDFsPresetGlow
+        Presets:
+            Default:
+                Name: 'Normal'
+                LocKey: LOCHNDFsPresetGlowDefault
+            Off:
+                Name: 'Off (lightest on the GPU)'
+                LocKey: LOCHNDFsPresetGlowOff
+                Constants:
+                    FsFocusGlowOpacity:
+                        Type: Double
+                        Value: '0'
+            Soft:
+                Name: 'Soft'
+                LocKey: LOCHNDFsPresetGlowSoft
+                Constants:
+                    FsFocusGlowOpacity:
+                        Type: Double
+                        Value: '0.45'
+                    FsFocusGlowBlur:
+                        Type: Double
+                        Value: '18'
+            Strong:
+                Name: 'Strong'
+                LocKey: LOCHNDFsPresetGlowStrong
+                Constants:
+                    FsFocusGlowOpacity:
+                        Type: Double
+                        Value: '1'
+                    FsFocusGlowBlur:
+                        Type: Double
+                        Value: '40'
+    InfoCards:
+        Name: 'Information cards'
+        LocKey: LOCHNDFsPresetInfoCards
+        Presets:
+            Default:
+                Name: 'Default (time, platform, performance, scores)'
+                LocKey: LOCHNDFsPresetInfoCardsDefault
+            Essentials:
+                Name: 'Essentials (time, last played, platform, scores)'
+                LocKey: LOCHNDFsPresetInfoCardsEssentials
+                Constants:
+                    HeaderTileSlot1:
+                        Type: Int32
+                        Value: '1'
+                    HeaderTileSlot1B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot1C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot1D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot2:
+                        Type: Int32
+                        Value: '2'
+                    HeaderTileSlot2B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot2C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot2D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3:
+                        Type: Int32
+                        Value: '15'
+                    HeaderTileSlot3B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4:
+                        Type: Int32
+                        Value: '6'
+                    HeaderTileSlot4B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6D:
+                        Type: Int32
+                        Value: '0'
+            Performance:
+                Name: 'Performance in one card (FPS, CPU, GPU, RAM)'
+                LocKey: LOCHNDFsPresetInfoCardsPerformance
+                Constants:
+                    HeaderTileSlot1:
+                        Type: Int32
+                        Value: '8'
+                    HeaderTileSlot1B:
+                        Type: Int32
+                        Value: '31'
+                    HeaderTileSlot1C:
+                        Type: Int32
+                        Value: '32'
+                    HeaderTileSlot1D:
+                        Type: Int32
+                        Value: '33'
+                    HeaderTileSlot2:
+                        Type: Int32
+                        Value: '1'
+                    HeaderTileSlot2B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot2C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot2D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3:
+                        Type: Int32
+                        Value: '2'
+                    HeaderTileSlot3B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4:
+                        Type: Int32
+                        Value: '6'
+                    HeaderTileSlot4B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6D:
+                        Type: Int32
+                        Value: '0'
+            Everything:
+                Name: 'Everything (cards, performance, details)'
+                LocKey: LOCHNDFsPresetInfoCardsEverything
+                Constants:
+                    HeaderTileSlot1:
+                        Type: Int32
+                        Value: '1'
+                    HeaderTileSlot1B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot1C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot1D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot2:
+                        Type: Int32
+                        Value: '2'
+                    HeaderTileSlot2B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot2C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot2D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3:
+                        Type: Int32
+                        Value: '13'
+                    HeaderTileSlot3B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot3D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4:
+                        Type: Int32
+                        Value: '15'
+                    HeaderTileSlot4B:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot4D:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot5:
+                        Type: Int32
+                        Value: '8'
+                    HeaderTileSlot5B:
+                        Type: Int32
+                        Value: '31'
+                    HeaderTileSlot5C:
+                        Type: Int32
+                        Value: '32'
+                    HeaderTileSlot5D:
+                        Type: Int32
+                        Value: '33'
+                    HeaderTileSlot6:
+                        Type: Int32
+                        Value: '6'
+                    HeaderTileSlot6B:
+                        Type: Int32
+                        Value: '7'
+                    HeaderTileSlot6C:
+                        Type: Int32
+                        Value: '0'
+                    HeaderTileSlot6D:
+                        Type: Int32
+                        Value: '0'
+Variables:
+    HeaderCards:
+        Title: 'Cards and focus'
+        LocKey: LOCHNDFsHeaderCards
+        Type: Header
+    FsCardCornerRadius:
+        Title: 'Card corners'
+        LocKey: LOCHNDFsOptCardCornerRadius
+        Type: CornerRadius
+        Default: '16'
+        Description: 'Roundness of the cover cards in the game list.'
+    FsCardRimCornerRadius:
+        Title: 'Focus ring corners'
+        LocKey: LOCHNDFsOptCardRimCornerRadius
+        Type: CornerRadius
+        Default: '18'
+        Description: 'Roundness of the ring around the focused card: about two more than the card corners.'
+    FsFocusRingThickness:
+        Title: 'Focus ring thickness'
+        LocKey: LOCHNDFsOptFocusRingThickness
+        Type: Thickness
+        Default: '3'
+        Description: 'Width of the neon ring around the focused card.'
+    FsFocusGlowOpacity:
+        Title: 'Focus glow'
+        LocKey: LOCHNDFsOptFocusGlowOpacity
+        Type: Double
+        Default: '0.9'
+        Description: 'Strength of the glow around the focused card (0 = no glow, lighter on the GPU).'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.05'
+    FsFocusGlowBlur:
+        Title: 'Focus glow size'
+        LocKey: LOCHNDFsOptFocusGlowBlur
+        Type: Double
+        Default: '26'
+        Description: 'How far the glow spreads.'
+        Slider:
+            Min: '0'
+            Max: '60'
+            Step: '1'
+    FsGlassRimOpacity:
+        Title: 'Glass edge'
+        LocKey: LOCHNDFsOptGlassRimOpacity
+        Type: Double
+        Default: '1'
+        Description: 'Strength of the thin lit edge of every card (0 = no edge).'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.05'
+    FsTitleStripOpacity:
+        Title: 'Title strip'
+        LocKey: LOCHNDFsOptTitleStripOpacity
+        Type: Double
+        Default: '1'
+        Description: 'Opacity of the dark strip under the game title on a card.'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.05'
+    HeaderDetails:
+        Title: 'Tiles and buttons'
+        LocKey: LOCHNDFsHeaderDetails
+        Type: Header
+    FsCoverCornerRadius:
+        Title: 'Cover corners (details page)'
+        LocKey: LOCHNDFsOptCoverCornerRadius
+        Type: CornerRadius
+        Default: '22'
+        Description: 'Roundness of the cover on the game page.'
+    FsTileCornerRadius:
+        Title: 'Info tile corners'
+        LocKey: LOCHNDFsOptTileCornerRadius
+        Type: CornerRadius
+        Default: '16'
+        Description: 'Roundness of the tiles under the title (time played, last played...).'
+    FsTileGlassOpacity:
+        Title: 'Info tile glass'
+        LocKey: LOCHNDFsOptTileGlassOpacity
+        Type: Double
+        Default: '1'
+        Description: 'How visible the info tiles are (0 = invisible).'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.05'
+    FsPanelCornerRadius:
+        Title: 'Menu and dialog corners'
+        LocKey: LOCHNDFsOptPanelCornerRadius
+        Type: CornerRadius
+        Default: '24'
+        Description: 'Roundness of menus and dialogs.'
+    FsButtonCornerRadius:
+        Title: 'Button corners'
+        LocKey: LOCHNDFsOptButtonCornerRadius
+        Type: CornerRadius
+        Default: '12'
+        Description: 'Roundness of buttons and menu entries.'

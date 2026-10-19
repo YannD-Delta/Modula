@@ -1,0 +1,744 @@
+{
+ "version": 1,
+ "stats": {
+  "constants": 38
+ },
+ "pages": [
+  {
+   "id": "look",
+   "title": "Look",
+   "groups": [
+    {
+     "id": "presets",
+     "title": "Presets",
+     "controls": [
+      {
+       "kind": "preset",
+       "id": "Accent",
+       "keys": [],
+       "title": "Accent colour",
+       "titleKey": "LOCHNDFsPresetAccent",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Neon blue",
+         "locKey": "LOCHNDFsPresetAccentDefault",
+         "constants": {},
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FF4DA3FF"
+         }
+        },
+        {
+         "id": "Violet",
+         "name": "Violet",
+         "locKey": "LOCHNDFsPresetAccentViolet",
+         "constants": {
+          "GlyphColor": "#FFA66BFF",
+          "GlyphLightColor": "#FFD0B0FF"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFA66BFF"
+         }
+        },
+        {
+         "id": "Mint",
+         "name": "Mint",
+         "locKey": "LOCHNDFsPresetAccentMint",
+         "constants": {
+          "GlyphColor": "#FF3DE0B0",
+          "GlyphLightColor": "#FF9AF5DC"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FF3DE0B0"
+         }
+        },
+        {
+         "id": "Amber",
+         "name": "Amber",
+         "locKey": "LOCHNDFsPresetAccentAmber",
+         "constants": {
+          "GlyphColor": "#FFFFB347",
+          "GlyphLightColor": "#FFFFD79A"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFFFB347"
+         }
+        },
+        {
+         "id": "Rose",
+         "name": "Rose",
+         "locKey": "LOCHNDFsPresetAccentRose",
+         "constants": {
+          "GlyphColor": "#FFFF6B9A",
+          "GlyphLightColor": "#FFFFB0CC"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFFF6B9A"
+         }
+        },
+        {
+         "id": "Cyan",
+         "name": "Cyan",
+         "locKey": "LOCHNDFsPresetAccentCyan",
+         "constants": {
+          "GlyphColor": "#FF34E7FF",
+          "GlyphLightColor": "#FF9AF2FF"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FF34E7FF"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Corners",
+       "keys": [],
+       "title": "Corner rounding",
+       "titleKey": "LOCHNDFsPresetCorners",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Rounded",
+         "locKey": "LOCHNDFsPresetCornersDefault",
+         "constants": {}
+        },
+        {
+         "id": "Square",
+         "name": "Square",
+         "locKey": "LOCHNDFsPresetCornersSquare",
+         "constants": {
+          "FsPanelCornerRadius": "0",
+          "FsCardCornerRadius": "0",
+          "FsCardRimCornerRadius": "0",
+          "FsCoverCornerRadius": "0",
+          "FsTileCornerRadius": "0",
+          "FsButtonCornerRadius": "0"
+         }
+        },
+        {
+         "id": "Subtle",
+         "name": "Subtle",
+         "locKey": "LOCHNDFsPresetCornersSubtle",
+         "constants": {
+          "FsPanelCornerRadius": "8",
+          "FsCardCornerRadius": "6",
+          "FsCardRimCornerRadius": "8",
+          "FsCoverCornerRadius": "8",
+          "FsTileCornerRadius": "6",
+          "FsButtonCornerRadius": "5"
+         }
+        },
+        {
+         "id": "Round",
+         "name": "Round",
+         "locKey": "LOCHNDFsPresetCornersRound",
+         "constants": {
+          "FsPanelCornerRadius": "34",
+          "FsCardCornerRadius": "24",
+          "FsCardRimCornerRadius": "26",
+          "FsCoverCornerRadius": "30",
+          "FsTileCornerRadius": "24",
+          "FsButtonCornerRadius": "20"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Glow",
+       "keys": [],
+       "title": "Focus glow",
+       "titleKey": "LOCHNDFsPresetGlow",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Normal",
+         "locKey": "LOCHNDFsPresetGlowDefault",
+         "constants": {}
+        },
+        {
+         "id": "Off",
+         "name": "Off (lightest on the GPU)",
+         "locKey": "LOCHNDFsPresetGlowOff",
+         "constants": {
+          "FsFocusGlowOpacity": "0"
+         }
+        },
+        {
+         "id": "Soft",
+         "name": "Soft",
+         "locKey": "LOCHNDFsPresetGlowSoft",
+         "constants": {
+          "FsFocusGlowOpacity": "0.45",
+          "FsFocusGlowBlur": "18"
+         }
+        },
+        {
+         "id": "Strong",
+         "name": "Strong",
+         "locKey": "LOCHNDFsPresetGlowStrong",
+         "constants": {
+          "FsFocusGlowOpacity": "1",
+          "FsFocusGlowBlur": "40"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "InfoCards",
+       "keys": [],
+       "title": "Information cards",
+       "titleKey": "LOCHNDFsPresetInfoCards",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Default (time, platform, performance, scores)",
+         "locKey": "LOCHNDFsPresetInfoCardsDefault",
+         "constants": {}
+        },
+        {
+         "id": "Essentials",
+         "name": "Essentials (time, last played, platform, scores)",
+         "locKey": "LOCHNDFsPresetInfoCardsEssentials",
+         "constants": {
+          "HeaderTileSlot1": "1",
+          "HeaderTileSlot1B": "0",
+          "HeaderTileSlot1C": "0",
+          "HeaderTileSlot1D": "0",
+          "HeaderTileSlot2": "2",
+          "HeaderTileSlot2B": "0",
+          "HeaderTileSlot2C": "0",
+          "HeaderTileSlot2D": "0",
+          "HeaderTileSlot3": "15",
+          "HeaderTileSlot3B": "0",
+          "HeaderTileSlot3C": "0",
+          "HeaderTileSlot3D": "0",
+          "HeaderTileSlot4": "6",
+          "HeaderTileSlot4B": "0",
+          "HeaderTileSlot4C": "0",
+          "HeaderTileSlot4D": "0",
+          "HeaderTileSlot5": "0",
+          "HeaderTileSlot5B": "0",
+          "HeaderTileSlot5C": "0",
+          "HeaderTileSlot5D": "0",
+          "HeaderTileSlot6": "0",
+          "HeaderTileSlot6B": "0",
+          "HeaderTileSlot6C": "0",
+          "HeaderTileSlot6D": "0"
+         }
+        },
+        {
+         "id": "Performance",
+         "name": "Performance in one card (FPS, CPU, GPU, RAM)",
+         "locKey": "LOCHNDFsPresetInfoCardsPerformance",
+         "constants": {
+          "HeaderTileSlot1": "8",
+          "HeaderTileSlot1B": "31",
+          "HeaderTileSlot1C": "32",
+          "HeaderTileSlot1D": "33",
+          "HeaderTileSlot2": "1",
+          "HeaderTileSlot2B": "0",
+          "HeaderTileSlot2C": "0",
+          "HeaderTileSlot2D": "0",
+          "HeaderTileSlot3": "2",
+          "HeaderTileSlot3B": "0",
+          "HeaderTileSlot3C": "0",
+          "HeaderTileSlot3D": "0",
+          "HeaderTileSlot4": "6",
+          "HeaderTileSlot4B": "0",
+          "HeaderTileSlot4C": "0",
+          "HeaderTileSlot4D": "0",
+          "HeaderTileSlot5": "0",
+          "HeaderTileSlot5B": "0",
+          "HeaderTileSlot5C": "0",
+          "HeaderTileSlot5D": "0",
+          "HeaderTileSlot6": "0",
+          "HeaderTileSlot6B": "0",
+          "HeaderTileSlot6C": "0",
+          "HeaderTileSlot6D": "0"
+         }
+        },
+        {
+         "id": "Everything",
+         "name": "Everything (cards, performance, details)",
+         "locKey": "LOCHNDFsPresetInfoCardsEverything",
+         "constants": {
+          "HeaderTileSlot1": "1",
+          "HeaderTileSlot1B": "0",
+          "HeaderTileSlot1C": "0",
+          "HeaderTileSlot1D": "0",
+          "HeaderTileSlot2": "2",
+          "HeaderTileSlot2B": "0",
+          "HeaderTileSlot2C": "0",
+          "HeaderTileSlot2D": "0",
+          "HeaderTileSlot3": "13",
+          "HeaderTileSlot3B": "0",
+          "HeaderTileSlot3C": "0",
+          "HeaderTileSlot3D": "0",
+          "HeaderTileSlot4": "15",
+          "HeaderTileSlot4B": "0",
+          "HeaderTileSlot4C": "0",
+          "HeaderTileSlot4D": "0",
+          "HeaderTileSlot5": "8",
+          "HeaderTileSlot5B": "31",
+          "HeaderTileSlot5C": "32",
+          "HeaderTileSlot5D": "33",
+          "HeaderTileSlot6": "6",
+          "HeaderTileSlot6B": "7",
+          "HeaderTileSlot6C": "0",
+          "HeaderTileSlot6D": "0"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cards",
+   "title": "Cards and focus",
+   "groups": [
+    {
+     "id": "cards-and-focus",
+     "title": "Cards and focus",
+     "controls": [
+      {
+       "kind": "thickness",
+       "id": "FsCardCornerRadius",
+       "keys": [
+        "FsCardCornerRadius"
+       ],
+       "title": "Card corners",
+       "titleKey": "LOCHNDFsOptCardCornerRadius",
+       "description": "Roundness of the cover cards in the game list.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsCardRimCornerRadius",
+       "keys": [
+        "FsCardRimCornerRadius"
+       ],
+       "title": "Focus ring corners",
+       "titleKey": "LOCHNDFsOptCardRimCornerRadius",
+       "description": "Roundness of the ring around the focused card: about two more than the card corners.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsFocusRingThickness",
+       "keys": [
+        "FsFocusRingThickness"
+       ],
+       "title": "Focus ring thickness",
+       "titleKey": "LOCHNDFsOptFocusRingThickness",
+       "description": "Width of the neon ring around the focused card.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsFocusGlowOpacity",
+       "keys": [
+        "FsFocusGlowOpacity"
+       ],
+       "title": "Focus glow",
+       "titleKey": "LOCHNDFsOptFocusGlowOpacity",
+       "description": "Strength of the glow around the focused card (0 = no glow, lighter on the GPU).",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsFocusGlowBlur",
+       "keys": [
+        "FsFocusGlowBlur"
+       ],
+       "title": "Focus glow size",
+       "titleKey": "LOCHNDFsOptFocusGlowBlur",
+       "description": "How far the glow spreads.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsGlassRimOpacity",
+       "keys": [
+        "FsGlassRimOpacity"
+       ],
+       "title": "Glass edge",
+       "titleKey": "LOCHNDFsOptGlassRimOpacity",
+       "description": "Strength of the thin lit edge of every card (0 = no edge).",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsTitleStripOpacity",
+       "keys": [
+        "FsTitleStripOpacity"
+       ],
+       "title": "Title strip",
+       "titleKey": "LOCHNDFsOptTitleStripOpacity",
+       "description": "Opacity of the dark strip under the game title on a card.",
+       "choices": []
+      }
+     ]
+    },
+    {
+     "id": "tiles-and-buttons",
+     "title": "Tiles and buttons",
+     "controls": [
+      {
+       "kind": "thickness",
+       "id": "FsCoverCornerRadius",
+       "keys": [
+        "FsCoverCornerRadius"
+       ],
+       "title": "Cover corners (details page)",
+       "titleKey": "LOCHNDFsOptCoverCornerRadius",
+       "description": "Roundness of the cover on the game page.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsTileCornerRadius",
+       "keys": [
+        "FsTileCornerRadius"
+       ],
+       "title": "Info tile corners",
+       "titleKey": "LOCHNDFsOptTileCornerRadius",
+       "description": "Roundness of the tiles under the title (time played, last played...).",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsTileGlassOpacity",
+       "keys": [
+        "FsTileGlassOpacity"
+       ],
+       "title": "Info tile glass",
+       "titleKey": "LOCHNDFsOptTileGlassOpacity",
+       "description": "How visible the info tiles are (0 = invisible).",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsPanelCornerRadius",
+       "keys": [
+        "FsPanelCornerRadius"
+       ],
+       "title": "Menu and dialog corners",
+       "titleKey": "LOCHNDFsOptPanelCornerRadius",
+       "description": "Roundness of menus and dialogs.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsButtonCornerRadius",
+       "keys": [
+        "FsButtonCornerRadius"
+       ],
+       "title": "Button corners",
+       "titleKey": "LOCHNDFsOptButtonCornerRadius",
+       "description": "Roundness of buttons and menu entries.",
+       "choices": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "advanced",
+   "title": "Advanced",
+   "groups": []
+  }
+ ],
+ "constants": [
+  {
+   "key": "FsButtonCornerRadius",
+   "type": "CornerRadius",
+   "default": "12",
+   "min": 0.0
+  },
+  {
+   "key": "FsCardCornerRadius",
+   "type": "CornerRadius",
+   "default": "16",
+   "min": 0.0
+  },
+  {
+   "key": "FsCardRimCornerRadius",
+   "type": "CornerRadius",
+   "default": "18",
+   "min": 0.0
+  },
+  {
+   "key": "FsCoverCornerRadius",
+   "type": "CornerRadius",
+   "default": "22",
+   "min": 0.0
+  },
+  {
+   "key": "FsFocusGlowBlur",
+   "type": "Double",
+   "default": "26",
+   "min": 0.0,
+   "max": 60.0,
+   "step": 1.0
+  },
+  {
+   "key": "FsFocusGlowOpacity",
+   "type": "Double",
+   "default": "0.9",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
+  {
+   "key": "FsFocusRingThickness",
+   "type": "Thickness",
+   "default": "3",
+   "min": 0.0
+  },
+  {
+   "key": "FsGlassRimOpacity",
+   "type": "Double",
+   "default": "1",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
+  {
+   "key": "FsPanelCornerRadius",
+   "type": "CornerRadius",
+   "default": "24",
+   "min": 0.0
+  },
+  {
+   "key": "FsTileCornerRadius",
+   "type": "CornerRadius",
+   "default": "16",
+   "min": 0.0
+  },
+  {
+   "key": "FsTileGlassOpacity",
+   "type": "Double",
+   "default": "1",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
+  {
+   "key": "FsTitleStripOpacity",
+   "type": "Double",
+   "default": "1",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
+  {
+   "key": "GlyphColor",
+   "type": "Color",
+   "default": "#FF4DA3FF"
+  },
+  {
+   "key": "GlyphLightColor",
+   "type": "Color",
+   "default": "#FF9AD1FF"
+  },
+  {
+   "key": "HeaderTileSlot1",
+   "type": "Int",
+   "default": "1"
+  },
+  {
+   "key": "HeaderTileSlot1B",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot1C",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot1D",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot2",
+   "type": "Int",
+   "default": "2"
+  },
+  {
+   "key": "HeaderTileSlot2B",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot2C",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot2D",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot3",
+   "type": "Int",
+   "default": "13"
+  },
+  {
+   "key": "HeaderTileSlot3B",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot3C",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot3D",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot4",
+   "type": "Int",
+   "default": "15"
+  },
+  {
+   "key": "HeaderTileSlot4B",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot4C",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot4D",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot5",
+   "type": "Int",
+   "default": "8"
+  },
+  {
+   "key": "HeaderTileSlot5B",
+   "type": "Int",
+   "default": "31"
+  },
+  {
+   "key": "HeaderTileSlot5C",
+   "type": "Int",
+   "default": "32"
+  },
+  {
+   "key": "HeaderTileSlot5D",
+   "type": "Int",
+   "default": "33"
+  },
+  {
+   "key": "HeaderTileSlot6",
+   "type": "Int",
+   "default": "6"
+  },
+  {
+   "key": "HeaderTileSlot6B",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot6C",
+   "type": "Int",
+   "default": "0"
+  },
+  {
+   "key": "HeaderTileSlot6D",
+   "type": "Int",
+   "default": "0"
+  }
+ ],
+ "dependents": {
+  "TextColor": [
+   {
+    "resource": "TextBrush",
+    "property": "Color"
+   }
+  ],
+  "TextColorDark": [
+   {
+    "resource": "TextBrushDark",
+    "property": "Color"
+   }
+  ],
+  "GlyphColor": [
+   {
+    "resource": "GlyphBrush",
+    "property": "Color"
+   },
+   {
+    "resource": "SelectionBrush",
+    "property": "Color"
+   }
+  ],
+  "GlyphLightColor": [
+   {
+    "resource": "GlyphLightBrush",
+    "property": "Color"
+   }
+  ],
+  "ControlBackgroundColor": [
+   {
+    "resource": "ControlBackgroundBrush",
+    "property": "Color"
+   }
+  ],
+  "ControlBackgroundColorDark": [
+   {
+    "resource": "ControlBackgroundDarkBrush",
+    "property": "Color"
+   },
+   {
+    "resource": "CheckBoxCheckMarkBkBrush",
+    "property": "Color"
+   }
+  ],
+  "SelectionLightColor": [
+   {
+    "resource": "SelectionLightBrush",
+    "property": "Color"
+   }
+  ],
+  "OverlayColor": [
+   {
+    "resource": "OverlayBrush",
+    "property": "Color"
+   }
+  ]
+ },
+ "restartKeys": [],
+ "sizes": [],
+ "sizeGroups": [],
+ "corners": [],
+ "tuning": [],
+ "sections": []
+}

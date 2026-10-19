@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Typography preset, loaded by Theme Options like a color profile. Frosted Mono: Segoe UI Variable, light display weight; Corbel small caps for section titles. -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="FontFamily">Segoe UI Variable Text, Segoe UI</FontFamily>
+    <FontFamily x:Key="FontFamilyDisplay">Segoe UI Variable Display, Segoe UI</FontFamily>
+    <FontFamily x:Key="FontFamilyOverline">Corbel</FontFamily>
+    <x:Static x:Key="WeightDisplay" Member="FontWeights.Light" />
+    <x:Static x:Key="WeightSection" Member="FontWeights.SemiBold" />
+    <x:Static x:Key="WeightValue" Member="FontWeights.SemiBold" />
+    <x:Static x:Key="WeightLabel" Member="FontWeights.Normal" />
+    <x:Static x:Key="WeightButton" Member="FontWeights.SemiBold" />
+</ResourceDictionary>

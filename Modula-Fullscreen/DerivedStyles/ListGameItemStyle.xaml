@@ -1,0 +1,80 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    mc:Ignorable="d">
+
+    <!-- Liquid-glass focus: the card keeps its rounded shape, the focus adds a neon rim, a soft glow and a 6 % lift. Radii, ring and glow come from Constants.xaml (Fs*). -->
+
+    <Style x:Key="ListGameItemStyle" TargetType="ListBoxItem">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="FocusedOn">
+                            <DoubleAnimation Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX"
+                                             From="0.93" To="1.08" Duration="0:0:0.2">
+                                <DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut" /></DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY"
+                                             From="0.93" To="1.08" Duration="0:0:0.2">
+                                <DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut" /></DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetName="CardRoot" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2" />
+                        </Storyboard>
+                        <Storyboard x:Key="FocusedOff">
+                            <DoubleAnimation Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleX"
+                                             From="1.08" To="0.93" Duration="0:0:0.26" />
+                            <DoubleAnimation Storyboard.TargetName="ScaleTransform" Storyboard.TargetProperty="ScaleY"
+                                             From="1.08" To="0.93" Duration="0:0:0.26" />
+                            <DoubleAnimation Storyboard.TargetName="CardRoot" Storyboard.TargetProperty="Opacity" To="0.78" Duration="0:0:0.26" />
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid x:Name="CardRoot" Margin="{Settings FullscreenItemSpacingMargin}" Opacity="0.78"
+                          RenderTransformOrigin="0.5,0.5"
+                          d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
+                        <Grid.RenderTransform>
+                            <ScaleTransform x:Name="ScaleTransform" ScaleX="0.93" ScaleY="0.93" />
+                        </Grid.RenderTransform>
+                        <ContentPresenter />
+                        <!-- Resting glass edge -->
+                        <Border CornerRadius="{DynamicResource FsCardCornerRadius}" BorderThickness="1" Opacity="{DynamicResource FsGlassRimOpacity}" IsHitTestVisible="False">
+                            <Border.BorderBrush>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#55FFFFFF" Offset="0" />
+                                    <GradientStop Color="#10FFFFFF" Offset="0.5" />
+                                    <GradientStop Color="#30FFFFFF" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+                        </Border>
+                        <!-- Neon focus ring -->
+                        <Border x:Name="MainBorder" BorderThickness="{DynamicResource FsFocusRingThickness}" BorderBrush="{DynamicResource SelectionBrush}"
+                                Margin="-3" Visibility="Collapsed" CornerRadius="{DynamicResource FsCardRimCornerRadius}" IsHitTestVisible="False">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="0" Opacity="{DynamicResource FsFocusGlowOpacity}"
+                                                  Color="{DynamicResource GlyphColor}"
+                                                  RenderingBias="Performance" BlurRadius="{DynamicResource FsFocusGlowBlur}"/>
+                            </Border.Effect>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="MainBorder" />
+                            <Setter Property="Canvas.ZIndex" Value="90" />
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource FocusedOff}" />
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource FocusedOn}" />
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

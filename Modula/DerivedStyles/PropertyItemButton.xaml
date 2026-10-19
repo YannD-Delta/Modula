@@ -1,0 +1,343 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="PropertyItemButton" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Margin" Value="0,4,0,4" />
+        <Setter Property="Foreground" Value="{DynamicResource DetailsViewContainerTextBrush}" />
+        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock FontSize="{TemplateBinding FontSize}"
+                               Foreground="{TemplateBinding Foreground}"
+                               Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
+                               TextWrapping="{TemplateBinding TextBlock.TextWrapping}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PropertyItemLinkButton" TargetType="Button" BasedOn="{StaticResource PropertyItemButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <Viewbox DockPanel.Dock="Left" Margin="0,0,5,0" Width="{PluginSettings Plugin=LayoutStudio, Path=Options[LinkIconSize], FallbackValue={StaticResource LinkIconSize}, TargetNullValue={StaticResource LinkIconSize}}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[LinkIconSize], FallbackValue={StaticResource LinkIconSize}, TargetNullValue={StaticResource LinkIconSize}}"
+                                 VerticalAlignment="Center"
+                                 Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}"
+                                 RenderOptions.ClearTypeHint="Enabled" RenderOptions.BitmapScalingMode="Fant">
+                            <ContentControl Content="{Binding Value, TargetNullValue={StaticResource LinksIcon}}"
+                                            DataContext="{Binding Url, Converter={PluginConverter Plugin=ThemeExtras, Converter=UrlToAsyncIconConverter}}"/>
+                        </Viewbox>
+                        <TextBlock DockPanel.Dock="Left" FontSize="{TemplateBinding FontSize}"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
+                                   TextTrimming="CharacterEllipsis"
+                                   TextWrapping="{TemplateBinding TextBlock.TextWrapping}" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[LinksShowNames], FallbackValue={StaticResource LinksShowNames}, TargetNullValue={StaticResource LinksShowNames}}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="PropertyItemButtonNoWrap" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Margin" Value="0,4,0,4" />
+        <Setter Property="Foreground" Value="{DynamicResource DetailsViewContainerTextBrush}" />
+        <Setter Property="TextBlock.TextWrapping" Value="NoWrap" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock FontSize="{TemplateBinding FontSize}" FontWeight="Medium"
+                               Foreground="{TemplateBinding Foreground}"
+                               Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
+                               TextWrapping="{TemplateBinding TextBlock.TextWrapping}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!-- Chip in the sections (genres, tags, links): glass on the page, hover = fill + brighter rim fading in together -->
+    <Style x:Key="PropertyItemFeedPanelButton" TargetType="Button">
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}" />
+        <Setter Property="Margin" Value="{DynamicResource SectionChipMargin}" />
+        <Setter Property="Padding" Value="{DynamicResource SectionChipPadding}" />
+        <Setter Property="Foreground" Value="{DynamicResource DetailsViewLinksTextBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Margin="{TemplateBinding Margin}">
+                        <Border Background="{DynamicResource ChipGlassBrush}" CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        <Grid x:Name="HoverHost" Opacity="0">
+                            <Border Background="{DynamicResource GlassHoverFillBrush}" CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                            <Border BorderBrush="{DynamicResource GlassRimHoverBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                    CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        </Grid>
+                        <Border BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        <Border Padding="{TemplateBinding Padding}">
+                            <TextBlock FontSize="{TemplateBinding FontSize}" FontWeight="{DynamicResource WeightValue}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="NoWrap" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <!-- M:base -->
+                                        <DoubleAnimation Storyboard.TargetName="HoverHost" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.16">
+                                            <DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut" /></DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <!-- M:slow -->
+                                        <DoubleAnimation Storyboard.TargetName="HoverHost" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.30">
+                                            <DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut" /></DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PropertyItemLinksPanelButton" TargetType="Button" BasedOn="{StaticResource PropertyItemFeedPanelButton}">
+        <Setter Property="Margin" Value="{DynamicResource LinksChipMargin}" />
+        <Setter Property="Padding" Value="12,4,12,4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Margin="{TemplateBinding Margin}">
+                        <Border Background="{DynamicResource ChipGlassBrush}" CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        <Grid x:Name="HoverHost" Opacity="0" IsHitTestVisible="False">
+                            <Border Background="{DynamicResource GlassHoverFillBrush}" CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                            <Border BorderBrush="{DynamicResource GlassRimHoverBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                    CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        </Grid>
+                        <Border BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                CornerRadius="{DynamicResource HeroChipCornerRadius}" IsHitTestVisible="False" />
+                        <Border Padding="{TemplateBinding Padding}" >
+                            <DockPanel>
+                                <Viewbox DockPanel.Dock="Left" Margin="0,0,5,0" Width="{PluginSettings Plugin=LayoutStudio, Path=Options[LinkIconSize], FallbackValue={StaticResource LinkIconSize}, TargetNullValue={StaticResource LinkIconSize}}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[LinkIconSize], FallbackValue={StaticResource LinkIconSize}, TargetNullValue={StaticResource LinkIconSize}}"
+                                         VerticalAlignment="Center"
+                                         Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}"
+                                         RenderOptions.ClearTypeHint="Enabled" RenderOptions.BitmapScalingMode="Fant">
+                                    <ContentControl Content="{Binding Value, TargetNullValue={StaticResource LinksIcon}}"
+                                                    DataContext="{Binding Url, Converter={PluginConverter Plugin=ThemeExtras, Converter=UrlToAsyncIconConverter}}"/>
+                                </Viewbox>
+                                <TextBlock FontSize="{TemplateBinding FontSize}" FontWeight="{DynamicResource WeightValue}"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}"
+                                           TextWrapping="NoWrap" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[LinksShowNames], FallbackValue={StaticResource LinksShowNames}, TargetNullValue={StaticResource LinksShowNames}}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" >
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                                Storyboard.TargetProperty="Opacity"
+                                                To="1.0" Storyboard.TargetName="HoverHost"
+                                                Duration="0:0:0.30">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                                Storyboard.TargetProperty="Opacity"
+                                                To="0.0" Storyboard.TargetName="HoverHost"
+                                                Duration="0:0:0.30">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Metadata Utilities (MetadataUtilities_*PrefixItemControl): items grouped by prefix.
+         The section shows either the Playnite list or this control, depending on DetailsViewUseMetadataUtilities. -->
+    <Style x:Key="MetadataUtilitiesNativeList" TargetType="ItemsControl">
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[DetailsViewUseMetadataUtilities], FallbackValue=False, TargetNullValue=False}" Value="True" />
+                    <Condition Binding="{PluginStatus Plugin=MetadataUtilities_485ab5f0-bfb1-4c17-93cc-20d8338673be, Status=Installed}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Visibility" Value="Collapsed" />
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="MetadataUtilitiesPrefixHost" TargetType="ContentControl">
+        <Setter Property="Visibility" Value="Collapsed" />
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[DetailsViewUseMetadataUtilities], FallbackValue=False, TargetNullValue=False}" Value="True" />
+                    <Condition Binding="{PluginStatus Plugin=MetadataUtilities_485ab5f0-bfb1-4c17-93cc-20d8338673be, Status=Installed}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Visibility" Value="Visible" />
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+    <!-- Styles the plugin control looks up by name: group label on the left, items on the right -->
+    <Style x:Key="MdStyleOuterPanel" TargetType="DockPanel">
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style x:Key="MdStyleGrid" TargetType="Grid">
+        <Setter Property="Margin" Value="0,2,0,4" />
+    </Style>
+    <Style x:Key="MdStyleLabel" TargetType="Label">
+        <Setter Property="Padding" Value="0,5,8,0" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+    </Style>
+    <Style x:Key="MdStyleIcon" TargetType="TextBlock">
+        <Setter Property="Width" Value="20" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+    </Style>
+    <Style x:Key="MdStyleTitle" TargetType="TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+    </Style>
+    <!-- The plugin sets a StackPanel as items panel: an items host in the template wraps the items instead -->
+    <Style x:Key="MdStyleItemOuter" TargetType="ItemsControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ItemsControl">
+                    <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MdStyleItemPanel" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+    <Style x:Key="MdStyleItemButton" TargetType="Button" BasedOn="{StaticResource PropertyItemFeedPanelButton}" />
+
+    <!-- Details view tabs (tabs mode): pill radio buttons above the sections -->
+    <Style x:Key="DetailsTabButton" TargetType="{x:Type RadioButton}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="0,0,8,6" />
+        <Setter Property="Padding" Value="14,5,14,6" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
+        <Setter Property="Background" Value="{DynamicResource HeroSecondaryButtonBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource HeroSecondaryButtonBorderBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="Pill" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1" CornerRadius="{DynamicResource HeroChipCornerRadius}" Padding="{TemplateBinding Padding}">
+                        <ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" TextElement.FontWeight="SemiBold" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Pill" Property="Background" Value="{DynamicResource HeroSecondaryButtonHoverBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Pill" Property="Background" Value="{DynamicResource HighlightGlyphBrush}" />
+                            <Setter TargetName="Pill" Property="BorderBrush" Value="{DynamicResource GlyphBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Chips on the artwork: a click opens or folds the matching section (HeroChipsOpenSections) -->
+    <Style x:Key="HeroChipSectionToggle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <ContentPresenter x:Name="Presenter" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Presenter" Property="Opacity" Value="0.8" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[HeroChipsOpenSections], FallbackValue=True, TargetNullValue=True}" Value="False">
+                <Setter Property="IsHitTestVisible" Value="False" />
+                <Setter Property="Cursor" Value="Arrow" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
