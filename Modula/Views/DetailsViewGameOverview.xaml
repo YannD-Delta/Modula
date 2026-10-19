@@ -294,6 +294,21 @@
                                                             Visibility="{PluginSettings Plugin=CheckLocalizations, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                                 <ContentControl x:Name="CheckDlc_PluginButton" Height="40" VerticalAlignment="Bottom" Margin="0,0,10,0" DockPanel.Dock="Left" Opacity="0.80"
                                                             Visibility="{PluginSettings Plugin=CheckDlc, Path=EnableIntegrationButton, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                <!-- UniPlaySong ready-made player (UPS_MediaControllerBar): the extension fills it; it is empty without UniPlaySong -->
+                                                <Border DockPanel.Dock="Right" VerticalAlignment="Bottom" Margin="0,0,20,0"
+                                                        Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[HeroShowMusicPlayer], FallbackValue={StaticResource HeroShowMusicPlayer}, TargetNullValue={StaticResource HeroShowMusicPlayer}}">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <ContentControl x:Name="UPS_MediaControllerBar" Focusable="False" KeyboardNavigation.IsTabStop="False" />
+                                                </Border>
                                                 <ContentControl x:Name="LibraryManagement_PluginFeaturesIconList" Height="30" Margin="0,0,20,0"
                                                             VerticalAlignment="Bottom" DockPanel.Dock="Right" Opacity="0.80"
                                                             Visibility="{PluginSettings Plugin=LibraryManagement, Path=EnableIntegrationFeatures, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
@@ -7973,7 +7988,7 @@
                                                 <RadioButton x:Name="DetailsTabCommunity" GroupName="HndDetailsTabs" Style="{DynamicResource DetailsTabButton}" Content="{DynamicResource LOCHNDTabCommunity}" />
                                             </WrapPanel>
 
-                                            <Grid Grid.Row="1" Grid.Column="0" Margin="0,0,0,0">
+                                            <Grid Tag="ls:column:0" Grid.Row="1" Grid.Column="0" Margin="0,0,0,0">
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
@@ -8015,7 +8030,7 @@
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
                                                 </Grid.RowDefinitions>
-                                                <Grid>
+                                                <Grid Tag="ls:section:Notes">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderNotes}" />
@@ -8680,7 +8695,7 @@
                                                 </StackPanel>
                                                 </Grid>
 
-                                                <Grid>
+                                                <Grid Tag="ls:section:NewsViewer">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderNewsViewer}" />
@@ -8768,7 +8783,7 @@
                                                 </StackPanel>
                                                 </Grid>
                                                 
-                                                <Grid>
+                                                <Grid Tag="ls:section:Video">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderVideo}" />
@@ -8875,7 +8890,7 @@
                                                 </StackPanel>
                                                 </Grid>
 
-                                                <Grid>
+                                                <Grid Tag="ls:section:GameActivity">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderGameActivity}" />
@@ -9040,7 +9055,7 @@
                                                 </StackPanel>
                                                 </Grid>
                                                 
-                                                <Grid>
+                                                <Grid Tag="ls:section:CheckDlc">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderCheckDlc}" />
@@ -9158,7 +9173,7 @@
                                                 </StackPanel>
                                                 </Grid>
 
-                                                <Grid>
+                                                <Grid Tag="ls:section:GameRelations">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderGameRelations}" />
@@ -9298,7 +9313,7 @@
                                                 </StackPanel>
                                                 </Grid>
 
-                                                <Grid>
+                                                <Grid Tag="ls:section:Web">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderWeb}" />
@@ -9389,7 +9404,7 @@
                                                 
                                             </Grid>
 
-                                            <Grid Grid.Row="1" Grid.Column="2">
+                                            <Grid Tag="ls:column:1" Grid.Row="1" Grid.Column="2">
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
@@ -9431,7 +9446,7 @@
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
                                                 </Grid.RowDefinitions>
-                                                <Grid>
+                                                <Grid Tag="ls:section:HowLongToBeat">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderHowLongToBeat}" />
@@ -9695,7 +9710,7 @@
                                                 </StackPanel>
                                                 </Grid>
 
-                                                <Grid>
+                                                <Grid Tag="ls:section:Achievements">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderAchievements}" />
@@ -10021,7 +10036,7 @@
                                                 </StackPanel>
                                                 </Grid>
 
-                                                <Grid>
+                                                <Grid Tag="ls:section:SteamScreenshots">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderSteamScreenshots}" />
@@ -10109,7 +10124,7 @@
                                                 </StackPanel>
                                                 </Grid>
                                                 
-                                                <Grid>
+                                                <Grid Tag="ls:section:ScreenshotUtilities">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderScreenshotUtilities}" />
@@ -10197,7 +10212,7 @@
                                                 </StackPanel>
                                                 </Grid>
 
-                                                <Grid>
+                                                <Grid Tag="ls:section:Vndb">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderVndb}" />
@@ -10284,7 +10299,7 @@
                                                 </StackPanel>
                                                 </Grid>
                                                 
-                                                <Grid>
+                                                <Grid Tag="ls:section:ScreenshotsVisualizer">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderScreenshotsVisualizer}" />
@@ -10376,7 +10391,7 @@
                                                 </StackPanel>
                                                 </Grid>
 
-                                                <Grid>
+                                                <Grid Tag="ls:section:ReviewViewer">
                                                     <Grid.Style>
                                                         <Style TargetType="Grid">
                                                             <Setter Property="Grid.Row" Value="{DynamicResource DetailsViewSectionOrderReviewViewer}" />

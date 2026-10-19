@@ -44,7 +44,7 @@ Most Playnite themes make you choose: pretty or configurable. Modula is built to
 
 - **Liquid Glass material**: translucent panels with a soft rim, gloss and bloom. Tiles, chips, link buttons and the Play button are the same family, so nothing looks bolted on.
 - **Header cards**: choose which facts show above the description (time played, last played, scores, install size, HowLongToBeat, activity...). Scores are colour-coded by value.
-- **Sections you control**: reorder, hide, collapse or move them to the other column. Genres, categories, features and tags can switch column.
+- **Sections you control**: reorder, hide, collapse or move them to the other column. Every section can switch column, add-on sections included.
 - **Four looks, one switch**: Liquid Glass, Frosted Mono, Neon Night, Flat. Plus spacing (Compact, Comfortable, Airy), corner rounding (Square to Very round), and a **Lite** mode (saves GPU: no glow, no shadows) for when a game is running.
 - **14 colour profiles and 9 accents**, or any `#RRGGBB` of your own.
 

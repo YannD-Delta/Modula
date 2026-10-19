@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- **Every section of the game page can move to the other column** (Layout Studio, Sections page). Add-on sections included: the extension moves the live block, so the add-on keeps working. The default layout is unchanged.
+- The UniPlaySong ready-made player shows in the game banner while a game's music plays (option "HeroShowMusicPlayer" hides it).
+
 ## Modula 3.1 (Modula Fullscreen 1.0)
 
 - No more background slab behind the rounded panels of the game page.

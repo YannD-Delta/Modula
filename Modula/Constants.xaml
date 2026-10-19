@@ -147,6 +147,8 @@
     <sys:Double x:Key="HeaderBarBlurOpacity">0</sys:Double>
     <sys:Double x:Key="HeaderBarGlassOpacity">0</sys:Double>
     <sys:Boolean x:Key="HeroShowInfoLine">True</sys:Boolean>
+    <!-- The UniPlaySong player in the banner (UPS_MediaControllerBar). Hidden when the extension is missing or nothing plays. -->
+    <sys:Boolean x:Key="HeroShowMusicPlayer">True</sys:Boolean>
     <!-- Set by presets only (presets must not set variables) -->
     <sys:Boolean x:Key="HeroStyleShowInfoLine">True</sys:Boolean>
     <sys:Boolean x:Key="HeaderBarStyleVisible">True</sys:Boolean>
@@ -555,6 +557,35 @@
     <sys:Int32 x:Key="DetailsViewSectionOrderRightCategories">8</sys:Int32>
     <sys:Int32 x:Key="DetailsViewSectionOrderRightFeatures">9</sys:Int32>
     <sys:Int32 x:Key="DetailsViewSectionOrderRightTags">10</sys:Int32>
+    <!-- every other section can change column too: the theme places them live (the plugin moves the block), see Engine\SectionMover -->
+    <sys:Boolean x:Key="DetailsViewNotesInRightColumn">False</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewNewsViewerInRightColumn">False</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewVideoInRightColumn">False</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewGameActivityInRightColumn">False</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewCheckDlcInRightColumn">False</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewGameRelationsInRightColumn">False</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewWebInRightColumn">False</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewHowLongToBeatInRightColumn">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewAchievementsInRightColumn">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewSteamScreenshotsInRightColumn">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewVndbInRightColumn">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewScreenshotsVisualizerInRightColumn">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewReviewViewerInRightColumn">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewScreenshotUtilitiesInRightColumn">True</sys:Boolean>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightNotes">11</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightNewsViewer">12</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightVideo">13</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightGameActivity">14</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightCheckDlc">15</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightGameRelations">16</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightWeb">17</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftHowLongToBeat">11</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftAchievements">12</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftSteamScreenshots">13</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftVndb">14</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftScreenshotsVisualizer">15</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftReviewViewer">16</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftScreenshotUtilities">17</sys:Int32>
     <sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
     <sys:Boolean x:Key="GridViewCoverZoomOnHover">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewCoverShowSelectionBorder">True</sys:Boolean>

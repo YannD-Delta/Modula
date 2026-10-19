@@ -5810,6 +5810,21 @@ Variables:
         Type: Thickness
         Default: '0'
         Preview: 'HeroCover_Inside'
+    HeaderHeroMusic:
+        Title: 'Details view - artwork header: music player'
+        LocKey: LOCHNDHeaderHeroMusic
+        Type: Header
+    HeroShowMusicPlayer:
+        Title: 'Show the music player'
+        LocKey: LOCHNDOptHeroShowMusicPlayer
+        Type: Boolean
+        Default: 'True'
+        Description: 'The UniPlaySong player (cover, title, previous, play, next) at the right of the banner. It only shows while a game music plays.'
+    HelpHeroShowMusicPlayer:
+        Title: 'The UniPlaySong player (cover, title, previous, play, next) at the right of the banner. It only shows while a game music plays.'
+        LocKey: LOCHNDTipHeroShowMusicPlayer
+        Type: Thickness
+        Default: '0'
     HeaderHeroChips:
         Title: 'Details view - information chips'
         LocKey: LOCHNDHeaderHeroChips
@@ -6940,6 +6955,206 @@ Variables:
         LocKey: LOCHNDOptDetailsViewSectionOrderRightTags
         Type: Int32
         Default: '10'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    HeaderDetailsColumnsMore:
+        Title: 'Details view - every section can move to the other column'
+        LocKey: LOCHNDHeaderDetailsColumnsMore
+        Type: Header
+    DetailsViewNotesInRightColumn:
+        Title: 'Play Notes in the right column'
+        LocKey: LOCHNDOptDetailsViewNotesInRightColumn
+        Type: Boolean
+        Default: 'False'
+    DetailsViewNewsViewerInRightColumn:
+        Title: 'News Viewer in the right column'
+        LocKey: LOCHNDOptDetailsViewNewsViewerInRightColumn
+        Type: Boolean
+        Default: 'False'
+    DetailsViewVideoInRightColumn:
+        Title: 'Video in the right column'
+        LocKey: LOCHNDOptDetailsViewVideoInRightColumn
+        Type: Boolean
+        Default: 'False'
+    DetailsViewGameActivityInRightColumn:
+        Title: 'GameActivity in the right column'
+        LocKey: LOCHNDOptDetailsViewGameActivityInRightColumn
+        Type: Boolean
+        Default: 'False'
+    DetailsViewCheckDlcInRightColumn:
+        Title: 'CheckDlc in the right column'
+        LocKey: LOCHNDOptDetailsViewCheckDlcInRightColumn
+        Type: Boolean
+        Default: 'False'
+    DetailsViewGameRelationsInRightColumn:
+        Title: 'Game Relations in the right column'
+        LocKey: LOCHNDOptDetailsViewGameRelationsInRightColumn
+        Type: Boolean
+        Default: 'False'
+    DetailsViewWebInRightColumn:
+        Title: 'Web Explorer in the right column'
+        LocKey: LOCHNDOptDetailsViewWebInRightColumn
+        Type: Boolean
+        Default: 'False'
+    DetailsViewHowLongToBeatInRightColumn:
+        Title: 'HowLongToBeat in the right column'
+        LocKey: LOCHNDOptDetailsViewHowLongToBeatInRightColumn
+        Type: Boolean
+        Default: 'True'
+    DetailsViewAchievementsInRightColumn:
+        Title: 'PlayniteAchievements in the right column'
+        LocKey: LOCHNDOptDetailsViewAchievementsInRightColumn
+        Type: Boolean
+        Default: 'True'
+    DetailsViewSteamScreenshotsInRightColumn:
+        Title: 'Steam Screenshots in the right column'
+        LocKey: LOCHNDOptDetailsViewSteamScreenshotsInRightColumn
+        Type: Boolean
+        Default: 'True'
+    DetailsViewVndbInRightColumn:
+        Title: 'VNDB Nexus in the right column'
+        LocKey: LOCHNDOptDetailsViewVndbInRightColumn
+        Type: Boolean
+        Default: 'True'
+    DetailsViewScreenshotsVisualizerInRightColumn:
+        Title: 'ScreenshotsVisualizer in the right column'
+        LocKey: LOCHNDOptDetailsViewScreenshotsVisualizerInRightColumn
+        Type: Boolean
+        Default: 'True'
+    DetailsViewReviewViewerInRightColumn:
+        Title: 'Review Viewer in the right column'
+        LocKey: LOCHNDOptDetailsViewReviewViewerInRightColumn
+        Type: Boolean
+        Default: 'True'
+    DetailsViewScreenshotUtilitiesInRightColumn:
+        Title: 'Screenshot Utilities in the right column'
+        LocKey: LOCHNDOptDetailsViewScreenshotUtilitiesInRightColumn
+        Type: Boolean
+        Default: 'True'
+    DetailsViewSectionOrderRightNotes:
+        Title: 'Play Notes (when in the right column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderRightNotes
+        Type: Int32
+        Default: '11'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderRightNewsViewer:
+        Title: 'News Viewer (when in the right column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderRightNewsViewer
+        Type: Int32
+        Default: '12'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderRightVideo:
+        Title: 'Video (when in the right column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderRightVideo
+        Type: Int32
+        Default: '13'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderRightGameActivity:
+        Title: 'GameActivity (when in the right column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderRightGameActivity
+        Type: Int32
+        Default: '14'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderRightCheckDlc:
+        Title: 'CheckDlc (when in the right column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderRightCheckDlc
+        Type: Int32
+        Default: '15'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderRightGameRelations:
+        Title: 'Game Relations (when in the right column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderRightGameRelations
+        Type: Int32
+        Default: '16'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderRightWeb:
+        Title: 'Web Explorer (when in the right column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderRightWeb
+        Type: Int32
+        Default: '17'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderLeftHowLongToBeat:
+        Title: 'HowLongToBeat (when in the left column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLeftHowLongToBeat
+        Type: Int32
+        Default: '11'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderLeftAchievements:
+        Title: 'PlayniteAchievements (when in the left column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLeftAchievements
+        Type: Int32
+        Default: '12'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderLeftSteamScreenshots:
+        Title: 'Steam Screenshots (when in the left column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLeftSteamScreenshots
+        Type: Int32
+        Default: '13'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderLeftVndb:
+        Title: 'VNDB Nexus (when in the left column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLeftVndb
+        Type: Int32
+        Default: '14'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderLeftScreenshotsVisualizer:
+        Title: 'ScreenshotsVisualizer (when in the left column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLeftScreenshotsVisualizer
+        Type: Int32
+        Default: '15'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderLeftReviewViewer:
+        Title: 'Review Viewer (when in the left column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLeftReviewViewer
+        Type: Int32
+        Default: '16'
+        Slider:
+            Min: '0'
+            Max: '18'
+            Step: '1'
+    DetailsViewSectionOrderLeftScreenshotUtilities:
+        Title: 'Screenshot Utilities (when in the left column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLeftScreenshotUtilities
+        Type: Int32
+        Default: '17'
         Slider:
             Min: '0'
             Max: '18'
