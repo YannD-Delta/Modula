@@ -664,5 +664,5 @@
     <sys:String x:Key="LOCHNDOptHeroButtonFontSize">Play button text</sys:String>
     <sys:String x:Key="LOCHNDOptHeroChipFontSize">Artwork chip text</sys:String>
     <sys:String x:Key="LOCHNDPresetMaterialFlat">Flat (the look before Liquid Glass)</sys:String>
-    <sys:String x:Key="LOCHNDPresetMaterialLight">Light (no glow, no shadows)</sys:String>
+    <sys:String x:Key="LOCHNDPresetMaterialLight">Lite (saves GPU: no glow, no shadows)</sys:String>
 </ResourceDictionary>

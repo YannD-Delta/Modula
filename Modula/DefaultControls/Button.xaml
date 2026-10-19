@@ -490,7 +490,10 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <!-- While the popup is open, a click outside closes it; do not let the same click reopen it -->
+            <!-- The gear opens Layout Studio on the page that holds the settings; without the extension there is nothing to open -->
+            <DataTrigger Binding="{Binding Command, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
         </Style.Triggers>
     </Style>
 

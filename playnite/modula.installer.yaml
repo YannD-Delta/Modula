@@ -1,0 +1,17 @@
+AddonId: '42f3aebe-d455-44a7-bd7f-2dd8afaec9a6'
+Packages:
+  - Version: 3.1
+    RequiredApiVersion: 2.10.0
+    ReleaseDate: 2026-10-19
+    PackageUrl: https://github.com/YannD-Delta/Modula/releases/download/v3.1/Modula-3.1.pthm
+    Changelog:
+      - No more background slab behind the rounded panels of the game page
+      - Gears next to the sections open Layout Studio on the right page
+      - One spacing scale for gaps and tiles
+      - The Light material preset is now called Lite
+  - Version: 3.0
+    RequiredApiVersion: 2.10.0
+    ReleaseDate: 2026-10-19
+    PackageUrl: https://github.com/YannD-Delta/Modula/releases/download/v3.0/Modula-3.0.pthm
+    Changelog:
+      - First public release

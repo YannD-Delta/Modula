@@ -1,5 +1,7 @@
 <div align="center">
 
+**🤖 Made with [Claude Code](https://claude.com/claude-code), Anthropic's coding agent**
+
 # Modula
 
 ### The Playnite theme that is stunning out of the box, and yours to bend into any shape.
@@ -43,7 +45,7 @@ Most Playnite themes make you choose: pretty or configurable. Modula is built to
 - **Liquid Glass material**: translucent panels with a soft rim, gloss and bloom. Tiles, chips, link buttons and the Play button are the same family, so nothing looks bolted on.
 - **Header cards**: choose which facts show above the description (time played, last played, scores, install size, HowLongToBeat, activity...). Scores are colour-coded by value.
 - **Sections you control**: reorder, hide, collapse or move them to the other column. Genres, categories, features and tags can switch column.
-- **Four looks, one switch**: Liquid Glass, Frosted Mono, Neon Night, Flat. Plus spacing (Compact, Comfortable, Airy), corner rounding (Square to Very round), and a Light mode for the GPU when a game is running.
+- **Four looks, one switch**: Liquid Glass, Frosted Mono, Neon Night, Flat. Plus spacing (Compact, Comfortable, Airy), corner rounding (Square to Very round), and a **Lite** mode (saves GPU: no glow, no shadows) for when a game is running.
 - **14 colour profiles and 9 accents**, or any `#RRGGBB` of your own.
 
 <table>
@@ -99,7 +101,7 @@ Accent colour, corner roundness, glow and which information cards to show are pr
 
 ## Layout Studio, the editor behind it
 
-Modula ships its settings through **[Layout Studio](https://github.com/YannD-Delta/Layout-Studio)**, a Playnite extension that replaces the usual options page with a live editor: a search box over every setting, drag-and-drop sections, visual size handles, colour pickers, undo and redo, profiles you can export as a short text code and share.
+Modula ships its settings through **[Layout Studio](https://github.com/YannD-Delta/Layout-Studio)**, a Playnite extension that replaces the usual options page with a live editor: a search box over every setting, drag-and-drop sections, visual size handles, **presets shown as picture tiles** so you see what a choice changes, segmented switches, number boxes with no hard limit (the slider is a guide, type any value), undo and redo, and profiles you can export as a short text code and share. The first page, **Graphics and performance**, detects Playnite settings that break the look or cost performance, says which of the two each one touches with measured numbers, and fixes them in one click. The small gear next to each section in the theme opens the editor on the right page.
 
 <table>
 <tr>
@@ -127,7 +129,7 @@ If you use **Theme Options** or a similar extension for another theme, disable i
 
 ## Recommended add-ons
 
-Nothing is required. Each integration shows up only when its add-on is installed.
+Nothing is required. Each integration shows up only when its add-on is installed. At start, Layout Studio shows one Playnite notification naming the optional add-ons you do not have yet (and only again if that list changes).
 
 | Add-on | What Modula does with it |
 | --- | --- |
@@ -155,8 +157,26 @@ Modula and Layout Studio were designed and built together with [**Claude Code**]
 Modula started from three excellent MIT-licensed Playnite themes and keeps their notices:
 **Neon** (Xenor), **Helium** (darklinkpower) and **Dune Rev** (hugsyf). See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-Modula is released under the [MIT licence](LICENSE). Game art in the screenshots is generated placeholder art; the sample games are fictional.
+Modula is released under the [MIT licence](LICENSE). What is inside the themes:
 
+- **Code and styles**: XAML written for Modula, or inherited from the three MIT themes above and from Playnite's own default themes (Playnite is MIT too).
+- **Sounds and music** of Modula Fullscreen: synthesised by `make-audio.py` in the author's tooling, no samples, no third-party audio.
+- **Fonts**: none are shipped. The themes use Segoe UI Variable and Segoe Fluent Icons from Windows, and the Titillium font that Playnite itself provides.
+- **Platform, store and social logos** in `Images/Banners` and `Images/*.png` (Steam, Discord, Reddit...) come from the upstream themes. They are trademarks of their owners and are only used to label the matching platform or link.
+- **Screenshots** use generated placeholder art and fictional games.
+
+Modula is an independent theme and is not affiliated with Playnite or any platform shown.
+
+## Playnite's add-on browser
+
+Playnite lists themes in its built-in add-on browser through [a community database](https://github.com/JosefNemec/PlayniteAddonDatabase). Theme submissions are open; submissions of extensions are currently on hold (the maintainer plans a new database with a verification system for Playnite 11). Until Modula is listed, install it from the [Releases](https://github.com/YannD-Delta/Modula/releases) page as described above.
+
+## Feedback
+
+I would love to hear what you think, what breaks, and what you would change.
+
+- Open an [issue](https://github.com/YannD-Delta/Modula/issues) on GitHub for bugs and ideas.
+- Talk to me on Discord: **@yannd_delta** (or open an issue, either is welcome).
 ## Contributing
 
 Issues and pull requests are welcome. Before sending a change to a theme, run the lint:

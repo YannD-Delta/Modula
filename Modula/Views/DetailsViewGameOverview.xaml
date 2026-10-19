@@ -340,9 +340,8 @@
                                                 <!-- Quick settings for the chips line -->
                                                 <Grid Grid.Column="0" VerticalAlignment="Top" Margin="0,0,8,0">
                                                     <Button x:Name="QuickSettingsChips" Style="{DynamicResource SectionQuickSettingsButton}"
-                                                            Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                            CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                            Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                            Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                            CommandParameter="header" />
                                                 </Grid>
                                                 <!-- HeroStyleShowInfoLine is a Style preset constant, not a variable: read it as a resource, Theme Options can keep a stale Options[] copy of preset constants -->
                                                 <FrameworkElement x:Name="HeroInfoLineStyleProbe" Grid.Column="1" Visibility="Collapsed" Tag="{DynamicResource HeroStyleShowInfoLine}" />
@@ -8100,9 +8099,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsNotes" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -8229,9 +8227,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsGenres" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10" MinHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionContainerMinHeight], FallbackValue={StaticResource SectionContainerMinHeight}, TargetNullValue={StaticResource SectionContainerMinHeight}}">
@@ -8369,9 +8366,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsCategories" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10" MinHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionContainerMinHeight], FallbackValue={StaticResource SectionContainerMinHeight}, TargetNullValue={StaticResource SectionContainerMinHeight}}">
@@ -8509,9 +8505,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsFeatures" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10" MinHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionContainerMinHeight], FallbackValue={StaticResource SectionContainerMinHeight}, TargetNullValue={StaticResource SectionContainerMinHeight}}">
@@ -8649,9 +8644,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsTags" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10" MinHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionContainerMinHeight], FallbackValue={StaticResource SectionContainerMinHeight}, TargetNullValue={StaticResource SectionContainerMinHeight}}">
@@ -8757,9 +8751,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsNews" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -8861,9 +8854,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsVideo" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -9026,9 +9018,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsGameActivity" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -9145,9 +9136,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsCheckDlc" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -9239,9 +9229,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsGameRelations" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -9380,9 +9369,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsWeb" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -9583,9 +9571,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsHltb" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10">
@@ -9834,9 +9821,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsAchievements" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid ClipToBounds="False" Margin="0,0,0,10">
@@ -10106,9 +10092,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsSteamScreenshots" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -10195,9 +10180,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsScreenshotUtilities" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -10283,9 +10267,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsVndb" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -10372,9 +10355,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsScreenshotsVisualizer" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -10465,9 +10447,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsReviews" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Style="{DynamicResource AdditionalPanelContent}"
@@ -10585,9 +10566,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsGenresRight" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10" MinHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionContainerMinHeight], FallbackValue={StaticResource SectionContainerMinHeight}, TargetNullValue={StaticResource SectionContainerMinHeight}}">
@@ -10724,9 +10704,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsCategoriesRight" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10" MinHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionContainerMinHeight], FallbackValue={StaticResource SectionContainerMinHeight}, TargetNullValue={StaticResource SectionContainerMinHeight}}">
@@ -10863,9 +10842,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsFeaturesRight" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10" MinHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionContainerMinHeight], FallbackValue={StaticResource SectionContainerMinHeight}, TargetNullValue={StaticResource SectionContainerMinHeight}}">
@@ -11002,9 +10980,8 @@
                                                         <!-- Quick settings: where and how this section shows, applied at once through Theme Options -->
                                                         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="{DynamicResource SectionGearMargin}" Height="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionHeaderMinHeight], FallbackValue={StaticResource SectionHeaderMinHeight}, TargetNullValue={StaticResource SectionHeaderMinHeight}}">
                                                             <Button x:Name="QuickSettingsTagsRight" Style="{DynamicResource SectionQuickSettingsButton}" VerticalAlignment="Center"
-                                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPluginSettingsCommand, FallbackValue={x:Null}}"
-                                                                    CommandParameter="904cbf3b-573f-48f8-9642-0a09d05c64ef"
-                                                                    Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Status=Installed}" />
+                                                                    Command="{PluginSettings Plugin=LayoutStudio, Path=OpenEditor, FallbackValue={x:Null}}"
+                                                                    CommandParameter="visual-sections" />
                                                         </Grid>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,10" MinHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[SectionContainerMinHeight], FallbackValue={StaticResource SectionContainerMinHeight}, TargetNullValue={StaticResource SectionContainerMinHeight}}">

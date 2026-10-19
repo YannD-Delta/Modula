@@ -664,5 +664,5 @@
     <sys:String x:Key="LOCHNDOptHeroButtonFontSize">Texte du bouton Jouer</sys:String>
     <sys:String x:Key="LOCHNDOptHeroChipFontSize">Texte des pastilles de l’image</sys:String>
     <sys:String x:Key="LOCHNDPresetMaterialFlat">Plat (le look d’avant Liquid Glass)</sys:String>
-    <sys:String x:Key="LOCHNDPresetMaterialLight">Léger (sans halo ni ombres)</sys:String>
+    <sys:String x:Key="LOCHNDPresetMaterialLight">Lite (économe en GPU : sans halo ni ombres)</sys:String>
 </ResourceDictionary>

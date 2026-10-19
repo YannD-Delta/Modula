@@ -317,7 +317,7 @@
     <SolidColorBrush x:Key="ContextButtonGlowBrush" Color="{DynamicResource ContextButtonBackgroundColor2}" />
     <!-- Side margins of the information, links and sections, aligned with the card -->
     <Thickness x:Key="PageSideMargin">20,0,20,0</Thickness>
-    <Thickness x:Key="PageLinksMargin">20,0,20,12</Thickness>
+    <Thickness x:Key="PageLinksMargin">20,0,20,16</Thickness>
     <Thickness x:Key="HeaderTilePadding">16,10,16,10</Thickness>
     <Thickness x:Key="HeaderTileMargin">0,0,12,0</Thickness>
     <sys:Double x:Key="HeaderTileValueFontSize">14</sys:Double>
@@ -372,10 +372,10 @@
     <sys:Int32 x:Key="HeaderTileSlot12C">0</sys:Int32>
     <sys:Int32 x:Key="HeaderTileSlot12D">0</sys:Int32>
     <!-- Space after each card of a cell, and the same amount taken back after the last one -->
-    <Thickness x:Key="HeaderTileCardGap">0,0,14,0</Thickness>
-    <Thickness x:Key="HeaderTileCardGapBack">0,0,-14,0</Thickness>
+    <Thickness x:Key="HeaderTileCardGap">0,0,12,0</Thickness>
+    <Thickness x:Key="HeaderTileCardGapBack">0,0,-12,0</Thickness>
     <!-- Margins and spacing of the details page (Layout Studio: Details view - margins and spacing) -->
-    <Thickness x:Key="InfoPanelGap">0,0,0,12</Thickness>
+    <Thickness x:Key="InfoPanelGap">0,0,0,16</Thickness>
     <Thickness x:Key="InfoPanelPadding">16,12,16,12</Thickness>
     <sys:Double x:Key="InfoPanelMinHeight">150</sys:Double>
     <Thickness x:Key="InfoPanelDescriptionMargin">0,0,15,0</Thickness>
@@ -385,7 +385,7 @@
     <sys:Double x:Key="InfoBackdropHeight">380</sys:Double>
     <Thickness x:Key="InfoBackdropMargin">0</Thickness>
     <CornerRadius x:Key="InfoBackdropCornerRadius">0</CornerRadius>
-    <sys:Double x:Key="InfoBackdropOpacity">1</sys:Double>
+    <sys:Double x:Key="InfoBackdropOpacity">0</sys:Double>
     <Thickness x:Key="SectionChipsMargin">7,5,7,5</Thickness>
     <Thickness x:Key="SectionChipMargin">3,1,3,1</Thickness>
     <Thickness x:Key="LinksChipMargin">11,1,11,1</Thickness>
@@ -394,7 +394,7 @@
     <Thickness x:Key="SectionNotesMargin">20,0,20,0</Thickness>
     <sys:Double x:Key="SectionNotesMaxHeight">2000</sys:Double>
     <Thickness x:Key="SectionHeaderMargin">0,0,0,10</Thickness>
-    <Thickness x:Key="SectionBodyMargin">0,0,0,12</Thickness>
+    <Thickness x:Key="SectionBodyMargin">0,0,0,16</Thickness>
     <sys:Double x:Key="SectionColumnGap">40</sys:Double>
     <Thickness x:Key="SectionTabsMargin">0,0,0,14</Thickness>
     <Thickness x:Key="SectionGearMargin">0,0,32,0</Thickness>

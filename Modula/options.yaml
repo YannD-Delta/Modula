@@ -147,7 +147,7 @@ Presets:
                         Type: Double
                         Value: '0'
             Light:
-                Name: 'Light (no glow, no shadows: easiest on the GPU while a game runs)'
+                Name: 'Lite (saves GPU: no glow, no shadows)'
                 LocKey: LOCHNDPresetMaterialLight
                 Preview: 'Presets\Previews\Material_FrostedMono.png'
                 NeedRestart: True
@@ -753,10 +753,13 @@ Presets:
                         Value: '0,0,0,6'
                     SectionBodyMargin:
                         Type: Thickness
-                        Value: '0,0,0,8'
+                        Value: '0,0,0,10'
                     InfoPanelGap:
                         Type: Thickness
-                        Value: '0,0,0,8'
+                        Value: '0,0,0,10'
+                    PageLinksMargin:
+                        Type: Thickness
+                        Value: '20,0,20,10'
                     InfoPanelPadding:
                         Type: Thickness
                         Value: '12,8,12,8'
@@ -777,10 +780,10 @@ Presets:
                         Value: '0,0,8,0'
                     HeaderTileCardGap:
                         Type: Thickness
-                        Value: '0,0,10,0'
+                        Value: '0,0,8,0'
                     HeaderTileCardGapBack:
                         Type: Thickness
-                        Value: '0,0,-10,0'
+                        Value: '0,0,-8,0'
                     HeaderRowPadding:
                         Type: Thickness
                         Value: '0,10,0,12'
@@ -821,10 +824,13 @@ Presets:
                         Value: '0,0,0,14'
                     SectionBodyMargin:
                         Type: Thickness
-                        Value: '0,0,0,18'
+                        Value: '0,0,0,22'
                     InfoPanelGap:
                         Type: Thickness
-                        Value: '0,0,0,18'
+                        Value: '0,0,0,22'
+                    PageLinksMargin:
+                        Type: Thickness
+                        Value: '20,0,20,22'
                     InfoPanelPadding:
                         Type: Thickness
                         Value: '22,16,22,16'
@@ -845,10 +851,10 @@ Presets:
                         Value: '0,0,16,0'
                     HeaderTileCardGap:
                         Type: Thickness
-                        Value: '0,0,18,0'
+                        Value: '0,0,16,0'
                     HeaderTileCardGapBack:
                         Type: Thickness
-                        Value: '0,0,-18,0'
+                        Value: '0,0,-16,0'
                     HeaderRowPadding:
                         Type: Thickness
                         Value: '0,18,0,24'
