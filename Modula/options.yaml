@@ -6073,10 +6073,10 @@ Variables:
         Title: 'Show the music player'
         LocKey: LOCHNDOptHeroShowMusicPlayer
         Type: Boolean
-        Default: 'True'
-        Description: 'The UniPlaySong player (cover, title, previous, play, next) at the right of the banner. It only shows while a game music plays.'
+        Default: 'False'
+        Description: 'The UniPlaySong player (cover, title, previous, play, next) in the banner, off by default (UniPlaySong already adds play/pause/next to the top bar). It only shows while a game music plays.'
     HelpHeroShowMusicPlayer:
-        Title: 'The UniPlaySong player (cover, title, previous, play, next) at the right of the banner. It only shows while a game music plays.'
+        Title: 'The UniPlaySong player (cover, title, previous, play, next) in the banner, off by default (UniPlaySong already adds play/pause/next to the top bar). It only shows while a game music plays.'
         LocKey: LOCHNDTipHeroShowMusicPlayer
         Type: Thickness
         Default: '0'
@@ -6487,7 +6487,7 @@ Variables:
         Title: 'Labels: strength'
         LocKey: LOCHNDOptHeaderLabelOpacity
         Type: Double
-        Default: '0.52'
+        Default: '0.8'
         Description: 'How strong the small labels are (1 = full text color, lower = fainter).'
         Slider:
             Min: '0'
@@ -6497,7 +6497,7 @@ Variables:
         Title: 'Secondary text: strength'
         LocKey: LOCHNDOptHeaderTextOpacity
         Type: Double
-        Default: '0.32'
+        Default: '0.65'
         Description: 'How strong the secondary header text is (1 = full text color, lower = fainter).'
         Slider:
             Min: '0'

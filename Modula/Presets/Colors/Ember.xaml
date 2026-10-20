@@ -4,7 +4,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Color x:Key="TextColor">#F8EEEE</Color>
-    <Color x:Key="TextColorDarker">#B79C9C</Color>
+    <Color x:Key="TextColorDarker">#D0BEBE</Color>
     <Color x:Key="MainColor">#642D2D</Color>
     <Color x:Key="MainColorDark">#2E1515</Color>
     <Color x:Key="HoverColor">#BF5050</Color>
@@ -22,7 +22,7 @@
     <Color x:Key="ControlBackgroundColorDark">#99201212</Color>
     <Color x:Key="ControlBackgroundColorDarkHover">#3D2727</Color>
     <Color x:Key="ToggleButtonNotCheckedBorderColor">#7C6262</Color>
-    <Color x:Key="DetailsViewContainerLabelColor">#927A7A</Color>
+    <Color x:Key="DetailsViewContainerLabelColor">#BAABAB</Color>
     <Color x:Key="PopupBackgroundGradientColor1">#331C1C</Color>
     <Color x:Key="PopupBackgroundGradientColor2">#2C1818</Color>
     <Color x:Key="WindowBackgroundGradientColor1">#221313</Color>
@@ -63,7 +63,7 @@
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderLabelBrush" Color="#FCF8F8" />
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderTextBlockBrush" Color="#FCF8F8" />
     <SolidColorBrush x:Key="DetailsViewContainerTextBrush" Color="#E8DADA" />
-    <SolidColorBrush x:Key="DetailsViewLinksTextBrush" Color="#52F8EEEE" />
+    <SolidColorBrush x:Key="DetailsViewLinksTextBrush" Color="#B8F8EEEE" />
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderButtonsBrush" Color="#DBF8EEEE" />
     <SolidColorBrush x:Key="DetailsViewHeaderIconsFillBrush" Color="#A88E8E" />
     <SolidColorBrush x:Key="DetailsViewItemIsSelectedBackgroundBrush" Color="#6C3232" />

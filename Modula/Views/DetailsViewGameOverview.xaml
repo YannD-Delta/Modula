@@ -8022,7 +8022,7 @@
                                                                                   Margin="0,5,0,5"
                                                                                   HtmlFontSize="{PluginSettings Plugin=LayoutStudio, Path=Options[FontSize], FallbackValue={StaticResource FontSize}, TargetNullValue={StaticResource FontSize}}"
                                                                                   HtmlFontFamily="{DynamicResource FontFamily}"
-                                                                                  HtmlForeground="{DynamicResource DetailsViewContainerLabelColor}"
+                                                                                  HtmlForeground="{DynamicResource TextColor}"
                                                                                   LinkForeground="{DynamicResource GlyphColor}"                                      
                                                                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                                                                   ScrollViewer.VerticalScrollBarVisibility="Disabled"

@@ -149,8 +149,8 @@
     <sys:Double x:Key="HeaderBarBlurOpacity">0</sys:Double>
     <sys:Double x:Key="HeaderBarGlassOpacity">0</sys:Double>
     <sys:Boolean x:Key="HeroShowInfoLine">True</sys:Boolean>
-    <!-- The UniPlaySong player in the banner (UPS_MediaControllerBar). Hidden when the extension is missing or nothing plays. -->
-    <sys:Boolean x:Key="HeroShowMusicPlayer">True</sys:Boolean>
+    <!-- The UniPlaySong player in the banner (UPS_MediaControllerBar), off by default: UniPlaySong already puts play/pause/next in the top bar. Hidden when the extension is missing or nothing plays. -->
+    <sys:Boolean x:Key="HeroShowMusicPlayer">False</sys:Boolean>
     <!-- Steam players online (News Viewer control), large above the banner cover. Hidden when False; the control stays empty for games without a Steam page. -->
     <sys:Boolean x:Key="HeroShowPlayersCount">True</sys:Boolean>
     <sys:Double x:Key="HeroPlayersCountFontSize">28</sys:Double>
@@ -430,8 +430,8 @@
     <sys:Boolean x:Key="InfoPanelShowSource">True</sys:Boolean>
     <!-- Section titles (GENRES, TAGS...) and the small labels over the header tiles / the information panel -->
     <Thickness x:Key="SectionTitleMargin">0,0,0,10</Thickness>
-    <sys:Double x:Key="HeaderLabelOpacity">0.52</sys:Double>
-    <sys:Double x:Key="HeaderTextOpacity">0.32</sys:Double>
+    <sys:Double x:Key="HeaderLabelOpacity">0.8</sys:Double>
+    <sys:Double x:Key="HeaderTextOpacity">0.65</sys:Double>
     <Thickness x:Key="InfoPanelGap">0,0,0,16</Thickness>
     <Thickness x:Key="InfoPanelPadding">16,12,16,12</Thickness>
     <sys:Double x:Key="InfoPanelMinHeight">150</sys:Double>
@@ -806,7 +806,7 @@
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#f5f5f5</Color>
     <Color x:Key="TextColor">#dfe3e6</Color>
-    <Color x:Key="TextColorDarker">#a3a3a3</Color>
+    <Color x:Key="TextColorDarker">#C2C2C2</Color>
     <Color x:Key="TextColorDark">#FF000000</Color>
     <Color x:Key="MainColor">#2C3A67</Color>
     <Color x:Key="MainColorDark">#0D1225</Color>
@@ -911,10 +911,10 @@
 
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderLabelBrush" Color="#ffffff" />
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderTextBlockBrush" Color="#ffffff" />
-    <Color x:Key="DetailsViewContainerLabelColor">#808486</Color>
+    <Color x:Key="DetailsViewContainerLabelColor">#ACAFB0</Color>
     <SolidColorBrush x:Key="DetailsViewContainerLabelBrush" Color="{DynamicResource DetailsViewContainerLabelColor}" />
     <SolidColorBrush x:Key="DetailsViewContainerTextBrush" Color="#d3d3d3" />
-    <SolidColorBrush x:Key="DetailsViewLinksTextBrush" Color="#52dedede" />
+    <SolidColorBrush x:Key="DetailsViewLinksTextBrush" Color="#B8dedede" />
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderButtonsBrush" Color="#DBd3d8e0" />
     
     

@@ -127,26 +127,94 @@ Modula also runs without Layout Studio with its default look (the `options.yaml`
 
 If you use **Theme Options** or a similar extension for another theme, disable it while Modula is active: Layout Studio stays idle while ThemeOptions is enabled so a setting is never applied twice.
 
-## Recommended add-ons
+## Supported add-ons
 
-Nothing is required. Each integration shows up only when its add-on is installed. At start, Layout Studio shows one Playnite notification naming the optional add-ons you do not have yet (and only again if that list changes).
+Nothing is required: the theme works without any add-on, and each integration hides itself when its add-on is missing. At start, Layout Studio shows one Playnite notification naming the recommended add-ons you do not have yet (and only again if that list changes).
 
-| Add-on | What Modula does with it |
+| What Modula shows | Add-on |
 | --- | --- |
-| [Layout Studio](https://github.com/YannD-Delta/Layout-Studio) | The editor, presets, Fullscreen quick menu, colour rules |
-| [Extra Metadata Loader](https://github.com/darklinkpower/PlayniteExtensionsCollection) | Logos and videos on the details page |
-| [Playnite Achievements](https://github.com/justin-delano/PlayniteAchievements) | Achievements section and card |
-| [HowLongToBeat](https://github.com/Lacro59/playnite-howlongtobeat-plugin) | Time-to-beat card and section |
-| [GameActivity](https://github.com/Lacro59/playnite-gameactivity-plugin) | Activity card and chart |
-| [ThemeExtras](https://github.com/felixkmh/ThemeExtras-for-Playnite) | Extra UI elements for themes |
-| [ScreenshotsVisualizer](https://github.com/Lacro59/playnite-screenshotsvisualizer-plugin), [CheckDlc](https://github.com/Lacro59/playnite-checkdlc-plugin), [Game Relations, Play Notes, Steam Trailers](https://github.com/darklinkpower/PlayniteExtensionsCollection) | Sections on the details page |
-| [UniPlaySong](https://github.com/aHuddini/UniPlaySong) | Per-game music while you browse, with a quick toggle in Fullscreen |
-| [Playnite Sounds Mod](https://codeberg.org/ashpynov/PlayniteSoundMod) | Interface and event sounds |
-| [Custom Fade Animations](https://github.com/saVantCZ/CustomFadeAnim) | Smooth background transitions when the game changes |
-| [Display Manager](https://github.com/Naerian/playnite-nx-display-session) | Resolution, refresh rate and HDR when a game starts (handy on a TV) |
-| [Playtime Insights](https://github.com/SHINKU1506/PlaytimeInsights) | Playtime trends and rankings |
+| The editor, presets, colour rules, Fullscreen quick menu | [Layout Studio](https://github.com/YannD-Delta/Layout-Studio) |
+| Game logo, trailer video | [Extra Metadata Loader](https://github.com/darklinkpower/PlayniteExtensionsCollection) |
+| Achievements: progress bar, latest unlocked, unlocked and locked lists, full list (section and header card) | [Playnite Achievements](https://github.com/justin-delano/PlayniteAchievements) |
+| Time to beat (header card, progress bar, section) | [HowLongToBeat](https://github.com/Lacro59/playnite-howlongtobeat-plugin) |
+| Play time charts and session log, hardware stats (FPS, CPU, GPU, RAM) | [GameActivity](https://github.com/Lacro59/playnite-gameactivity-plugin) |
+| Same developer, same publisher, same series, similar games (sections) | [Game Relations](https://github.com/darklinkpower/PlayniteExtensionsCollection) |
+| DLC lists and button (section) | [CheckDlc](https://github.com/Lacro59/playnite-checkdlc-plugin) |
+| Steam news (section) and players online now | Steam News and Players Viewer (News Viewer) |
+| Steam reviews (section) | Steam Reviews Viewer (Review Viewer) |
+| Your own screenshots (section and button) | [ScreenshotsVisualizer](https://github.com/Lacro59/playnite-screenshotsvisualizer-plugin) |
+| Store screenshots (section and button) | Screenshot Utilities, with a provider such as its Steam provider |
+| Steam screenshots (section) | the Steam Screenshots add-on |
+| Personal notes (section) | Play Notes |
+| Visual novel information (section) | VNDB Nexus |
+| A web page in the game page (section) | Web Explorer |
+| Play state switch | PlayState |
+| Prefix icons on genres, categories, features and tags | Metadata Utilities |
+| Background and cover changer controls | Background Changer |
+| User rating, completion status, back and forward buttons | [ThemeExtras](https://github.com/felixkmh/ThemeExtras-for-Playnite) (felixkmh's Extras plugin) |
+| Library management icons, game update status, Steam shortcuts, system requirement and localization checks | Library Management, Game Update Status, Steam Shortcuts, System Checker, Check Localizations |
+| GOG second-class watcher, duplicate source selector | GogSecondClassWatcher, Duplicate Hider |
+| Per-game music while you browse; an optional player in the banner; a quick toggle in Fullscreen | [UniPlaySong](https://github.com/aHuddini/UniPlaySong) |
+| Interface and event sounds | [Playnite Sounds Mod](https://codeberg.org/ashpynov/PlayniteSoundMod) |
+| Smooth background transitions when the game changes | [Custom Fade Animations](https://github.com/saVantCZ/CustomFadeAnim) |
+| Resolution, refresh rate and HDR when a game starts (handy on a TV) | [Display Manager](https://github.com/Naerian/playnite-nx-display-session) |
+| Playtime trends and rankings | [Playtime Insights](https://github.com/SHINKU1506/PlaytimeInsights) |
 
+Every section of the game page above can be moved to the other column from Layout Studio (the extension moves the live block, so the add-on keeps working). The control names come from the theme's source; check each add-on's exact name in Playnite's add-on browser.
 
+## Recommended settings, and why
+
+These come from a real setup (4K screen, Playnite 10.62, a library of about 1,800 games), with measurements where there is a number. Anything marked *(unverified)* comes from reading an add-on's code or documentation, not from a test here.
+
+### Images (Metadata Image Optimizer)
+
+- Backgrounds: JPEG, quality 90, at most 3840x2160. Covers: JPEG, quality 90, at most 600x900. Icons: PNG, 128x128 (they need transparency).
+- **Why:** decoding time decides how smooth the game list feels, and the decoded bitmap takes the same memory whatever the file format, so the pixel size is what counts. Measured WPF decode with the cache off: a 4K background took 205 ms as WebP, 41 ms as JPEG and 75 ms as PNG (PNG also weighs about 8 MB each); a 400 px cover took 7.8 ms as WebP and 5.6 ms as JPEG. WebP is smaller on disk but the slowest to read.
+- Quality 90 instead of 100: much smaller files, no visible difference.
+- The optimizer never enlarges an image: a cover already shrunk to 400 px stays blurry on 4K. Download covers again at a larger size, then let the optimizer convert them.
+- When you change formats, run the optimizer on all games, hidden ones included (Ctrl+A does not select hidden games).
+
+### Metadata sources (Universal Steam Metadata)
+
+- Turn on **DownloadVerticalCovers**: Steam games then get the vertical 600x900 cover instead of the horizontal header image, which is what a portrait cover slot needs.
+- Background source: *Banner* is meant for a banner (the wide Steam hero image, the sharpest when it exists); *StoreScreenshot* is 1920x1080 and may show the game's interface; *StoreBackground* is the smallest (about 1438 px wide). *(unverified: sizes follow Steam's usual asset sizes, not the add-on's documentation.)*
+- A new setting only applies to the next downloads: to replace existing images, run "Download metadata" with overwrite for covers or backgrounds, on a few games first.
+
+### Playnite settings
+
+- **Show background image on window: ON.** The glass effect of the theme uses that image. Modula warns you when it is off.
+- **Playnite's own blur and darken: 0.** Modula already blurs and darkens; stacking both darkens the image twice and costs GPU. Layout Studio's Background page shows the real window as you move the sliders.
+- **Background image animation: OFF.** Measured on a test bench: about +18 % CPU, +60 % GPU and +43 MB of memory.
+- **Asynchronous image loading: ON.**
+
+### Performance with a large library
+
+- The achievements section is the main idle cost on a big library (measured). If Playnite uses a full core while idle, hide the three achievements displays (list, latest, data grid) in Layout Studio.
+- Playnite's image cache and the embedded browser's code cache can grow to several GB and are rebuilt on demand: clear them from time to time. Keep the browser's cookies folder: it holds your store logins.
+- Disable library add-ons you do not use. Login errors at start for stores you are not signed in to (Battle.net, EA app) are known Playnite behaviour and harmless.
+- The window glass blur is computed once and cached (about 2 % GPU instead of 13 % while the game list scrolls on the test machine); the glass has a Lite material preset and a "Graphics and performance" page for weaker machines.
+
+### Music and sounds (UniPlaySong, Playnite Sounds Mod)
+
+- Use **UniPlaySong** for game music and **Playnite Sounds Mod** only for interface sound effects. Both can play music, so their roles overlap: if you keep both, set Playnite Sounds Mod's music to "never" so two players never fight.
+- UniPlaySong already adds play, pause and next to Playnite's top bar. The theme's own ready-made player in the game banner (option "Show the music player") is **off by default**; turn it on if you want cover, title and previous/next on the game page.
+- UniPlaySong stores one audio file per game and downloads them from YouTube with yt-dlp and FFmpeg (Deno may be needed). With hundreds or thousands of games, turn automatic download on library update and on install OFF and download music only for the games you care about: music then exists only for chosen games.
+- Cookie source: if downloads fail with "could not read browser cookies", close the browser or change the cookie source (hundreds of failures were seen while the browser held its cookie file locked).
+- Keep yt-dlp and FFmpeg up to date: YouTube changes often.
+
+### Screenshots
+
+- **ScreenshotsVisualizer** shows YOUR captures (it scans the folders you give it: Steam, Xbox Game Bar, capture software). **Screenshot Utilities** shows store screenshots from its providers and does not handle your own captures: they do different jobs. If a provider logs many errors (dead store image links), disable that provider.
+
+### Hardware stats (GameActivity with HWiNFO)
+
+- Use the HWiNFO Gadget provider: in HWiNFO publish the sensors to the Gadget, then in GameActivity assign each sensor by its index (FPS, CPU usage, CPU temperature and power, GPU usage, temperature and power, RAM). HWiNFO must be running during the game, otherwise the session records zeros.
+- Warnings about FPS "1 % low" and "0.1 % low" are normal with HWiNFO only: it does not publish them.
+
+### Add-ons you can skip
+
+- Mo Data (battery, Wi-Fi and disk widget for Fullscreen themes): Modula does not use it.
+- Screenshot Utilities, if you only care about your own captures.
 
 ## Made with Claude Code
 

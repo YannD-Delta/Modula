@@ -17,7 +17,7 @@
         <Setter Property="Margin" Value="8,10,6,4" />
         <Style.Triggers>
             <Trigger Property="Tag" Value="{StaticResource False}">
-                <Setter Property="Opacity" Value="0.5"/>
+                <Setter Property="Opacity" Value="0.85"/>
             </Trigger>
         </Style.Triggers>
     </Style>

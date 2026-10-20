@@ -320,7 +320,7 @@
     <sys:String x:Key="LOCHNDHeaderHeroChips">Vue Détails - puces d'information</sys:String>
     <sys:String x:Key="LOCHNDHeaderHeroMusic">Vue détails - bandeau : lecteur de musique</sys:String>
     <sys:String x:Key="LOCHNDOptHeroShowMusicPlayer">Afficher le lecteur de musique</sys:String>
-    <sys:String x:Key="LOCHNDTipHeroShowMusicPlayer">Le lecteur UniPlaySong (pochette, titre, précédent, lecture, suivant) à droite du bandeau. Il n’apparaît que pendant la musique d’un jeu.</sys:String>
+    <sys:String x:Key="LOCHNDTipHeroShowMusicPlayer">Le lecteur UniPlaySong (pochette, titre, précédent, lecture, suivant) dans le bandeau, coupé par défaut (UniPlaySong ajoute déjà lecture, pause et suivant dans la barre du haut). Il n’apparaît que pendant la musique d’un jeu.</sys:String>
     <sys:String x:Key="LOCHNDHeaderHeroPlayers">Vue détails - bandeau : joueurs en ligne</sys:String>
     <sys:String x:Key="LOCHNDOptHeroShowPlayersCount">Afficher les joueurs en ligne</sys:String>
     <sys:String x:Key="LOCHNDTipHeroShowPlayersCount">Le nombre de joueurs Steam en ligne (extension News Viewer), en grand au-dessus de la jaquette. Il n’apparaît que pour les jeux que l’extension trouve sur Steam.</sys:String>

@@ -3,7 +3,8 @@
 ## Unreleased
 
 - **Every section of the game page can move to the other column** (Layout Studio, Sections page). Add-on sections included: the extension moves the live block, so the add-on keeps working. The default layout is unchanged.
-- The UniPlaySong ready-made player shows in the game banner while a game's music plays (option "HeroShowMusicPlayer" hides it).
+- The UniPlaySong ready-made player can show in the game banner while a game's music plays (option "HeroShowMusicPlayer", **off by default**: UniPlaySong already puts play, pause and next in the top bar).
+- **Readable text**: the game description uses the main text color (it used the label grey), the muted label and secondary text colors of every color profile are lighter, link text, list header text and inactive filter labels are stronger.
 
 - **Cover**: new option to show the whole cover instead of cropping it (`HeroCoverShowWhole`), cover position and outline color, shape presets (poster, tall, square, wide).
 - **Players online** (Steam News and Players Viewer): shown large above the cover, option `HeroShowPlayersCount` and its size.

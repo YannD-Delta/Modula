@@ -320,7 +320,7 @@
     <sys:String x:Key="LOCHNDHeaderHeroChips">Details view - information chips</sys:String>
     <sys:String x:Key="LOCHNDHeaderHeroMusic">Details view - artwork header: music player</sys:String>
     <sys:String x:Key="LOCHNDOptHeroShowMusicPlayer">Show the music player</sys:String>
-    <sys:String x:Key="LOCHNDTipHeroShowMusicPlayer">The UniPlaySong player (cover, title, previous, play, next) at the right of the banner. It only shows while a game music plays.</sys:String>
+    <sys:String x:Key="LOCHNDTipHeroShowMusicPlayer">The UniPlaySong player (cover, title, previous, play, next) in the banner, off by default (UniPlaySong already adds play, pause and next to the top bar). It only shows while a game music plays.</sys:String>
     <sys:String x:Key="LOCHNDHeaderHeroPlayers">Details view - artwork header: players online</sys:String>
     <sys:String x:Key="LOCHNDOptHeroShowPlayersCount">Show the players online</sys:String>
     <sys:String x:Key="LOCHNDTipHeroShowPlayersCount">The number of Steam players online (News Viewer extension), large above the cover. It only shows for games the extension finds on Steam.</sys:String>
