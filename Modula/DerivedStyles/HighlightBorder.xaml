@@ -4,7 +4,7 @@
     <Style x:Key="HighlightBorder" TargetType="Border" BasedOn="{StaticResource {x:Type Border}}">
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GlassRimBrush}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource GlyphBrush}" />

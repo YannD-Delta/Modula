@@ -7,15 +7,14 @@
     <!-- Info tile: label over value on a glass card. Collapses when the value is empty. -->
     <Style x:Key="FsTileBorder" TargetType="Border">
         <Setter Property="CornerRadius" Value="{DynamicResource FsTileCornerRadius}" />
-        <Setter Property="Opacity" Value="{DynamicResource FsTileGlassOpacity}" />
         <Setter Property="Padding" Value="18,12" />
         <Setter Property="Margin" Value="0,0,12,0" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background">
             <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#2EFFFFFF" Offset="0" />
-                    <GradientStop Color="#12FFFFFF" Offset="1" />
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="{DynamicResource FsTileGlassOpacity}">
+                    <GradientStop Color="#5CFFFFFF" Offset="0" />
+                    <GradientStop Color="#24FFFFFF" Offset="1" />
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
@@ -44,6 +43,7 @@
         <Setter Property="Padding" Value="44,14" />
         <Setter Property="Margin" Value="0,2,14,2" />
         <Setter Property="MinWidth" Value="240" />
+        <Setter Property="FontSize" Value="26" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="RenderTransform"><Setter.Value><ScaleTransform ScaleX="1" ScaleY="1" /></Setter.Value></Setter>
@@ -51,12 +51,12 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ButtonEx">
                     <Grid>
-                        <Border x:Name="Pill" CornerRadius="40" Background="{TemplateBinding Background}" BorderBrush="#55FFFFFF" BorderThickness="1" />
-                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Foreground="{TemplateBinding Foreground}" FontFamily="{DynamicResource FontTitilliumWebBold}"
+                        <Border x:Name="Pill" CornerRadius="{DynamicResource FsPillCornerRadius}" Background="{TemplateBinding Background}" BorderBrush="#55FFFFFF" BorderThickness="1" />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Foreground="{TemplateBinding Foreground}" FontFamily="{DynamicResource FontTitilliumWebBold}" FontSize="{TemplateBinding FontSize}"
                                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
                             <ContentPresenter />
                         </TextBlock>
-                        <Border x:Name="Ring" CornerRadius="42" Margin="-4" BorderThickness="3" BorderBrush="{DynamicResource SelectionBrush}" Visibility="Hidden" IsHitTestVisible="False">
+                        <Border x:Name="Ring" CornerRadius="{DynamicResource FsPillRingCornerRadius}" Margin="-4" BorderThickness="3" BorderBrush="{DynamicResource SelectionBrush}" Visibility="Hidden" IsHitTestVisible="False">
                             <Border.Effect><DropShadowEffect ShadowDepth="0" BlurRadius="22" Opacity="0.8" Color="{DynamicResource GlyphColor}" RenderingBias="Performance" /></Border.Effect>
                         </Border>
                     </Grid>
@@ -86,6 +86,10 @@
     <Style x:Key="FsPillPrimary" TargetType="ButtonEx" BasedOn="{StaticResource FsPillButton}">
         <Setter Property="Background" Value="#F2FFFFFF" />
         <Setter Property="Foreground" Value="#0B0F1A" />
+        <!-- the big Play button of the console details page -->
+        <Setter Property="FontSize" Value="34" />
+        <Setter Property="Padding" Value="70,18" />
+        <Setter Property="MinWidth" Value="380" />
     </Style>
 
     <!-- BEGIN generated cards -->
@@ -106,6 +110,15 @@
                     </Style.Triggers></Style></StackPanel.Style>
                     <TextBlock Style="{StaticResource FsTileLabel}" Text="{DynamicResource LOCGameLastActivityTitle}" />
                     <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{Binding LastActivity, Converter={StaticResource DateTimeToLastPlayedConverter}}" MaxWidth="360" TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.CompletionStatus">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding CompletionStatus}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Completion" />
+                    <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{Binding CompletionStatus.Name}" MaxWidth="360" TextTrimming="CharacterEllipsis" />
                 </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="Card.Scores">
@@ -314,6 +327,134 @@
                                Tag="{PluginSettings Plugin=LayoutStudio, Path=Facts.RamBrush}" Foreground="{Binding Tag, RelativeSource={RelativeSource Self}}" />
                 </StackPanel>
         </DataTemplate>
+        <DataTemplate x:Key="Card.Achievements">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.HasAchievements}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Achievements" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.UnlockedCount}" />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text=" / " />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.AchievementCount}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.AchievementsPercent">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.HasAchievements}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Achievements" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.ProgressPercentage, StringFormat={}{0:0} %}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.AchievementsLatest">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.HasLatestAchievementData}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Latest achievement" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.LatestAchievementData.DisplayName}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.AchievementsRare">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.HasAchievements}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Rare achievements" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=PlayniteAchievements, Path=ModernTheme.RareAndUltraRare.Stats}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.HltbMain">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=HowLongToBeat, Path=HasData}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Main story" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.HltbMainExtra">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=HowLongToBeat, Path=HasData}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Main + extra" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat}" />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text=" · " />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.HltbComplete">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=HowLongToBeat, Path=HasData}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="100 %" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.HltbAll">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=HowLongToBeat, Path=HasData}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Main · Extra · 100 %" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=HowLongToBeat, Path=MainStoryFormat}" />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text=" · " />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=HowLongToBeat, Path=MainExtraFormat}" />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text=" · " />
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=HowLongToBeat, Path=CompletionistFormat}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.LastSession">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=GameActivity, Path=HasData}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Last session" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=GameActivity, Path=LastPlaytimeSession}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Card.RecentActivity">
+                <StackPanel Margin="0,0,22,0" VerticalAlignment="Center" Tag="{PluginSettings Plugin=GameActivity, Path=HasData}">
+                    <StackPanel.Style><Style TargetType="StackPanel"><Style.Triggers>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                    </Style.Triggers></Style></StackPanel.Style>
+                    <TextBlock Style="{StaticResource FsTileLabel}" Text="Recent activity" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{PluginSettings Plugin=GameActivity, Path=RecentActivity}" />
+                    </StackPanel>
+                </StackPanel>
+        </DataTemplate>
         <Style x:Key="CardHost" TargetType="ContentControl">
             <Setter Property="ContentTemplate" Value="{StaticResource Card.None}" />
             <Setter Property="Content" Value="{Binding}" />
@@ -323,6 +464,7 @@
             <Style.Triggers>
             <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="1"><Setter Property="ContentTemplate" Value="{StaticResource Card.PlayTime}" /></DataTrigger>
             <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="2"><Setter Property="ContentTemplate" Value="{StaticResource Card.LastPlayed}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="3"><Setter Property="ContentTemplate" Value="{StaticResource Card.CompletionStatus}" /></DataTrigger>
             <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="6"><Setter Property="ContentTemplate" Value="{StaticResource Card.Scores}" /></DataTrigger>
             <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="7"><Setter Property="ContentTemplate" Value="{StaticResource Card.InstallSize}" /></DataTrigger>
             <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="8"><Setter Property="ContentTemplate" Value="{StaticResource Card.AvgFps}" /></DataTrigger>
@@ -343,6 +485,16 @@
             <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="31"><Setter Property="ContentTemplate" Value="{StaticResource Card.Cpu}" /></DataTrigger>
             <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="32"><Setter Property="ContentTemplate" Value="{StaticResource Card.Gpu}" /></DataTrigger>
             <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="33"><Setter Property="ContentTemplate" Value="{StaticResource Card.Ram}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="4"><Setter Property="ContentTemplate" Value="{StaticResource Card.Achievements}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="28"><Setter Property="ContentTemplate" Value="{StaticResource Card.AchievementsPercent}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="29"><Setter Property="ContentTemplate" Value="{StaticResource Card.AchievementsLatest}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="30"><Setter Property="ContentTemplate" Value="{StaticResource Card.AchievementsRare}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="5"><Setter Property="ContentTemplate" Value="{StaticResource Card.HltbMain}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="25"><Setter Property="ContentTemplate" Value="{StaticResource Card.HltbMainExtra}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="26"><Setter Property="ContentTemplate" Value="{StaticResource Card.HltbComplete}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="27"><Setter Property="ContentTemplate" Value="{StaticResource Card.HltbAll}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="9"><Setter Property="ContentTemplate" Value="{StaticResource Card.LastSession}" /></DataTrigger>
+            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="10"><Setter Property="ContentTemplate" Value="{StaticResource Card.RecentActivity}" /></DataTrigger>
             </Style.Triggers>
         </Style>
     <!-- END generated cards -->
@@ -351,29 +503,23 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GameDetails}">
-                    <Grid Background="{DynamicResource MainBackgourndBrush}"
-                          x:Name="PART_ViewHost"
-                          d:DesignWidth="{StaticResource DesignWidth}"
-                          d:DesignHeight="{StaticResource DesignHeight}"
-                          d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}"
-                          KeyboardNavigation.DirectionalNavigation="Contained"
-                          KeyboardNavigation.TabNavigation="Cycle"
-                          KeyboardNavigation.ControlTabNavigation="Cycle">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="350" />
-                            <ColumnDefinition Width="6*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="3*" />
-                            <RowDefinition Height="4*" />
-                        </Grid.RowDefinitions>
-                        <Grid.Triggers>
-                        <!-- The page builds itself in: each block fades and slides into place, one after the other -->
-                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                            <BeginStoryboard>
-                                <Storyboard>
+                    <ControlTemplate.Resources>
+                        <!-- The page builds itself in (flag FsMotionOn, preset Motion): started by a trigger on the flag, not on Loaded, so Off leaves everything in place -->
+                        <Storyboard x:Key="FsPageIn">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MediaRow" Storyboard.TargetProperty="Opacity">
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:0.42" Value="0" />
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.86" Value="1">
+                                <EasingDoubleKeyFrame.EasingFunction><CubicEase EasingMode="EaseOut" /></EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MediaRow" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="22" />
+                            <DiscreteDoubleKeyFrame KeyTime="0:0:0.42" Value="22" />
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.92" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction><CubicEase EasingMode="EaseOut" /></EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
                                 <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CoverHost" Storyboard.TargetProperty="Opacity">
                                     <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
                                     <DiscreteDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
@@ -402,6 +548,26 @@
                                         <EasingDoubleKeyFrame.EasingFunction><CubicEase EasingMode="EaseOut" /></EasingDoubleKeyFrame.EasingFunction>
                                     </EasingDoubleKeyFrame>
                                 </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChipsRow" Storyboard.TargetProperty="Opacity">
+                                    <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                    <DiscreteDoubleKeyFrame KeyTime="0:0:0.12" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.52" Value="1">
+                                        <EasingDoubleKeyFrame.EasingFunction><CubicEase EasingMode="EaseOut" /></EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ChipsRow" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+                                    <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="22" />
+                                    <DiscreteDoubleKeyFrame KeyTime="0:0:0.12" Value="22" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.62" Value="0">
+                                        <EasingDoubleKeyFrame.EasingFunction><CubicEase EasingMode="EaseOut" /></EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimation Storyboard.TargetName="PART_ImageBackground" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.1" Duration="0:0:45">
+                                    <DoubleAnimation.EasingFunction><SineEase EasingMode="EaseInOut" /></DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="PART_ImageBackground" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.1" Duration="0:0:45">
+                                    <DoubleAnimation.EasingFunction><SineEase EasingMode="EaseInOut" /></DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
                                 <DoubleAnimationUsingKeyFrames Storyboard.TargetName="TilesRow1" Storyboard.TargetProperty="Opacity">
                                     <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
                                     <DiscreteDoubleKeyFrame KeyTime="0:0:0.16" Value="0" />
@@ -445,14 +611,50 @@
                                     </EasingDoubleKeyFrame>
                                 </DoubleAnimationUsingKeyFrames>
                                 </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Grid.Triggers>
+                    </ControlTemplate.Resources>
+                    <Grid Background="{DynamicResource MainBackgourndBrush}"
+                          x:Name="PART_ViewHost"
+                          d:DesignWidth="{StaticResource DesignWidth}"
+                          d:DesignHeight="{StaticResource DesignHeight}"
+                          d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}"
+                          KeyboardNavigation.DirectionalNavigation="Contained"
+                          KeyboardNavigation.TabNavigation="Cycle"
+                          KeyboardNavigation.ControlTabNavigation="Cycle">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="350" />
+                            <ColumnDefinition Width="6*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2.4*" />
+                            <RowDefinition Height="4*" />
+                        </Grid.RowDefinitions>
+                        <!-- The page builds itself in each time it is loaded (the Motion preset does not stop this one: a trigger on the Motion flag never started the storyboard on the testbed) -->
+                        <Grid.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                <BeginStoryboard Storyboard="{StaticResource FsPageIn}" />
+                            </EventTrigger>
+                        </Grid.Triggers>
+                        <Border x:Name="MotionFlag" Width="0" Height="0" IsHitTestVisible="False" Tag="{DynamicResource FsMotionOn}" />
+                        <!-- The page sound: Playnite's interface volume; muted by the Sound preset Off (IsMuted comes from the style, never set locally) -->
                         <MediaElement Source="{ThemeFile 'audio/_details-in.wav'}" LoadedBehavior="Play" UnloadedBehavior="Close"
-                                      Volume="{Settings Fullscreen.InterfaceVolume}" Width="0" Height="0" IsHitTestVisible="False" />
+                                      Volume="{Settings Fullscreen.InterfaceVolume}" Tag="{DynamicResource FsSoundOn}" Width="0" Height="0" IsHitTestVisible="False">
+                            <MediaElement.Style>
+                                <Style TargetType="MediaElement">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="IsMuted" Value="True" /></DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </MediaElement.Style>
+                        </MediaElement>
+                        <!-- Slow zoom on the artwork while the page is open (see the storyboard above) -->
                         <FadeImage HorizontalAlignment="Center" VerticalAlignment="Top"
                                    Grid.ColumnSpan="4" Grid.RowSpan="2"
-                                   x:Name="PART_ImageBackground" />
+                                   RenderTransformOrigin="0.5,0.35"
+                                   x:Name="PART_ImageBackground">
+                            <FadeImage.RenderTransform><ScaleTransform ScaleX="1" ScaleY="1" /></FadeImage.RenderTransform>
+                        </FadeImage>
 
                         <Border Background="{DynamicResource GameDetailsBackgroundBrush}"
                                 Grid.ColumnSpan="4" Grid.Row="1" />
@@ -512,6 +714,20 @@
                                                       RenderingBias="Quality" Opacity="1"/>
                                 </TextBlock.Effect>
                             </TextBlock>
+
+                            <!-- Genre chips: glass pills under the title (corners: FsChipCornerRadius) -->
+                            <ItemsControl x:Name="ChipsRow" DockPanel.Dock="Top" ItemsSource="{Binding Genres}" Focusable="False" IsTabStop="False"
+                                          IsHitTestVisible="False" Margin="0,14,0,0" MaxWidth="1500">
+                                <ItemsControl.RenderTransform><TranslateTransform /></ItemsControl.RenderTransform>
+                                <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="{DynamicResource FsChipCornerRadius}" Padding="18,5" Margin="0,0,10,8" BorderThickness="1" BorderBrush="#55FFFFFF" Background="#26FFFFFF">
+                                            <TextBlock Style="{DynamicResource TextBlockBaseStyle}" Text="{Binding Name}" FontSize="20" Foreground="#E6FFFFFF" />
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
 
                             <WrapPanel x:Name="TilesRow1" Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,20,0,6" MaxWidth="1500">
                                 <WrapPanel.RenderTransform><TranslateTransform /></WrapPanel.RenderTransform>
@@ -640,8 +856,41 @@
                                           Content="{DynamicResource LOCGameOptions}" />
                             </StackPanel>
 
+                            <!-- Media row: the screenshots found for the game (Screenshot Utilities' folders, read by Layout Studio); collapses when there are none -->
+                            <ItemsControl x:Name="MediaRow" DockPanel.Dock="Bottom" Margin="0,16,0,0" Height="136" MaxWidth="1500" ClipToBounds="True"
+                                          Focusable="False" IsTabStop="False" IsHitTestVisible="False"
+                                          ItemsSource="{PluginSettings Plugin=LayoutStudio, Path=Media.Screenshots}"
+                                          Tag="{PluginSettings Plugin=LayoutStudio, Path=Media.HasScreenshots}">
+                                <ItemsControl.RenderTransform><TranslateTransform /></ItemsControl.RenderTransform>
+                                <ItemsControl.Style>
+                                    <Style TargetType="ItemsControl">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ItemsControl.Style>
+                                <ItemsControl.ItemsPanel><ItemsPanelTemplate><StackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="242" Height="136" Margin="0,0,14,0">
+                                            <Grid Opacity="0" IsHitTestVisible="False">
+                                                <Border x:Name="ShotMask" Background="Black" CornerRadius="{DynamicResource FsTileCornerRadius}" />
+                                            </Grid>
+                                            <Grid>
+                                                <Grid.OpacityMask><VisualBrush Visual="{Binding ElementName=ShotMask}" /></Grid.OpacityMask>
+                                                <Border Background="{DynamicResource ControlBackgroundDarkBrush}" />
+                                                <Image Source="{Binding Converter={StaticResource ImageStringToImageConverter}}" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="Fant" />
+                                            </Grid>
+                                            <Border CornerRadius="{DynamicResource FsTileCornerRadius}" BorderThickness="1" BorderBrush="#55FFFFFF" IsHitTestVisible="False" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
                             <ScrollViewerEx Margin="0,20,0,0" DockPanel.Dock="Top"
                                             x:Name="PART_ScrollHtmlDescription"
+                                            VerticalScrollBarVisibility="Hidden"
                                             CustomScrollAmount="42">
                                 <ScrollViewerEx.RenderTransform><TranslateTransform /></ScrollViewerEx.RenderTransform>
                                 <HtmlTextView x:Name="PART_HtmlDescription"

@@ -35,21 +35,51 @@
                                 </Style>
                             </Grid.Style>
                             <Grid Margin="{DynamicResource WindowGlassBleed}">
+                                <!-- The blur sits on a CHILD of the cached element: an Effect on the cached element itself is run again at every repaint of the
+                                     window (measured: 13 % of the GPU while the game list scrolls, 2 % with the effect inside the cache, same pixels). -->
                                 <Grid>
                                     <Grid.CacheMode>
                                         <BitmapCache EnableClearType="False" RenderAtScale="0.25" SnapsToDevicePixels="False" />
                                     </Grid.CacheMode>
-                                    <Grid.Effect>
-                                        <BlurEffect Radius="{DynamicResource WindowGlassBlurRadius}" KernelType="Gaussian" RenderingBias="Performance" />
-                                    </Grid.Effect>
-                                    <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill"
-                                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <Grid>
+                                        <Grid.Effect>
+                                            <BlurEffect Radius="{DynamicResource WindowGlassBlurRadius}" KernelType="Gaussian" RenderingBias="Performance" />
+                                        </Grid.Effect>
+                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Grid>
                                 </Grid>
                                 <Border Background="Black" Opacity="{DynamicResource WindowGlassScrimOpacity}" />
                             </Grid>
                         </Grid>
 
                         <TopPanel DockPanel.Dock="Top" Grid.Row="0" />
+
+                        <!-- Warning: the glass is fed by Playnite's "Show background image on the window". It shows only while that setting is OFF and the glass is ON
+                             (and WindowGlassBackgroundWarning allows it); it never takes a click. -->
+                        <FrameworkElement x:Name="GlassWarningProbe" Visibility="Collapsed" Tag="{DynamicResource WindowGlassBackgroundWarning}" />
+                        <Border x:Name="GlassBackgroundWarning" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,12,24,0"
+                                Padding="14,8,14,9" IsHitTestVisible="False" Panel.ZIndex="50" MaxWidth="640"
+                                Tag="{DynamicResource WindowGlassEnabled}"
+                                Background="#E61B1E24" BorderBrush="#FFE0A030" BorderThickness="1" CornerRadius="{DynamicResource HeroChipCornerRadius}">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Settings ShowBackgroundImageOnWindow}" Value="False" />
+                                                <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                                <Condition Binding="{Binding Tag, ElementName=GlassWarningProbe}" Value="True" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <TextBlock Text="{DynamicResource LOCHNDGlassBackgroundWarning}" TextWrapping="Wrap" TextAlignment="Center"
+                                       Foreground="#FFF1E3C4" FontSize="{DynamicResource FontSize}" FontFamily="{DynamicResource FontFamily}" />
+                        </Border>
 
                         <Border Grid.Row="1"
                                 BorderBrush="{DynamicResource PanelSeparatorBrush}">

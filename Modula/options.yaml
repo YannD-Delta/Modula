@@ -955,6 +955,9 @@ Presets:
                     HeaderRowBackgroundOpacity:
                         Type: Double
                         Value: '1'
+                    HeaderBandEdge:
+                        Type: Int32
+                        Value: '0'
                     HeaderRowPadding:
                         Type: Thickness
                         Value: '20,10,30,10'
@@ -2141,6 +2144,9 @@ Presets:
                     HeaderRowBackgroundOpacity:
                         Type: Double
                         Value: '1'
+                    HeaderBandEdge:
+                        Type: Int32
+                        Value: '0'
                     HeaderRowPadding:
                         Type: Thickness
                         Value: '20,10,30,10'
@@ -2170,6 +2176,9 @@ Presets:
                     HeaderRowBackgroundOpacity:
                         Type: Double
                         Value: '1'
+                    HeaderBandEdge:
+                        Type: Int32
+                        Value: '0'
                     HeaderRowPadding:
                         Type: Thickness
                         Value: '20,10,30,10'
@@ -2193,6 +2202,101 @@ Presets:
                     HeaderBarStyleVisible:
                         Type: Boolean
                         Value: 'False'
+    HeaderBandEdge:
+        Name: 'Edges of the bands behind the header row'
+        LocKey: LOCHNDPresetHeaderBandEdge
+        Presets:
+            Default:
+                Name: 'Fade out at both sides'
+                LocKey: LOCHNDPresetHeaderBandEdgeDefault
+            Square:
+                Name: 'Square edges'
+                LocKey: LOCHNDPresetHeaderBandEdgeSquare
+                Constants:
+                    HeaderBandEdge:
+                        Type: Int32
+                        Value: '0'
+            Soft:
+                Name: 'Fade out on every edge'
+                LocKey: LOCHNDPresetHeaderBandEdgeSoft
+                Constants:
+                    HeaderBandEdge:
+                        Type: Int32
+                        Value: '2'
+    ControlOutline:
+        Name: 'Outline of controls (boxes, lists, buttons, text fields)'
+        LocKey: LOCHNDPresetControlOutline
+        Presets:
+            Default:
+                Name: 'Glass outline'
+                LocKey: LOCHNDPresetControlOutlineDefault
+            None:
+                Name: 'No outline'
+                LocKey: LOCHNDPresetControlOutlineNone
+                Constants:
+                    ControlBorderThickness:
+                        Type: Thickness
+                        Value: '0'
+    Scrollbars:
+        Name: 'Scroll bars'
+        LocKey: LOCHNDPresetScrollbars
+        Presets:
+            Default:
+                Name: 'Slim bars'
+                LocKey: LOCHNDPresetScrollbarsDefault
+            Hidden:
+                Name: 'Hidden (the wheel and touch still scroll)'
+                LocKey: LOCHNDPresetScrollbarsHidden
+                Constants:
+                    ScrollbarThumbWidth:
+                        Type: Double
+                        Value: '0'
+                    ScrollbarThumbHoverWidth:
+                        Type: Double
+                        Value: '0'
+                    ScrollbarThumbRim:
+                        Type: Thickness
+                        Value: '0'
+                    ScrollbarThumbOpacity:
+                        Type: Double
+                        Value: '0'
+    HeroCoverShape:
+        Name: 'Cover shape in the artwork card'
+        LocKey: LOCHNDPresetHeroCoverShape
+        Presets:
+            Default:
+                Name: '2:3 poster (230 x 345)'
+                LocKey: LOCHNDPresetHeroCoverShapeDefault
+            Large:
+                Name: '2:3 poster, large (280 x 420)'
+                LocKey: LOCHNDPresetHeroCoverShapeLarge
+                Constants:
+                    HeroCoverWidth:
+                        Type: Double
+                        Value: '280'
+                    HeroCoverHeight:
+                        Type: Double
+                        Value: '420'
+            Square:
+                Name: 'Square 1:1 (300 x 300)'
+                LocKey: LOCHNDPresetHeroCoverShapeSquare
+                Constants:
+                    HeroCoverWidth:
+                        Type: Double
+                        Value: '300'
+                    HeroCoverHeight:
+                        Type: Double
+                        Value: '300'
+            Wide:
+                Name: 'Wide 4:3 (340 x 255)'
+                LocKey: LOCHNDPresetHeroCoverShapeWide
+                Constants:
+                    HeroCoverWidth:
+                        Type: Double
+                        Value: '340'
+                    HeroCoverHeight:
+                        Type: Double
+                        Value: '255'
     TileSlot1:
         Name: 'Tile 1 (from the left)'
         LocKey: LOCHNDPresetTileSlot1
@@ -5539,6 +5643,32 @@ Variables:
             Min: '0'
             Max: '80'
             Step: '1'
+    WindowGlassBackgroundWarning:
+        Title: 'Warn when Playnite does not give the artwork to the theme'
+        LocKey: LOCHNDOptWindowGlassBackgroundWarning
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows a notice under the top bar when the glass is on but Playnite''s option "Show background image on the window" is off (the glass then has no artwork to show).'
+    HelpWindowGlassBackgroundWarning:
+        Title: 'Shows a notice under the top bar when the glass is on but Playnite''s option "Show background image on the window" is off (the glass then has no artwork to show).'
+        LocKey: LOCHNDTipWindowGlassBackgroundWarning
+        Type: Thickness
+        Default: '0'
+    SidePanelFrostOpacity:
+        Title: 'Filter and explorer panels: glass frost'
+        LocKey: LOCHNDOptSidePanelFrostOpacity
+        Type: Double
+        Default: '0.1'
+        Description: 'A light glass fill over the filter panel and the explorer panel, like the sections. 0 = none (the panel keeps only its dark tint, set in Background and glass).'
+        Slider:
+            Min: '0'
+            Max: '0.5'
+            Step: '0.01'
+    HelpSidePanelFrostOpacity:
+        Title: 'A light glass fill over the filter panel and the explorer panel, like the sections. 0 = none (the panel keeps only its dark tint, set in Background and glass).'
+        LocKey: LOCHNDTipSidePanelFrostOpacity
+        Type: Thickness
+        Default: '0'
     HeaderTopPanel:
         Title: 'Top panel and sidebar'
         LocKey: LOCHNDHeaderTopPanel
@@ -5810,6 +5940,131 @@ Variables:
         Type: Thickness
         Default: '0'
         Preview: 'HeroCover_Inside'
+    HeroCoverShowWhole:
+        Title: 'Show the whole cover (no cropping)'
+        LocKey: LOCHNDOptHeroCoverShowWhole
+        Type: Boolean
+        Default: 'False'
+        Description: 'Off: the cover fills its box and is cropped to it, which can cut a logo. On: the whole cover is shown and its box takes the cover''s own shape, inside the width and height above.'
+    HelpHeroCoverShowWhole:
+        Title: 'Off: the cover fills its box and is cropped to it, which can cut a logo. On: the whole cover is shown and its box takes the cover''s own shape, inside the width and height above.'
+        LocKey: LOCHNDTipHeroCoverShowWhole
+        Type: Thickness
+        Default: '0'
+    HeroCoverMargin:
+        Title: 'Cover position (over the card edge)'
+        LocKey: LOCHNDOptHeroCoverMargin
+        Type: Thickness
+        Default: '20,0,0,6'
+        Description: 'Space around the cover when it sits over the card edge and the tiles: left, top, right, bottom.'
+    HelpHeroCoverMargin:
+        Title: 'Space around the cover when it sits over the card edge and the tiles: left, top, right, bottom.'
+        LocKey: LOCHNDTipHeroCoverMargin
+        Type: Thickness
+        Default: '0'
+    HeroCoverInsideMargin:
+        Title: 'Cover position (inside the card)'
+        LocKey: LOCHNDOptHeroCoverInsideMargin
+        Type: Thickness
+        Default: '20,0,0,20'
+        Description: 'Space around the cover when it sits inside the card: left, top, right, bottom.'
+    HelpHeroCoverInsideMargin:
+        Title: 'Space around the cover when it sits inside the card: left, top, right, bottom.'
+        LocKey: LOCHNDTipHeroCoverInsideMargin
+        Type: Thickness
+        Default: '0'
+    HeroCoverBorderColor:
+        Title: 'Cover outline color'
+        LocKey: LOCHNDOptHeroCoverBorderColor
+        Type: Color
+        Default: '#59FFFFFF'
+    AchievementBarColor:
+        Title: 'Achievements progress bar: fill color'
+        LocKey: LOCHNDOptAchievementBarColor
+        Type: Color
+        Default: '#2d73ff'
+    AchievementBarTrackColor:
+        Title: 'Achievements progress bar: track color'
+        LocKey: LOCHNDOptAchievementBarTrackColor
+        Type: Color
+        Default: '#151619'
+    HeroActionsMarginRight:
+        Title: 'Play buttons position (at the right of the card)'
+        LocKey: LOCHNDOptHeroActionsMarginRight
+        Type: Thickness
+        Default: '0,0,28,22'
+        Description: 'Space around the Play, edit and favorite buttons when they sit at the right of the card: left, top, right, bottom.'
+    HelpHeroActionsMarginRight:
+        Title: 'Space around the Play, edit and favorite buttons when they sit at the right of the card: left, top, right, bottom.'
+        LocKey: LOCHNDTipHeroActionsMarginRight
+        Type: Thickness
+        Default: '0'
+    HeroTopLeftMargin:
+        Title: 'Top-left corner of the banner: position'
+        LocKey: LOCHNDOptHeroTopLeftMargin
+        Type: Thickness
+        Default: '20,20,0,0'
+        Description: 'Space around the language flags and the source selector at the top left of the banner.'
+    HelpHeroTopLeftMargin:
+        Title: 'Space around the language flags and the source selector at the top left of the banner.'
+        LocKey: LOCHNDTipHeroTopLeftMargin
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowReleaseDate:
+        Title: 'Information panel: show release date'
+        LocKey: LOCHNDOptInfoPanelShowReleaseDate
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the release date row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+    HelpInfoPanelShowReleaseDate:
+        Title: 'Shows the release date row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+        LocKey: LOCHNDTipInfoPanelShowReleaseDate
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowPlatforms:
+        Title: 'Information panel: show platform'
+        LocKey: LOCHNDOptInfoPanelShowPlatforms
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the platform row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+    HelpInfoPanelShowPlatforms:
+        Title: 'Shows the platform row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+        LocKey: LOCHNDTipInfoPanelShowPlatforms
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowDevelopers:
+        Title: 'Information panel: show developer'
+        LocKey: LOCHNDOptInfoPanelShowDevelopers
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the developer row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+    HelpInfoPanelShowDevelopers:
+        Title: 'Shows the developer row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+        LocKey: LOCHNDTipInfoPanelShowDevelopers
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowInstallSize:
+        Title: 'Information panel: show install size'
+        LocKey: LOCHNDOptInfoPanelShowInstallSize
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the install size row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+    HelpInfoPanelShowInstallSize:
+        Title: 'Shows the install size row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+        LocKey: LOCHNDTipInfoPanelShowInstallSize
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowSource:
+        Title: 'Information panel: show source'
+        LocKey: LOCHNDOptInfoPanelShowSource
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the source row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+    HelpInfoPanelShowSource:
+        Title: 'Shows the source row in the information panel. Turn it off when the same information is already shown in the chips or the header tiles.'
+        LocKey: LOCHNDTipInfoPanelShowSource
+        Type: Thickness
+        Default: '0'
     HeaderHeroMusic:
         Title: 'Details view - artwork header: music player'
         LocKey: LOCHNDHeaderHeroMusic
@@ -5825,6 +6080,31 @@ Variables:
         LocKey: LOCHNDTipHeroShowMusicPlayer
         Type: Thickness
         Default: '0'
+    HeaderHeroPlayers:
+        Title: 'Details view - artwork header: players online'
+        LocKey: LOCHNDHeaderHeroPlayers
+        Type: Header
+    HeroShowPlayersCount:
+        Title: 'Show the players online'
+        LocKey: LOCHNDOptHeroShowPlayersCount
+        Type: Boolean
+        Default: 'True'
+        Description: 'The number of Steam players online (News Viewer extension), large above the cover. It only shows for games the extension finds on Steam.'
+    HelpHeroShowPlayersCount:
+        Title: 'The number of Steam players online (News Viewer extension), large above the cover. It only shows for games the extension finds on Steam.'
+        LocKey: LOCHNDTipHeroShowPlayersCount
+        Type: Thickness
+        Default: '0'
+    HeroPlayersCountFontSize:
+        Title: 'Players online: text size'
+        LocKey: LOCHNDOptHeroPlayersCountFontSize
+        Type: Double
+        Default: '28'
+        Description: 'Size of the players online number.'
+        Slider:
+            Min: '14'
+            Max: '60'
+            Step: '1'
     HeaderHeroChips:
         Title: 'Details view - information chips'
         LocKey: LOCHNDHeaderHeroChips
@@ -6188,6 +6468,41 @@ Variables:
         LocKey: LOCHNDTipGridCoverShowAchievements
         Type: Thickness
         Default: '0'
+    HeaderDetailsLabels:
+        Title: 'Details view - section titles and labels'
+        LocKey: LOCHNDHeaderDetailsLabels
+        Type: Header
+    SectionTitleMargin:
+        Title: 'Section title: space around'
+        LocKey: LOCHNDOptSectionTitleMargin
+        Type: Thickness
+        Default: '0,0,0,10'
+        Description: 'Space around the title of each section (GENRES, TAGS...): left, top, right, bottom.'
+    HelpSectionTitleMargin:
+        Title: 'Space around the title of each section (GENRES, TAGS...): left, top, right, bottom.'
+        LocKey: LOCHNDTipSectionTitleMargin
+        Type: Thickness
+        Default: '0'
+    HeaderLabelOpacity:
+        Title: 'Labels: strength'
+        LocKey: LOCHNDOptHeaderLabelOpacity
+        Type: Double
+        Default: '0.52'
+        Description: 'How strong the small labels are (1 = full text color, lower = fainter).'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    HeaderTextOpacity:
+        Title: 'Secondary text: strength'
+        LocKey: LOCHNDOptHeaderTextOpacity
+        Type: Double
+        Default: '0.32'
+        Description: 'How strong the secondary header text is (1 = full text color, lower = fainter).'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
     HeaderTabs:
         Title: 'Details view - tabs'
         LocKey: LOCHNDHeaderTabs
@@ -6203,6 +6518,16 @@ Variables:
         LocKey: LOCHNDTipDetailsViewTabsMode
         Type: Thickness
         Default: '0'
+    DetailsTabMargin:
+        Title: 'Tabs: space around each tab'
+        LocKey: LOCHNDOptDetailsTabMargin
+        Type: Thickness
+        Default: '0,0,8,6'
+    DetailsTabPadding:
+        Title: 'Tabs: space inside each tab'
+        LocKey: LOCHNDOptDetailsTabPadding
+        Type: Thickness
+        Default: '14,5,14,6'
     DetailsViewTabNotes:
         Title: 'Tab: Notes'
         LocKey: LOCHNDOptDetailsViewTabNotes
@@ -8156,7 +8481,7 @@ Variables:
         Title: 'Header cards: padding of the whole row'
         LocKey: LOCHNDOptHeaderRowPadding
         Type: Thickness
-        Default: '0,14,0,18'
+        Default: '0,16,0,18'
     HeaderWindowMore:
         Title: 'Window background: more'
         LocKey: LOCHNDHeaderWindowMore

@@ -23,7 +23,7 @@
                                        HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                             <!-- Console-style depth: the artwork of the selected game fills the screen, darkened where the text sits -->
-                            <Border Grid.RowSpan="3" IsHitTestVisible="False">
+                            <Border Grid.RowSpan="3" IsHitTestVisible="False" Opacity="{DynamicResource FsBackgroundDarkness}">
                                 <Border.Background>
                                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                         <GradientStop Color="#99050810" Offset="0" />
@@ -34,7 +34,7 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                             </Border>
-                            <Border Grid.RowSpan="3" IsHitTestVisible="False">
+                            <Border Grid.RowSpan="3" IsHitTestVisible="False" Opacity="{DynamicResource FsBackgroundDarkness}">
                                 <Border.Background>
                                     <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
                                         <GradientStop Color="#B3050810" Offset="0" />
@@ -141,7 +141,8 @@
                                 </ButtonEx>
                             </Grid>
 
-                            <DockPanel Grid.Row="1">
+                            <!-- above the selected-game block: the filter panel must cover it, not the other way round -->
+                            <DockPanel Grid.Row="1" Panel.ZIndex="5">
                                 <Filters x:Name="PART_ElemFilters"
                                          DockPanel.Dock="Left" Focusable="False" />
 

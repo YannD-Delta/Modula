@@ -142,6 +142,8 @@
     <sys:Double x:Key="HeroCoverWidth">230</sys:Double>
     <sys:Double x:Key="HeroCoverHeight">345</sys:Double>
     <CornerRadius x:Key="HeroCoverCornerRadius">16</CornerRadius>
+    <!-- False = the cover fills its box and is cropped to it; True = the whole cover, the box takes the cover's own ratio inside Width x Height -->
+    <sys:Boolean x:Key="HeroCoverShowWhole">False</sys:Boolean>
     <x:Null x:Key="HeroBackgroundEffect" />
     <sys:Boolean x:Key="DetailsViewShowHeaderBar">True</sys:Boolean>
     <sys:Double x:Key="HeaderBarBlurOpacity">0</sys:Double>
@@ -149,6 +151,9 @@
     <sys:Boolean x:Key="HeroShowInfoLine">True</sys:Boolean>
     <!-- The UniPlaySong player in the banner (UPS_MediaControllerBar). Hidden when the extension is missing or nothing plays. -->
     <sys:Boolean x:Key="HeroShowMusicPlayer">True</sys:Boolean>
+    <!-- Steam players online (News Viewer control), large above the banner cover. Hidden when False; the control stays empty for games without a Steam page. -->
+    <sys:Boolean x:Key="HeroShowPlayersCount">True</sys:Boolean>
+    <sys:Double x:Key="HeroPlayersCountFontSize">28</sys:Double>
     <!-- Set by presets only (presets must not set variables) -->
     <sys:Boolean x:Key="HeroStyleShowInfoLine">True</sys:Boolean>
     <sys:Boolean x:Key="HeaderBarStyleVisible">True</sys:Boolean>
@@ -174,7 +179,21 @@
     <sys:Boolean x:Key="InfoPanelStyleShowCover">False</sys:Boolean>
     <!-- Header bar items drawn as tiles (transparent tile and 20 px gap = classic bar) -->
     <sys:Double x:Key="HeaderRowBackgroundOpacity">0</sys:Double>
-    <Thickness x:Key="HeaderRowPadding">0,14,0,18</Thickness>
+    <!-- Edges of the bands behind the header row (blurred artwork, glass, row band): 0 = square edges, 1 = fade out at both sides, 2 = fade out on every edge. Set by the "Band edges" preset. -->
+    <sys:Int32 x:Key="HeaderBandEdge">1</sys:Int32>
+    <LinearGradientBrush x:Key="HeaderBandFadeSides" StartPoint="0,0.5" EndPoint="1,0.5">
+        <GradientStop Color="#00000000" Offset="0" />
+        <GradientStop Color="#FF000000" Offset="0.08" />
+        <GradientStop Color="#FF000000" Offset="0.92" />
+        <GradientStop Color="#00000000" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="HeaderBandFadeTopBottom" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#00000000" Offset="0" />
+        <GradientStop Color="#FF000000" Offset="0.3" />
+        <GradientStop Color="#FF000000" Offset="0.7" />
+        <GradientStop Color="#00000000" Offset="1" />
+    </LinearGradientBrush>
+    <Thickness x:Key="HeaderRowPadding">0,16,0,18</Thickness>
     <sys:Double x:Key="HeaderTileBackgroundOpacity">0.14</sys:Double>
     <!-- Tile color follows the text color of the color profile -->
     <CornerRadius x:Key="HeaderTileCornerRadius">16</CornerRadius>
@@ -187,6 +206,8 @@
          WindowGlassEnabled turns it on; the page glass above is then hidden because the window glass replaces it.
          The four panel opacities (top bar, left icon bar, game list, filter panel) are the opacity of each panel's own background (1 = opaque, lower = the artwork shows through, so the zone looks lighter or darker). -->
     <sys:Boolean x:Key="WindowGlassEnabled">True</sys:Boolean>
+    <!-- Notice under the top bar when the glass is on but Playnite's "Show background image on the window" is off (the glass would have no artwork) -->
+    <sys:Boolean x:Key="WindowGlassBackgroundWarning">True</sys:Boolean>
     <sys:Double x:Key="WindowGlassOpacity">1</sys:Double>
     <sys:Double x:Key="WindowGlassBlurRadius">36</sys:Double>
     <sys:Double x:Key="WindowGlassScrimOpacity">0.42</sys:Double>
@@ -194,6 +215,12 @@
     <sys:Double x:Key="SidebarGlassOpacity">0.34</sys:Double>
     <sys:Double x:Key="LibraryPanelGlassOpacity">0.3</sys:Double>
     <sys:Double x:Key="FilterPanelGlassOpacity">0.3</sys:Double>
+    <!-- Frost over the filter panel and the explorer panel: the section glass fill, so they read as glass slabs over the window artwork instead of flat blocks -->
+    <sys:Double x:Key="SidePanelFrostOpacity">0.1</sys:Double>
+    <LinearGradientBrush x:Key="SidePanelFrostBrush" StartPoint="0.5,0" EndPoint="0.5,1" Opacity="{DynamicResource SidePanelFrostOpacity}">
+        <GradientStop Color="#FFFFFFFF" Offset="0" />
+        <GradientStop Color="#8CFFFFFF" Offset="1" />
+    </LinearGradientBrush>
     <Thickness x:Key="WindowGlassBleed">-60</Thickness>
     <!-- Glass panels (sections, information panel) and glass chips; colors follow the profile text color -->
     <CornerRadius x:Key="SectionCornerRadius">18</CornerRadius>
@@ -215,13 +242,31 @@
     <sys:Double x:Key="GlassPopupShadowOpacity">0.55</sys:Double>
     <Thickness x:Key="GlassPopupShadowRoom">10</Thickness>
     <!-- Cover in the header -->
-    <sys:Double x:Key="HeroCoverShadowBlur">36</sys:Double>
+    <sys:Double x:Key="HeroCoverShadowBlur">30</sys:Double>
     <sys:Double x:Key="HeroCoverShadowDepth">10</sys:Double>
     <sys:Double x:Key="HeroCoverShadowOpacity">0.55</sys:Double>
-    <Thickness x:Key="HeroCoverBorderThickness">1.5</Thickness>
+    <Thickness x:Key="HeroCoverBorderThickness">2</Thickness>
+    <!-- Where the cover sits on the banner: over the card edge (placement 0) and inside the card (placement 1); outline color of the cover -->
+    <Thickness x:Key="HeroCoverMargin">20,0,0,6</Thickness>
+    <Thickness x:Key="HeroCoverInsideMargin">20,0,0,20</Thickness>
+    <!-- Play / edit buttons when they sit at the right of the card (HeroActionsLocation 2); flags and source selector at the top left of the banner -->
+    <Thickness x:Key="HeroActionsMarginRight">0,0,28,22</Thickness>
+    <Thickness x:Key="HeroTopLeftMargin">20,20,0,0</Thickness>
+    <Color x:Key="HeroCoverBorderColor">#59FFFFFF</Color>
+    <SolidColorBrush x:Key="HeroCoverBorderBrush" Color="{DynamicResource HeroCoverBorderColor}" />
+    <!-- Achievement progress bars (hero chip, header tile, achievements section): fill and track -->
+    <Color x:Key="AchievementBarColor">#2d73ff</Color>
+    <Color x:Key="AchievementBarTrackColor">#151619</Color>
+    <SolidColorBrush x:Key="AchievementBarBrush" Color="{DynamicResource AchievementBarColor}" />
+    <SolidColorBrush x:Key="AchievementBarTrackBrush" Color="{DynamicResource AchievementBarTrackColor}" />
+    <!-- Tabs of the details view (tabs mode): space around each tab and inside it -->
+    <Thickness x:Key="DetailsTabMargin">0,0,8,6</Thickness>
+    <Thickness x:Key="DetailsTabPadding">14,5,14,6</Thickness>
     <!-- Scrollbar -->
     <sys:Double x:Key="ScrollbarThumbWidth">6</sys:Double>
     <sys:Double x:Key="ScrollbarThumbHoverWidth">10</sys:Double>
+    <Thickness x:Key="ScrollbarThumbRim">1</Thickness>
+    <sys:Double x:Key="ScrollbarThumbOpacity">1</sys:Double>
     <!-- Spacing without a constant yet (Comfortable density). The other spacing keys already exist: SectionChipsMargin, SectionChipMargin, LinksChipMargin, SectionBodyPadding, SectionHeaderMargin, SectionBodyMargin, InfoPanelGap, InfoPanelPadding -->
     <Thickness x:Key="HeroChipPadding">10,3,10,4</Thickness>
     <Thickness x:Key="HeroChipSpacing">0,0,8,6</Thickness>
@@ -377,6 +422,16 @@
     <Thickness x:Key="HeaderTileCardGap">0,0,12,0</Thickness>
     <Thickness x:Key="HeaderTileCardGapBack">0,0,-12,0</Thickness>
     <!-- Margins and spacing of the details page (Layout Studio: Details view - margins and spacing) -->
+    <!-- Information shown once: each row of the information panel can be switched off (the hero chips have HeroShow*, the header tiles their slots) -->
+    <sys:Boolean x:Key="InfoPanelShowReleaseDate">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowPlatforms">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowDevelopers">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowInstallSize">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowSource">True</sys:Boolean>
+    <!-- Section titles (GENRES, TAGS...) and the small labels over the header tiles / the information panel -->
+    <Thickness x:Key="SectionTitleMargin">0,0,0,10</Thickness>
+    <sys:Double x:Key="HeaderLabelOpacity">0.52</sys:Double>
+    <sys:Double x:Key="HeaderTextOpacity">0.32</sys:Double>
     <Thickness x:Key="InfoPanelGap">0,0,0,16</Thickness>
     <Thickness x:Key="InfoPanelPadding">16,12,16,12</Thickness>
     <sys:Double x:Key="InfoPanelMinHeight">150</sys:Double>
@@ -716,7 +771,8 @@
     <FontFamily x:Key="MonospaceFontFamily">Consolas</FontFamily>
     <Thickness x:Key="PopupMenuPadding">0</Thickness>
     <Thickness x:Key="PopupBorderThickness">0</Thickness>
-    <Thickness x:Key="ControlBorderThickness">0</Thickness>
+    <!-- Outline of the standard controls (boxes, lists, buttons, text fields): 1 = the glass rim, 0 = no outline (before 3.2). Set by the "Control outlines" preset. -->
+    <Thickness x:Key="ControlBorderThickness">1</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">0</sys:Double>
     <sys:Double x:Key="ControlCornerRadiusValue">8</sys:Double>
     <CornerRadius x:Key="ControlCornerRadius">8</CornerRadius>

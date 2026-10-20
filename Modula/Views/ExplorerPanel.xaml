@@ -25,6 +25,9 @@
                                 </Style.Triggers>
                             </Style>
                         </Border.Style>
+                        <Grid>
+                        <!-- Frost: the same glass fill as the sections, over the window artwork (SidePanelFrostOpacity, 0 = off) -->
+                        <Border Background="{DynamicResource SidePanelFrostBrush}" IsHitTestVisible="False" Panel.ZIndex="-1" />
                         <DockPanel Background="{TemplateBinding Background}">
                             <DockPanel DockPanel.Dock="Top" LastChildFill="True"
                                        Margin="5,8,5,8">
@@ -42,6 +45,7 @@
                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                             </ListBox>
                         </DockPanel>
+                        </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

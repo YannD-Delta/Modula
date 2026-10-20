@@ -26,6 +26,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
                             <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Opacity" Value="0.45" TargetName="SelectionBullet" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Foreground" Value="White" />

@@ -72,7 +72,7 @@
         <Setter Property="Foreground" Value="{DynamicResource DetailsViewOverviewHeaderLabelBrush}"/>
         <Setter Property="Typography.Capitals" Value="AllSmallCaps"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="Opacity" Value="0.52"/>
+        <Setter Property="Opacity" Value="{DynamicResource HeaderLabelOpacity}"/>
     </Style>
 
     <Style TargetType="Label" x:Key="ContainerLabel">
@@ -87,7 +87,7 @@
     <Style TargetType="TextBlock" x:Key="HeaderTextBlock">
         <Setter Property="FontSize" Value="{DynamicResource FontSize}"/>
         <Setter Property="Foreground" Value="{DynamicResource DetailsViewOverviewHeaderTextBlockBrush}"/>
-        <Setter Property="Opacity" Value="0.32"/>
+        <Setter Property="Opacity" Value="{DynamicResource HeaderTextOpacity}"/>
     </Style>
 
     <Style TargetType="Label" x:Key="FeedSectionLabel">
@@ -96,7 +96,7 @@
         <Setter Property="FontWeight" Value="{DynamicResource WeightSection}" />
         <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
-        <Setter Property="Margin" Value="0,0,0,10" />
+        <Setter Property="Margin" Value="{DynamicResource SectionTitleMargin}" />
     </Style>
 
     <!-- Fill: top-lit translucent gradient (SectionGlassBrush, strength = SectionGlassOpacity) -->

@@ -5853,7 +5853,7 @@
                                             </Border>
                                         </StackPanel>
                                         </DockPanel>
-                                        <StackPanel Margin="20,20,0,0"
+                                        <StackPanel Margin="{DynamicResource HeroTopLeftMargin}"
                                                     HorizontalAlignment="Left" VerticalAlignment="Top">
                                             <ContentControl x:Name="CheckLocalizations_PluginFlags" Height="30"
                                                             Margin="0,0,0,10"
@@ -5868,13 +5868,6 @@
 
                                         <StackPanel Margin="0,0,30,0" VerticalAlignment="Top" HorizontalAlignment="Right">
                                             <!--GridConverterGridPanelCloseButton-->
-                                            <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl"
-                                                        Margin="0,20,0,0"
-                                                        HorizontalAlignment="Right" VerticalAlignment="Top">
-                                                <ContentControl.Resources>
-                                                    <Style TargetType="Button" BasedOn="{StaticResource PlayersCountButtonStyle}" />
-                                                </ContentControl.Resources>
-                                            </ContentControl>
 
                                             <Border Margin="0,10,0,0"
                                                     Background="{DynamicResource DetailsViewBannerPanelBackgroundBrush}"
@@ -5888,31 +5881,57 @@
                                     </Grid>
                                     <Grid Grid.Row="1" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource HeaderBarStyleVisible}">
                                         <Grid Name="DetailsHeader" Style="{DynamicResource SectionToggleGrid}" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[DetailsViewShowHeaderBar], FallbackValue={StaticResource DetailsViewShowHeaderBar}, TargetNullValue={StaticResource DetailsViewShowHeaderBar}}">
-                                            <Border Height="{Binding ElementName=DetailsHeader, Path=Height}" ClipToBounds="True" Opacity="{DynamicResource HeaderBarBlurOpacity}" Tag="{DynamicResource HeaderBarBlurOpacity}">
-                                                <Border.Style>
-                                                    <Style TargetType="Border">
-                                                        <Style.Triggers><DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="0"><Setter Property="Visibility" Value="Hidden" /></DataTrigger></Style.Triggers>
+                                            <!-- The bands behind the header row (blurred artwork, glass, row band): HeaderBandEdge 0 = square edges, 1 = fade out at both sides, 2 = fade out on every edge -->
+                                            <Grid x:Name="HeaderBandsH" IsHitTestVisible="False" Tag="{DynamicResource HeaderBandEdge}">
+                                                <Grid.Style>
+                                                    <Style TargetType="Grid">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="1">
+                                                                <Setter Property="OpacityMask" Value="{DynamicResource HeaderBandFadeSides}" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="2">
+                                                                <Setter Property="OpacityMask" Value="{DynamicResource HeaderBandFadeSides}" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
                                                     </Style>
-                                                </Border.Style>
-                                                <Border.CacheMode>
-                                                    <BitmapCache EnableClearType="False" RenderAtScale="0.125"
-                                                                 SnapsToDevicePixels="False" />
-                                                </Border.CacheMode>
-                                                <Border.Background>
-                                                    <VisualBrush Visual="{Binding ElementName=BorderImageBackground}" Stretch="None" AlignmentY="Bottom"/>
-                                                </Border.Background>
-                                                <Border.Effect>
-                                                    <BlurEffect Radius="24" KernelType="Gaussian" RenderingBias="Performance"/>
-                                                </Border.Effect>
-                                            </Border>
-                                            <Border Background="{DynamicResource BackdropGlass1}" Opacity="{DynamicResource HeaderBarGlassOpacity}"/>
-                                            <Border Background="{DynamicResource DetailsSectionBackgroundBrush}" Opacity="{DynamicResource HeaderRowBackgroundOpacity}" IsHitTestVisible="False" />
+                                                </Grid.Style>
+                                                <Grid x:Name="HeaderBandsV" Tag="{DynamicResource HeaderBandEdge}">
+                                                    <Grid.Style>
+                                                        <Style TargetType="Grid">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="2">
+                                                                    <Setter Property="OpacityMask" Value="{DynamicResource HeaderBandFadeTopBottom}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Grid.Style>
+                                                    <Border Height="{Binding ElementName=DetailsHeader, Path=Height}" ClipToBounds="True" Opacity="{DynamicResource HeaderBarBlurOpacity}" Tag="{DynamicResource HeaderBarBlurOpacity}">
+                                                        <Border.Style>
+                                                            <Style TargetType="Border">
+                                                                <Style.Triggers><DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="0"><Setter Property="Visibility" Value="Hidden" /></DataTrigger></Style.Triggers>
+                                                            </Style>
+                                                        </Border.Style>
+                                                        <Border.CacheMode>
+                                                            <BitmapCache EnableClearType="False" RenderAtScale="0.125"
+                                                                         SnapsToDevicePixels="False" />
+                                                        </Border.CacheMode>
+                                                        <Border.Background>
+                                                            <VisualBrush Visual="{Binding ElementName=BorderImageBackground}" Stretch="None" AlignmentY="Bottom"/>
+                                                        </Border.Background>
+                                                        <Border.Effect>
+                                                            <BlurEffect Radius="24" KernelType="Gaussian" RenderingBias="Performance"/>
+                                                        </Border.Effect>
+                                                    </Border>
+                                                    <Border Background="{DynamicResource BackdropGlass1}" Opacity="{DynamicResource HeaderBarGlassOpacity}"/>
+                                                    <Border Background="{DynamicResource DetailsSectionBackgroundBrush}" Opacity="{DynamicResource HeaderRowBackgroundOpacity}" IsHitTestVisible="False" />
+                                                </Grid>
+                                            </Grid>
                                             <Border Padding="{DynamicResource HeaderRowPadding}" x:Name="HeaderRow" Background="Transparent">
                                                 <DockPanel>
                                                     <DockPanel.Resources>
                                                         <Style x:Key="RoundedProgressBar" TargetType="ProgressBar">
-                                                            <Setter Property="Background" Value="#151619" />
-                                                            <Setter Property="Foreground" Value="#2d73ff" />
+                                                            <Setter Property="Background" Value="{DynamicResource AchievementBarTrackBrush}" />
+                                                            <Setter Property="Foreground" Value="{DynamicResource AchievementBarBrush}" />
                                                             <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
                                                             <Setter Property="Template">
                                                                 <Setter.Value>
@@ -6354,7 +6373,7 @@
                                                                                             Maximum="{PluginSettings Plugin=PlayniteAchievements, Path=AchievementCount, FallbackValue=0}"
                                                                                             Value="{PluginSettings Plugin=PlayniteAchievements, Path=UnlockedCount, FallbackValue=0}"
                                                                                             HorizontalAlignment="Left"
-                                                                                            Background="#151619" Foreground="#2d73ff"
+                                                                                            Background="{DynamicResource AchievementBarTrackBrush}" Foreground="{DynamicResource AchievementBarBrush}"
                                                                                             Height="6"
                                                                                             Style="{DynamicResource RoundedProgressBar}"
                                                                                             Width="{Binding ActualWidth, ElementName=DockAchievementsBar}" />
@@ -7514,11 +7533,11 @@
                                             <Style TargetType="Grid">
                                                 <Setter Property="Grid.Row" Value="0" />
                                                 <Setter Property="Grid.RowSpan" Value="2" />
-                                                <Setter Property="Margin" Value="20,0,0,6" />
+                                                <Setter Property="Margin" Value="{DynamicResource HeroCoverMargin}" />
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="1">
                                                         <Setter Property="Grid.RowSpan" Value="1" />
-                                                        <Setter Property="Margin" Value="20,0,0,20" />
+                                                        <Setter Property="Margin" Value="{DynamicResource HeroCoverInsideMargin}" />
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="2">
                                                         <Setter Property="Visibility" Value="Collapsed" />
@@ -7529,16 +7548,70 @@
                                                 </Style.Triggers>
                                             </Style>
                                         </Grid.Style>
-                                        <Border BorderBrush="#59FFFFFF" BorderThickness="2" CornerRadius="{DynamicResource HeroCoverCornerRadius}"
+                                        <!-- HeroCoverShowWhole off: the cover fills the W x H box and is cropped to it (UniformToFill). On: the whole cover is shown, the box shrinks to the cover's own ratio inside W x H. -->
+                                        <StackPanel>
+                                        <!-- Steam players online (News Viewer): large and permanent above the cover. HeroShowPlayersCount hides it, HeroPlayersCountFontSize sizes it. -->
+                                        <ContentControl x:Name="NewsViewer_PlayersInGameViewerControl" Tag="{DynamicResource HeroShowPlayersCount}" Margin="0,0,0,8"
+                                                        HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                                        MaxWidth="{PluginSettings Plugin=LayoutStudio, Path=Options[HeroCoverWidth], FallbackValue={StaticResource HeroCoverWidth}, TargetNullValue={StaticResource HeroCoverWidth}}">
+                                            <ContentControl.Style>
+                                                <Style TargetType="ContentControl">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="False">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ContentControl.Style>
+                                            <ContentControl.Resources>
+                                                <Style TargetType="Button" BasedOn="{StaticResource PlayersCountHeroStyle}" />
+                                            </ContentControl.Resources>
+                                        </ContentControl>
+                                        <Grid>
+                                        <Border x:Name="HeroCoverCropped" Tag="{DynamicResource HeroCoverShowWhole}" BorderBrush="{DynamicResource HeroCoverBorderBrush}" BorderThickness="{DynamicResource HeroCoverBorderThickness}" CornerRadius="{DynamicResource HeroCoverCornerRadius}"
                                                 Width="{PluginSettings Plugin=LayoutStudio, Path=Options[HeroCoverWidth], FallbackValue={StaticResource HeroCoverWidth}, TargetNullValue={StaticResource HeroCoverWidth}}"
                                                 Height="{PluginSettings Plugin=LayoutStudio, Path=Options[HeroCoverHeight], FallbackValue={StaticResource HeroCoverHeight}, TargetNullValue={StaticResource HeroCoverHeight}}">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
                                             <Border.Background>
                                                 <ImageBrush ImageSource="{Binding Game.CoverImageObjectCached}" Stretch="UniformToFill" />
                                             </Border.Background>
                                             <Border.Effect>
-                                                <DropShadowEffect BlurRadius="30" ShadowDepth="10" Direction="270" Opacity="0.55" RenderingBias="Performance" />
+                                                <DropShadowEffect BlurRadius="{DynamicResource HeroCoverShadowBlur}" ShadowDepth="{DynamicResource HeroCoverShadowDepth}" Direction="270" Opacity="{DynamicResource HeroCoverShadowOpacity}" RenderingBias="Performance" />
                                             </Border.Effect>
                                         </Border>
+                                        <Border x:Name="HeroCoverWhole" Tag="{DynamicResource HeroCoverShowWhole}" BorderBrush="{DynamicResource HeroCoverBorderBrush}" BorderThickness="{DynamicResource HeroCoverBorderThickness}" CornerRadius="{DynamicResource HeroCoverCornerRadius}"
+                                                HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding Game.CoverImageObjectCached}" Stretch="Fill" />
+                                            </Border.Background>
+                                            <Border.Effect>
+                                                <DropShadowEffect BlurRadius="{DynamicResource HeroCoverShadowBlur}" ShadowDepth="{DynamicResource HeroCoverShadowDepth}" Direction="270" Opacity="{DynamicResource HeroCoverShadowOpacity}" RenderingBias="Performance" />
+                                            </Border.Effect>
+                                            <!-- Sizing child only: it takes the cover's own ratio inside the W x H box, the border background paints the same picture on it -->
+                                            <Image Source="{Binding Game.CoverImageObjectCached}" Stretch="Uniform" Opacity="0" IsHitTestVisible="False"
+                                                   MaxWidth="{PluginSettings Plugin=LayoutStudio, Path=Options[HeroCoverWidth], FallbackValue={StaticResource HeroCoverWidth}, TargetNullValue={StaticResource HeroCoverWidth}}"
+                                                   MaxHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[HeroCoverHeight], FallbackValue={StaticResource HeroCoverHeight}, TargetNullValue={StaticResource HeroCoverHeight}}" />
+                                        </Border>
+                                        </Grid>
+                                        </StackPanel>
                                     </Grid>
                                     <!-- Action buttons: in the hero under the chips (0), in the header bar (1) or at the right of the band (2) -->
                                     <DockPanel x:Name="HeroActionsDock" Tag="{DynamicResource HeroActionsLocation}">
@@ -7556,7 +7629,7 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="2">
                                                         <Setter Property="HorizontalAlignment" Value="Right" />
-                                                        <Setter Property="Margin" Value="0,0,28,22" />
+                                                        <Setter Property="Margin" Value="{DynamicResource HeroActionsMarginRight}" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
@@ -7799,12 +7872,135 @@
                                                                     </Style>
                                                                 </Grid.Style>
                                                                 <Grid.Resources>
+                                                                    <!-- Information shown once: each row of the info panel can be switched off (InfoPanelShow* constants). Playnite sets the Visibility of these rows itself, so a hidden row is collapsed to zero height instead. -->
+                                                                    <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                                                        <Style.Triggers>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ElemSource" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowSource], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ElemReleaseDate" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowReleaseDate], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ElemPlatform" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowPlatforms], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ElemDevelopers" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowDevelopers], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ElemInstallSize" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowInstallSize], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
                                                                     <Style TargetType="ItemsControl">
                                                                         <Setter Property="HorizontalAlignment" Value="Left" />
+                                                                        <Style.Triggers>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ItemsPlatforms" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowPlatforms], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ItemsDevelopers" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowDevelopers], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        </Style.Triggers>
                                                                     </Style>
                                                                     <Style TargetType="Button" BasedOn="{StaticResource PropertyItemButton}">
                                                                         <Setter Property="Background" Value="Transparent" />
                                                                         <Setter Property="VerticalAlignment" Value="Center" />
+                                                                        <Style.Triggers>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ButtonSource" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowSource], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_ButtonReleaseDate" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowReleaseDate], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                    <Style x:Key="InfoPanelHideableText" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+                                                                        <Style.Triggers>
+                                                                        <MultiDataTrigger>
+                                                                            <MultiDataTrigger.Conditions>
+                                                                                <Condition Binding="{Binding Name, RelativeSource={RelativeSource Self}}" Value="PART_TextInstallSize" />
+                                                                                <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[InfoPanelShowInstallSize], FallbackValue=True, TargetNullValue=True}" Value="False" />
+                                                                            </MultiDataTrigger.Conditions>
+                                                                            <Setter Property="Height" Value="0" />
+                                                                            <Setter Property="MaxHeight" Value="0" />
+                                                                            <Setter Property="Margin" Value="0" />
+                                                                            <Setter Property="Opacity" Value="0" />
+                                                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                                                        </MultiDataTrigger>
+                                                                        </Style.Triggers>
                                                                     </Style>
                                                                 </Grid.Resources>
                                                                 <ScrollViewer Name="PART_ElemDescription" MaxHeight="{PluginSettings Plugin=LayoutStudio, Path=Options[DetailsViewDescriptionMaxHeight], FallbackValue={StaticResource DetailsViewDescriptionMaxHeight}, TargetNullValue={StaticResource DetailsViewDescriptionMaxHeight}}" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[DetailsViewDescriptionDockToRight], FallbackValue={StaticResource DetailsViewDescriptionDockToRight}, TargetNullValue={StaticResource DetailsViewDescriptionDockToRight}}" Grid.Column="0" FlowDirection="LeftToRight" HorizontalAlignment="Stretch" Margin="0,0,15,0">
@@ -7858,7 +8054,7 @@
                                                                 <ScrollViewer Margin="15,0,0,0" DockPanel.Dock="Left" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
                                                                     <GridEx ColumnCount="2" AutoLayoutColumns="2" RowCount="9">
                                                                         <Label Name="PART_ElemInstallSize" Content="{DynamicResource LOCInstallSizeLabel}" />
-                                                                        <TextBlock Name="PART_TextInstallSize" Style="{DynamicResource BaseTextBlockStyle}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                                                        <TextBlock Name="PART_TextInstallSize" Style="{StaticResource InfoPanelHideableText}" VerticalAlignment="Center" TextWrapping="Wrap" />
                                                                         
                                                                         <Label Name="PART_ElemInstallDirectory" Content="{DynamicResource LOCGameInstallDirTitle}" />
                                                                         <Button Name="PART_ButtonInstallDirectory" HorizontalAlignment="Left" MaxWidth="{PluginSettings Plugin=LayoutStudio, Path=Options[GameInfoWideValueMaxWidth], FallbackValue={StaticResource GameInfoWideValueMaxWidth}, TargetNullValue={StaticResource GameInfoWideValueMaxWidth}}" />
@@ -9937,7 +10133,7 @@
                                                                                         </StackPanel.OpacityMask>
                                                                                         <ProgressBar x:Name="progressBar2" FontSize="10" Margin="0,0,0,5"
                                                                                                     Maximum="{PluginSettings Plugin=PlayniteAchievements, Path=AchievementCount, FallbackValue=0}" Value="{PluginSettings Plugin=PlayniteAchievements, Path=UnlockedCount, FallbackValue=0}" HorizontalAlignment="Center"
-                                                                                                    Background="#151619" Foreground="#2d73ff" Height="8" Style="{DynamicResource RoundedProgressBar}" 
+                                                                                                    Background="{DynamicResource AchievementBarTrackBrush}" Foreground="{DynamicResource AchievementBarBrush}" Height="8" Style="{DynamicResource RoundedProgressBar}" 
                                                                                                     Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StackPanel}}, Path=ActualWidth}" >
                                                                                         </ProgressBar>
                                                                                     </StackPanel>

@@ -27,7 +27,12 @@
     </Style>
 
     <Style x:Key="ItemSelectionBorder" TargetType="Border">
-        <Setter Property="CornerRadius" Value="{DynamicResource FsPanelCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource FsPopupCornerRadius}" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="8" Direction="270" Color="Black" Opacity="{DynamicResource FsPopupShadowOpacity}" RenderingBias="Performance" />
+            </Setter.Value>
+        </Setter>
         <Setter Property="Background" Value="{DynamicResource OverlayMenuBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FsPanelRimBrush}" />
         <Setter Property="BorderThickness" Value="1" />

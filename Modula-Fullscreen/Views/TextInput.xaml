@@ -23,14 +23,14 @@
 
     <Style x:Key="TextInputOptionsBorder" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource ControlBackgroundDarkBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource FsTileCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource FsControlCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FsPanelRimBrush}" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
     <Style x:Key="TextInputKeysBorder" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource ControlBackgroundDarkBrush}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource FsTileCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource FsControlCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FsPanelRimBrush}" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>

@@ -34,6 +34,10 @@
                             <DoubleAnimation Storyboard.TargetName="CardRoot" Storyboard.TargetProperty="Opacity" To="0.78" Duration="0:0:0.26" />
                         </Storyboard>
                     </ControlTemplate.Resources>
+                    <!-- Arrival: a card that comes into view fades and rises into place (flag FsMotionOn, preset Motion / Performance) -->
+                    <Grid x:Name="ArrivalHost">
+                    <Grid.RenderTransform><TranslateTransform /></Grid.RenderTransform>
+                    <Border x:Name="MotionFlag" Width="0" Height="0" IsHitTestVisible="False" Tag="{DynamicResource FsMotionOn}" />
                     <Grid x:Name="CardRoot" Margin="{Settings FullscreenItemSpacingMargin}" Opacity="0.78"
                           RenderTransformOrigin="0.5,0.5"
                           d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
@@ -61,7 +65,26 @@
                             </Border.Effect>
                         </Border>
                     </Grid>
+                    </Grid>
                     <ControlTemplate.Triggers>
+                        <!-- horizontal row: the card keeps room above and below so the lifted card and its ring are not cut by the list -->
+                        <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="True">
+                            <Setter TargetName="ArrivalHost" Property="Margin" Value="0,18,0,18" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Tag, ElementName=MotionFlag}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ArrivalHost" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut" /></DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="ArrivalHost" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="28" To="0" Duration="0:0:0.45">
+                                            <DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut" /></DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
                         <Trigger Property="IsFocused" Value="True">
                             <Setter Property="Visibility" Value="Visible" TargetName="MainBorder" />
                             <Setter Property="Canvas.ZIndex" Value="90" />

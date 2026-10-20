@@ -1,7 +1,7 @@
 {
  "version": 1,
  "stats": {
-  "constants": 38
+  "constants": 48
  },
  "pages": [
   {
@@ -16,13 +16,13 @@
        "kind": "preset",
        "id": "Accent",
        "keys": [],
-       "title": "Accent colour",
+       "title": "Accent color",
        "titleKey": "LOCHNDFsPresetAccent",
        "defaultChoice": "Default",
        "choices": [
         {
          "id": "Default",
-         "name": "Neon blue",
+         "name": "Neon blue (default)",
          "locKey": "LOCHNDFsPresetAccentDefault",
          "constants": {},
          "swatch": {
@@ -31,16 +31,107 @@
          }
         },
         {
+         "id": "Amber",
+         "name": "Dune amber",
+         "locKey": "LOCHNDFsPresetAccentAmber",
+         "constants": {
+          "GlyphColor": "#FFFFB547",
+          "GlyphLightColor": "#FFFFD89D"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFFFB547"
+         }
+        },
+        {
          "id": "Violet",
          "name": "Violet",
          "locKey": "LOCHNDFsPresetAccentViolet",
          "constants": {
-          "GlyphColor": "#FFA66BFF",
-          "GlyphLightColor": "#FFD0B0FF"
+          "GlyphColor": "#FFA78BFA",
+          "GlyphLightColor": "#FFD0C2FC"
          },
          "swatch": {
           "text": "#FFF2F6FF",
-          "accent": "#FFA66BFF"
+          "accent": "#FFA78BFA"
+         }
+        },
+        {
+         "id": "Emerald",
+         "name": "Emerald",
+         "locKey": "LOCHNDFsPresetAccentEmerald",
+         "constants": {
+          "GlyphColor": "#FF34D399",
+          "GlyphLightColor": "#FF93E8C9"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FF34D399"
+         }
+        },
+        {
+         "id": "Crimson",
+         "name": "Crimson",
+         "locKey": "LOCHNDFsPresetAccentCrimson",
+         "constants": {
+          "GlyphColor": "#FFF87171",
+          "GlyphLightColor": "#FFFBB4B4"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFF87171"
+         }
+        },
+        {
+         "id": "Pink",
+         "name": "Pink",
+         "locKey": "LOCHNDFsPresetAccentPink",
+         "constants": {
+          "GlyphColor": "#FFF472B6",
+          "GlyphLightColor": "#FFF9B4D8"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFF472B6"
+         }
+        },
+        {
+         "id": "Cyan",
+         "name": "Cyan",
+         "locKey": "LOCHNDFsPresetAccentCyan",
+         "constants": {
+          "GlyphColor": "#FF22D3EE",
+          "GlyphLightColor": "#FF8AE8F6"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FF22D3EE"
+         }
+        },
+        {
+         "id": "Gold",
+         "name": "Gold",
+         "locKey": "LOCHNDFsPresetAccentGold",
+         "constants": {
+          "GlyphColor": "#FFFACC15",
+          "GlyphLightColor": "#FFFCE483"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFFACC15"
+         }
+        },
+        {
+         "id": "Linkin",
+         "name": "Hybrid red (Linkin Park)",
+         "locKey": "LOCHNDFsPresetAccentLinkin",
+         "constants": {
+          "GlyphColor": "#FFE63946",
+          "GlyphLightColor": "#FFF2969D"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFE63946"
          }
         },
         {
@@ -49,24 +140,11 @@
          "locKey": "LOCHNDFsPresetAccentMint",
          "constants": {
           "GlyphColor": "#FF3DE0B0",
-          "GlyphLightColor": "#FF9AF5DC"
+          "GlyphLightColor": "#FF98EFD5"
          },
          "swatch": {
           "text": "#FFF2F6FF",
           "accent": "#FF3DE0B0"
-         }
-        },
-        {
-         "id": "Amber",
-         "name": "Amber",
-         "locKey": "LOCHNDFsPresetAccentAmber",
-         "constants": {
-          "GlyphColor": "#FFFFB347",
-          "GlyphLightColor": "#FFFFD79A"
-         },
-         "swatch": {
-          "text": "#FFF2F6FF",
-          "accent": "#FFFFB347"
          }
         },
         {
@@ -75,24 +153,11 @@
          "locKey": "LOCHNDFsPresetAccentRose",
          "constants": {
           "GlyphColor": "#FFFF6B9A",
-          "GlyphLightColor": "#FFFFB0CC"
+          "GlyphLightColor": "#FFFFB1C9"
          },
          "swatch": {
           "text": "#FFF2F6FF",
           "accent": "#FFFF6B9A"
-         }
-        },
-        {
-         "id": "Cyan",
-         "name": "Cyan",
-         "locKey": "LOCHNDFsPresetAccentCyan",
-         "constants": {
-          "GlyphColor": "#FF34E7FF",
-          "GlyphLightColor": "#FF9AF2FF"
-         },
-         "swatch": {
-          "text": "#FFF2F6FF",
-          "accent": "#FF34E7FF"
          }
         }
        ]
@@ -101,13 +166,13 @@
        "kind": "preset",
        "id": "Corners",
        "keys": [],
-       "title": "Corner rounding",
+       "title": "Corner rounding (card, panels, tiles, chips, buttons, cover)",
        "titleKey": "LOCHNDFsPresetCorners",
        "defaultChoice": "Default",
        "choices": [
         {
          "id": "Default",
-         "name": "Rounded",
+         "name": "Rounded (default)",
          "locKey": "LOCHNDFsPresetCornersDefault",
          "constants": {}
         },
@@ -116,12 +181,15 @@
          "name": "Square",
          "locKey": "LOCHNDFsPresetCornersSquare",
          "constants": {
-          "FsPanelCornerRadius": "0",
           "FsCardCornerRadius": "0",
           "FsCardRimCornerRadius": "0",
-          "FsCoverCornerRadius": "0",
+          "FsPanelCornerRadius": "0",
           "FsTileCornerRadius": "0",
-          "FsButtonCornerRadius": "0"
+          "FsChipCornerRadius": "0",
+          "FsButtonCornerRadius": "0",
+          "FsPillCornerRadius": "0",
+          "FsPillRingCornerRadius": "0",
+          "FsCoverCornerRadius": "0"
          }
         },
         {
@@ -129,25 +197,123 @@
          "name": "Subtle",
          "locKey": "LOCHNDFsPresetCornersSubtle",
          "constants": {
-          "FsPanelCornerRadius": "8",
           "FsCardCornerRadius": "6",
           "FsCardRimCornerRadius": "8",
-          "FsCoverCornerRadius": "8",
-          "FsTileCornerRadius": "6",
-          "FsButtonCornerRadius": "5"
+          "FsPanelCornerRadius": "11",
+          "FsTileCornerRadius": "8",
+          "FsChipCornerRadius": "4",
+          "FsButtonCornerRadius": "4",
+          "FsPillCornerRadius": "13",
+          "FsPillRingCornerRadius": "14",
+          "FsCoverCornerRadius": "8"
          }
         },
         {
          "id": "Round",
-         "name": "Round",
+         "name": "Very round",
          "locKey": "LOCHNDFsPresetCornersRound",
          "constants": {
-          "FsPanelCornerRadius": "34",
-          "FsCardCornerRadius": "24",
-          "FsCardRimCornerRadius": "26",
-          "FsCoverCornerRadius": "30",
-          "FsTileCornerRadius": "24",
-          "FsButtonCornerRadius": "20"
+          "FsCardCornerRadius": "17",
+          "FsCardRimCornerRadius": "19",
+          "FsPanelCornerRadius": "27",
+          "FsTileCornerRadius": "18",
+          "FsChipCornerRadius": "12",
+          "FsButtonCornerRadius": "14",
+          "FsPillCornerRadius": "47",
+          "FsPillRingCornerRadius": "49",
+          "FsCoverCornerRadius": "25"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Glass",
+       "keys": [],
+       "title": "Glass of the panels, tiles and chips",
+       "titleKey": "LOCHNDFsPresetGlass",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Glass",
+         "locKey": "LOCHNDFsPresetGlassDefault",
+         "constants": {}
+        },
+        {
+         "id": "Frosted",
+         "name": "Frosted (more opaque)",
+         "locKey": "LOCHNDFsPresetGlassFrosted",
+         "constants": {
+          "FsGlassFillOpacity": "1",
+          "FsGlassRimOpacity": "0.75",
+          "FsTileGlassOpacity": "0.7857"
+         }
+        },
+        {
+         "id": "Clear",
+         "name": "Clear (barely visible)",
+         "locKey": "LOCHNDFsPresetGlassClear",
+         "constants": {
+          "FsGlassFillOpacity": "0.3833",
+          "FsGlassRimOpacity": "0.5",
+          "FsTileGlassOpacity": "0.25"
+         }
+        },
+        {
+         "id": "Borderless",
+         "name": "Glass without outlines",
+         "locKey": "LOCHNDFsPresetGlassBorderless",
+         "constants": {
+          "FsGlassRimOpacity": "0"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "WindowDarkness",
+       "keys": [],
+       "title": "Window background darkness",
+       "titleKey": "LOCHNDFsPresetWindowDarkness",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Bright",
+         "name": "Bright (artwork barely dimmed)",
+         "locKey": "LOCHNDFsPresetWindowDarknessBright",
+         "constants": {
+          "FsBackgroundDarkness": "0.4762"
+         }
+        },
+        {
+         "id": "Light",
+         "name": "Light",
+         "locKey": "LOCHNDFsPresetWindowDarknessLight",
+         "constants": {
+          "FsBackgroundDarkness": "0.9524"
+         }
+        },
+        {
+         "id": "Default",
+         "name": "Medium",
+         "locKey": "LOCHNDFsPresetWindowDarknessDefault",
+         "constants": {}
+        },
+        {
+         "id": "Dark",
+         "name": "Dark",
+         "locKey": "LOCHNDFsPresetWindowDarknessDark",
+         "constants": {
+          "FsBackgroundDarkness": "1"
+         }
+        },
+        {
+         "id": "VeryDark",
+         "name": "Very dark",
+         "locKey": "LOCHNDFsPresetWindowDarknessVeryDark",
+         "constants": {
+          "FsBackgroundDarkness": "1"
          }
         }
        ]
@@ -190,6 +356,81 @@
          "constants": {
           "FsFocusGlowOpacity": "1",
           "FsFocusGlowBlur": "40"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Motion",
+       "keys": [],
+       "title": "Motion",
+       "titleKey": "LOCHNDFsPresetMotion",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Smooth (default)",
+         "locKey": "LOCHNDFsPresetMotionDefault",
+         "constants": {}
+        },
+        {
+         "id": "Off",
+         "name": "Off (no card arrival animation)",
+         "locKey": "LOCHNDFsPresetMotionOff",
+         "constants": {
+          "FsMotionOn": "False"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Performance",
+       "keys": [],
+       "title": "Performance",
+       "titleKey": "LOCHNDFsPresetPerformance",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Full effects (default)",
+         "locKey": "LOCHNDFsPresetPerformanceDefault",
+         "constants": {}
+        },
+        {
+         "id": "Light",
+         "name": "Light (no glow, no shadows, opaque menus, no motion)",
+         "locKey": "LOCHNDFsPresetPerformanceLight",
+         "constants": {
+          "FsFocusGlowOpacity": "0",
+          "FsPopupShadowOpacity": "0",
+          "FsGlassFillOpacity": "1",
+          "FsMotionOn": "False"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Sound",
+       "keys": [],
+       "title": "Interface sounds",
+       "titleKey": "LOCHNDFsPresetSound",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "On (default)",
+         "locKey": "LOCHNDFsPresetSoundDefault",
+         "constants": {}
+        },
+        {
+         "id": "Off",
+         "name": "Off (the theme stays silent)",
+         "locKey": "LOCHNDFsPresetSoundOff",
+         "constants": {
+          "FsSoundOn": "False"
          }
         }
        ]
@@ -297,6 +538,37 @@
           "HeaderTileSlot5D": "33",
           "HeaderTileSlot6": "6",
           "HeaderTileSlot6B": "7",
+          "HeaderTileSlot6C": "0",
+          "HeaderTileSlot6D": "0"
+         }
+        },
+        {
+         "id": "AddOns",
+         "name": "Add-ons (time, last session, achievements, HowLongToBeat, scores)",
+         "locKey": "LOCHNDFsPresetInfoCardsAddOns",
+         "constants": {
+          "HeaderTileSlot1": "1",
+          "HeaderTileSlot1B": "9",
+          "HeaderTileSlot1C": "0",
+          "HeaderTileSlot1D": "0",
+          "HeaderTileSlot2": "2",
+          "HeaderTileSlot2B": "10",
+          "HeaderTileSlot2C": "0",
+          "HeaderTileSlot2D": "0",
+          "HeaderTileSlot3": "4",
+          "HeaderTileSlot3B": "0",
+          "HeaderTileSlot3C": "0",
+          "HeaderTileSlot3D": "0",
+          "HeaderTileSlot4": "25",
+          "HeaderTileSlot4B": "0",
+          "HeaderTileSlot4C": "0",
+          "HeaderTileSlot4D": "0",
+          "HeaderTileSlot5": "6",
+          "HeaderTileSlot5B": "0",
+          "HeaderTileSlot5C": "0",
+          "HeaderTileSlot5D": "0",
+          "HeaderTileSlot6": "3",
+          "HeaderTileSlot6B": "0",
           "HeaderTileSlot6C": "0",
           "HeaderTileSlot6D": "0"
          }
@@ -452,6 +724,72 @@
        "titleKey": "LOCHNDFsOptButtonCornerRadius",
        "description": "Roundness of buttons and menu entries.",
        "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsChipCornerRadius",
+       "keys": [
+        "FsChipCornerRadius"
+       ],
+       "title": "Chip corners",
+       "titleKey": "LOCHNDFsOptChipCornerRadius",
+       "description": "Roundness of the genre and tag chips on the details page.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsControlCornerRadius",
+       "keys": [
+        "FsControlCornerRadius"
+       ],
+       "title": "Input corners",
+       "titleKey": "LOCHNDFsOptControlCornerRadius",
+       "description": "Roundness of text fields and the entries of selection lists.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsPopupCornerRadius",
+       "keys": [
+        "FsPopupCornerRadius"
+       ],
+       "title": "Popup menu corners",
+       "titleKey": "LOCHNDFsOptPopupCornerRadius",
+       "description": "Roundness of the game menu.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsGlassFillOpacity",
+       "keys": [
+        "FsGlassFillOpacity"
+       ],
+       "title": "Panel glass",
+       "titleKey": "LOCHNDFsOptGlassFillOpacity",
+       "description": "How opaque the menus and dialogs are (lower lets the game show through).",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsPopupShadowOpacity",
+       "keys": [
+        "FsPopupShadowOpacity"
+       ],
+       "title": "Popup shadow",
+       "titleKey": "LOCHNDFsOptPopupShadowOpacity",
+       "description": "Strength of the shadow under the menus (0 = none.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsBackgroundDarkness",
+       "keys": [
+        "FsBackgroundDarkness"
+       ],
+       "title": "Background darkness",
+       "titleKey": "LOCHNDFsOptBackgroundDarkness",
+       "description": "How much the artwork behind the lists is darkened (1 = the console look; lower shows more of the artwork).",
+       "choices": []
       }
      ]
     }
@@ -464,6 +802,14 @@
   }
  ],
  "constants": [
+  {
+   "key": "FsBackgroundDarkness",
+   "type": "Double",
+   "default": "1",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
   {
    "key": "FsButtonCornerRadius",
    "type": "CornerRadius",
@@ -480,6 +826,18 @@
    "key": "FsCardRimCornerRadius",
    "type": "CornerRadius",
    "default": "18",
+   "min": 0.0
+  },
+  {
+   "key": "FsChipCornerRadius",
+   "type": "CornerRadius",
+   "default": "12",
+   "min": 0.0
+  },
+  {
+   "key": "FsControlCornerRadius",
+   "type": "CornerRadius",
+   "default": "8",
    "min": 0.0
   },
   {
@@ -511,6 +869,14 @@
    "min": 0.0
   },
   {
+   "key": "FsGlassFillOpacity",
+   "type": "Double",
+   "default": "0.92",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
+  {
    "key": "FsGlassRimOpacity",
    "type": "Double",
    "default": "1",
@@ -519,10 +885,46 @@
    "step": 0.05
   },
   {
+   "key": "FsMotionOn",
+   "type": "Boolean",
+   "default": "True"
+  },
+  {
    "key": "FsPanelCornerRadius",
    "type": "CornerRadius",
    "default": "24",
    "min": 0.0
+  },
+  {
+   "key": "FsPillCornerRadius",
+   "type": "CornerRadius",
+   "default": "40",
+   "min": 0.0
+  },
+  {
+   "key": "FsPillRingCornerRadius",
+   "type": "CornerRadius",
+   "default": "42",
+   "min": 0.0
+  },
+  {
+   "key": "FsPopupCornerRadius",
+   "type": "CornerRadius",
+   "default": "20",
+   "min": 0.0
+  },
+  {
+   "key": "FsPopupShadowOpacity",
+   "type": "Double",
+   "default": "0.55",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
+  {
+   "key": "FsSoundOn",
+   "type": "Boolean",
+   "default": "True"
   },
   {
    "key": "FsTileCornerRadius",
@@ -533,7 +935,7 @@
   {
    "key": "FsTileGlassOpacity",
    "type": "Double",
-   "default": "1",
+   "default": "0.5",
    "min": 0.0,
    "max": 1.0,
    "step": 0.05
@@ -732,6 +1134,12 @@
    {
     "resource": "OverlayBrush",
     "property": "Color"
+   }
+  ],
+  "FsGlassFillOpacity": [
+   {
+    "resource": "OverlayMenuBackgroundBrush",
+    "property": "Opacity"
    }
   ]
  },
