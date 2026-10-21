@@ -9,7 +9,7 @@
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="#3d4450" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GlassRimBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Padding" Value="10,5,10,5" />
@@ -82,6 +82,8 @@
                     <Grid>
                         <Border x:Name="BorderBk" BorderThickness="0" Background="{TemplateBinding Background}"                            
                             CornerRadius="{DynamicResource ControlCornerRadius}" Opacity="0.14" />
+                        <Border BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                CornerRadius="{DynamicResource ControlCornerRadius}" IsHitTestVisible="False" />
                         <Border Padding="{TemplateBinding Padding}">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -156,6 +158,8 @@
                     <Grid>
                         <Border x:Name="BorderBk" BorderThickness="0" Background="{TemplateBinding Background}"                            
                                 CornerRadius="{DynamicResource DetailsViewExtraButtonsCornerRadius}" Opacity="0.14" />
+                        <Border BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                CornerRadius="{DynamicResource DetailsViewExtraButtonsCornerRadius}" IsHitTestVisible="False" />
                         <Border Padding="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Opacity="0.5" Name="ContentPresenter"
@@ -262,6 +266,8 @@
                     <Grid>
                         <Border x:Name="BorderBk" BorderThickness="0" Background="{TemplateBinding Background}"                            
                             CornerRadius="{DynamicResource DetailsViewExtraButtonsCornerRadius}" Opacity="0.14" />
+                        <Border BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                CornerRadius="{DynamicResource DetailsViewExtraButtonsCornerRadius}" IsHitTestVisible="False" />
                         <Border Padding="{TemplateBinding Padding}">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -350,6 +356,8 @@
                     <Grid>
                         <Border x:Name="BorderBk" BorderThickness="0" Background="#d3d8e0"                            
                             CornerRadius="{DynamicResource DetailsViewExtraButtonsCornerRadius}" Opacity="0.14" />
+                        <Border BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                CornerRadius="{DynamicResource DetailsViewExtraButtonsCornerRadius}" IsHitTestVisible="False" />
                         <Border Padding="{TemplateBinding Padding}">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -406,7 +414,7 @@
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="False">
                 <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Foreground" Value="#80ffffff" />
+                <Setter Property="Foreground" Value="{DynamicResource HeroFavoriteOffBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -476,6 +484,8 @@
                     <Grid>
                         <Border x:Name="GearBackground" Background="{TemplateBinding Background}"
                                 CornerRadius="{DynamicResource DetailsViewExtraButtonsCornerRadius}" Opacity="0.14" />
+                        <Border BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                CornerRadius="{DynamicResource DetailsViewExtraButtonsCornerRadius}" IsHitTestVisible="False" />
                         <TextBlock x:Name="Gear" Text="&#xE713;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="14"
                                    Foreground="{TemplateBinding Foreground}" Opacity="0.5"
                                    HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -585,6 +595,35 @@
                                        FontSize="{TemplateBinding FontSize}"
                                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                        Tag="{DynamicResource LOC_NewsViewer_PlayersInGameViewerControl_InGameCountLabel}"
+                                       Text="{Binding Path=Tag, RelativeSource={RelativeSource Self}, StringFormat=' {0}'}"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Steam players online, large and always visible above the banner cover (the News Viewer control fills the button content) -->
+    <Style TargetType="{x:Type Button}" x:Key="PlayersCountHeroStyle" BasedOn="{StaticResource PlayersCountButtonStyle}">
+        <Setter Property="FontSize" Value="{DynamicResource HeroPlayersCountFontSize}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+        <Setter Property="Padding" Value="12,4,12,5" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}" CornerRadius="{DynamicResource HeroChipCornerRadius}"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
+                        <StackPanel Orientation="Horizontal">
+                            <ContentPresenter VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}"
+                                              TextElement.FontSize="{TemplateBinding FontSize}" TextElement.FontWeight="{TemplateBinding FontWeight}" />
+                            <TextBlock Foreground="{DynamicResource TextBrushDarker}" FontSize="{DynamicResource FontSizeSmall}"
+                                       VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
+                                       Tag="{DynamicResource LOCHNDPlayersCountLabel}"
                                        Text="{Binding Path=Tag, RelativeSource={RelativeSource Self}, StringFormat=' {0}'}"/>
                         </StackPanel>
                     </Border>

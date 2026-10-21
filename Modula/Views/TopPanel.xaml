@@ -96,11 +96,11 @@
         <Setter Property="MinWidth" Value="32" />
         <Setter Property="MinHeight" Value="24" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-        <Setter Property="Background" Value="#25272d" />
+        <Setter Property="Background" Value="{DynamicResource TopPanelToggleBackgroundBrush}" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Margin" Value="10,0,0,0" />
         <Setter Property="Padding" Value="6,6,6,6" />
-        <Setter Property="Foreground" Value="#808080" />
+        <Setter Property="Foreground" Value="{DynamicResource TopPanelToggleForegroundBrush}" />
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -153,8 +153,8 @@
         <Setter Property="Padding" Value="6,6,6,6" />
         <Setter Property="MinHeight" Value="24" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-        <Setter Property="Background" Value="#25272d" />
-        <Setter Property="Foreground" Value="#808080" />
+        <Setter Property="Background" Value="{DynamicResource TopPanelToggleBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TopPanelToggleForegroundBrush}" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
@@ -274,6 +274,9 @@
                                     </StackPanel>
                                 </Button>
                             </Grid>
+                            <!-- Add-on chips (Now Playing, AnikiHelper library overview): each one hides itself, and takes no room, without its add-on -->
+                            <ContentControl Style="{DynamicResource TopPanelNowPlayingChip}" DockPanel.Dock="Left" />
+                            <ContentControl Style="{DynamicResource TopPanelLibraryOverview}" DockPanel.Dock="Left" />
                             <StackPanel x:Name="PART_PanelMainItems" Orientation="Horizontal"
                                         VerticalAlignment="Stretch" Margin="0,6,0,6"/>
 

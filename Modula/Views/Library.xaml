@@ -19,6 +19,406 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
+                        <!-- Window gradient: what the window shows where nothing covers it (a game without artwork, an artwork that is made translucent with the glass opacity,
+                             the fallback of the generated backdrop). The two colours come from the colour profile (WindowBackgroundGradientColor1: centre, 2: edges). -->
+                        <Rectangle x:Name="WindowGradient" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" IsHitTestVisible="False">
+                            <Rectangle.Fill>
+                                <RadialGradientBrush GradientOrigin="0.57,0.37" Center="0.5,0.5" RadiusX="1" RadiusY="1">
+                                    <GradientStop Color="{DynamicResource WindowBackgroundGradientColor1}" Offset="0" />
+                                    <GradientStop Color="{DynamicResource WindowBackgroundGradientColor2}" Offset="1" />
+                                </RadialGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                        <!-- BEGIN generated backdrop layers -->
+                <FrameworkElement x:Name="BackdropModeProbe" Visibility="Collapsed" Tag="{DynamicResource BackdropMode}" />
+                <FrameworkElement x:Name="BackdropFallbackProbe" Visibility="Collapsed" Tag="{DynamicResource BackdropFallbackOnly}" />
+                <Grid x:Name="WindowBackdrop" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" IsHitTestVisible="False" ClipToBounds="True">
+                    <Grid.Resources>
+            <Style x:Key="BdMode1" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropMode}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Visible" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdMode2or4" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropMode}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="2"><Setter Property="Visibility" Value="Visible" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="4"><Setter Property="Visibility" Value="Visible" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdMode3" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropMode}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="3"><Setter Property="Visibility" Value="Visible" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdMode4" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropMode}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="4"><Setter Property="Visibility" Value="Visible" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdThird" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropThirdColor}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="false"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdBlob1" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropBlobCount}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdBlob2" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropBlobCount}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdBlob3" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropBlobCount}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="2"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdBlob4" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropBlobCount}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="2"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="3"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdBlob5" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropBlobCount}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="2"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="3"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="4"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdBlob6" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropBlobCount}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="2"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="3"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="4"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="5"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdBlob7" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropBlobCount}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="2"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="3"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="4"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="5"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="6"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdBlob8" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Visible" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropBlobCount}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="2"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="3"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="4"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="5"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="6"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="7"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdPattern1" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropPatternKind}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="1"><Setter Property="Visibility" Value="Visible" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdPattern2" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropPatternKind}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="2"><Setter Property="Visibility" Value="Visible" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="BdPattern3" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Setter Property="Tag" Value="{DynamicResource BackdropPatternKind}" />
+                <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="3"><Setter Property="Visibility" Value="Visible" /></DataTrigger>
+                </Style.Triggers>
+            </Style>
+                    </Grid.Resources>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Setter Property="Tag" Value="{DynamicResource BackdropMode}" />
+                            <Style.Triggers><DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="0"><Setter Property="Visibility" Value="Collapsed" /></DataTrigger></Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <!-- the colours and the circles never change between two settings: they are drawn once, at half size, and kept -->
+                    <Grid>
+                        <Grid.CacheMode><BitmapCache EnableClearType="False" RenderAtScale="0.5" SnapsToDevicePixels="False" /></Grid.CacheMode>
+                        <Rectangle Style="{StaticResource BdMode1}"><Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropColor1}" /></Rectangle.Fill></Rectangle>
+                        <Rectangle Style="{StaticResource BdMode2or4}">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="-0.2,0.5" EndPoint="1.2,0.5">
+                                    <LinearGradientBrush.RelativeTransform><RotateTransform Angle="{DynamicResource BackdropAngle}" CenterX="0.5" CenterY="0.5" /></LinearGradientBrush.RelativeTransform>
+                                    <GradientStop Color="{DynamicResource BackdropColor1}" Offset="0" />
+                                    <GradientStop Color="{DynamicResource BackdropColor2}" Offset="1" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Rectangle Style="{StaticResource BdMode3}">
+                            <Rectangle.Fill>
+                                <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                    <RadialGradientBrush.RelativeTransform><TransformGroup><ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropRadialRadius}" ScaleY="{DynamicResource BackdropRadialRadius}" /><TranslateTransform X="{DynamicResource BackdropCenterX}" Y="{DynamicResource BackdropCenterY}" /></TransformGroup></RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Color="{DynamicResource BackdropColor1}" Offset="0" />
+                                    <GradientStop Color="{DynamicResource BackdropColor2}" Offset="1" />
+                                </RadialGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <!-- colour 3 comes in from the midpoint to the end: its own colour under a mask, so it fades with no grey fringe -->
+                        <Grid Style="{StaticResource BdThird}">
+                            <Rectangle Style="{StaticResource BdMode2or4}">
+                                <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropColor3}" /></Rectangle.Fill>
+                                <Rectangle.OpacityMask>
+                                    <LinearGradientBrush StartPoint="-0.2,0.5" EndPoint="1.2,0.5">
+                                        <LinearGradientBrush.RelativeTransform><RotateTransform Angle="{DynamicResource BackdropAngle}" CenterX="0.5" CenterY="0.5" /></LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="#00000000" Offset="0" />
+                                        <GradientStop Color="#00000000" Offset="{DynamicResource BackdropMidpoint}" />
+                                        <GradientStop Color="#FF000000" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <Rectangle Style="{StaticResource BdMode3}">
+                                <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropColor3}" /></Rectangle.Fill>
+                                <Rectangle.OpacityMask>
+                                    <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                        <RadialGradientBrush.RelativeTransform><TransformGroup><ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropRadialRadius}" ScaleY="{DynamicResource BackdropRadialRadius}" /><TranslateTransform X="{DynamicResource BackdropCenterX}" Y="{DynamicResource BackdropCenterY}" /></TransformGroup></RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Color="#00000000" Offset="0" />
+                                        <GradientStop Color="#00000000" Offset="{DynamicResource BackdropMidpoint}" />
+                                        <GradientStop Color="#FF000000" Offset="1" />
+                                    </RadialGradientBrush>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Grid>
+                        <!-- the circles: a flat colour under a soft round mask. The mask is black, so the colour is never mixed with grey. -->
+                        <Grid Style="{StaticResource BdMode4}" Opacity="{DynamicResource BackdropBlobOpacityScale}" RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform><ScaleTransform ScaleX="{DynamicResource BackdropSpread}" ScaleY="{DynamicResource BackdropSpread}" /></Grid.RenderTransform>
+                    <Rectangle Style="{StaticResource BdBlob1}" Opacity="{DynamicResource BackdropBlob1Opacity}">
+                        <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropBlob1Color}" /></Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlob1Size}" ScaleY="{DynamicResource BackdropBlob1Size}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlobScale}" ScaleY="{DynamicResource BackdropBlobScale}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleY="{DynamicResource BackdropAspect}" />
+                                        <TranslateTransform X="{DynamicResource BackdropBlob1X}" Y="{DynamicResource BackdropBlob1Y}" />
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF000000" Offset="0" />
+                                <GradientStop Color="#FF000000" Offset="{DynamicResource BackdropHardness}" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Style="{StaticResource BdBlob2}" Opacity="{DynamicResource BackdropBlob2Opacity}">
+                        <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropBlob2Color}" /></Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlob2Size}" ScaleY="{DynamicResource BackdropBlob2Size}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlobScale}" ScaleY="{DynamicResource BackdropBlobScale}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleY="{DynamicResource BackdropAspect}" />
+                                        <TranslateTransform X="{DynamicResource BackdropBlob2X}" Y="{DynamicResource BackdropBlob2Y}" />
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF000000" Offset="0" />
+                                <GradientStop Color="#FF000000" Offset="{DynamicResource BackdropHardness}" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Style="{StaticResource BdBlob3}" Opacity="{DynamicResource BackdropBlob3Opacity}">
+                        <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropBlob3Color}" /></Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlob3Size}" ScaleY="{DynamicResource BackdropBlob3Size}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlobScale}" ScaleY="{DynamicResource BackdropBlobScale}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleY="{DynamicResource BackdropAspect}" />
+                                        <TranslateTransform X="{DynamicResource BackdropBlob3X}" Y="{DynamicResource BackdropBlob3Y}" />
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF000000" Offset="0" />
+                                <GradientStop Color="#FF000000" Offset="{DynamicResource BackdropHardness}" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Style="{StaticResource BdBlob4}" Opacity="{DynamicResource BackdropBlob4Opacity}">
+                        <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropBlob4Color}" /></Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlob4Size}" ScaleY="{DynamicResource BackdropBlob4Size}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlobScale}" ScaleY="{DynamicResource BackdropBlobScale}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleY="{DynamicResource BackdropAspect}" />
+                                        <TranslateTransform X="{DynamicResource BackdropBlob4X}" Y="{DynamicResource BackdropBlob4Y}" />
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF000000" Offset="0" />
+                                <GradientStop Color="#FF000000" Offset="{DynamicResource BackdropHardness}" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Style="{StaticResource BdBlob5}" Opacity="{DynamicResource BackdropBlob5Opacity}">
+                        <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropBlob5Color}" /></Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlob5Size}" ScaleY="{DynamicResource BackdropBlob5Size}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlobScale}" ScaleY="{DynamicResource BackdropBlobScale}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleY="{DynamicResource BackdropAspect}" />
+                                        <TranslateTransform X="{DynamicResource BackdropBlob5X}" Y="{DynamicResource BackdropBlob5Y}" />
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF000000" Offset="0" />
+                                <GradientStop Color="#FF000000" Offset="{DynamicResource BackdropHardness}" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Style="{StaticResource BdBlob6}" Opacity="{DynamicResource BackdropBlob6Opacity}">
+                        <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropBlob6Color}" /></Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlob6Size}" ScaleY="{DynamicResource BackdropBlob6Size}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlobScale}" ScaleY="{DynamicResource BackdropBlobScale}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleY="{DynamicResource BackdropAspect}" />
+                                        <TranslateTransform X="{DynamicResource BackdropBlob6X}" Y="{DynamicResource BackdropBlob6Y}" />
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF000000" Offset="0" />
+                                <GradientStop Color="#FF000000" Offset="{DynamicResource BackdropHardness}" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Style="{StaticResource BdBlob7}" Opacity="{DynamicResource BackdropBlob7Opacity}">
+                        <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropBlob7Color}" /></Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlob7Size}" ScaleY="{DynamicResource BackdropBlob7Size}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlobScale}" ScaleY="{DynamicResource BackdropBlobScale}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleY="{DynamicResource BackdropAspect}" />
+                                        <TranslateTransform X="{DynamicResource BackdropBlob7X}" Y="{DynamicResource BackdropBlob7Y}" />
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF000000" Offset="0" />
+                                <GradientStop Color="#FF000000" Offset="{DynamicResource BackdropHardness}" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <Rectangle Style="{StaticResource BdBlob8}" Opacity="{DynamicResource BackdropBlob8Opacity}">
+                        <Rectangle.Fill><SolidColorBrush Color="{DynamicResource BackdropBlob8Color}" /></Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                                <RadialGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlob8Size}" ScaleY="{DynamicResource BackdropBlob8Size}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="{DynamicResource BackdropBlobScale}" ScaleY="{DynamicResource BackdropBlobScale}" />
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleY="{DynamicResource BackdropAspect}" />
+                                        <TranslateTransform X="{DynamicResource BackdropBlob8X}" Y="{DynamicResource BackdropBlob8Y}" />
+                                    </TransformGroup>
+                                </RadialGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FF000000" Offset="0" />
+                                <GradientStop Color="#FF000000" Offset="{DynamicResource BackdropHardness}" />
+                                <GradientStop Color="#00000000" Offset="1" />
+                            </RadialGradientBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                        </Grid>
+                    </Grid>
+                    <!-- the pattern is a small tile repeated by the graphics card: no need to cache it -->
+                <Rectangle Style="{StaticResource BdPattern1}" Opacity="{DynamicResource BackdropPatternOpacity}">
+                    <Rectangle.Fill>
+                        <DrawingBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0,0,1,1" ViewboxUnits="Absolute" Viewbox="0,0,1,1">
+                            <DrawingBrush.Transform><ScaleTransform ScaleX="{DynamicResource BackdropPatternScale}" ScaleY="{DynamicResource BackdropPatternScale}" /></DrawingBrush.Transform>
+                            <DrawingBrush.Drawing>
+                                <GeometryDrawing Geometry="M0.5,0.4 A0.1,0.1 0 1 1 0.5,0.6 A0.1,0.1 0 1 1 0.5,0.4 Z">
+                                    <GeometryDrawing.Brush><SolidColorBrush Color="{DynamicResource BackdropPatternColor}" /></GeometryDrawing.Brush>
+                                </GeometryDrawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle Style="{StaticResource BdPattern2}" Opacity="{DynamicResource BackdropPatternOpacity}">
+                    <Rectangle.Fill>
+                        <DrawingBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0,0,1,1" ViewboxUnits="Absolute" Viewbox="0,0,1,1">
+                            <DrawingBrush.Transform><ScaleTransform ScaleX="{DynamicResource BackdropPatternScale}" ScaleY="{DynamicResource BackdropPatternScale}" /></DrawingBrush.Transform>
+                            <DrawingBrush.Drawing>
+                                <GeometryDrawing Geometry="M0,0 L1,0 L1,0.04 L0,0.04 Z M0,0 L0.04,0 L0.04,1 L0,1 Z">
+                                    <GeometryDrawing.Brush><SolidColorBrush Color="{DynamicResource BackdropPatternColor}" /></GeometryDrawing.Brush>
+                                </GeometryDrawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle Style="{StaticResource BdPattern3}" Opacity="{DynamicResource BackdropPatternOpacity}">
+                    <Rectangle.Fill>
+                        <DrawingBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0,0,1,1" ViewboxUnits="Absolute" Viewbox="0,0,1,1">
+                            <DrawingBrush.Transform><ScaleTransform ScaleX="{DynamicResource BackdropPatternScale}" ScaleY="{DynamicResource BackdropPatternScale}" /></DrawingBrush.Transform>
+                            <DrawingBrush.Drawing>
+                                <GeometryDrawing Geometry="M0,1 L1,0 M-0.5,0.5 L0.5,-0.5 M0.5,1.5 L1.5,0.5">
+                                    <GeometryDrawing.Pen><Pen Thickness="0.05"><Pen.Brush><SolidColorBrush Color="{DynamicResource BackdropPatternColor}" /></Pen.Brush></Pen></GeometryDrawing.Pen>
+                                </GeometryDrawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                    <Border Background="Black" Opacity="{DynamicResource BackdropDarkness}" />
+                </Grid>
+                <!-- END generated backdrop layers -->
                         <!-- Window glass: the selected game's artwork (Playnite fills PART_ImageBackground), blurred and dimmed behind the whole window.
                              The bleed pushes the blur's soft edges out of view and extends the layer under the sidebar.
                              Blur and darkness: WindowGlassBlurRadius / WindowGlassScrimOpacity. The blur is cached at a reduced scale so it is only computed when the image changes. -->
@@ -31,25 +431,85 @@
                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="false">
                                             <Setter Property="Visibility" Value="Collapsed" />
                                         </DataTrigger>
+                                        <!-- A generated backdrop (BackdropMode 1 to 4) replaces the artwork, unless it is only the fallback for games without artwork -->
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropModeProbe}" Value="1" />
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropFallbackProbe}" Value="false" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </MultiDataTrigger>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropModeProbe}" Value="2" />
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropFallbackProbe}" Value="false" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </MultiDataTrigger>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropModeProbe}" Value="3" />
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropFallbackProbe}" Value="false" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </MultiDataTrigger>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropModeProbe}" Value="4" />
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropFallbackProbe}" Value="false" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </MultiDataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </Grid.Style>
                             <Grid Margin="{DynamicResource WindowGlassBleed}">
+                                <!-- The blur sits on a CHILD of the cached element: an Effect on the cached element itself is run again at every repaint of the
+                                     window (measured: 13 % of the GPU while the game list scrolls, 2 % with the effect inside the cache, same pixels). -->
                                 <Grid>
                                     <Grid.CacheMode>
                                         <BitmapCache EnableClearType="False" RenderAtScale="0.25" SnapsToDevicePixels="False" />
                                     </Grid.CacheMode>
-                                    <Grid.Effect>
-                                        <BlurEffect Radius="{DynamicResource WindowGlassBlurRadius}" KernelType="Gaussian" RenderingBias="Performance" />
-                                    </Grid.Effect>
-                                    <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill"
-                                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <Grid>
+                                        <Grid.Effect>
+                                            <BlurEffect Radius="{DynamicResource WindowGlassBlurRadius}" KernelType="Gaussian" RenderingBias="Performance" />
+                                        </Grid.Effect>
+                                        <FadeImage x:Name="PART_ImageBackground" Stretch="UniformToFill"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Grid>
                                 </Grid>
-                                <Border Background="Black" Opacity="{DynamicResource WindowGlassScrimOpacity}" />
+                                <Border Background="{DynamicResource WindowGlassScrimBrush}" Opacity="{DynamicResource WindowGlassScrimOpacity}" />
                             </Grid>
                         </Grid>
 
                         <TopPanel DockPanel.Dock="Top" Grid.Row="0" />
+
+                        <!-- Warning: the glass is fed by Playnite's "Show background image on the window". It shows only while that setting is OFF and the glass is ON
+                             (and WindowGlassBackgroundWarning allows it); it never takes a click. -->
+                        <FrameworkElement x:Name="GlassWarningProbe" Visibility="Collapsed" Tag="{DynamicResource WindowGlassBackgroundWarning}" />
+                        <Border x:Name="GlassBackgroundWarning" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,12,24,0"
+                                Padding="14,8,14,9" IsHitTestVisible="False" Panel.ZIndex="50" MaxWidth="640"
+                                Tag="{DynamicResource WindowGlassEnabled}"
+                                Background="#E61B1E24" BorderBrush="#FFE0A030" BorderThickness="1" CornerRadius="{DynamicResource HeroChipCornerRadius}">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Settings ShowBackgroundImageOnWindow}" Value="False" />
+                                                <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                                <Condition Binding="{Binding Tag, ElementName=GlassWarningProbe}" Value="True" />
+                                                <Condition Binding="{Binding Tag, ElementName=BackdropModeProbe}" Value="0" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <TextBlock Text="{DynamicResource LOCHNDGlassBackgroundWarning}" TextWrapping="Wrap" TextAlignment="Center"
+                                       Foreground="#FFF1E3C4" FontSize="{DynamicResource FontSize}" FontFamily="{DynamicResource FontFamily}" />
+                        </Border>
 
                         <Border Grid.Row="1"
                                 BorderBrush="{DynamicResource PanelSeparatorBrush}">

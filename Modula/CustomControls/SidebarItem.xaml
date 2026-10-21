@@ -5,13 +5,13 @@
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Foreground" Value="{DynamicResource TopPanelItemForegroundBrush}" />
+        <!-- Readable over any artwork: near-white glyph (add-on pictures keep their colors), tight dark halo and a light dark pad -->
+        <Setter Property="Foreground" Value="{DynamicResource SidebarIconBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0,0,0,0" />
         <Setter Property="Width" Value="{DynamicResource SidebarItemSize}" />
         <Setter Property="Height" Value="{DynamicResource SidebarItemSize}" />
-        <Setter Property="Opacity" Value="0.75" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Margin" Value="0,0,0,5" />
         <Setter Property="Template">
@@ -42,6 +42,9 @@
                         <Border x:Name="Bloom" Visibility="Collapsed" IsHitTestVisible="False" Margin="-6"
                                 Background="{DynamicResource GlyphBrush}" Opacity="{DynamicResource GlassGlowOpacity}"
                                 OpacityMask="{DynamicResource GlassGlowMask}" CornerRadius="{DynamicResource SidebarItemCornerRadius}" />
+                        <!-- very light dark square behind the icon: the contrast floor on a bright artwork -->
+                        <Border x:Name="IconPad" Margin="3" IsHitTestVisible="False" CornerRadius="6"
+                                Background="{DynamicResource SidebarIconPadBrush}" />
                         <Border x:Name="Pill" Margin="2" CornerRadius="{DynamicResource SidebarItemCornerRadius}" Background="Transparent"
                                 BorderBrush="Transparent" BorderThickness="{DynamicResource GlassRimThickness}" />
                         <Border x:Name="Accent" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Center"
@@ -50,6 +53,20 @@
                                 Padding="{Binding IconPadding}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 BorderBrush="{TemplateBinding BorderBrush}">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect Color="#000000" ShadowDepth="0" BlurRadius="3" Opacity="0.9" />
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[SidebarIconHalo], FallbackValue=True, TargetNullValue=True}" Value="False">
+                                            <Setter Property="Effect" Value="{x:Null}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
                             <Viewbox>
                                 <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                             </Viewbox>
@@ -63,6 +80,7 @@
                         <DataTrigger Binding="{Binding Selected}" Value="True">
                             <Setter TargetName="Pill" Property="Background" Value="{DynamicResource GlassSelectionFillBrush}" />
                             <Setter TargetName="Pill" Property="BorderBrush" Value="{DynamicResource GlassRimBrush}" />
+                            <Setter TargetName="IconPad" Property="Background" Value="{DynamicResource SidebarIconActivePadBrush}" />
                             <Setter TargetName="Accent" Property="Visibility" Value="Visible" />
                             <Setter TargetName="Bloom" Property="Visibility" Value="Visible" />
                         </DataTrigger>
@@ -86,11 +104,9 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource TopPanelItemIsMouseOverForegroundBrush}" />
-                <Setter Property="Opacity" Value="1.00" />
             </Trigger>
             <DataTrigger Binding="{Binding Selected}" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
-                <Setter Property="Opacity" Value="1.00" />
+                <Setter Property="Foreground" Value="{DynamicResource SidebarIconActiveBrush}" />
             </DataTrigger>
             <DataTrigger Binding="{Settings SidebarPosition}" Value="Right">
                 <Setter Property="Margin" Value="0,0,0,5" />

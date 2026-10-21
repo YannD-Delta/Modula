@@ -17,7 +17,7 @@
         <Setter Property="Margin" Value="8,10,6,4" />
         <Style.Triggers>
             <Trigger Property="Tag" Value="{StaticResource False}">
-                <Setter Property="Opacity" Value="0.5"/>
+                <Setter Property="Opacity" Value="0.85"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -67,6 +67,9 @@
                                 </Style.Triggers>
                             </Style>
                         </Border.Style>
+                        <Grid>
+                        <!-- Frost: the same glass fill as the sections, over the window artwork (SidePanelFrostOpacity, 0 = off) -->
+                        <Border Background="{DynamicResource SidePanelFrostBrush}" IsHitTestVisible="False" Panel.ZIndex="-1" />
                         <DockPanel Background="{TemplateBinding Background}">
                             <DockPanel Margin="10,8,5,5" DockPanel.Dock="Top">
                                 <Button Content="r" FontFamily="Marlett"
@@ -93,6 +96,7 @@
                                 <StackPanel x:Name="PART_PanelItemsHost" />
                             </ScrollViewer>
                         </DockPanel>
+                        </Grid>
                     </Border>                                                       
                 </ControlTemplate>
             </Setter.Value>

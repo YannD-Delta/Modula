@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fullscreen typography preset Industrial: Bahnschrift, a DIN-like face. Merged live over the theme like a colour profile; only fonts that ship with Windows. -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="FontTitilliumWebLight">Bahnschrift Light</FontFamily>
+    <FontFamily x:Key="FontTitilliumWeb">Bahnschrift</FontFamily>
+    <FontFamily x:Key="FontTitilliumWebBold">Bahnschrift SemiBold</FontFamily>
+    <FontFamily x:Key="FsHtmlFontFamily">Bahnschrift</FontFamily>
+</ResourceDictionary>

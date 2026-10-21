@@ -1,0 +1,135 @@
+{
+  "generatedBy": "tools/sync_tokens.py",
+  "sharedGroups": [
+    "Accent",
+    "Corners",
+    "Glass",
+    "WindowDarkness",
+    "ColorProfile"
+  ],
+  "tokens": {
+    "accent": {
+      "type": "Color",
+      "constants": [
+        "GlyphColor"
+      ],
+      "light": {
+        "constant": "GlyphLightColor",
+        "mixWhite": 0.47
+      }
+    },
+    "radius_card": {
+      "type": "CornerRadius",
+      "constants": [
+        "FsCardCornerRadius"
+      ],
+      "scale": 0.62,
+      "extra": {
+        "FsCardRimCornerRadius": 2
+      }
+    },
+    "radius_panel": {
+      "type": "CornerRadius",
+      "constants": [
+        "FsPanelCornerRadius"
+      ],
+      "scale": 1.33,
+      "extraShape": {
+        "FsSideRightCornerRadius": "0,{v},{v},0"
+      }
+    },
+    "radius_tile": {
+      "type": "CornerRadius",
+      "constants": [
+        "FsTileCornerRadius"
+      ],
+      "scale": 1.0
+    },
+    "radius_button": {
+      "type": "CornerRadius",
+      "constants": [
+        "FsButtonCornerRadius"
+      ],
+      "scale": 0.86,
+      "extraScale": {
+        "FsPillCornerRadius": 3.3333,
+        "FsPillRingCornerRadius": 3.5
+      }
+    },
+    "radius_cover": {
+      "type": "CornerRadius",
+      "constants": [
+        "FsCoverCornerRadius"
+      ],
+      "scale": 1.4
+    },
+    "radius_chip": {
+      "type": "CornerRadius",
+      "constants": [
+        "FsChipCornerRadius"
+      ],
+      "scale": 0.86
+    },
+    "radius_control": {
+      "type": "CornerRadius",
+      "constants": [
+        "FsControlCornerRadius"
+      ],
+      "scale": 1.0
+    },
+    "radius_popup": {
+      "type": "CornerRadius",
+      "constants": [
+        "FsPopupCornerRadius"
+      ],
+      "scale": 1.43
+    },
+    "glass_rim": {
+      "type": "Double",
+      "constants": [
+        "FsGlassRimOpacity"
+      ],
+      "scale": 1.6667,
+      "max": 1.0
+    },
+    "glass_fill": {
+      "type": "Double",
+      "constants": [
+        "FsGlassFillOpacity"
+      ],
+      "scale": 7.6667,
+      "max": 1.0
+    },
+    "tile_glass": {
+      "type": "Double",
+      "constants": [
+        "FsTileGlassOpacity"
+      ],
+      "scale": 3.5714,
+      "max": 1.0
+    },
+    "glow": {
+      "type": "Double",
+      "constants": [
+        "FsFocusGlowOpacity"
+      ],
+      "scale": 2.25,
+      "max": 1.0
+    },
+    "popup_shadow": {
+      "type": "Double",
+      "constants": [
+        "FsPopupShadowOpacity"
+      ],
+      "scale": 1.0
+    },
+    "background_darkness": {
+      "type": "Double",
+      "constants": [
+        "FsBackgroundDarkness"
+      ],
+      "scale": 2.381,
+      "max": 1.0
+    }
+  }
+}

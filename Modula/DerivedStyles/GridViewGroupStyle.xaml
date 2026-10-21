@@ -40,7 +40,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Border Grid.Column="0" CornerRadius="4" Background="{DynamicResource GroupCountBackgroundBrush}"  Width="Auto">
                                         <TextBlock Text="{Binding Items.Count, Mode=OneWay, StringFormat={}{0}}"
-                                               Foreground="#A5A7A9"
+                                               Foreground="{DynamicResource GroupCountForegroundBrush}"
                                                VerticalAlignment="Center" HorizontalAlignment="Center"
                                                Style="{DynamicResource BaseTextBlockStyle}"
                                                TextAlignment="Center" FontSize="{DynamicResource FontSizeSmall}"
@@ -48,8 +48,8 @@
                                                Margin="7,0,7,0"/>
                                     </Border>
                                 </Grid>
-                                <Border Background="#30343B"
-                                        VerticalAlignment="Center" Height="2"/>
+                                <Border Background="{DynamicResource PanelSeparatorBrush}"
+                                        VerticalAlignment="Center" Height="1"/>
                             </DockPanel>
                         </ExpanderEx.Header>
                         <ItemsPresenter />

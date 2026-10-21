@@ -174,4 +174,380 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <!-- ===== Add-on chips of the top bar. Each one hides itself (and takes no space) when its add-on is missing; the views only place the control. ===== -->
+
+    <!-- Now Playing add-on (jonosellier): while a game runs, its icon, name and session time. A click returns to the game; the option
+         NowPlayingShowCloseButton adds a button that closes it (the add-on asks first, see its own settings). -->
+    <Style x:Key="TopPanelNowPlayingChip" TargetType="{x:Type ContentControl}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                                Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[TopPanelShowNowPlaying], FallbackValue=True, TargetNullValue=True}">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                            <Condition Binding="{PluginSettings Plugin=NowPlaying, Path=IsGameRunning, FallbackValue=False}" Value="True" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Button Command="{PluginSettings Plugin=NowPlaying, Path=ReturnToGame, FallbackValue={x:Null}}"
+                                ToolTip="{DynamicResource LOCHNDNowPlayingTooltip}" Margin="8,0,0,0" Padding="8,3,10,3" MinHeight="32">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource TopPanelNavigateBackButtonStyle}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border BorderThickness="0" Background="{TemplateBinding Background}"
+                                                        CornerRadius="{DynamicResource ControlCornerRadius}" Padding="{TemplateBinding Padding}">
+                                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}">
+                                                        <Image Width="20" Height="20" Margin="0,0,8,0" Stretch="Uniform" VerticalAlignment="Center"
+                                                               RenderOptions.BitmapScalingMode="Fant"
+                                                               Source="{PluginSettings Plugin=NowPlaying, Path=RunningGame.IconPath, FallbackValue={x:Null}}" />
+                                                        <StackPanel VerticalAlignment="Center">
+                                                            <TextBlock FontSize="10" Opacity="0.7" Text="{DynamicResource LOCHNDNowPlaying}" />
+                                                            <TextBlock FontSize="12" FontWeight="SemiBold" MaxWidth="190" TextTrimming="CharacterEllipsis"
+                                                                       Text="{PluginSettings Plugin=NowPlaying, Path=RunningGame.GameName, FallbackValue=''}" />
+                                                        </StackPanel>
+                                                        <TextBlock FontSize="12" Margin="10,0,0,0" VerticalAlignment="Center" Opacity="0.85"
+                                                                   Text="{PluginSettings Plugin=NowPlaying, Path=SessionLength, FallbackValue=''}" />
+                                                    </StackPanel>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button Command="{PluginSettings Plugin=NowPlaying, Path=CloseGame, FallbackValue={x:Null}}"
+                                ToolTip="{DynamicResource LOCHNDNowPlayingClose}" Margin="4,0,0,0" Padding="3" MinHeight="32"
+                                Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[NowPlayingShowCloseButton], FallbackValue=False, TargetNullValue=False}">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource TopPanelNavigateBackButtonStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border BorderThickness="0" Background="{TemplateBinding Background}"
+                                                        CornerRadius="{DynamicResource ControlCornerRadius}" Padding="{TemplateBinding Padding}">
+                                                    <TextBlock FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Text="&#xE711;" FontSize="14"
+                                                               Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6,0,6,0" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+                    <!-- Back To Game add-on (Artem Shpynov), used when Now Playing is not there: the plugin only says whether the game runs and brings its window back,
+                         so the chip is one button. Its README documents IsRunning and ActivateGame as the theme contract. -->
+                    <Button Command="{PluginSettings Plugin=BackToGame, Path=ActivateGame, FallbackValue={x:Null}}"
+                            ToolTip="{DynamicResource LOCHNDNowPlayingTooltip}" Margin="8,0,0,0" Padding="10,3,10,3" MinHeight="32"
+                            Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[TopPanelShowNowPlaying], FallbackValue=True, TargetNullValue=True}">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource TopPanelNavigateBackButtonStyle}">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderThickness="0" Background="{TemplateBinding Background}"
+                                                    CornerRadius="{DynamicResource ControlCornerRadius}" Padding="{TemplateBinding Padding}">
+                                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}">
+                                                    <TextBlock FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Text="&#xE7B5;" FontSize="15" Margin="0,0,8,0" VerticalAlignment="Center" />
+                                                    <TextBlock FontSize="12" FontWeight="SemiBold" VerticalAlignment="Center" Text="{DynamicResource LOCHNDBackToGame}" />
+                                                </StackPanel>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                            <Condition Binding="{PluginSettings Plugin=BackToGame, Path=IsRunning, FallbackValue=False}" Value="True" />
+                                            <Condition Binding="{PluginSettings Plugin=NowPlaying, Path=IsGameRunning, FallbackValue=False}" Value="False" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Library overview, from the data of the AnikiHelper plugin (Mike Aniki, MIT; public bindings of its wiki): a top bar button that opens a popup with
+         library numbers, the game of the month, a suggestion, the most played games, the completion states and the sources. Only the plugin's public data is bound;
+         the button is hidden when the plugin is missing or reports no game. The popup is informational (the plugin gives names, not game ids to select). -->
+    <Style x:Key="TopPanelLibraryOverviewStat" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{DynamicResource TopPanelItemBackgroundBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Padding" Value="10,6,10,6" />
+        <Setter Property="Margin" Value="0,0,6,6" />
+        <Setter Property="MinWidth" Value="88" />
+    </Style>
+
+    <Style x:Key="TopPanelLibraryOverview" TargetType="{x:Type ContentControl}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <Grid Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[TopPanelShowLibraryOverview], FallbackValue=True, TargetNullValue=True}">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True" />
+                                            <Condition Binding="{PluginStatus Plugin=AnikiHelper_96a983a3-3f13-4dce-a474-4052b718bb52, Status=Installed}" Value="True" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </MultiDataTrigger>
+                                    <!-- the plugin answered but the library is empty or the data is not published: nothing to show -->
+                                    <DataTrigger Binding="{PluginSettings Plugin=AnikiHelper, Path=TotalCount, FallbackValue=0}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <ToggleButton x:Name="OverviewToggle" Margin="8,0,0,0" MinWidth="35" MinHeight="32" Padding="3" Focusable="False" Cursor="Hand"
+                                      WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="{DynamicResource LOCHNDLibraryOverviewTooltip}">
+                            <ToggleButton.Style>
+                                <Style TargetType="{x:Type ToggleButton}">
+                                    <Setter Property="Opacity" Value="0.75" />
+                                    <Setter Property="Foreground" Value="{DynamicResource TopPanelItemIsMouseOverForegroundBrush}" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                <Border x:Name="OverviewBorder" Background="{DynamicResource TopPanelItemBackgroundBrush}" CornerRadius="{DynamicResource ControlCornerRadius}">
+                                                    <TextBlock FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Text="&#xE9D2;" FontSize="18"
+                                                               Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                            <Setter Property="Opacity" Value="1" />
+                                        </Trigger>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                                            <Setter Property="Opacity" Value="1" />
+                                        </Trigger>
+                                        <!-- while the popup is open the toggle ignores the mouse, so the click that closes the popup does not reopen it -->
+                                        <DataTrigger Binding="{Binding IsOpen, ElementName=OverviewPopup}" Value="True">
+                                            <Setter Property="IsHitTestVisible" Value="False" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ToggleButton.Style>
+                        </ToggleButton>
+                        <Popup x:Name="OverviewPopup" PlacementTarget="{Binding ElementName=OverviewToggle}" Placement="Bottom" StaysOpen="False"
+                               AllowsTransparency="True" PopupAnimation="Fade" HorizontalOffset="0" VerticalOffset="6"
+                               IsOpen="{Binding IsChecked, ElementName=OverviewToggle, Mode=TwoWay}">
+                            <Border Style="{DynamicResource PopupBorder}" CornerRadius="{DynamicResource PopupCornerRadius}" Margin="14" Padding="16" Width="470"
+                                    TextElement.Foreground="{DynamicResource TextBrush}" TextElement.FontFamily="{DynamicResource FontFamily}" TextElement.FontSize="13">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="18" ShadowDepth="2" Opacity="0.55" Color="Black" RenderingBias="Performance" />
+                                </Border.Effect>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" MaxHeight="620">
+                                    <StackPanel>
+                                        <TextBlock Text="{DynamicResource LOCHNDLibraryOverview}" FontSize="17" FontWeight="SemiBold" Margin="0,0,0,10" />
+
+                                        <!-- the numbers -->
+                                        <WrapPanel>
+                                            <Border Style="{StaticResource TopPanelLibraryOverviewStat}">
+                                                <StackPanel>
+                                                    <TextBlock Text="{PluginSettings Plugin=AnikiHelper, Path=TotalCount, FallbackValue='-'}" FontSize="20" FontWeight="SemiBold" />
+                                                    <TextBlock Text="{DynamicResource LOCHNDOverviewGames}" FontSize="11" Opacity="0.7" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Style="{StaticResource TopPanelLibraryOverviewStat}">
+                                                <StackPanel>
+                                                    <TextBlock Text="{PluginSettings Plugin=AnikiHelper, Path=InstalledCount, FallbackValue='-'}" FontSize="20" FontWeight="SemiBold" />
+                                                    <TextBlock Text="{DynamicResource LOCHNDOverviewInstalled}" FontSize="11" Opacity="0.7" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Style="{StaticResource TopPanelLibraryOverviewStat}">
+                                                <StackPanel>
+                                                    <TextBlock Text="{PluginSettings Plugin=AnikiHelper, Path=FavoriteCount, FallbackValue='-'}" FontSize="20" FontWeight="SemiBold" />
+                                                    <TextBlock Text="{DynamicResource LOCHNDOverviewFavorites}" FontSize="11" Opacity="0.7" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Style="{StaticResource TopPanelLibraryOverviewStat}">
+                                                <StackPanel>
+                                                    <TextBlock Text="{PluginSettings Plugin=AnikiHelper, Path=TotalPlaytimeString, FallbackValue='-'}" FontSize="20" FontWeight="SemiBold" />
+                                                    <TextBlock Text="{DynamicResource LOCHNDOverviewPlaytime}" FontSize="11" Opacity="0.7" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Style="{StaticResource TopPanelLibraryOverviewStat}">
+                                                <StackPanel>
+                                                    <TextBlock Text="{PluginSettings Plugin=AnikiHelper, Path=AveragePlaytimeString, FallbackValue='-'}" FontSize="20" FontWeight="SemiBold" />
+                                                    <TextBlock Text="{DynamicResource LOCHNDOverviewAverage}" FontSize="11" Opacity="0.7" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Style="{StaticResource TopPanelLibraryOverviewStat}">
+                                                <StackPanel>
+                                                    <TextBlock Text="{PluginSettings Plugin=AnikiHelper, Path=ThisMonthPlayedTotalString, FallbackValue='-'}" FontSize="20" FontWeight="SemiBold" />
+                                                    <TextBlock Text="{DynamicResource LOCHNDOverviewThisMonth}" FontSize="11" Opacity="0.7" />
+                                                </StackPanel>
+                                            </Border>
+                                        </WrapPanel>
+
+                                        <!-- game of the month and suggestion: each hides when the plugin has no name for it -->
+                                        <Border Margin="0,6,0,0" Padding="10" CornerRadius="{DynamicResource ControlCornerRadius}" Background="{DynamicResource TopPanelItemBackgroundBrush}"
+                                                Tag="{PluginSettings Plugin=AnikiHelper, Path=SuggestedGameName, FallbackValue={x:Null}}">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <DockPanel>
+                                                <Border DockPanel.Dock="Left" Width="64" Height="90" CornerRadius="6" Margin="0,0,12,0" Background="#22000000">
+                                                    <Border.OpacityMask>
+                                                        <VisualBrush>
+                                                            <VisualBrush.Visual>
+                                                                <Border Width="64" Height="90" CornerRadius="6" Background="Black" />
+                                                            </VisualBrush.Visual>
+                                                        </VisualBrush>
+                                                    </Border.OpacityMask>
+                                                    <Image Stretch="UniformToFill" RenderOptions.BitmapScalingMode="Fant"
+                                                           Source="{PluginSettings Plugin=AnikiHelper, Path=SuggestedGameCoverPath, FallbackValue={x:Null}}" />
+                                                </Border>
+                                                <StackPanel VerticalAlignment="Center">
+                                                    <TextBlock Text="{DynamicResource LOCHNDOverviewSuggested}" FontSize="11" Opacity="0.7" />
+                                                    <TextBlock FontSize="16" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,2,0,0"
+                                                               Text="{PluginSettings Plugin=AnikiHelper, Path=SuggestedGameName, FallbackValue=''}" />
+                                                    <TextBlock FontSize="12" Opacity="0.8" TextWrapping="Wrap" Margin="0,2,0,0"
+                                                               Text="{PluginSettings Plugin=AnikiHelper, Path=SuggestedGameBannerText, FallbackValue=''}" />
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </Border>
+                                        <Border Margin="0,6,0,0" Padding="10" CornerRadius="{DynamicResource ControlCornerRadius}" Background="{DynamicResource TopPanelItemBackgroundBrush}"
+                                                Tag="{PluginSettings Plugin=AnikiHelper, Path=ThisMonthTopGameName, FallbackValue={x:Null}}">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <StackPanel>
+                                                <TextBlock Text="{DynamicResource LOCHNDOverviewMonthTop}" FontSize="11" Opacity="0.7" />
+                                                <DockPanel Margin="0,2,0,0">
+                                                    <TextBlock DockPanel.Dock="Right" Opacity="0.85" Text="{PluginSettings Plugin=AnikiHelper, Path=ThisMonthTopGamePlaytime, FallbackValue=''}" />
+                                                    <TextBlock FontWeight="SemiBold" TextTrimming="CharacterEllipsis" Text="{PluginSettings Plugin=AnikiHelper, Path=ThisMonthTopGameName, FallbackValue=''}" />
+                                                </DockPanel>
+                                            </StackPanel>
+                                        </Border>
+
+                                        <!-- lists: the plugin publishes small collections of {Name, value} records -->
+                                        <TextBlock Text="{DynamicResource LOCHNDOverviewTopPlayed}" FontSize="11" Opacity="0.7" Margin="0,12,0,4" />
+                                        <ItemsControl ItemsSource="{PluginSettings Plugin=AnikiHelper, Path=TopPlayed, FallbackValue={x:Null}}" Focusable="False">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <DockPanel Margin="0,1,0,1">
+                                                        <TextBlock DockPanel.Dock="Right" Margin="12,0,0,0" Opacity="0.85" Text="{Binding PlaytimeString}" />
+                                                        <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Name}" />
+                                                    </DockPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock Text="{DynamicResource LOCHNDOverviewCompletion}" FontSize="11" Opacity="0.7" Margin="0,12,0,4" />
+                                        <ItemsControl ItemsSource="{PluginSettings Plugin=AnikiHelper, Path=CompletionStates, FallbackValue={x:Null}}" Focusable="False">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <DockPanel Margin="0,1,0,1">
+                                                        <TextBlock DockPanel.Dock="Right" Margin="12,0,0,0" Opacity="0.85">
+                                                            <Run Text="{Binding Value, Mode=OneWay}" /> <Run Text="{Binding PercentageString, Mode=OneWay}" Foreground="{DynamicResource TextBrushDarker}" />
+                                                        </TextBlock>
+                                                        <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Name}" />
+                                                    </DockPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock Text="{DynamicResource LOCHNDOverviewSources}" FontSize="11" Opacity="0.7" Margin="0,12,0,4" />
+                                        <ItemsControl ItemsSource="{PluginSettings Plugin=AnikiHelper, Path=GameProviders, FallbackValue={x:Null}}" Focusable="False">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <DockPanel Margin="0,1,0,1">
+                                                        <TextBlock DockPanel.Dock="Right" Margin="12,0,0,0" Opacity="0.85">
+                                                            <Run Text="{Binding Value, Mode=OneWay}" /> <Run Text="{Binding PercentageString, Mode=OneWay}" Foreground="{DynamicResource TextBrushDarker}" />
+                                                        </TextBlock>
+                                                        <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Name}" />
+                                                    </DockPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock Text="{DynamicResource LOCHNDOverviewNeverPlayed}" FontSize="11" Opacity="0.7" Margin="0,12,0,4" />
+                                        <ItemsControl ItemsSource="{PluginSettings Plugin=AnikiHelper, Path=NeverPlayed, FallbackValue={x:Null}}" Focusable="False">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <DockPanel Margin="0,1,0,1">
+                                                        <TextBlock DockPanel.Dock="Right" Margin="12,0,0,0" Opacity="0.7" Text="{Binding Value}" />
+                                                        <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Name}" />
+                                                    </DockPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock Text="{DynamicResource LOCHNDOverviewRecentUpdates}" FontSize="11" Opacity="0.7" Margin="0,12,0,4" />
+                                        <ItemsControl ItemsSource="{PluginSettings Plugin=AnikiHelper, Path=SteamRecentUpdates, FallbackValue={x:Null}}" Focusable="False">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <DockPanel Margin="0,2,0,2">
+                                                        <TextBlock DockPanel.Dock="Right" Margin="12,0,0,0" Opacity="0.7" VerticalAlignment="Top" Text="{Binding DateString}" />
+                                                        <StackPanel>
+                                                            <TextBlock FontWeight="SemiBold" TextTrimming="CharacterEllipsis" Text="{Binding GameName}" />
+                                                            <TextBlock FontSize="12" Opacity="0.8" TextTrimming="CharacterEllipsis" Text="{Binding Title}" />
+                                                        </StackPanel>
+                                                    </DockPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock Text="{DynamicResource LOCHNDOverviewCredit}" FontSize="10" Opacity="0.5" Margin="0,14,0,0" />
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

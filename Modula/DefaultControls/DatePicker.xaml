@@ -180,7 +180,7 @@
         <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="TextBlock.Background" Value="{DynamicResource ControlBackgroundBrush}" />
         <Setter Property="CalendarStyle" Value="{StaticResource CalendarStyle}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GlassRimBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Background" Value="{DynamicResource DatePickerBackgroundBrush}" />
@@ -227,7 +227,7 @@
         <Setter Property="CaretBrush" Value="{DynamicResource TextBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource GlassRimBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}" />
         <Setter Property="Template">
             <Setter.Value>

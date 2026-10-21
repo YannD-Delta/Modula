@@ -21,6 +21,7 @@
     <sys:Boolean x:Key="DetailsViewExpandScreenshotsVisualizerPanel">False</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewExpandReviewsPanel">False</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewExpandScreenshotUtilitiesPanel">False</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewExpandPlayerActivitiesPanel">False</sys:Boolean>
     <VerticalAlignment x:Key="DetailsViewBackgroundVerticalAlignment">Center</VerticalAlignment>
     <HorizontalAlignment x:Key="DetailsViewBackgroundHorizontalAlignment">Left</HorizontalAlignment>
     <sys:Boolean x:Key="DetailsViewAllowUseOfLogos">true</sys:Boolean>
@@ -79,6 +80,7 @@
     <sys:Boolean x:Key="GridViewShowGameRelationsPanel">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewShowSteamScreenshotsPanel">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewShowWebExplorerPanel">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowLinksPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowNotesPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowNewsPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowVideoPanel">True</sys:Boolean>
@@ -93,6 +95,7 @@
     <sys:Boolean x:Key="DetailsViewShowScreenshotsVisualizerPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowReviewsPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowScreenshotUtilitiesPanel">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowPlayerActivitiesPanel">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowEditButton">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowInfoButton">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowFavoriteButton">True</sys:Boolean>
@@ -142,13 +145,19 @@
     <sys:Double x:Key="HeroCoverWidth">230</sys:Double>
     <sys:Double x:Key="HeroCoverHeight">345</sys:Double>
     <CornerRadius x:Key="HeroCoverCornerRadius">16</CornerRadius>
+    <!-- False = the cover fills its box and is cropped to it; True = the whole cover, the box takes the cover's own ratio inside Width x Height -->
+    <sys:Boolean x:Key="HeroCoverShowWhole">False</sys:Boolean>
     <x:Null x:Key="HeroBackgroundEffect" />
     <sys:Boolean x:Key="DetailsViewShowHeaderBar">True</sys:Boolean>
     <sys:Double x:Key="HeaderBarBlurOpacity">0</sys:Double>
     <sys:Double x:Key="HeaderBarGlassOpacity">0</sys:Double>
     <sys:Boolean x:Key="HeroShowInfoLine">True</sys:Boolean>
-    <!-- The UniPlaySong player in the banner (UPS_MediaControllerBar). Hidden when the extension is missing or nothing plays. -->
-    <sys:Boolean x:Key="HeroShowMusicPlayer">True</sys:Boolean>
+    <!-- The UniPlaySong player in the banner (UPS_MediaControllerBar), off by default: UniPlaySong already puts play/pause/next in the top bar. Hidden when the extension is missing or nothing plays. -->
+    <sys:Boolean x:Key="HeroShowMusicPlayer">False</sys:Boolean>
+    <sys:Boolean x:Key="UseImageRotater">True</sys:Boolean>
+    <!-- Steam players online (News Viewer control), large above the banner cover. Hidden when False; the control stays empty for games without a Steam page. -->
+    <sys:Boolean x:Key="HeroShowPlayersCount">True</sys:Boolean>
+    <sys:Double x:Key="HeroPlayersCountFontSize">28</sys:Double>
     <!-- Set by presets only (presets must not set variables) -->
     <sys:Boolean x:Key="HeroStyleShowInfoLine">True</sys:Boolean>
     <sys:Boolean x:Key="HeaderBarStyleVisible">True</sys:Boolean>
@@ -174,7 +183,21 @@
     <sys:Boolean x:Key="InfoPanelStyleShowCover">False</sys:Boolean>
     <!-- Header bar items drawn as tiles (transparent tile and 20 px gap = classic bar) -->
     <sys:Double x:Key="HeaderRowBackgroundOpacity">0</sys:Double>
-    <Thickness x:Key="HeaderRowPadding">0,14,0,18</Thickness>
+    <!-- Edges of the bands behind the header row (blurred artwork, glass, row band): 0 = square edges, 1 = fade out at both sides, 2 = fade out on every edge. Set by the "Band edges" preset. -->
+    <sys:Int32 x:Key="HeaderBandEdge">1</sys:Int32>
+    <LinearGradientBrush x:Key="HeaderBandFadeSides" StartPoint="0,0.5" EndPoint="1,0.5">
+        <GradientStop Color="#00000000" Offset="0" />
+        <GradientStop Color="#FF000000" Offset="0.08" />
+        <GradientStop Color="#FF000000" Offset="0.92" />
+        <GradientStop Color="#00000000" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="HeaderBandFadeTopBottom" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#00000000" Offset="0" />
+        <GradientStop Color="#FF000000" Offset="0.3" />
+        <GradientStop Color="#FF000000" Offset="0.7" />
+        <GradientStop Color="#00000000" Offset="1" />
+    </LinearGradientBrush>
+    <Thickness x:Key="HeaderRowPadding">0,16,0,18</Thickness>
     <sys:Double x:Key="HeaderTileBackgroundOpacity">0.14</sys:Double>
     <!-- Tile color follows the text color of the color profile -->
     <CornerRadius x:Key="HeaderTileCornerRadius">16</CornerRadius>
@@ -187,14 +210,112 @@
          WindowGlassEnabled turns it on; the page glass above is then hidden because the window glass replaces it.
          The four panel opacities (top bar, left icon bar, game list, filter panel) are the opacity of each panel's own background (1 = opaque, lower = the artwork shows through, so the zone looks lighter or darker). -->
     <sys:Boolean x:Key="WindowGlassEnabled">True</sys:Boolean>
+    <!-- Notice under the top bar when the glass is on but Playnite's "Show background image on the window" is off (the glass would have no artwork) -->
+    <sys:Boolean x:Key="WindowGlassBackgroundWarning">True</sys:Boolean>
     <sys:Double x:Key="WindowGlassOpacity">1</sys:Double>
+    <!-- Colors of the layers that dim or lift the artwork. Black and white on a dark profile; a light color profile sets light ones, so its window stays pastel and its dark text stays readable. -->
+    <Color x:Key="WindowGlassScrimColor">#000000</Color>
+    <SolidColorBrush x:Key="WindowGlassScrimBrush" Color="{DynamicResource WindowGlassScrimColor}" />
+    <Color x:Key="PageGlassScrimColor">#000000</Color>
+    <SolidColorBrush x:Key="PageGlassScrimBrush" Color="{DynamicResource PageGlassScrimColor}" />
+    <Color x:Key="HeroShadeColor">#000000</Color>
+    <SolidColorBrush x:Key="HeroShadeBrush" Color="{DynamicResource HeroShadeColor}" />
+    <Color x:Key="HeroTintLightColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="HeroTintLightBrush" Color="{DynamicResource HeroTintLightColor}" />
+    <Color x:Key="HeroBaseColor">#141414</Color>
+    <SolidColorBrush x:Key="HeroBaseBrush" Color="{DynamicResource HeroBaseColor}" />
+    <!-- Text and glyphs drawn over the artwork or on a pale-on-dark surface. These defaults are the colors the theme always had; a light color profile redefines them in ink. -->
+    <Color x:Key="HeroTitleShadowColor">#000000</Color>
+    <SolidColorBrush x:Key="HeroTitleBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="HeroChipTextBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="HeroChipLabelBrush" Color="#B3FFFFFF" />
+    <SolidColorBrush x:Key="HeroFavoriteOffBrush" Color="#80FFFFFF" />
+    <SolidColorBrush x:Key="HeroSecondaryButtonForegroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="LibraryDetailsViewInstalledForegroundBrush" Color="#F1F7FF" />
+    <SolidColorBrush x:Key="GroupCountForegroundBrush" Color="#A5A7A9" />
+    <SolidColorBrush x:Key="TopPanelToggleBackgroundBrush" Color="#25272D" />
+    <SolidColorBrush x:Key="TopPanelToggleForegroundBrush" Color="#808080" />
+    <SolidColorBrush x:Key="DetailsHyperlinkForegroundBrush" Color="LightGray" />
+    <SolidColorBrush x:Key="DetailsHyperlinkHoverForegroundBrush" Color="#FFFFFF" />
     <sys:Double x:Key="WindowGlassBlurRadius">36</sys:Double>
     <sys:Double x:Key="WindowGlassScrimOpacity">0.42</sys:Double>
     <sys:Double x:Key="TopPanelGlassOpacity">0.34</sys:Double>
     <sys:Double x:Key="SidebarGlassOpacity">0.34</sys:Double>
     <sys:Double x:Key="LibraryPanelGlassOpacity">0.3</sys:Double>
     <sys:Double x:Key="FilterPanelGlassOpacity">0.3</sys:Double>
+    <!-- Frost over the filter panel and the explorer panel: the section glass fill, so they read as glass slabs over the window artwork instead of flat blocks -->
+    <sys:Double x:Key="SidePanelFrostOpacity">0</sys:Double>
+    <LinearGradientBrush x:Key="SidePanelFrostBrush" StartPoint="0.5,0" EndPoint="0.5,1" Opacity="{DynamicResource SidePanelFrostOpacity}">
+        <GradientStop Color="#FFFFFFFF" Offset="0" />
+        <GradientStop Color="#8CFFFFFF" Offset="1" />
+    </LinearGradientBrush>
     <Thickness x:Key="WindowGlassBleed">-60</Thickness>
+    <!-- BEGIN generated backdrop constants -->
+    <!-- Generated backdrop: a colour, a gradient or soft circles instead of the game artwork behind the whole window (see tools/gen_backdrop.py). -->
+    <sys:Int32 x:Key="BackdropMode">0</sys:Int32>
+    <sys:Int32 x:Key="BackdropSeed">1</sys:Int32>
+    <sys:Boolean x:Key="BackdropFallbackOnly">False</sys:Boolean>
+    <Color x:Key="BackdropColor1">#FF14182B</Color>
+    <Color x:Key="BackdropColor2">#FF26204A</Color>
+    <Color x:Key="BackdropColor3">#FF3B2A64</Color>
+    <sys:Double x:Key="BackdropAngle">135</sys:Double>
+    <sys:Double x:Key="BackdropMidpoint">0.55</sys:Double>
+    <sys:Boolean x:Key="BackdropThirdColor">True</sys:Boolean>
+    <sys:Double x:Key="BackdropBlobCount">5</sys:Double>
+    <sys:Double x:Key="BackdropBlobScale">1</sys:Double>
+    <sys:Double x:Key="BackdropSpread">1</sys:Double>
+    <sys:Double x:Key="BackdropBlobOpacityScale">1</sys:Double>
+    <sys:Double x:Key="BackdropHardness">0.1</sys:Double>
+    <sys:Double x:Key="BackdropDarkness">0</sys:Double>
+    <sys:Double x:Key="BackdropRadialRadius">1.4</sys:Double>
+    <sys:Double x:Key="BackdropCenterX">0</sys:Double>
+    <sys:Double x:Key="BackdropCenterY">0</sys:Double>
+    <sys:Int32 x:Key="BackdropPatternKind">0</sys:Int32>
+    <sys:Double x:Key="BackdropPatternOpacity">0.08</sys:Double>
+    <sys:Double x:Key="BackdropPatternScale">24</sys:Double>
+    <Color x:Key="BackdropPatternColor">#FFFFFFFF</Color>
+    <sys:Double x:Key="BackdropAspect">1.78</sys:Double>
+    <sys:Double x:Key="BackdropBlob1X">-0.28</sys:Double>
+    <sys:Double x:Key="BackdropBlob1Y">-0.18</sys:Double>
+    <sys:Double x:Key="BackdropBlob1Size">1.1</sys:Double>
+    <sys:Double x:Key="BackdropBlob1Opacity">0.55</sys:Double>
+    <Color x:Key="BackdropBlob1Color">#FF5B3FA0</Color>
+    <sys:Double x:Key="BackdropBlob2X">0.3</sys:Double>
+    <sys:Double x:Key="BackdropBlob2Y">-0.12</sys:Double>
+    <sys:Double x:Key="BackdropBlob2Size">0.9</sys:Double>
+    <sys:Double x:Key="BackdropBlob2Opacity">0.5</sys:Double>
+    <Color x:Key="BackdropBlob2Color">#FF2E7DAF</Color>
+    <sys:Double x:Key="BackdropBlob3X">0.05</sys:Double>
+    <sys:Double x:Key="BackdropBlob3Y">0.28</sys:Double>
+    <sys:Double x:Key="BackdropBlob3Size">1.2</sys:Double>
+    <sys:Double x:Key="BackdropBlob3Opacity">0.5</sys:Double>
+    <Color x:Key="BackdropBlob3Color">#FF8A3F7A</Color>
+    <sys:Double x:Key="BackdropBlob4X">-0.35</sys:Double>
+    <sys:Double x:Key="BackdropBlob4Y">0.25</sys:Double>
+    <sys:Double x:Key="BackdropBlob4Size">0.8</sys:Double>
+    <sys:Double x:Key="BackdropBlob4Opacity">0.45</sys:Double>
+    <Color x:Key="BackdropBlob4Color">#FF3F5FB0</Color>
+    <sys:Double x:Key="BackdropBlob5X">0.4</sys:Double>
+    <sys:Double x:Key="BackdropBlob5Y">0.3</sys:Double>
+    <sys:Double x:Key="BackdropBlob5Size">0.7</sys:Double>
+    <sys:Double x:Key="BackdropBlob5Opacity">0.4</sys:Double>
+    <Color x:Key="BackdropBlob5Color">#FF2E9C94</Color>
+    <sys:Double x:Key="BackdropBlob6X">0.0</sys:Double>
+    <sys:Double x:Key="BackdropBlob6Y">-0.35</sys:Double>
+    <sys:Double x:Key="BackdropBlob6Size">0.6</sys:Double>
+    <sys:Double x:Key="BackdropBlob6Opacity">0.35</sys:Double>
+    <Color x:Key="BackdropBlob6Color">#FF7A57C2</Color>
+    <sys:Double x:Key="BackdropBlob7X">-0.1</sys:Double>
+    <sys:Double x:Key="BackdropBlob7Y">0.0</sys:Double>
+    <sys:Double x:Key="BackdropBlob7Size">0.5</sys:Double>
+    <sys:Double x:Key="BackdropBlob7Opacity">0.3</sys:Double>
+    <Color x:Key="BackdropBlob7Color">#FF4F86C6</Color>
+    <sys:Double x:Key="BackdropBlob8X">0.2</sys:Double>
+    <sys:Double x:Key="BackdropBlob8Y">0.05</sys:Double>
+    <sys:Double x:Key="BackdropBlob8Size">0.5</sys:Double>
+    <sys:Double x:Key="BackdropBlob8Opacity">0.3</sys:Double>
+    <Color x:Key="BackdropBlob8Color">#FFB05A8C</Color>
+    <!-- END generated backdrop constants -->
     <!-- Glass panels (sections, information panel) and glass chips; colors follow the profile text color -->
     <CornerRadius x:Key="SectionCornerRadius">18</CornerRadius>
     <sys:Double x:Key="SectionGlassOpacity">0.12</sys:Double>
@@ -215,13 +336,31 @@
     <sys:Double x:Key="GlassPopupShadowOpacity">0.55</sys:Double>
     <Thickness x:Key="GlassPopupShadowRoom">10</Thickness>
     <!-- Cover in the header -->
-    <sys:Double x:Key="HeroCoverShadowBlur">36</sys:Double>
+    <sys:Double x:Key="HeroCoverShadowBlur">30</sys:Double>
     <sys:Double x:Key="HeroCoverShadowDepth">10</sys:Double>
     <sys:Double x:Key="HeroCoverShadowOpacity">0.55</sys:Double>
-    <Thickness x:Key="HeroCoverBorderThickness">1.5</Thickness>
+    <Thickness x:Key="HeroCoverBorderThickness">2</Thickness>
+    <!-- Where the cover sits on the banner: over the card edge (placement 0) and inside the card (placement 1); outline color of the cover -->
+    <Thickness x:Key="HeroCoverMargin">20,0,0,6</Thickness>
+    <Thickness x:Key="HeroCoverInsideMargin">20,0,0,20</Thickness>
+    <!-- Play / edit buttons when they sit at the right of the card (HeroActionsLocation 2); flags and source selector at the top left of the banner -->
+    <Thickness x:Key="HeroActionsMarginRight">0,0,28,22</Thickness>
+    <Thickness x:Key="HeroTopLeftMargin">20,20,0,0</Thickness>
+    <Color x:Key="HeroCoverBorderColor">#59FFFFFF</Color>
+    <SolidColorBrush x:Key="HeroCoverBorderBrush" Color="{DynamicResource HeroCoverBorderColor}" />
+    <!-- Achievement progress bars (hero chip, header tile, achievements section): fill and track -->
+    <Color x:Key="AchievementBarColor">#2d73ff</Color>
+    <Color x:Key="AchievementBarTrackColor">#151619</Color>
+    <SolidColorBrush x:Key="AchievementBarBrush" Color="{DynamicResource AchievementBarColor}" />
+    <SolidColorBrush x:Key="AchievementBarTrackBrush" Color="{DynamicResource AchievementBarTrackColor}" />
+    <!-- Tabs of the details view (tabs mode): space around each tab and inside it -->
+    <Thickness x:Key="DetailsTabMargin">0,0,8,6</Thickness>
+    <Thickness x:Key="DetailsTabPadding">14,5,14,6</Thickness>
     <!-- Scrollbar -->
     <sys:Double x:Key="ScrollbarThumbWidth">6</sys:Double>
     <sys:Double x:Key="ScrollbarThumbHoverWidth">10</sys:Double>
+    <Thickness x:Key="ScrollbarThumbRim">1</Thickness>
+    <sys:Double x:Key="ScrollbarThumbOpacity">1</sys:Double>
     <!-- Spacing without a constant yet (Comfortable density). The other spacing keys already exist: SectionChipsMargin, SectionChipMargin, LinksChipMargin, SectionBodyPadding, SectionHeaderMargin, SectionBodyMargin, InfoPanelGap, InfoPanelPadding -->
     <Thickness x:Key="HeroChipPadding">10,3,10,4</Thickness>
     <Thickness x:Key="HeroChipSpacing">0,0,8,6</Thickness>
@@ -238,7 +377,7 @@
     <!-- Type families and weights (not editable live: changed by the Typography preset files) -->
     <FontFamily x:Key="FontFamilyDisplay">Segoe UI Variable Display, Segoe UI</FontFamily>
     <FontFamily x:Key="FontFamilyOverline">Corbel</FontFamily>
-    <x:Static x:Key="WeightDisplay" Member="FontWeights.SemiBold" />
+    <x:Static x:Key="WeightDisplay" Member="FontWeights.Medium" />
     <x:Static x:Key="WeightSection" Member="FontWeights.Bold" />
     <x:Static x:Key="WeightValue" Member="FontWeights.SemiBold" />
     <x:Static x:Key="WeightLabel" Member="FontWeights.Normal" />
@@ -316,6 +455,8 @@
     <!-- replaces Constants.xaml PanelSeparatorBrush (Color = PanelSeparatorColor): every separator in the theme becomes a translucent white hairline -->
     <SolidColorBrush x:Key="PanelSeparatorBrush" Color="#FFFFFFFF" Opacity="{DynamicResource GlassBarEdgeOpacity}" />
     <SolidColorBrush x:Key="PlayButtonGlowBrush" Color="{DynamicResource PlayButtonBackgroundColor2}" />
+    <!-- the drop-down half of the details-view Play button follows the Play colour (it used to stay green whatever the Play colours) -->
+    <SolidColorBrush x:Key="PlayButtonMoreBackgroundBrush" Color="{DynamicResource PlayButtonBackgroundColor3}" />
     <SolidColorBrush x:Key="ContextButtonGlowBrush" Color="{DynamicResource ContextButtonBackgroundColor2}" />
     <!-- Side margins of the information, links and sections, aligned with the card -->
     <Thickness x:Key="PageSideMargin">20,0,20,0</Thickness>
@@ -377,6 +518,49 @@
     <Thickness x:Key="HeaderTileCardGap">0,0,12,0</Thickness>
     <Thickness x:Key="HeaderTileCardGapBack">0,0,-12,0</Thickness>
     <!-- Margins and spacing of the details page (Layout Studio: Details view - margins and spacing) -->
+    <!-- Information shown once: each row of the information panel can be switched off (the hero chips have HeroShow*, the header tiles their slots) -->
+    <sys:Boolean x:Key="InfoPanelShowReleaseDate">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowPlatforms">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowDevelopers">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowInstallSize">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowSource">True</sys:Boolean>
+    <!-- section headers: the global switch and one per section (a header is shown when both are on; with no header the body is always open) -->
+    <sys:Boolean x:Key="DetailsViewShowSectionHeaders">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowNotesHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowGenresHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowCategoriesHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowFeaturesHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowTagsHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowNewsViewerHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowVideoHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowGameActivityHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowCheckDlcHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowGameRelationsHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowWebHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowHowLongToBeatHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowAchievementsHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowSteamScreenshotsHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowScreenshotUtilitiesHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowPlayerActivitiesHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowVndbHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowScreenshotsVisualizerHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="DetailsViewShowReviewViewerHeader">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowRecentActivity">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowAdded">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowLibrary">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowPublishers">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowInstallDirectory">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowSeries">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowRegions">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowVersion">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowUserScore">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowCommunityScore">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowCriticScore">True</sys:Boolean>
+    <sys:Boolean x:Key="InfoPanelShowAgeRatings">True</sys:Boolean>
+    <!-- Section titles (GENRES, TAGS...) and the small labels over the header tiles / the information panel -->
+    <Thickness x:Key="SectionTitleMargin">0,0,0,10</Thickness>
+    <sys:Double x:Key="HeaderLabelOpacity">0.8</sys:Double>
+    <sys:Double x:Key="HeaderTextOpacity">0.65</sys:Double>
     <Thickness x:Key="InfoPanelGap">0,0,0,16</Thickness>
     <Thickness x:Key="InfoPanelPadding">16,12,16,12</Thickness>
     <sys:Double x:Key="InfoPanelMinHeight">150</sys:Double>
@@ -427,6 +611,7 @@
     <sys:Boolean x:Key="AchievementsShowOnCover">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewShowHltbProgressBar">True</sys:Boolean>
     <sys:Boolean x:Key="DemoteSectionsShownElsewhere">True</sys:Boolean>
+    <sys:Boolean x:Key="LibraryListShowPlayTime">False</sys:Boolean>
     <sys:Boolean x:Key="LibraryListShowHltb">True</sys:Boolean>
     <sys:Boolean x:Key="LibraryListShowAchievements">True</sys:Boolean>
     <sys:Boolean x:Key="GridCoverShowHltb">True</sys:Boolean>
@@ -457,13 +642,24 @@
     <sys:Boolean x:Key="HeroChipBreakLastSession">True</sys:Boolean>
     <sys:Boolean x:Key="HeroChipBreakRecentActivity">False</sys:Boolean>
     <sys:Boolean x:Key="HeroChipBreakAvgFps">False</sys:Boolean>
-    <!-- Chip group order (Double so live sliders can write it; each group shows in the slot equal to its value) -->
-    <sys:Double x:Key="HeroChipsOrderGame">0</sys:Double>
-    <sys:Double x:Key="HeroChipsOrderClassification">1</sys:Double>
-    <sys:Double x:Key="HeroChipsOrderStudio">2</sys:Double>
-    <sys:Double x:Key="HeroChipsOrderHltb">3</sys:Double>
-    <sys:Double x:Key="HeroChipsOrderAchievements">4</sys:Double>
-    <sys:Double x:Key="HeroChipsOrderActivity">5</sys:Double>
+    <!-- Order of the information chips in the artwork header (each number once, 0 to 16): the Layout Studio plugin puts the chips in this order -->
+    <sys:Int32 x:Key="HeroChipOrderReleaseDate">0</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderPlatforms">1</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderSource">2</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderGenres">3</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderCategories">4</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderFeatures">5</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderTags">6</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderDevelopers">7</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderCompletionStatus">8</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderCommunityScore">9</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderHltb">10</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderAchievements">11</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderLatestAchievement">12</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderRareAchievements">13</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderLastSession">14</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderRecentActivity">15</sys:Int32>
+    <sys:Int32 x:Key="HeroChipOrderAvgFps">16</sys:Int32>
     <sys:Boolean x:Key="DetailsViewExpandGenres">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewExpandCategories">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewExpandFeatures">True</sys:Boolean>
@@ -495,6 +691,7 @@
     <sys:String x:Key="LOCHNDChipRare">Rare</sys:String>
     <sys:String x:Key="LOCHNDChipUltraRare">Ultra rare</sys:String>
     <sys:String x:Key="LOCHNDSectionScreenshotUtilities">Screenshots</sys:String>
+    <sys:String x:Key="LOCHNDSectionPlayerActivities">Player activity</sys:String>
     <sys:Double x:Key="CheckDlcListHeight">700</sys:Double>
     <sys:Double x:Key="GameInfoNarrowValueMaxWidth">180</sys:Double>
     <sys:Double x:Key="GameInfoWideValueMaxWidth">200</sys:Double>
@@ -504,6 +701,9 @@
     <sys:Double x:Key="GameLogoMaxHeight">400</sys:Double>
     <sys:Double x:Key="TopPanelHeight">50</sys:Double>
     <sys:Boolean x:Key="TopPanelShowCollectorLevel">True</sys:Boolean>
+    <sys:Boolean x:Key="TopPanelShowNowPlaying">True</sys:Boolean>
+    <sys:Boolean x:Key="NowPlayingShowCloseButton">False</sys:Boolean>
+    <sys:Boolean x:Key="TopPanelShowLibraryOverview">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewTabsMode">False</sys:Boolean>
     <sys:Double x:Key="DetailsViewTabNotes">1</sys:Double>
     <sys:Double x:Key="DetailsViewTabGenres">1</sys:Double>
@@ -523,6 +723,7 @@
     <sys:Double x:Key="DetailsViewTabScreenshotsVisualizer">2</sys:Double>
     <sys:Double x:Key="DetailsViewTabReviewViewer">4</sys:Double>
     <sys:Double x:Key="DetailsViewTabScreenshotUtilities">2</sys:Double>
+    <sys:Double x:Key="DetailsViewTabPlayerActivities">4</sys:Double>
     <sys:Boolean x:Key="HeroChipsOpenSections">True</sys:Boolean>
     <sys:Boolean x:Key="TopPanelAutoHide">False</sys:Boolean>
     <sys:Boolean x:Key="SidebarAutoHide">False</sys:Boolean>
@@ -530,34 +731,44 @@
     <sys:Double x:Key="GridViewBackgroundBlurOpacity">0.25</sys:Double>
     <sys:Double x:Key="DetailsViewDescriptionMaxHeight">2000</sys:Double>
     <sys:Double x:Key="SidebarItemSize">38</sys:Double>
-    <sys:Int32 x:Key="DetailsViewSectionOrderNotes">0</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderGenres">1</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderCategories">2</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderFeatures">3</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderTags">4</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderNewsViewer">5</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderVideo">6</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderGameActivity">7</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderCheckDlc">8</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderGameRelations">9</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderWeb">10</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderHowLongToBeat">0</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderAchievements">1</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderSteamScreenshots">2</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderVndb">3</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderScreenshotsVisualizer">4</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderReviewViewer">5</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderScreenshotUtilities">6</sys:Int32>
+    <!-- Sidebar icons readable over any artwork: near-white icon, tight dark halo, very light dark pad; the selected one is orange on a darker pad -->
+    <Color x:Key="SidebarIconColor">#F2F2F2</Color>
+    <Color x:Key="SidebarIconActiveColor">#FFB350</Color>
+    <sys:Double x:Key="SidebarIconPadOpacity">0.25</sys:Double>
+    <sys:Double x:Key="SidebarIconActivePadOpacity">0.5</sys:Double>
+    <sys:Boolean x:Key="SidebarIconHalo">True</sys:Boolean>
+    <!-- Links (the chips of the game's links): a section like the others, at the top of the left column by default -->
+    <sys:Int32 x:Key="DetailsViewSectionOrderLinks">0</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderNotes">1</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderGenres">2</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderCategories">3</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderFeatures">4</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderTags">5</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderNewsViewer">6</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderVideo">7</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderGameActivity">8</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderCheckDlc">9</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderGameRelations">10</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderWeb">11</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderHowLongToBeat">1</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderAchievements">2</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderSteamScreenshots">3</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderVndb">4</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderScreenshotsVisualizer">5</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderReviewViewer">6</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderScreenshotUtilities">7</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderPlayerActivities">19</sys:Int32>
     <!-- Genres, categories, features and tags can move to the right column -->
     <sys:Boolean x:Key="DetailsViewGenresInRightColumn">False</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewCategoriesInRightColumn">False</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewFeaturesInRightColumn">False</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewTagsInRightColumn">False</sys:Boolean>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightGenres">7</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightCategories">8</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightFeatures">9</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightTags">10</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightGenres">8</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightCategories">9</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightFeatures">10</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightTags">11</sys:Int32>
     <!-- every other section can change column too: the theme places them live (the plugin moves the block), see Engine\SectionMover -->
+    <sys:Boolean x:Key="DetailsViewLinksInRightColumn">False</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewNotesInRightColumn">False</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewNewsViewerInRightColumn">False</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewVideoInRightColumn">False</sys:Boolean>
@@ -572,20 +783,23 @@
     <sys:Boolean x:Key="DetailsViewScreenshotsVisualizerInRightColumn">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewReviewViewerInRightColumn">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewScreenshotUtilitiesInRightColumn">True</sys:Boolean>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightNotes">11</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightNewsViewer">12</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightVideo">13</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightGameActivity">14</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightCheckDlc">15</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightGameRelations">16</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderRightWeb">17</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderLeftHowLongToBeat">11</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderLeftAchievements">12</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderLeftSteamScreenshots">13</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderLeftVndb">14</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderLeftScreenshotsVisualizer">15</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderLeftReviewViewer">16</sys:Int32>
-    <sys:Int32 x:Key="DetailsViewSectionOrderLeftScreenshotUtilities">17</sys:Int32>
+    <sys:Boolean x:Key="DetailsViewPlayerActivitiesInRightColumn">True</sys:Boolean>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightLinks">0</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightNotes">12</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightNewsViewer">13</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightVideo">14</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightGameActivity">15</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightCheckDlc">16</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightGameRelations">17</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderRightWeb">18</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftHowLongToBeat">12</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftAchievements">13</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftSteamScreenshots">14</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftVndb">15</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftScreenshotsVisualizer">16</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftReviewViewer">17</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftScreenshotUtilities">18</sys:Int32>
+    <sys:Int32 x:Key="DetailsViewSectionOrderLeftPlayerActivities">19</sys:Int32>
     <sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
     <sys:Boolean x:Key="GridViewCoverZoomOnHover">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewCoverShowSelectionBorder">True</sys:Boolean>
@@ -716,7 +930,8 @@
     <FontFamily x:Key="MonospaceFontFamily">Consolas</FontFamily>
     <Thickness x:Key="PopupMenuPadding">0</Thickness>
     <Thickness x:Key="PopupBorderThickness">0</Thickness>
-    <Thickness x:Key="ControlBorderThickness">0</Thickness>
+    <!-- Outline of the standard controls (boxes, lists, buttons, text fields): 1 = the glass rim, 0 = no outline (before 3.2). Set by the "Control outlines" preset. -->
+    <Thickness x:Key="ControlBorderThickness">1</Thickness>
     <sys:Double x:Key="EllipseBorderThickness">0</sys:Double>
     <sys:Double x:Key="ControlCornerRadiusValue">8</sys:Double>
     <CornerRadius x:Key="ControlCornerRadius">8</CornerRadius>
@@ -731,6 +946,9 @@
     <CornerRadius x:Key="GridViewSelectionBorderCornerRadius">11</CornerRadius>
     <!-- Grid covers: glass finish (rim = lit edge, gloss = soft shine at the top, shadow = layered, no Effect) and the title tooltip -->
     <sys:Boolean x:Key="GridViewCoverTooltip">True</sys:Boolean>
+    <sys:Boolean x:Key="GridViewCoverTitleOverlay">False</sys:Boolean>
+    <sys:Boolean x:Key="GridViewCoverTitleOverlayOnHover">False</sys:Boolean>
+    <sys:Boolean x:Key="GridViewShowZoomSlider">True</sys:Boolean>
     <sys:Double x:Key="GridViewCoverRimOpacity">0.5</sys:Double>
     <sys:Double x:Key="GridViewCoverGlossOpacity">0.1</sys:Double>
     <sys:Double x:Key="GridViewCoverShadowOpacity">0.6</sys:Double>
@@ -750,7 +968,7 @@
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#f5f5f5</Color>
     <Color x:Key="TextColor">#dfe3e6</Color>
-    <Color x:Key="TextColorDarker">#a3a3a3</Color>
+    <Color x:Key="TextColorDarker">#C2C2C2</Color>
     <Color x:Key="TextColorDark">#FF000000</Color>
     <Color x:Key="MainColor">#2C3A67</Color>
     <Color x:Key="MainColorDark">#0D1225</Color>
@@ -855,10 +1073,10 @@
 
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderLabelBrush" Color="#ffffff" />
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderTextBlockBrush" Color="#ffffff" />
-    <Color x:Key="DetailsViewContainerLabelColor">#808486</Color>
+    <Color x:Key="DetailsViewContainerLabelColor">#ACAFB0</Color>
     <SolidColorBrush x:Key="DetailsViewContainerLabelBrush" Color="{DynamicResource DetailsViewContainerLabelColor}" />
     <SolidColorBrush x:Key="DetailsViewContainerTextBrush" Color="#d3d3d3" />
-    <SolidColorBrush x:Key="DetailsViewLinksTextBrush" Color="#52dedede" />
+    <SolidColorBrush x:Key="DetailsViewLinksTextBrush" Color="#B8dedede" />
     <SolidColorBrush x:Key="DetailsViewOverviewHeaderButtonsBrush" Color="#DBd3d8e0" />
     
     
@@ -871,6 +1089,10 @@
     <SolidColorBrush x:Key="ListViewHeaderBackgroundBrush" Color="{DynamicResource ControlBackgroundColor}" />
     <SolidColorBrush x:Key="TopPanelBackgroundBrush" Color="#171d25" Opacity="{DynamicResource TopPanelGlassOpacity}" />
     <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#171d25" Opacity="{DynamicResource SidebarGlassOpacity}" />
+    <SolidColorBrush x:Key="SidebarIconBrush" Color="{DynamicResource SidebarIconColor}" />
+    <SolidColorBrush x:Key="SidebarIconActiveBrush" Color="{DynamicResource SidebarIconActiveColor}" />
+    <SolidColorBrush x:Key="SidebarIconPadBrush" Color="#000000" Opacity="{DynamicResource SidebarIconPadOpacity}" />
+    <SolidColorBrush x:Key="SidebarIconActivePadBrush" Color="#000000" Opacity="{DynamicResource SidebarIconActivePadOpacity}" />
 
     <SolidColorBrush x:Key="ExtendedListBoxBackgroundBrush" Color="Transparent" />
     <SolidColorBrush x:Key="FilterSelectionBoxBackgroundBrush" Color="{DynamicResource ControlBackgroundColorDark}" />

@@ -1,0 +1,622 @@
+# The home of every option of the Modula theme in the Layout Studio editor.
+# Read by tools/convert_options.py (it builds the pages and blocks of layout-studio.schema.json from it) and checked by tests/ui_layout_test.py
+# and by the schema tests: every constant has EXACTLY ONE home (a page + a block) and every preset group exactly one block.
+#
+#   pages     the ten pages of the editor, in order: id, title, summary, regions (the rectangles of the window plan the page lights)
+#   blocks    plain headed blocks of a page (two levels only: page, block)
+#       editor    a specialised editor shown in the block: background, tiles, sections, items, colors, rules, corners, sizes, advice, share, diagnostics
+#       presets   preset groups (tiles) shown at the top of the block
+#       settings  options shown as generated controls
+#       more      rarely changed options, behind ONE "More" link of the block
+#       owned     options edited by the block's editor, or set only by the block's presets: no generated control
+#       see_also  links to other places that show or touch the same thing (never a second editable copy)
+#       addon     (Add-ons page) which add-on the block describes: how to detect it, the items it feeds, what it provides
+#   aliases   page / block ids older versions of the editor, the theme (OpenEditor) and the advice texts use
+#
+# A new option gets its home by adding its key to ONE of the lists below (settings, more or owned); the converter and the tests refuse an
+# option without a home or with two.
+version: 1
+pages:
+  - id: presets
+    title: 'Global preset'
+    summary: 'The whole look in one click: pick a global preset, or go back to the default one.'
+    regions: [window]
+    blocks:
+      - id: global-presets
+        title: 'Global preset'
+        regions: [window]
+        editor: globalpresets
+  - id: window
+    title: 'Window and panels'
+    summary: 'The frame around the game page: the artwork behind the window, the bars, the lists, the popups and the glass look.'
+    regions: [window]
+    blocks:
+      - id: window-background
+        title: 'Window background'
+        regions: [window]
+        editor: background
+        presets: [WindowDarkness, PanelGlass, HeroBackground, BackgroundVertical, BackgroundHorizontal]
+        settings: [WindowGlassBackgroundWarning, WindowGlassOpacity, WindowGlassScrimColor, PageGlassScrimColor]
+        owned: [WindowGlassEnabled, WindowGlassBlurRadius, DetailsPageScrimOpacity, FilterPanelGlassOpacity, LibraryPanelGlassOpacity,
+                PageGlassBlurRadius, PageGlassScrimOpacity, SidebarGlassOpacity, TopPanelGlassOpacity, WindowBackgroundGradientColor1,
+                WindowBackgroundGradientColor2, WindowGlassScrimOpacity]
+        see_also:
+          - {page: gamepage, block: page-background, text: 'Opacity and tint of the game page artwork'}
+      # BEGIN generated backdrop block
+      - id: backdrop
+        title: 'Generated backdrop'
+        regions: [window]
+        editor: backdrop
+        presets: [Backdrop]
+        settings: [BackdropFallbackOnly, BackdropColor1, BackdropColor2, BackdropColor3, BackdropAngle, BackdropMidpoint, BackdropThirdColor,
+                   BackdropBlobCount, BackdropBlobScale, BackdropSpread, BackdropBlobOpacityScale, BackdropHardness, BackdropDarkness]
+        more: [BackdropRadialRadius, BackdropCenterX, BackdropCenterY, BackdropPatternKind, BackdropPatternOpacity, BackdropPatternScale,
+               BackdropPatternColor, BackdropAspect, BackdropBlob1X, BackdropBlob1Y, BackdropBlob1Size, BackdropBlob1Opacity, BackdropBlob1Color,
+               BackdropBlob2X, BackdropBlob2Y, BackdropBlob2Size, BackdropBlob2Opacity, BackdropBlob2Color, BackdropBlob3X, BackdropBlob3Y,
+               BackdropBlob3Size, BackdropBlob3Opacity, BackdropBlob3Color, BackdropBlob4X, BackdropBlob4Y, BackdropBlob4Size, BackdropBlob4Opacity,
+               BackdropBlob4Color, BackdropBlob5X, BackdropBlob5Y, BackdropBlob5Size, BackdropBlob5Opacity, BackdropBlob5Color, BackdropBlob6X,
+               BackdropBlob6Y, BackdropBlob6Size, BackdropBlob6Opacity, BackdropBlob6Color, BackdropBlob7X, BackdropBlob7Y, BackdropBlob7Size,
+               BackdropBlob7Opacity, BackdropBlob7Color, BackdropBlob8X, BackdropBlob8Y, BackdropBlob8Size, BackdropBlob8Opacity, BackdropBlob8Color]
+        owned: [BackdropMode, BackdropSeed]
+        see_also:
+          - {page: window, block: window-background, text: 'Blur and darkness of the game artwork'}
+      # END generated backdrop block
+      - id: glass
+        title: 'Glass and material'
+        regions: [window]
+        presets: [Style, Material, Typography, Glass]
+        more: [GlassRimThickness, GlassInnerRimOpacity, GlassGlowOpacity, GlassHoverOpacity, GlassSelectionOpacity, GlassGlowMargin]
+      - id: top-bar
+        title: 'Top bar'
+        regions: [topbar]
+        presets: [TopPanel]
+        settings: [ShowNavigationButtons, TopPanelShowCollectorLevel, TopPanelAutoHide, GlassBarEdgeOpacity, SearchBoxGlassOpacity]
+        see_also:
+          - {page: window, block: window-background, text: 'Darkness of the bar'}
+          - {page: sizes, block: dock, text: 'Height of the bar and width of the search box'}
+          - {page: addons, block: addon-achievements, text: 'Collection level badge'}
+      - id: icon-bar
+        title: 'Left icon bar'
+        regions: [iconbar]
+        settings: [SidebarAutoHide, SidebarItemSize, SidebarIconColor, SidebarIconActiveColor, SidebarIconPadOpacity,
+                   SidebarIconActivePadOpacity, SidebarIconHalo]
+        see_also:
+          - {page: window, block: window-background, text: 'Darkness of the bar'}
+          - {page: sizes, block: corners, text: 'Rounding of the icons'}
+      - id: lists
+        title: 'Game list and filter panels'
+        regions: [list, quick, filters]
+        settings: [SidePanelFrostOpacity, LibraryListShowPlayTime, DetailsViewLibraryGameShowFavorite]
+        see_also:
+          - {page: window, block: window-background, text: 'Darkness of the list and the panels'}
+          - {page: items, block: items, text: 'Items shown in the game list'}
+          - {page: sizes, block: density, text: 'Row spacing'}
+      - id: popups
+        title: 'Popups and menus'
+        regions: [window]
+        settings: [GlassPopupShadowBlur, GlassPopupShadowOpacity]
+        more: [GlassPopupShadowRoom]
+        owned: [PopupBackgroundGradientColor1, PopupBackgroundGradientColor2]
+        see_also:
+          - {page: sizes, block: corners, text: 'Rounding of popups and menus'}
+      - id: edges
+        title: 'Scrollbars and edges'
+        regions: [window]
+        presets: [Scrollbars, ControlOutline]
+        more: [ScrollbarThumbWidth, ScrollbarThumbHoverWidth]
+        owned: [ControlBorderThickness, ScrollbarThumbOpacity, ScrollbarThumbRim]
+  - id: gamepage
+    title: 'Game page'
+    summary: 'The page of the selected game: banner, buttons, header row, information panel, page background and links.'
+    regions: [page]
+    blocks:
+      - id: banner
+        title: 'Banner and buttons'
+        regions: [hero]
+        presets: [HeroCard, HeroBlur, HeroBlurHeight, HeroTint, HeroShade, HeroCover, HeroCoverShape, Buttons, ActionsLocation, Chips]
+        settings: [HeroCoverShowWhole, HeroCoverBorderColor, HeroCardBorderOpacity, HeroCoverShadowBlur, HeroCoverShadowDepth,
+                   HeroCoverShadowOpacity]
+        more: [HeroCoverMargin, HeroCoverInsideMargin, HeroActionsMarginRight, HeroTopLeftMargin, HeroBlurRadius, HeroBlurRadiusSoft,
+               HeroBlurOpacity, HeroBlurStart, HeroBlurMid, HeroBlurFull, HeroTintAccentOpacity, HeroTintLightOpacity, HeroFadeStart,
+               HeroCoverBorderThickness, HeroTitleShadowColor, HeroShadeColor, HeroTintLightColor, HeroBaseColor]
+        owned: [ContextButtonBackgroundColor1, ContextButtonBackgroundColor2, ContextButtonBackgroundColor3,
+                ContextButtonIsMouseOverBackgroundColor1, ContextButtonIsMouseOverBackgroundColor2,
+                ContextButtonIsMouseOverBackgroundColor3, HeroActionsLocation, HeroCardBorderThickness, HeroCardMargin,
+                HeroCoverPlacement, HeroShadeOpacity, HeroStyleShowInfoLine, PlayButtonBackgroundColor1, PlayButtonBackgroundColor2,
+                PlayButtonBackgroundColor3, PlayButtonIsMouseOverBackgroundColor1, PlayButtonIsMouseOverBackgroundColor2,
+                PlayButtonIsMouseOverBackgroundColor3]
+        see_also:
+          - {page: items, block: items, text: 'Chips, players online, music player and the buttons of the banner'}
+          - {page: sizes, block: dock, text: 'Size of the banner, the cover, the logo and the Play button'}
+          - {page: sizes, block: corners, text: 'Rounding of the card, the cover, the chips and the buttons'}
+          - {page: sizes, block: density, text: 'Space around chips and buttons'}
+      - id: header-row
+        title: 'Header row'
+        regions: [cards]
+        editor: tiles
+        presets: [HeaderBar, HeaderBandEdge]
+        owned: [HeaderBarGlassOpacity, HeaderBarBlurOpacity, HeaderBandEdge, HeaderBarStyleVisible, HeaderTileSlot1, HeaderTileSlot10,
+                HeaderTileSlot10B, HeaderTileSlot10C, HeaderTileSlot10D, HeaderTileSlot11, HeaderTileSlot11B, HeaderTileSlot11C,
+                HeaderTileSlot11D, HeaderTileSlot12, HeaderTileSlot12B, HeaderTileSlot12C, HeaderTileSlot12D, HeaderTileSlot1B,
+                HeaderTileSlot1C, HeaderTileSlot1D, HeaderTileSlot2, HeaderTileSlot2B, HeaderTileSlot2C, HeaderTileSlot2D,
+                HeaderTileSlot3, HeaderTileSlot3B, HeaderTileSlot3C, HeaderTileSlot3D, HeaderTileSlot4, HeaderTileSlot4B,
+                HeaderTileSlot4C, HeaderTileSlot4D, HeaderTileSlot5, HeaderTileSlot5B, HeaderTileSlot5C, HeaderTileSlot5D,
+                HeaderTileSlot6, HeaderTileSlot6B, HeaderTileSlot6C, HeaderTileSlot6D, HeaderTileSlot7, HeaderTileSlot7B,
+                HeaderTileSlot7C, HeaderTileSlot7D, HeaderTileSlot8, HeaderTileSlot8B, HeaderTileSlot8C, HeaderTileSlot8D,
+                HeaderTileSlot9, HeaderTileSlot9B, HeaderTileSlot9C, HeaderTileSlot9D]
+        see_also:
+          - {page: items, block: items, text: 'Which cards show, their glass, gaps and text sizes'}
+          - {page: sizes, block: density, text: 'Space around the cards'}
+          - {page: colors, block: thresholds, text: 'Colors of the figures'}
+      - id: info-panel
+        title: 'Information panel'
+        regions: [info]
+        settings: [DetailsViewDescriptionMaxHeight, DetailsViewDescriptionDockToRight, GameInfoNarrowValueMaxWidth,
+                   GameInfoWideValueMaxWidth, InfoPanelMinHeight, InfoBackdropHeight, InfoBackdropOpacity]
+        more: [InfoPanelDescriptionMargin, InfoPanelColumnMargin, InfoPanelLabelMargin, InfoPanelTextMargin, InfoBackdropMargin,
+               InfoBackdropCornerRadius]
+        owned: [InfoPanelStyleShowCover]
+        see_also:
+          - {page: items, block: items, text: 'The rows of the panel'}
+          - {page: sizes, block: dock, text: 'Width of the description'}
+          - {page: sizes, block: density, text: 'Panel padding and gap'}
+      - id: page-background
+        title: 'Page background and margins'
+        regions: [page]
+        presets: [PageBackground]
+        settings: [DetailsViewEnablePanelsDropShadowEffect]
+        more: [PageBottomMargin, PageGlassOpacity, PageGlassTintOpacity]
+        owned: [DetailsViewBackgroundBlurOpacity, GridViewBackgroundBlurOpacity, PageSideMargin]
+        see_also:
+          - {page: window, block: window-background, text: 'Blur and darkness of the page artwork'}
+      - id: links
+        title: 'Links'
+        regions: [sections]
+        settings: [LinksShowNames]
+        more: [LinksListMargin]
+        see_also:
+          - {page: sizes, block: dock, text: 'Size of the link icons'}
+          - {page: sections, block: order, text: 'Where the Links section sits'}
+  - id: sections
+    title: 'Sections'
+    summary: 'The sections under the banner: where they sit, whether they show and open, and how they look.'
+    regions: [sections]
+    blocks:
+      - id: order
+        title: 'Order, columns and visibility'
+        regions: [sections]
+        editor: sections
+        owned: [DetailsViewShowNotesPanel, DetailsViewShowLinksPanel, DetailsViewShowNewsPanel, DetailsViewShowVideoPanel,
+                DetailsViewShowGameActivityPanel, DetailsViewShowCheckDlcPanel, DetailsViewShowGameRelationsPanel,
+                DetailsViewShowWebExplorerPanel, DetailsViewShowHltbPanel, DetailsViewShowAchievementsPanel,
+                DetailsViewShowSteamScreenshotsPanel, DetailsViewShowVndbPanel, DetailsViewShowScreenshotsVisualizerPanel,
+                DetailsViewShowReviewsPanel, DetailsViewShowScreenshotUtilitiesPanel, DetailsViewShowPlayerActivitiesPanel, DetailsViewExpandNotesPanel,
+                DetailsViewExpandGenres, DetailsViewExpandCategories, DetailsViewExpandFeatures, DetailsViewExpandTags,
+                DetailsViewExpandNewsPanel, DetailsViewExpandVideoPanel, DetailsViewExpandGameActivityPanel,
+                DetailsViewExpandCheckDlcPanel, DetailsViewExpandGameRelationsPanel, DetailsViewExpandWebExplorerPanel,
+                DetailsViewShowHltbPanelDefault, DetailsViewShowAchievementsPanelDefault, DetailsViewExpandSteamScreenshotsPanel,
+                DetailsViewExpandVndbPanel, DetailsViewExpandScreenshotsVisualizerPanel, DetailsViewExpandReviewsPanel,
+                DetailsViewExpandScreenshotUtilitiesPanel, DetailsViewExpandPlayerActivitiesPanel, DetailsViewGenresInRightColumn, DetailsViewCategoriesInRightColumn,
+                DetailsViewFeaturesInRightColumn, DetailsViewTagsInRightColumn, DetailsViewSectionOrderNotes,
+                DetailsViewSectionOrderLinks, DetailsViewSectionOrderGenres, DetailsViewSectionOrderCategories,
+                DetailsViewSectionOrderFeatures, DetailsViewSectionOrderTags, DetailsViewSectionOrderNewsViewer,
+                DetailsViewSectionOrderVideo, DetailsViewSectionOrderGameActivity, DetailsViewSectionOrderCheckDlc,
+                DetailsViewSectionOrderGameRelations, DetailsViewSectionOrderWeb, DetailsViewSectionOrderHowLongToBeat,
+                DetailsViewSectionOrderAchievements, DetailsViewSectionOrderSteamScreenshots, DetailsViewSectionOrderVndb,
+                DetailsViewSectionOrderScreenshotsVisualizer, DetailsViewSectionOrderReviewViewer,
+                DetailsViewSectionOrderScreenshotUtilities, DetailsViewSectionOrderPlayerActivities, DetailsViewSectionOrderRightGenres,
+                DetailsViewSectionOrderRightCategories, DetailsViewSectionOrderRightFeatures, DetailsViewSectionOrderRightTags,
+                DetailsViewNotesInRightColumn, DetailsViewLinksInRightColumn, DetailsViewNewsViewerInRightColumn,
+                DetailsViewVideoInRightColumn, DetailsViewGameActivityInRightColumn, DetailsViewCheckDlcInRightColumn,
+                DetailsViewGameRelationsInRightColumn, DetailsViewWebInRightColumn, DetailsViewHowLongToBeatInRightColumn,
+                DetailsViewAchievementsInRightColumn, DetailsViewSteamScreenshotsInRightColumn, DetailsViewVndbInRightColumn,
+                DetailsViewScreenshotsVisualizerInRightColumn, DetailsViewReviewViewerInRightColumn,
+                DetailsViewScreenshotUtilitiesInRightColumn, DetailsViewPlayerActivitiesInRightColumn, DetailsViewSectionOrderRightNotes, DetailsViewSectionOrderRightLinks,
+                DetailsViewSectionOrderRightNewsViewer, DetailsViewSectionOrderRightVideo, DetailsViewSectionOrderRightGameActivity,
+                DetailsViewSectionOrderRightCheckDlc, DetailsViewSectionOrderRightGameRelations, DetailsViewSectionOrderRightWeb,
+                DetailsViewSectionOrderLeftHowLongToBeat, DetailsViewSectionOrderLeftAchievements,
+                DetailsViewSectionOrderLeftSteamScreenshots, DetailsViewSectionOrderLeftVndb,
+                DetailsViewSectionOrderLeftScreenshotsVisualizer, DetailsViewSectionOrderLeftReviewViewer,
+                DetailsViewSectionOrderLeftScreenshotUtilities, DetailsViewSectionOrderLeftPlayerActivities]
+        see_also:
+          - {page: items, block: items, text: 'The same sections, by item'}
+      - id: look
+        title: 'Section look'
+        regions: [sections]
+        settings: [SectionColumnGap, SectionGlassOpacity, SectionGlassBorderOpacity, ChipGlassOpacity, DetailsViewShowSectionHeaders]
+        more: [SectionTitleMargin, SectionNotesMargin, SectionGearMargin,
+               DetailsViewShowNotesHeader, DetailsViewShowGenresHeader, DetailsViewShowCategoriesHeader, DetailsViewShowFeaturesHeader, DetailsViewShowTagsHeader, DetailsViewShowNewsViewerHeader, DetailsViewShowVideoHeader, DetailsViewShowGameActivityHeader, DetailsViewShowCheckDlcHeader, DetailsViewShowGameRelationsHeader, DetailsViewShowWebHeader, DetailsViewShowHowLongToBeatHeader, DetailsViewShowAchievementsHeader, DetailsViewShowSteamScreenshotsHeader, DetailsViewShowScreenshotUtilitiesHeader, DetailsViewShowPlayerActivitiesHeader, DetailsViewShowVndbHeader, DetailsViewShowScreenshotsVisualizerHeader, DetailsViewShowReviewViewerHeader]
+        see_also:
+          - {page: sizes, block: dock, text: 'Height of section titles and bodies'}
+          - {page: sizes, block: density, text: 'Spacing inside sections'}
+          - {page: sizes, block: corners, text: 'Rounding of sections'}
+      - id: tabs
+        title: 'Tabs'
+        regions: [sections]
+        settings: [DetailsViewTabsMode]
+        more: [DetailsTabMargin, DetailsTabPadding, DetailsViewTabNotes, DetailsViewTabGenres, DetailsViewTabCategories,
+               DetailsViewTabFeatures, DetailsViewTabTags, DetailsViewTabNewsViewer, DetailsViewTabVideo, DetailsViewTabGameActivity,
+               DetailsViewTabCheckDlc, DetailsViewTabGameRelations, DetailsViewTabWeb, DetailsViewTabHowLongToBeat,
+               DetailsViewTabAchievements, DetailsViewTabSteamScreenshots, DetailsViewTabVndb, DetailsViewTabScreenshotsVisualizer,
+               DetailsViewTabReviewViewer, DetailsViewTabScreenshotUtilities, DetailsViewTabPlayerActivities, SectionTabsMargin]
+  - id: items
+    title: 'Items'
+    summary: 'Each piece of information the theme shows (genres, play time, scores, add-on data...) and every place it can appear in.'
+    regions: [page]
+    blocks:
+      - id: items
+        title: 'Items'
+        regions: [page]
+        editor: items
+        owned: [DetailsViewShowEditButton, DetailsViewShowFavoriteButton, DetailsViewShowHiddenButton, HeroShowSteamShortcuts,
+                HeroShowUpdateStatus, DetailsViewAllowUseOfLogos, DetailsViewDisplayGameNameIfLogoVisible, InfoPanelShowReleaseDate,
+                InfoPanelShowPlatforms, InfoPanelShowDevelopers, InfoPanelShowInstallSize, InfoPanelShowSource,
+                InfoPanelShowRecentActivity, InfoPanelShowAdded, InfoPanelShowLibrary, InfoPanelShowPublishers, InfoPanelShowInstallDirectory, InfoPanelShowSeries, InfoPanelShowRegions, InfoPanelShowVersion, InfoPanelShowUserScore, InfoPanelShowCommunityScore, InfoPanelShowCriticScore, InfoPanelShowAgeRatings, HeroShowMusicPlayer,
+                HeroShowPlayersCount, HeroPlayersCountFontSize, HeroShowInfoLine, HeroInfoLineMaxWidth, HeroShowReleaseDate,
+                HeroShowPlatforms, HeroShowSource, HeroShowGenres, HeroShowDevelopers, HeroShowCategories, HeroShowFeatures,
+                HeroShowTags, HeroShowCompletionStatus, HeroShowCommunityScore, HeroShowHltb, HeroShowAchievements,
+                HeroShowLatestAchievement, HeroShowRareAchievements, HeroShowLastSession, HeroShowRecentActivity, HeroShowAvgFps,
+                HeaderTileScoreGlow, HeaderTileScoreAnimation, HeroChipsOpenSections, HeroChipBreakReleaseDate,
+                HeroChipBreakPlatforms, HeroChipBreakSource, HeroChipBreakGenres, HeroChipBreakCategories, HeroChipBreakFeatures,
+                HeroChipBreakTags, HeroChipBreakDevelopers, HeroChipBreakCompletionStatus, HeroChipBreakCommunityScore,
+                HeroChipBreakHltbMain, HeroChipBreakHltbExtra, HeroChipBreakHltbCompletionist, HeroChipBreakAchievements,
+                HeroChipBreakLatestAchievement, HeroChipBreakRareAchievements, HeroChipBreakLastSession, HeroChipBreakRecentActivity,
+                HeroChipBreakAvgFps, HeroChipOrderReleaseDate, HeroChipOrderPlatforms, HeroChipOrderSource, HeroChipOrderGenres,
+                HeroChipOrderCategories, HeroChipOrderFeatures, HeroChipOrderTags, HeroChipOrderDevelopers,
+                HeroChipOrderCompletionStatus, HeroChipOrderCommunityScore, HeroChipOrderHltb, HeroChipOrderAchievements,
+                HeroChipOrderLatestAchievement, HeroChipOrderRareAchievements, HeroChipOrderLastSession, HeroChipOrderRecentActivity,
+                HeroChipOrderAvgFps, HltbShowOnCover, AchievementsShowOnCover, LibraryListShowHltb, LibraryListShowAchievements,
+                GridCoverShowHltb, GridCoverShowAchievements, DetailsViewShowHeaderBar, DetailsViewShowInfoButton,
+                DetailsViewShowUserRating, DetailsViewShowInfoPanelDefault, DemoteSectionsShownElsewhere, DemoteGenresSection,
+                DemoteCategoriesSection, DemoteFeaturesSection, DemoteTagsSection, DemoteHltbSection, DemoteAchievementsSection,
+                DemoteGameActivitySection, GridViewAllowUseOfLogos, GridViewDisplayGameNameIfLogoVisible,
+                GridViewShowCompletionStatus, GridViewShowAchievementsSummary, GridViewShowEditButton, GridViewShowInfoButton,
+                GridViewShowFavoriteButton, GridViewShowAchievementsPanel, GridViewShowGameActivityPanel, GridViewShowHltbPanel,
+                GridViewShowNotesPanel, GridViewShowVideoPanel, GridViewShowScreenshotsVisualizerPanel, GridViewShowReviewsPanel,
+                GridViewShowNewsPanel, GridViewShowVndbPanel, GridViewShowCheckDlcPanel, GridViewShowGameRelationsPanel,
+                GridViewShowSteamScreenshotsPanel, GridViewShowWebExplorerPanel, GridViewShowAchievementsPanelDefault,
+                GridViewExpandGameActivityPanel, GridViewShowHltbPanelDefault, GridViewExpandNotesPanel, GridViewExpandVideoPanel,
+                GridViewExpandScreenshotsVisualizerPanel, GridViewExpandReviewsPanel, GridViewExpandNewsPanel,
+                GridViewExpandVndbPanel, GridViewExpandCheckDlcPanel, GridViewExpandGameRelationsPanel,
+                GridViewExpandSteamScreenshotsPanel, GridViewExpandWebExplorerPanel, GridViewCoverCompStatusSubtitleVisibility,
+                SectionNotesMaxHeight, HeaderTileValueFontSize, HeaderTileLabelFontSize, HeaderTileBackgroundOpacity,
+                HeaderRowBackgroundOpacity, HeaderTilePadding, HeaderTileMargin, HeaderRowPadding, HeroChipPadding, HeroChipSpacing,
+                HeroChipFontSize]
+        see_also:
+          - {page: sections, block: order, text: 'The order and the column of the sections'}
+  - id: colors
+    title: 'Colors and text'
+    summary: 'The color profile, the accent, the colors of figures and the size of the text.'
+    regions: [window]
+    blocks:
+      - id: colors
+        title: 'Colors'
+        regions: [window]
+        editor: colors
+        presets: [ColorProfile, Accent]
+        owned: [GlyphColor, GlyphSubColor, HighlightGlyphColor, HoverColor]
+      - id: thresholds
+        title: 'Thresholds'
+        regions: [cards]
+        editor: rules
+      - id: text
+        title: 'Text sizes and strength'
+        regions: [window]
+        settings: [HeaderLabelOpacity, HeaderTextOpacity, FontSizeSmall, FontSize, FontSizeLarge, FontSizeLarger, FontSizeLargest,
+                   HeroButtonFontSize]
+  - id: sizes
+    title: 'Sizes, corners and density'
+    summary: 'How big things are, how round their corners are and how tight the spacing is.'
+    regions: [window]
+    blocks:
+      - id: density
+        title: 'Density'
+        regions: [window]
+        presets: [Density]
+        more: [InfoPanelGap, InfoPanelPadding, SectionChipsMargin, SectionChipMargin, LinksChipMargin, SectionBodyPadding,
+               SectionHeaderMargin, SectionBodyMargin, SectionChipPadding, HeroButtonGap, ListItemMargin, ListItemPadding]
+        owned: [HeaderTileCardGap, HeaderTileCardGapBack, PageLinksMargin]
+      - id: corners
+        title: 'Corners'
+        regions: [window]
+        editor: corners
+        presets: [Corners]
+        owned: [DetailsViewCoverCornerRadius, DetailsViewExtraButtonsCornerRadius, ControlCornerRadius, GridViewCoverCornerRadius,
+                GridViewSelectionBorderCornerRadius, ListItemCornerRadius, SidebarItemCornerRadius, HeaderTileCornerRadius,
+                HeroButtonCornerRadius, HeroCardCornerRadius, HeroChipCornerRadius, HeroCoverCornerRadius, PopupCornerRadius,
+                SectionCornerRadius]
+      - id: dock
+        title: 'Sizes'
+        regions: [window]
+        editor: sizes
+        owned: [TopPanelSearchBoxWidthHelium, TopPanelHeight, HeroMinHeight, HeroActionButtonWidth, HeroActionButtonHeight,
+                GameLogoMaxWidth, GameLogoMaxHeight, HeroCoverWidth, HeroCoverHeight, HeaderButtonSize, DetailsViewDescriptionWidth,
+                SectionHeaderMinHeight, SectionContainerMinHeight, LinkIconSize]
+  - id: grid
+    title: 'Grid view'
+    summary: 'The grid of covers and the panel of the selected game next to it.'
+    regions: [page]
+    blocks:
+      - id: grid-covers
+        title: 'Covers'
+        regions: [page]
+        settings: [GridViewCoverZoomOnHover, GridViewCoverShowSelectionBorder, GridViewCoverSubtitleVisibility,
+                   GridViewEnableCoverShineAnimation, GridViewEnablePlayingGlowBorder, GridViewLibraryGameShowFavorite,
+                   GridViewCoverDisplayLibraryBanner, GridViewCoverUseRoundedCorners, GridViewCoverDisplayDropShadowEffect,
+                   GridViewCoverTooltip, GridViewCoverRimOpacity, GridViewCoverGlossOpacity, GridViewCoverShadowOpacity,
+                   GridViewCoverTitleOverlay, GridViewCoverTitleOverlayOnHover, GridViewShowZoomSlider]
+        more: [GridViewCoverGridBackgroundDisabledCornerRadius, GridViewShowGameNameCornerRadius]
+        see_also:
+          - {page: items, block: items, text: 'What shows on covers'}
+          - {page: sizes, block: corners, text: 'Rounding of covers'}
+      - id: grid-panel
+        title: 'Game panel'
+        regions: [page]
+        settings: [GridViewPlayButtonMinWidth, GridViewPlayButtonHeight, GridViewShowLastPlayed, GridViewShowPlayTime,
+                   GridViewShowMetadataDetailsDefault]
+        see_also:
+          - {page: items, block: items, text: 'Which buttons and information the panel shows'}
+      - id: grid-sections
+        title: 'Sections of the grid page'
+        regions: [page]
+        settings: [GridViewSectionOrderAchievements, GridViewSectionOrderGameActivity, GridViewSectionOrderHowLongToBeat,
+                   GridViewSectionOrderNotes, GridViewSectionOrderVideo, GridViewSectionOrderScreenshotsVisualizer,
+                   GridViewSectionOrderReviewViewer, GridViewSectionOrderNewsViewer, GridViewSectionOrderVndb,
+                   GridViewSectionOrderCheckDlc, GridViewSectionOrderGameRelations, GridViewSectionOrderSteamScreenshots,
+                   GridViewSectionOrderWeb]
+        see_also:
+          - {page: items, block: items, text: 'Which sections show and open by default'}
+  - id: addons
+    title: 'Add-ons'
+    summary: 'The add-ons the theme works with: whether each one is installed, what it shows in the theme and where to set it.'
+    regions: [page]
+    blocks:
+      - id: addon-hltb
+        title: 'HowLongToBeat'
+        regions: [page]
+        settings: [DetailsViewShowHltbDataGrid, DetailsViewShowHltbProgressBar, GridViewShowHltbDataGrid]
+        addon:
+          id: hltb
+          match: [howlongtobeat]
+          items: [Hltb]
+          provides: 'Time-to-beat chip, header cards, section, game list and covers.'
+      - id: addon-achievements
+        title: 'PlayniteAchievements'
+        regions: [page]
+        settings: [AchievementBarColor, AchievementBarTrackColor, DetailsViewAchievementsShowProgressBar,
+                   DetailsViewAchievementsShowUnlockedList, DetailsViewAchievementsShowLockedList,
+                   DetailsViewAchievementsShowCompactList, DetailsViewAchievementsShowLatest, DetailsViewAchievementsShowStats,
+                   DetailsViewAchievementsShowBarChart, DetailsViewAchievementsShowPieChart, DetailsViewAchievementsShowDataGrid,
+                   DetailsViewAchievementsShowButton, GridViewAchievementsShowProgressBar, GridViewAchievementsShowUnlockedList,
+                   GridViewAchievementsShowLockedList, GridViewAchievementsShowCompactList, GridViewAchievementsShowLatest,
+                   GridViewAchievementsShowStats, GridViewAchievementsShowBarChart, GridViewAchievementsShowPieChart,
+                   GridViewAchievementsShowDataGrid, GridViewAchievementsShowButton, AchievementsDataGridMaxHeight]
+        addon:
+          id: achievements
+          match: [achievements]
+          items: [Achievements, LatestAchievement, RareAchievements]
+          provides: 'Achievement chips, header cards, section, game list and covers; collection level badge in the top bar.'
+      - id: addon-gameactivity
+        title: 'GameActivity'
+        regions: [page]
+        settings: [GameActivityChartTimeHeight, GameActivityChartLogHeight]
+        addon:
+          id: gameactivity
+          match: [gameactivity]
+          items: [GameActivity, LastSession, RecentActivity, AvgFps]
+          provides: 'Activity chips and cards, the activity section and its charts.'
+      - id: addon-extrametadataloader
+        title: 'Extra Metadata Loader'
+        regions: [page]
+        addon:
+          id: extrametadataloader
+          match: [extrametadataloader]
+          items: [Logo, Video]
+          provides: 'Game logos on the banner and the Video section.'
+      - id: addon-newsviewer
+        title: 'Steam news (News Viewer)'
+        regions: [page]
+        addon:
+          id: newsviewer
+          match: [newsviewer, steamnews]
+          items: [NewsViewer]
+          provides: 'The News Viewer section.'
+      - id: addon-reviewviewer
+        title: 'Steam reviews (Review Viewer)'
+        regions: [page]
+        addon:
+          id: reviewviewer
+          match: [reviewviewer, steamreviews]
+          items: [ReviewViewer]
+          provides: 'The Review Viewer section.'
+      - id: addon-screenshotsvisualizer
+        title: 'ScreenshotsVisualizer'
+        regions: [page]
+        addon:
+          id: screenshotsvisualizer
+          match: [screenshotsvisualizer]
+          items: [ScreenshotsVisualizer]
+          provides: 'The ScreenshotsVisualizer section.'
+      - id: addon-screenshotutilities
+        title: 'Screenshot Utilities'
+        regions: [page]
+        addon:
+          id: screenshotutilities
+          match: [screenshotutilities]
+          items: [ScreenshotUtilities]
+          provides: 'The Screenshot Utilities section.'
+      - id: addon-playeractivities
+        title: 'PlayerActivities'
+        regions: [page]
+        addon:
+          id: playeractivities
+          match: [playeractivities]
+          items: [PlayerActivities]
+          provides: 'The Player Activities section (what your friends played, achieved and finished).'
+      - id: addon-steamscreenshots
+        title: 'Steam Screenshots'
+        regions: [page]
+        addon:
+          id: steamscreenshots
+          match: [steamscreenshots]
+          items: [SteamScreenshots]
+          provides: 'The Steam Screenshots section.'
+      - id: addon-vndb
+        title: 'VNDB Nexus'
+        regions: [page]
+        addon:
+          id: vndb
+          match: [vndb]
+          items: [Vndb]
+          provides: 'The VNDB Nexus section.'
+      - id: addon-checkdlc
+        title: 'CheckDlc'
+        regions: [page]
+        settings: [CheckDlcListHeight]
+        addon:
+          id: checkdlc
+          match: [checkdlc]
+          items: [CheckDlc]
+          provides: 'The CheckDlc section.'
+      - id: addon-gamerelations
+        title: 'Game Relations'
+        regions: [page]
+        addon:
+          id: gamerelations
+          match: [gamerelations]
+          items: [GameRelations]
+          provides: 'The Game Relations (similar games) section.'
+      - id: addon-webexplorer
+        title: 'Web Explorer'
+        regions: [page]
+        settings: [WebExplorerControlHeight]
+        addon:
+          id: webexplorer
+          match: [webexplorer]
+          items: [WebExplorer]
+          provides: 'The Web Explorer section.'
+      - id: addon-uniplaysong
+        title: 'UniPlaySong'
+        regions: [page]
+        addon:
+          id: uniplaysong
+          match: [uniplaysong]
+          items: [MusicPlayer]
+          provides: 'The music player of the banner.'
+      - id: addon-sounds
+        title: 'Playnite Sounds Mod'
+        regions: [page]
+        addon:
+          id: sounds
+          match: [sounds]
+          items: []
+          provides: 'Interface and event sounds. Nothing to set in the theme: informational.'
+      - id: addon-customfade
+        title: 'Custom Fade Animations'
+        regions: [page]
+        addon:
+          id: customfade
+          match: [customfade, fadeanim]
+          items: []
+          provides: 'Smooth background transitions when the game changes. Nothing to set in the theme: informational.'
+      - id: addon-themeextras
+        title: 'ThemeExtras'
+        regions: [page]
+        addon:
+          id: themeextras
+          match: [extras_plugin, themeextras]
+          items: [FavoriteButton, HiddenButton, UserScore]
+          provides: 'Favorite and hide buttons, your rating stars, library banners in the Grid view.'
+      - id: addon-metadatautilities
+        title: 'Metadata Utilities'
+        regions: [page]
+        settings: [DetailsViewUseMetadataUtilities]
+        addon:
+          id: metadatautilities
+          match: [metadatautilities]
+          items: [Genres, Tags]
+          provides: 'Genres and tags grouped by prefix.'
+      - id: addon-steamshortcuts
+        title: 'Steam Shortcuts'
+        regions: [page]
+        addon:
+          id: steamshortcuts
+          match: [steamshortcuts]
+          items: [SteamShortcuts]
+          provides: 'The Steam shortcuts button of the banner.'
+      - id: addon-updatestatus
+        title: 'Game Update Status'
+        regions: [page]
+        addon:
+          id: updatestatus
+          match: [updatestatus, gameupdate]
+          items: [UpdateStatus]
+          provides: 'The update-available indicator of the banner.'
+      - id: addon-imagerotater
+        title: 'ImageRotater'
+        regions: [hero]
+        settings: [UseImageRotater]
+        addon:
+          id: imagerotater
+          match: [imagerotater]
+          items: []
+          provides: 'Rotating, animated and video covers and backgrounds on the banner and in the Grid view.'
+      - id: addon-nowplaying
+        title: 'Now Playing and Back To Game'
+        regions: [topbar]
+        settings: [TopPanelShowNowPlaying, NowPlayingShowCloseButton]
+        addon:
+          id: nowplaying
+          match: [nowplaying, backtogame]
+          items: []
+          provides: 'A top bar chip with the running game, its session time and a click to return to it (Now Playing), or a plain Back to game button (Back To Game).'
+      - id: addon-anikihelper
+        title: 'AnikiHelper'
+        regions: [topbar]
+        settings: [TopPanelShowLibraryOverview]
+        addon:
+          id: anikihelper
+          match: [anikihelper]
+          items: []
+          provides: 'A top bar button that opens the library overview: numbers, game of the month, suggestion, most played, completion, sources.'
+  - id: performance
+    title: 'Performance'
+    summary: 'What makes the theme heavy on the graphics card, and Playnite''s own settings that conflict with it.'
+    regions: [window]
+    blocks:
+      - id: advice
+        title: 'Graphics and performance'
+        regions: [window]
+        editor: advice
+        presets: [Animations]
+  - id: profile
+    title: 'Profile'
+    summary: 'Profiles, sharing, backups, reset and diagnostics.'
+    regions: []
+    blocks:
+      - id: sharing
+        title: 'Profiles and sharing'
+        editor: share
+      - id: diagnostics
+        title: 'Diagnostics'
+        editor: diagnostics
+
+aliases:
+  visual-sections: sections
+  visual-items: items
+  visual-sizes: sizes/dock
+  visual-background: window/window-background
+  visual-tiles: gamepage/header-row
+  visual-colors: colors/colors
+  visual-corners: sizes/corners
+  visual-rules: colors/thresholds
+  advice: performance
+  diagnostics: profile/diagnostics
+  profile: profile
+  appearance: window/glass
+  background: window/window-background
+  bars: window/top-bar
+  header: gamepage/banner
+  details: gamepage
+  glass: window/glass
+  advanced: addons

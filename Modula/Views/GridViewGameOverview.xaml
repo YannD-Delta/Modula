@@ -113,7 +113,7 @@
                                             <GradientStop Color="Transparent" Offset="1"/>
                                         </LinearGradientBrush>
                                     </Grid.OpacityMask>
-                                    <Border Background="#141414" Height="{Binding ElementName=DetailsTop, Path=ActualHeight}">
+                                    <Border Background="{DynamicResource HeroBaseBrush}" Height="{Binding ElementName=DetailsTop, Path=ActualHeight}">
                                         <Border.Style>
                                             <Style TargetType="Border">
                                                 <Setter Property="Visibility" Value="Visible"/>
@@ -139,6 +139,15 @@
                                             </FadeImage.OpacityMask>
                                         </FadeImage>
                                     </Border>
+                                    <!-- ImageRotater plugin background (rotating, animated or video artwork); shown only when the add-on renders backgrounds through the theme -->
+                                    <ContentControl x:Name="ImageRotater_Background" Style="{DynamicResource ImageRotaterBackgroundHost}">
+                                        <ContentControl.OpacityMask>
+                                            <LinearGradientBrush StartPoint="0.5, 0.0" EndPoint="0.5, 1.0" >
+                                                <GradientStop Color="Black" Offset="0.75"/>
+                                                <GradientStop Color="Transparent" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </ContentControl.OpacityMask>
+                                    </ContentControl>
                                 </Grid>
 
                                 <StackPanel Grid.Row="0" Name="DetailsTop" VerticalAlignment="Top">
@@ -238,7 +247,7 @@
                                         </Border>
                                         <Border Background="{DynamicResource BackdropGlass1}"/>
                                         <Border Padding="20,10,30,10" x:Name="HeaderRow" Background="{DynamicResource DetailsSectionBackgroundBrush}">
-                                            <DockPanel>
+                                            <WrapPanel Orientation="Horizontal" VerticalAlignment="Center">
                                                 <DockPanel HorizontalAlignment="Left"  VerticalAlignment="Center"
                                                             Margin="0,0,0,0" DockPanel.Dock="Left">
                                                     <Button Name="PART_ButtonPlayAction"
@@ -308,7 +317,7 @@
                                                         </Button.Style>
                                                     </Button>
                                                 </DockPanel>
-                                                <Grid DockPanel.Dock="Left" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowLastPlayed}">
+                                                <Grid Margin="0,4,0,4" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowLastPlayed}">
                                                 <DockPanel x:Name="PART_ElemLastPlayed" DockPanel.Dock="Left" VerticalAlignment="Center" Margin="30,0,20,0">
                                                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,0,0,0">
                                                         <Label Style="{DynamicResource HeaderLabel}" Content="{DynamicResource LOCLastPlayed}"/>
@@ -317,7 +326,7 @@
                                                 </DockPanel>
                                                 </Grid>
 
-                                                <Grid DockPanel.Dock="Left" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowPlayTime}">
+                                                <Grid Margin="0,4,0,4" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowPlayTime}">
                                                 <DockPanel x:Name="PART_ElemPlayTime" DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,20,0">
 
                                                     <Viewbox Height="25">
@@ -344,7 +353,7 @@
                                                 </DockPanel>
                                                 </Grid>
 
-                                                <Grid DockPanel.Dock="Left" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowCompletionStatus}">
+                                                <Grid Margin="0,4,0,4" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowCompletionStatus}">
                                                 <DockPanel x:Name="PART_ElemCompletionStatus" DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,20,0">
                                                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0">
                                                         <Label Style="{DynamicResource HeaderLabel}" Content="{DynamicResource LOCCompletionStatus}"/>
@@ -353,7 +362,7 @@
                                                 </DockPanel>
                                                 </Grid>
 
-                                                <Grid DockPanel.Dock="Left" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowAchievementsSummary}">
+                                                <Grid Margin="0,4,0,4" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowAchievementsSummary}">
                                                 <DockPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,20,0">
                                                     <DockPanel.Style>
                                                         <Style TargetType="{x:Type DockPanel}">
@@ -463,8 +472,8 @@
                                                 </Grid>
 
                                                
-                                                <Border/>
-                                            </DockPanel>
+                                                
+                                            </WrapPanel>
                                         </Border>
                                     </Grid>
                                 </StackPanel>
@@ -525,7 +534,7 @@
                                                                               Margin="0,5,0,5"
                                                                               HtmlFontSize="{DynamicResource FontSize}"
                                                                               HtmlFontFamily="{DynamicResource FontFamily}"
-                                                                              HtmlForeground="{DynamicResource DetailsViewContainerLabelColor}"
+                                                                              HtmlForeground="{DynamicResource TextColor}"
                                                                               LinkForeground="{DynamicResource GlyphColor}"
                                                                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                                                               ScrollViewer.VerticalScrollBarVisibility="Disabled"

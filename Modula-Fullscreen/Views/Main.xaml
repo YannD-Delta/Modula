@@ -23,30 +23,14 @@
                                        HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                             <!-- Console-style depth: the artwork of the selected game fills the screen, darkened where the text sits -->
-                            <Border Grid.RowSpan="3" IsHitTestVisible="False">
-                                <Border.Background>
-                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                        <GradientStop Color="#99050810" Offset="0" />
-                                        <GradientStop Color="#00050810" Offset="0.22" />
-                                        <GradientStop Color="#00050810" Offset="0.42" />
-                                        <GradientStop Color="#D9050810" Offset="0.78" />
-                                        <GradientStop Color="#F2050810" Offset="1" />
-                                    </LinearGradientBrush>
-                                </Border.Background>
-                            </Border>
-                            <Border Grid.RowSpan="3" IsHitTestVisible="False">
-                                <Border.Background>
-                                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                                        <GradientStop Color="#B3050810" Offset="0" />
-                                        <GradientStop Color="#00050810" Offset="0.55" />
-                                    </LinearGradientBrush>
-                                </Border.Background>
-                            </Border>
+                            <!-- tint = the colour profile (FsScrim*Brush), strength = the background darkness token -->
+                            <Border Grid.RowSpan="3" IsHitTestVisible="False" Opacity="{DynamicResource FsBackgroundDarkness}" Background="{DynamicResource FsScrimVerticalBrush}" />
+                            <Border Grid.RowSpan="3" IsHitTestVisible="False" Opacity="{DynamicResource FsBackgroundDarkness}" Background="{DynamicResource FsScrimSideBrush}" />
 
+                            <!-- Safe area: every text edge of the page (tabs, hero, prompts, clock and icons) sits on the FsSafeInset margin -->
                             <Grid Grid.Row="0" Background="Transparent"
-                                  Height="110">
+                                  Height="110" Margin="{DynamicResource FsSafeInset}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
@@ -54,10 +38,41 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <FilterPresetSelector x:Name="PART_FilterPresetSelector" Grid.Column="1" Margin="0,0,50,0" />
+                                <!-- the tabs keep 16 px of their own padding: pulled back so the first word starts on the inset -->
+                                <FilterPresetSelector x:Name="PART_FilterPresetSelector" Grid.Column="0" Margin="-16,0,50,0" />
+
+                                <!-- Status chips (add-ons: Now Playing, Controller Session Manager, MoData, Audio Switcher). Each one is Collapsed until its add-on publishes something;
+                                     the whole row follows FsStatusChipsVisibility. Add-on property names are the ones the add-ons document for themes. -->
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,24,0" Visibility="{DynamicResource FsStatusChipsVisibility}">
+                                    <Border Style="{DynamicResource FsStatusChipWhenTrue}" Tag="{PluginSettings Plugin=NowPlaying, Path=IsGameRunning, FallbackValue=False}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{DynamicResource FsStatusGlyph}" Text="&#xE768;" />
+                                            <TextBlock Style="{DynamicResource FsStatusText}" MaxWidth="360" TextTrimming="CharacterEllipsis"
+                                                       Text="{PluginSettings Plugin=NowPlaying, Path=RunningGame.GameName, FallbackValue=''}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Style="{DynamicResource FsStatusChipWhenTrue}" Tag="{PluginSettings Plugin=ControllerSessionManager, Path=HasConnectedControllers, FallbackValue=False}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{DynamicResource FsStatusGlyph}" Text="&#xE7FC;" />
+                                            <TextBlock Style="{DynamicResource FsStatusText}" Text="{PluginSettings Plugin=ControllerSessionManager, Path=PrimaryControllerBatteryLabel, FallbackValue=''}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Style="{DynamicResource FsStatusChipWhenText}" Tag="{PluginSettings Plugin=MoData, Path=WifiStrength, FallbackValue=''}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{DynamicResource FsStatusGlyph}" Text="&#xE701;" />
+                                            <TextBlock Style="{DynamicResource FsStatusText}" Text="{PluginSettings Plugin=MoData, Path=WifiStrength, FallbackValue=''}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Style="{DynamicResource FsStatusChipWhenText}" Margin="0" Tag="{PluginSettings Plugin=AudioSwitcher, Path=CurrentVolumePercent, FallbackValue=''}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Style="{DynamicResource FsStatusGlyph}" Text="&#xE767;" />
+                                            <TextBlock Style="{DynamicResource FsStatusText}"><Run Text="{PluginSettings Plugin=AudioSwitcher, Path=CurrentVolumePercent, FallbackValue=''}" /><Run Text="%" /></TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
 
                                 <ContentControl x:Name="PART_ElemBatteryStatus" Focusable="False" FontSize="42"
                                             VerticalAlignment="Center" Margin="10,0,10,0"
@@ -102,7 +117,7 @@
                                     <ButtonEx.Content>
                                         <TextBlock Text="&#xef08;" FontFamily="{StaticResource FontIcoFont}"                                                   
                                                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"
-                                                   Foreground="{DynamicResource GlyphLightBrush}" FontSize="30" />
+                                                   Foreground="{DynamicResource GlyphBrush}" FontSize="30" />
                                     </ButtonEx.Content>
                                 </ButtonEx>
 
@@ -113,7 +128,7 @@
                                         <Grid>
                                             <TextBlock Text="&#xeea3;" FontFamily="{StaticResource FontIcoFont}"
                                                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"
-                                                       Foreground="White" FontSize="30" />
+                                                       Foreground="{DynamicResource FsHeroTextBrush}" FontSize="30" />
                                             <TextBlock Text="&#x25CF;" Foreground="{DynamicResource GlyphBrush}"
                                                        HorizontalAlignment="Right" VerticalAlignment="Bottom"
                                                        FontSize="24" Margin="0,0,5,0" />
@@ -132,7 +147,7 @@
 
                                 <ButtonEx x:Name="PART_ButtonMainMenu" VerticalAlignment="Center"
                                           Style="{DynamicResource ButtonTopMenu}"
-                                          Margin="10,0,10,0" Height="48" MinWidth="48"
+                                          Margin="10,0,0,0" Height="48" MinWidth="48"
                                           Grid.Column="7">
                                     <Button.Content>
                                         <Image RenderOptions.BitmapScalingMode="Fant" Margin="2"
@@ -141,7 +156,8 @@
                                 </ButtonEx>
                             </Grid>
 
-                            <DockPanel Grid.Row="1">
+                            <!-- above the selected-game block: the filter panel must cover it, not the other way round -->
+                            <DockPanel Grid.Row="1" Panel.ZIndex="5">
                                 <Filters x:Name="PART_ElemFilters"
                                          DockPanel.Dock="Left" Focusable="False" />
 
@@ -154,6 +170,8 @@
                                 <Grid>
                                     <Grid.Style>
                                         <Style TargetType="Grid">
+                                            <!-- grid layout: the first column of covers starts on the safe inset (the list adds its own 25 px and each cover its margin) -->
+                                            <Setter Property="Margin" Value="57,0,57,0" />
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="True">
                                                     <Setter Property="VerticalAlignment" Value="Bottom" />
@@ -163,7 +181,7 @@
                                             </Style.Triggers>
                                         </Style>
                                     </Grid.Style>
-                                    <ListBoxEx x:Name="PART_ListGameItems" Margin="25,0,25,0"
+                                    <ListBoxEx x:Name="PART_ListGameItems" Margin="{DynamicResource FsShelfInset}"
                                                Background="Transparent" BorderThickness="0"
                                                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                                                KeyboardNavigation.DirectionalNavigation="Once" />
@@ -171,25 +189,58 @@
                             </DockPanel>
 
                             <!-- Selected game: its name and facts come in each time the focus moves (horizontal layout only) -->
-                            <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxWidth="1300" IsHitTestVisible="False"
+                            <Grid Grid.Row="1" Margin="{DynamicResource FsSafeInset}" IsHitTestVisible="False">
+                            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxWidth="1300" IsHitTestVisible="False"
                                         x:Name="HeroBlock">
                                 <StackPanel.Style>
                                     <Style TargetType="StackPanel">
                                         <Setter Property="Visibility" Value="Collapsed" />
-                                        <Setter Property="Margin" Value="110,0,110,0" />
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="True">
-                                                <Setter Property="Visibility" Value="Visible" />
+                                                <Setter Property="Visibility" Value="{DynamicResource FsHeroVisibility}" />
                                                 <Setter Property="Margin" Value="{DynamicResource FsHeroMargin}" />
+                                            </DataTrigger>
+                                            <!-- the filter panels are glass: the title behind them would bleed through the list -->
+                                            <DataTrigger Binding="{Binding Visibility, ElementName=PART_ElemFilters}" Value="Visible">
+                                                <Setter Property="Visibility" Value="Hidden" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Visibility, ElementName=PART_ElemFiltersAdditional}" Value="Visible">
+                                                <Setter Property="Visibility" Value="Hidden" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Visibility, ElementName=PART_ContentFilterItems}" Value="Visible">
+                                                <Setter Property="Visibility" Value="Hidden" />
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </StackPanel.Style>
-                                <TextBlock x:Name="HeroTitle" Style="{DynamicResource TextBlockBaseStyle}"
+                                <!-- Game logo (Extra Metadata Loader): shown instead of the name when the add-on has one -->
+                                <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" HorizontalAlignment="Left" MaxHeight="150" MaxWidth="600" Focusable="False" IsTabStop="False" IsHitTestVisible="False"
+                                                Margin="0,0,0,8" Tag="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}">
+                                    <ContentControl.Style>
+                                        <Style TargetType="ContentControl">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentControl.Style>
+                                </ContentControl>
+                                <TextBlock x:Name="HeroTitle"
                                            Text="{Binding SelectedGame.Name, NotifyOnTargetUpdated=True}"
-                                           FontFamily="{DynamicResource FontTitilliumWebBold}" FontSize="72" Foreground="White" TextTrimming="CharacterEllipsis">
+                                           FontFamily="{DynamicResource FontTitilliumWebBold}" FontSize="{DynamicResource FsHeroTitleSize}" Foreground="{DynamicResource FsHeroTextBrush}" TextTrimming="CharacterEllipsis">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockBaseStyle}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Tag, ElementName=ExtraMetadataLoader_LogoLoaderControl}" Value="True">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
                                     <TextBlock.Effect>
-                                        <DropShadowEffect ShadowDepth="3" BlurRadius="14" Color="Black" Opacity="0.7" RenderingBias="Performance" />
+                                        <DropShadowEffect ShadowDepth="3" BlurRadius="14" Color="{DynamicResource FsHeroShadowColor}" Opacity="0.7" RenderingBias="Performance" />
                                     </TextBlock.Effect>
                                     <TextBlock.RenderTransform><TranslateTransform /></TextBlock.RenderTransform>
                                     <TextBlock.Triggers>
@@ -229,14 +280,46 @@
                                             </BeginStoryboard>
                                         </EventTrigger>
                                     </StackPanel.Triggers>
-                                    <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontSize="26" Foreground="{DynamicResource GlyphLightBrush}"
-                                               Text="{Binding SelectedGame.Genres, Converter={StaticResource ListToStringConverter}, NotifyOnTargetUpdated=True}" />
-                                    <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontSize="26" Foreground="#99FFFFFF" Margin="18,0,0,0"
-                                               Text="{Binding SelectedGame.Platforms, Converter={StaticResource ListToStringConverter}}" />
-                                    <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontSize="26" Foreground="#99FFFFFF" Margin="18,0,0,0"
+                                    <TextBlock Style="{DynamicResource FsAccentLabelStyle}" FontSize="{DynamicResource FsHeroLineSize}"
+                                               Text="{Binding SelectedGame.Genres, Converter={StaticResource ListToStringConverter}, ConverterParameter=', ', NotifyOnTargetUpdated=True}" />
+                                    <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontSize="{DynamicResource FsHeroLineSize}" Foreground="{DynamicResource FsHeroDimBrush}" Margin="22,0,0,0"
+                                               Text="{Binding SelectedGame.Platforms, Converter={StaticResource ListToStringConverter}, ConverterParameter=', '}" />
+                                    <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontSize="{DynamicResource FsHeroLineSize}" Foreground="{DynamicResource FsHeroDimBrush}" Margin="22,0,0,0"
                                                Text="{Binding SelectedGame.Playtime, Converter={StaticResource PlayTimeToStringConverter}}" />
                                 </StackPanel>
                             </StackPanel>
+                            <!-- Optional Aniki Helper facts: the suggested game and this month in numbers. Nothing shows (and no room is taken) without the add-on. -->
+                            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" IsHitTestVisible="False" Margin="{DynamicResource FsHeroMargin}">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="True">
+                                                <Setter Property="Visibility" Value="{DynamicResource FsLibraryFactsVisibility}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <Border Style="{DynamicResource FsFactCard}" Tag="{PluginSettings Plugin=AnikiHelper, Path=SuggestedGameName, FallbackValue=''}">
+                                    <StackPanel>
+                                        <TextBlock Style="{DynamicResource FsAccentLabelStyle}" FontSize="{DynamicResource FontSizeSmall}" Text="{DynamicResource LOCHNDFsSuggested}" />
+                                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontFamily="{DynamicResource FontTitilliumWebBold}" FontSize="30" Foreground="{DynamicResource FsHeroTextBrush}"
+                                                   TextTrimming="CharacterEllipsis" Text="{PluginSettings Plugin=AnikiHelper, Path=SuggestedGameName, FallbackValue=''}" />
+                                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontSize="{DynamicResource FontSizeSmall}" Foreground="{DynamicResource FsHeroDimBrush}" TextTrimming="CharacterEllipsis"
+                                                   Text="{PluginSettings Plugin=AnikiHelper, Path=SuggestedGameBannerText, FallbackValue=''}" />
+                                    </StackPanel>
+                                </Border>
+                                <Border Style="{DynamicResource FsFactCard}" Tag="{PluginSettings Plugin=AnikiHelper, Path=ThisMonthPlayedTotalString, FallbackValue=''}">
+                                    <StackPanel>
+                                        <TextBlock Style="{DynamicResource FsAccentLabelStyle}" FontSize="{DynamicResource FontSizeSmall}" Text="{DynamicResource LOCHNDFsThisMonth}" />
+                                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontFamily="{DynamicResource FontTitilliumWebBold}" FontSize="30" Foreground="{DynamicResource FsHeroTextBrush}"
+                                                   Text="{PluginSettings Plugin=AnikiHelper, Path=ThisMonthPlayedTotalString, FallbackValue=''}" />
+                                        <TextBlock Style="{DynamicResource TextBlockBaseStyle}" FontSize="{DynamicResource FontSizeSmall}" Foreground="{DynamicResource FsHeroDimBrush}" TextTrimming="CharacterEllipsis"
+                                                   Text="{PluginSettings Plugin=AnikiHelper, Path=ThisMonthTopGameName, FallbackValue=''}" />
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                            </Grid>
 
                             <TextBlock Grid.Row="1" FontSize="40"
                                        Text="{DynamicResource LOCNoGamesFound}"
@@ -254,16 +337,15 @@
                             </TextBlock>
 
                             <Grid Grid.Row="2" Background="Transparent"
-                              Height="100">
+                              Height="100" Margin="{DynamicResource FsSafeInset}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="100" />
                                 </Grid.ColumnDefinitions>
 
-                                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                <!-- the stock prompt buttons keep 20 px of padding: pulled back so the first prompt starts on the inset -->
+                                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="-20,0,0,0">
                                     <!--Install-->
                                     <ButtonEx x:Name="PART_ButtonInstall"
                                               Style="{DynamicResource ButtonBottomMenu}"
@@ -290,20 +372,20 @@
                                               Content="{DynamicResource LOCFilter}" />
                                 </StackPanel>
 
-                                <StackPanel Grid.Column="2" x:Name="PART_ElemSearchActive"
+                                <StackPanel Grid.Column="1" x:Name="PART_ElemSearchActive"
                                             VerticalAlignment="Top" HorizontalAlignment="Stretch"
                                             Margin="0,15,0,0">
                                     <TextBlock  FontSize="18"                                                
                                                 TextAlignment="Center"
                                                 Style="{DynamicResource TextBlockBaseStyle}"
                                                 Text="{DynamicResource LOCGameListSearchResults}"/>
-                                    <TextBlock  Foreground="White"
+                                    <TextBlock  Foreground="{DynamicResource FsHeroTextBrush}"
                                                 TextAlignment="Center"
                                                 Style="{DynamicResource TextBlockBaseStyle}"
                                                 Text="{Binding AppSettings.Fullscreen.FilterSettings.Name}"/>
                                 </StackPanel>
 
-                                <TextBlock Grid.Column="2" x:Name="PART_ElemExtraFilterActive"
+                                <TextBlock Grid.Column="1" x:Name="PART_ElemExtraFilterActive"
                                        FontSize="20"
                                        VerticalAlignment="Center" HorizontalAlignment="Stretch"
                                        TextAlignment="Center"
@@ -311,7 +393,7 @@
                                        Text="{DynamicResource LOCGameListExtraFiltered}"/>
 
                                 <StackPanel x:Name="PART_ElemProgressIndicator" Orientation="Horizontal"
-                                        Grid.Column="3" VerticalAlignment="Center">
+                                        Grid.Column="2" VerticalAlignment="Center">
                                     <TextBlock x:Name="PART_TextProgressTooltip" 
                                            Margin="0,0,15,0" FontSize="20" VerticalAlignment="Center"
                                            Style="{DynamicResource TextBlockBaseStyle}"/>

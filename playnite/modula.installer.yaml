@@ -1,5 +1,15 @@
 AddonId: '42f3aebe-d455-44a7-bd7f-2dd8afaec9a6'
 Packages:
+  - Version: 3.2
+    RequiredApiVersion: 2.10.0
+    ReleaseDate: 2026-10-21
+    PackageUrl: https://github.com/YannD-Delta/Modula/releases/download/v3.2/Modula-3.2.pthm
+    Changelog:
+      - 30 ready-made global looks, chosen from the first page of Layout Studio
+      - 11 new colour profiles (7 light), 11 font personalities, a generated window backdrop (flat, gradient, soft circles, patterns)
+      - Every row of the information panel and every section header can be hidden
+      - Grid view fixed (it was blank) and polished; add-on integrations (Now Playing, Back To Game, ImageRotater, AnikiHelper data, PlayerActivities)
+      - Play and context button colours now work
   - Version: 3.1
     RequiredApiVersion: 2.10.0
     ReleaseDate: 2026-10-19

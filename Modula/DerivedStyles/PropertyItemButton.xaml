@@ -107,7 +107,7 @@
                         <Border Padding="{TemplateBinding Padding}">
                             <TextBlock FontSize="{TemplateBinding FontSize}" FontWeight="{DynamicResource WeightValue}"
                                        Foreground="{TemplateBinding Foreground}"
-                                       Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="NoWrap" />
+                                       Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -286,29 +286,54 @@
     </Style>
     <Style x:Key="MdStyleItemButton" TargetType="Button" BasedOn="{StaticResource PropertyItemFeedPanelButton}" />
 
-    <!-- Details view tabs (tabs mode): pill radio buttons above the sections -->
+    <!-- Details view tabs (tabs mode): glass pills like the section chips (fill, hover fill + rim, rim); the selected tab gets the accent tint and rim -->
     <Style x:Key="DetailsTabButton" TargetType="{x:Type RadioButton}">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Margin" Value="0,0,8,6" />
-        <Setter Property="Padding" Value="14,5,14,6" />
+        <Setter Property="Margin" Value="{DynamicResource DetailsTabMargin}" />
+        <Setter Property="Padding" Value="{DynamicResource DetailsTabPadding}" />
         <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
-        <Setter Property="Background" Value="{DynamicResource HeroSecondaryButtonBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource HeroSecondaryButtonBorderBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Border x:Name="Pill" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="1" CornerRadius="{DynamicResource HeroChipCornerRadius}" Padding="{TemplateBinding Padding}">
-                        <ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" TextElement.FontWeight="SemiBold" />
-                    </Border>
+                    <Grid x:Name="Pill">
+                        <Border Background="{DynamicResource ChipGlassBrush}" CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        <Border x:Name="SelectedFill" Opacity="0" Background="{DynamicResource GlassSelectionFillBrush}" CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        <Grid x:Name="HoverHost" Opacity="0">
+                            <Border Background="{DynamicResource GlassHoverFillBrush}" CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                            <Border BorderBrush="{DynamicResource GlassRimHoverBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                    CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        </Grid>
+                        <Border x:Name="Rim" BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}"
+                                CornerRadius="{DynamicResource HeroChipCornerRadius}" />
+                        <Border Padding="{TemplateBinding Padding}">
+                            <ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" TextElement.FontWeight="SemiBold" />
+                        </Border>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Pill" Property="Background" Value="{DynamicResource HeroSecondaryButtonHoverBackgroundBrush}" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverHost" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.16">
+                                            <DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut" /></DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverHost" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.30">
+                                            <DoubleAnimation.EasingFunction><CubicEase EasingMode="EaseOut" /></DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="Pill" Property="Background" Value="{DynamicResource HighlightGlyphBrush}" />
-                            <Setter TargetName="Pill" Property="BorderBrush" Value="{DynamicResource GlyphBrush}" />
+                            <Setter TargetName="SelectedFill" Property="Opacity" Value="1" />
+                            <Setter TargetName="Rim" Property="BorderBrush" Value="{DynamicResource GlyphBrush}" />
                             <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>

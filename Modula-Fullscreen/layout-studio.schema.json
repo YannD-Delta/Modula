@@ -1,7 +1,7 @@
 {
  "version": 1,
  "stats": {
-  "constants": 38
+  "constants": 59
  },
  "pages": [
   {
@@ -16,13 +16,13 @@
        "kind": "preset",
        "id": "Accent",
        "keys": [],
-       "title": "Accent colour",
+       "title": "Accent color",
        "titleKey": "LOCHNDFsPresetAccent",
        "defaultChoice": "Default",
        "choices": [
         {
          "id": "Default",
-         "name": "Neon blue",
+         "name": "Neon blue (default)",
          "locKey": "LOCHNDFsPresetAccentDefault",
          "constants": {},
          "swatch": {
@@ -31,16 +31,107 @@
          }
         },
         {
+         "id": "Amber",
+         "name": "Dune amber",
+         "locKey": "LOCHNDFsPresetAccentAmber",
+         "constants": {
+          "GlyphColor": "#FFFFB547",
+          "GlyphLightColor": "#FFFFD89D"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFFFB547"
+         }
+        },
+        {
          "id": "Violet",
          "name": "Violet",
          "locKey": "LOCHNDFsPresetAccentViolet",
          "constants": {
-          "GlyphColor": "#FFA66BFF",
-          "GlyphLightColor": "#FFD0B0FF"
+          "GlyphColor": "#FFA78BFA",
+          "GlyphLightColor": "#FFD0C2FC"
          },
          "swatch": {
           "text": "#FFF2F6FF",
-          "accent": "#FFA66BFF"
+          "accent": "#FFA78BFA"
+         }
+        },
+        {
+         "id": "Emerald",
+         "name": "Emerald",
+         "locKey": "LOCHNDFsPresetAccentEmerald",
+         "constants": {
+          "GlyphColor": "#FF34D399",
+          "GlyphLightColor": "#FF93E8C9"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FF34D399"
+         }
+        },
+        {
+         "id": "Crimson",
+         "name": "Crimson",
+         "locKey": "LOCHNDFsPresetAccentCrimson",
+         "constants": {
+          "GlyphColor": "#FFF87171",
+          "GlyphLightColor": "#FFFBB4B4"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFF87171"
+         }
+        },
+        {
+         "id": "Pink",
+         "name": "Pink",
+         "locKey": "LOCHNDFsPresetAccentPink",
+         "constants": {
+          "GlyphColor": "#FFF472B6",
+          "GlyphLightColor": "#FFF9B4D8"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFF472B6"
+         }
+        },
+        {
+         "id": "Cyan",
+         "name": "Cyan",
+         "locKey": "LOCHNDFsPresetAccentCyan",
+         "constants": {
+          "GlyphColor": "#FF22D3EE",
+          "GlyphLightColor": "#FF8AE8F6"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FF22D3EE"
+         }
+        },
+        {
+         "id": "Gold",
+         "name": "Gold",
+         "locKey": "LOCHNDFsPresetAccentGold",
+         "constants": {
+          "GlyphColor": "#FFFACC15",
+          "GlyphLightColor": "#FFFCE483"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFFACC15"
+         }
+        },
+        {
+         "id": "Linkin",
+         "name": "Hybrid red (Linkin Park)",
+         "locKey": "LOCHNDFsPresetAccentLinkin",
+         "constants": {
+          "GlyphColor": "#FFE63946",
+          "GlyphLightColor": "#FFF2969D"
+         },
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FFE63946"
          }
         },
         {
@@ -49,24 +140,11 @@
          "locKey": "LOCHNDFsPresetAccentMint",
          "constants": {
           "GlyphColor": "#FF3DE0B0",
-          "GlyphLightColor": "#FF9AF5DC"
+          "GlyphLightColor": "#FF98EFD5"
          },
          "swatch": {
           "text": "#FFF2F6FF",
           "accent": "#FF3DE0B0"
-         }
-        },
-        {
-         "id": "Amber",
-         "name": "Amber",
-         "locKey": "LOCHNDFsPresetAccentAmber",
-         "constants": {
-          "GlyphColor": "#FFFFB347",
-          "GlyphLightColor": "#FFFFD79A"
-         },
-         "swatch": {
-          "text": "#FFF2F6FF",
-          "accent": "#FFFFB347"
          }
         },
         {
@@ -75,24 +153,11 @@
          "locKey": "LOCHNDFsPresetAccentRose",
          "constants": {
           "GlyphColor": "#FFFF6B9A",
-          "GlyphLightColor": "#FFFFB0CC"
+          "GlyphLightColor": "#FFFFB1C9"
          },
          "swatch": {
           "text": "#FFF2F6FF",
           "accent": "#FFFF6B9A"
-         }
-        },
-        {
-         "id": "Cyan",
-         "name": "Cyan",
-         "locKey": "LOCHNDFsPresetAccentCyan",
-         "constants": {
-          "GlyphColor": "#FF34E7FF",
-          "GlyphLightColor": "#FF9AF2FF"
-         },
-         "swatch": {
-          "text": "#FFF2F6FF",
-          "accent": "#FF34E7FF"
          }
         }
        ]
@@ -101,13 +166,13 @@
        "kind": "preset",
        "id": "Corners",
        "keys": [],
-       "title": "Corner rounding",
+       "title": "Corner rounding (card, panels, tiles, chips, buttons, cover)",
        "titleKey": "LOCHNDFsPresetCorners",
        "defaultChoice": "Default",
        "choices": [
         {
          "id": "Default",
-         "name": "Rounded",
+         "name": "Rounded (default)",
          "locKey": "LOCHNDFsPresetCornersDefault",
          "constants": {}
         },
@@ -116,12 +181,16 @@
          "name": "Square",
          "locKey": "LOCHNDFsPresetCornersSquare",
          "constants": {
-          "FsPanelCornerRadius": "0",
           "FsCardCornerRadius": "0",
           "FsCardRimCornerRadius": "0",
-          "FsCoverCornerRadius": "0",
+          "FsPanelCornerRadius": "0",
+          "FsSideRightCornerRadius": "0,0,0,0",
           "FsTileCornerRadius": "0",
-          "FsButtonCornerRadius": "0"
+          "FsChipCornerRadius": "0",
+          "FsButtonCornerRadius": "0",
+          "FsPillCornerRadius": "0",
+          "FsPillRingCornerRadius": "0",
+          "FsCoverCornerRadius": "0"
          }
         },
         {
@@ -129,25 +198,457 @@
          "name": "Subtle",
          "locKey": "LOCHNDFsPresetCornersSubtle",
          "constants": {
-          "FsPanelCornerRadius": "8",
           "FsCardCornerRadius": "6",
           "FsCardRimCornerRadius": "8",
-          "FsCoverCornerRadius": "8",
-          "FsTileCornerRadius": "6",
-          "FsButtonCornerRadius": "5"
+          "FsPanelCornerRadius": "11",
+          "FsSideRightCornerRadius": "0,11,11,0",
+          "FsTileCornerRadius": "8",
+          "FsChipCornerRadius": "4",
+          "FsButtonCornerRadius": "4",
+          "FsPillCornerRadius": "13",
+          "FsPillRingCornerRadius": "14",
+          "FsCoverCornerRadius": "8"
          }
         },
         {
          "id": "Round",
-         "name": "Round",
+         "name": "Very round",
          "locKey": "LOCHNDFsPresetCornersRound",
          "constants": {
-          "FsPanelCornerRadius": "34",
-          "FsCardCornerRadius": "24",
-          "FsCardRimCornerRadius": "26",
-          "FsCoverCornerRadius": "30",
-          "FsTileCornerRadius": "24",
-          "FsButtonCornerRadius": "20"
+          "FsCardCornerRadius": "17",
+          "FsCardRimCornerRadius": "19",
+          "FsPanelCornerRadius": "27",
+          "FsSideRightCornerRadius": "0,27,27,0",
+          "FsTileCornerRadius": "18",
+          "FsChipCornerRadius": "12",
+          "FsButtonCornerRadius": "14",
+          "FsPillCornerRadius": "47",
+          "FsPillRingCornerRadius": "49",
+          "FsCoverCornerRadius": "25"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Glass",
+       "keys": [],
+       "title": "Glass of the panels, tiles and chips",
+       "titleKey": "LOCHNDFsPresetGlass",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Glass",
+         "locKey": "LOCHNDFsPresetGlassDefault",
+         "constants": {}
+        },
+        {
+         "id": "Frosted",
+         "name": "Frosted (more opaque)",
+         "locKey": "LOCHNDFsPresetGlassFrosted",
+         "constants": {
+          "FsGlassFillOpacity": "1",
+          "FsGlassRimOpacity": "0.75",
+          "FsTileGlassOpacity": "0.7857"
+         }
+        },
+        {
+         "id": "Clear",
+         "name": "Clear (barely visible)",
+         "locKey": "LOCHNDFsPresetGlassClear",
+         "constants": {
+          "FsGlassFillOpacity": "0.3833",
+          "FsGlassRimOpacity": "0.5",
+          "FsTileGlassOpacity": "0.25"
+         }
+        },
+        {
+         "id": "Borderless",
+         "name": "Glass without outlines",
+         "locKey": "LOCHNDFsPresetGlassBorderless",
+         "constants": {
+          "FsGlassRimOpacity": "0"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "WindowDarkness",
+       "keys": [],
+       "title": "Window background darkness",
+       "titleKey": "LOCHNDFsPresetWindowDarkness",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Bright",
+         "name": "Bright (artwork barely dimmed)",
+         "locKey": "LOCHNDFsPresetWindowDarknessBright",
+         "constants": {
+          "FsBackgroundDarkness": "0.4762"
+         }
+        },
+        {
+         "id": "Light",
+         "name": "Light",
+         "locKey": "LOCHNDFsPresetWindowDarknessLight",
+         "constants": {
+          "FsBackgroundDarkness": "0.9524"
+         }
+        },
+        {
+         "id": "Default",
+         "name": "Medium",
+         "locKey": "LOCHNDFsPresetWindowDarknessDefault",
+         "constants": {}
+        },
+        {
+         "id": "Dark",
+         "name": "Dark",
+         "locKey": "LOCHNDFsPresetWindowDarknessDark",
+         "constants": {
+          "FsBackgroundDarkness": "1"
+         }
+        },
+        {
+         "id": "VeryDark",
+         "name": "Very dark",
+         "locKey": "LOCHNDFsPresetWindowDarknessVeryDark",
+         "constants": {
+          "FsBackgroundDarkness": "1"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "ColorProfile",
+       "keys": [],
+       "title": "Color profile",
+       "titleKey": "LOCHNDFsPresetColorProfile",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Neon blue night (default)",
+         "locKey": "LOCHNDFsPresetColorProfileDefault",
+         "constants": {},
+         "swatch": {
+          "text": "#FFF2F6FF",
+          "accent": "#FF4DA3FF"
+         }
+        },
+        {
+         "id": "Liquid",
+         "name": "Liquid (cool graphite, system blue)",
+         "locKey": "LOCHNDFsPresetColorProfileLiquid",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Liquid.xaml"
+         ],
+         "swatch": {
+          "text": "#FFF2F4F7",
+          "accent": "#FF4DA3FF"
+         }
+        },
+        {
+         "id": "Midnight",
+         "name": "Midnight (deep blue)",
+         "locKey": "LOCHNDFsPresetColorProfileMidnight",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Midnight.xaml"
+         ],
+         "swatch": {
+          "text": "#FFEAF0FF",
+          "accent": "#FF5AA9FF"
+         }
+        },
+        {
+         "id": "Graphite",
+         "name": "Graphite (neutral greys)",
+         "locKey": "LOCHNDFsPresetColorProfileGraphite",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Graphite.xaml"
+         ],
+         "swatch": {
+          "text": "#FFECECEC",
+          "accent": "#FFD6DAE0"
+         }
+        },
+        {
+         "id": "OledBlack",
+         "name": "OLED black (true black, ice blue)",
+         "locKey": "LOCHNDFsPresetColorProfileOledBlack",
+         "constants": {},
+         "files": [
+          "Presets/Colors/OledBlack.xaml"
+         ],
+         "swatch": {
+          "text": "#FFF2F2F2",
+          "accent": "#FF4CC2FF"
+         }
+        },
+        {
+         "id": "DuneSand",
+         "name": "Dune sand (amber on warm brown)",
+         "locKey": "LOCHNDFsPresetColorProfileDuneSand",
+         "constants": {},
+         "files": [
+          "Presets/Colors/DuneSand.xaml"
+         ],
+         "swatch": {
+          "text": "#FFF4EADB",
+          "accent": "#FFF5B451"
+         }
+        },
+        {
+         "id": "Ember",
+         "name": "Ember (warm red)",
+         "locKey": "LOCHNDFsPresetColorProfileEmber",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Ember.xaml"
+         ],
+         "swatch": {
+          "text": "#FFF8EEEE",
+          "accent": "#FFFF6B6B"
+         }
+        },
+        {
+         "id": "Forest",
+         "name": "Forest (green)",
+         "locKey": "LOCHNDFsPresetColorProfileForest",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Forest.xaml"
+         ],
+         "swatch": {
+          "text": "#FFEAF4EC",
+          "accent": "#FF4ADE80"
+         }
+        },
+        {
+         "id": "Aurora",
+         "name": "Aurora (teal and violet)",
+         "locKey": "LOCHNDFsPresetColorProfileAurora",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Aurora.xaml"
+         ],
+         "swatch": {
+          "text": "#FFE6F6F7",
+          "accent": "#FF2DD4BF"
+         }
+        },
+        {
+         "id": "Rose",
+         "name": "Rose (pink and lilac)",
+         "locKey": "LOCHNDFsPresetColorProfileRose",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Rose.xaml"
+         ],
+         "swatch": {
+          "text": "#FFFBEFF4",
+          "accent": "#FFFF7AB6"
+         }
+        },
+        {
+         "id": "Violet",
+         "name": "Violet (purple and pink)",
+         "locKey": "LOCHNDFsPresetColorProfileViolet",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Violet.xaml"
+         ],
+         "swatch": {
+          "text": "#FFF1ECFF",
+          "accent": "#FFA78BFA"
+         }
+        },
+        {
+         "id": "Nord",
+         "name": "Nord (frost blue, arctic grey)",
+         "locKey": "LOCHNDFsPresetColorProfileNord",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Nord.xaml"
+         ],
+         "swatch": {
+          "text": "#FFECEFF4",
+          "accent": "#FF88C0D0"
+         }
+        },
+        {
+         "id": "Catppuccin",
+         "name": "Catppuccin Mocha (pastel mauve)",
+         "locKey": "LOCHNDFsPresetColorProfileCatppuccin",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Catppuccin.xaml"
+         ],
+         "swatch": {
+          "text": "#FFCDD6F4",
+          "accent": "#FFCBA6F7"
+         }
+        },
+        {
+         "id": "TokyoNight",
+         "name": "Tokyo Night (city blue and violet)",
+         "locKey": "LOCHNDFsPresetColorProfileTokyoNight",
+         "constants": {},
+         "files": [
+          "Presets/Colors/TokyoNight.xaml"
+         ],
+         "swatch": {
+          "text": "#FFC0CAF5",
+          "accent": "#FF7AA2F7"
+         }
+        },
+        {
+         "id": "Paper",
+         "name": "Paper (warm cream, brick and teal)",
+         "locKey": "LOCHNDFsPresetColorProfilePaper",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Paper.xaml"
+         ],
+         "swatch": {
+          "text": "#FF2A2017",
+          "accent": "#FFA8432A"
+         }
+        },
+        {
+         "id": "Mist",
+         "name": "Mist (cool blue-grey, deep blue)",
+         "locKey": "LOCHNDFsPresetColorProfileMist",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Mist.xaml"
+         ],
+         "swatch": {
+          "text": "#FF14202E",
+          "accent": "#FF1D4ED8"
+         }
+        },
+        {
+         "id": "Sand",
+         "name": "Sand (beige, amber and olive)",
+         "locKey": "LOCHNDFsPresetColorProfileSand",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Sand.xaml"
+         ],
+         "swatch": {
+          "text": "#FF33250F",
+          "accent": "#FFA04A0B"
+         }
+        },
+        {
+         "id": "Mint",
+         "name": "Mint (pastel green, emerald)",
+         "locKey": "LOCHNDFsPresetColorProfileMint",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Mint.xaml"
+         ],
+         "swatch": {
+          "text": "#FF0F2A1E",
+          "accent": "#FF047857"
+         }
+        },
+        {
+         "id": "Blush",
+         "name": "Blush (soft pink, raspberry)",
+         "locKey": "LOCHNDFsPresetColorProfileBlush",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Blush.xaml"
+         ],
+         "swatch": {
+          "text": "#FF3A1D26",
+          "accent": "#FFBE185D"
+         }
+        },
+        {
+         "id": "Lilac",
+         "name": "Lilac (pale violet, indigo)",
+         "locKey": "LOCHNDFsPresetColorProfileLilac",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Lilac.xaml"
+         ],
+         "swatch": {
+          "text": "#FF231A3D",
+          "accent": "#FF6D28D9"
+         }
+        },
+        {
+         "id": "Monochrome",
+         "name": "Monochrome (black on white, one red)",
+         "locKey": "LOCHNDFsPresetColorProfileMonochrome",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Monochrome.xaml"
+         ],
+         "swatch": {
+          "text": "#FF000000",
+          "accent": "#FFC40000"
+         }
+        },
+        {
+         "id": "DeepTeal",
+         "name": "Deep teal (blue-green night, coral)",
+         "locKey": "LOCHNDFsPresetColorProfileDeepTeal",
+         "constants": {},
+         "files": [
+          "Presets/Colors/DeepTeal.xaml"
+         ],
+         "swatch": {
+          "text": "#FFE6F6F3",
+          "accent": "#FFFF8A65"
+         }
+        },
+        {
+         "id": "Wine",
+         "name": "Wine (bordeaux, gold)",
+         "locKey": "LOCHNDFsPresetColorProfileWine",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Wine.xaml"
+         ],
+         "swatch": {
+          "text": "#FFF8EAEC",
+          "accent": "#FFE3B45B"
+         }
+        },
+        {
+         "id": "Terminal",
+         "name": "Terminal (black, phosphor green)",
+         "locKey": "LOCHNDFsPresetColorProfileTerminal",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Terminal.xaml"
+         ],
+         "swatch": {
+          "text": "#FFB9F7BC",
+          "accent": "#FF39E75F"
+         }
+        },
+        {
+         "id": "Dusk",
+         "name": "Dusk (deep plum, orange sunset)",
+         "locKey": "LOCHNDFsPresetColorProfileDusk",
+         "constants": {},
+         "files": [
+          "Presets/Colors/Dusk.xaml"
+         ],
+         "swatch": {
+          "text": "#FFF4ECFB",
+          "accent": "#FFFFA040"
          }
         }
        ]
@@ -190,6 +691,224 @@
          "constants": {
           "FsFocusGlowOpacity": "1",
           "FsFocusGlowBlur": "40"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Layout",
+       "keys": [],
+       "title": "Home layout (card size, title size, title on or off)",
+       "titleKey": "LOCHNDFsPresetLayout",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Console (title above the shelf)",
+         "locKey": "LOCHNDFsPresetLayoutDefault",
+         "constants": {}
+        },
+        {
+         "id": "Billboard",
+         "name": "Billboard (big title, big cards)",
+         "locKey": "LOCHNDFsPresetLayoutBillboard",
+         "constants": {
+          "FsRowHeight": "540",
+          "FsHeroMargin": "0,0,0,570",
+          "FsHeroTitleSize": "96",
+          "FsHeroLineSize": "32"
+         }
+        },
+        {
+         "id": "Compact",
+         "name": "Compact (small title, small cards)",
+         "locKey": "LOCHNDFsPresetLayoutCompact",
+         "constants": {
+          "FsRowHeight": "390",
+          "FsHeroMargin": "0,0,0,420",
+          "FsHeroTitleSize": "56",
+          "FsHeroLineSize": "24"
+         }
+        },
+        {
+         "id": "Gallery",
+         "name": "Gallery (cards only, no title)",
+         "locKey": "LOCHNDFsPresetLayoutGallery",
+         "constants": {
+          "FsRowHeight": "600",
+          "FsHeroVisibility": "Collapsed"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "SafeArea",
+       "keys": [],
+       "title": "Safe area (margin kept from the screen border)",
+       "titleKey": "LOCHNDFsPresetSafeArea",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Standard (110 px)",
+         "locKey": "LOCHNDFsPresetSafeAreaDefault",
+         "constants": {}
+        },
+        {
+         "id": "Edge",
+         "name": "Wide (70 px, a monitor)",
+         "locKey": "LOCHNDFsPresetSafeAreaEdge",
+         "constants": {
+          "FsSafeInset": "70,0,70,0",
+          "FsShelfInset": "-15,0,-15,0"
+         }
+        },
+        {
+         "id": "Tv",
+         "name": "TV (170 px, overscan)",
+         "locKey": "LOCHNDFsPresetSafeAreaTv",
+         "constants": {
+          "FsSafeInset": "170,0,170,0",
+          "FsShelfInset": "85,0,85,0"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Typography",
+       "keys": [],
+       "title": "Typography (fonts that ship with Windows)",
+       "titleKey": "LOCHNDFsPresetTypography",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Console (Titillium Web, the stock font)",
+         "locKey": "LOCHNDFsPresetTypographyDefault",
+         "constants": {}
+        },
+        {
+         "id": "Clean",
+         "name": "Clean (Segoe UI)",
+         "locKey": "LOCHNDFsPresetTypographyClean",
+         "constants": {},
+         "files": [
+          "Presets/Typography/Clean.xaml"
+         ]
+        },
+        {
+         "id": "Industrial",
+         "name": "Industrial (Bahnschrift)",
+         "locKey": "LOCHNDFsPresetTypographyIndustrial",
+         "constants": {},
+         "files": [
+          "Presets/Typography/Industrial.xaml"
+         ]
+        },
+        {
+         "id": "Soft",
+         "name": "Soft (Corbel)",
+         "locKey": "LOCHNDFsPresetTypographySoft",
+         "constants": {},
+         "files": [
+          "Presets/Typography/Soft.xaml"
+         ]
+        },
+        {
+         "id": "Editorial",
+         "name": "Editorial (Georgia, serif)",
+         "locKey": "LOCHNDFsPresetTypographyEditorial",
+         "constants": {},
+         "files": [
+          "Presets/Typography/Editorial.xaml"
+         ]
+        },
+        {
+         "id": "Terminal",
+         "name": "Terminal (Consolas, monospaced)",
+         "locKey": "LOCHNDFsPresetTypographyTerminal",
+         "constants": {},
+         "files": [
+          "Presets/Typography/Terminal.xaml"
+         ]
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Motion",
+       "keys": [],
+       "title": "Motion",
+       "titleKey": "LOCHNDFsPresetMotion",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Smooth (default)",
+         "locKey": "LOCHNDFsPresetMotionDefault",
+         "constants": {}
+        },
+        {
+         "id": "Off",
+         "name": "Off (no card arrival animation)",
+         "locKey": "LOCHNDFsPresetMotionOff",
+         "constants": {
+          "FsMotionOn": "False"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Performance",
+       "keys": [],
+       "title": "Performance",
+       "titleKey": "LOCHNDFsPresetPerformance",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "Full effects (default)",
+         "locKey": "LOCHNDFsPresetPerformanceDefault",
+         "constants": {}
+        },
+        {
+         "id": "Light",
+         "name": "Light (no glow, no shadows, opaque menus, no motion)",
+         "locKey": "LOCHNDFsPresetPerformanceLight",
+         "constants": {
+          "FsFocusGlowOpacity": "0",
+          "FsPopupShadowOpacity": "0",
+          "FsGlassFillOpacity": "1",
+          "FsMotionOn": "False",
+          "FsDetailsVideoVisibility": "Collapsed"
+         }
+        }
+       ]
+      },
+      {
+       "kind": "preset",
+       "id": "Sound",
+       "keys": [],
+       "title": "Interface sounds",
+       "titleKey": "LOCHNDFsPresetSound",
+       "defaultChoice": "Default",
+       "choices": [
+        {
+         "id": "Default",
+         "name": "On (default)",
+         "locKey": "LOCHNDFsPresetSoundDefault",
+         "constants": {}
+        },
+        {
+         "id": "Off",
+         "name": "Off (the theme stays silent)",
+         "locKey": "LOCHNDFsPresetSoundOff",
+         "constants": {
+          "FsSoundOn": "False"
          }
         }
        ]
@@ -297,6 +1016,37 @@
           "HeaderTileSlot5D": "33",
           "HeaderTileSlot6": "6",
           "HeaderTileSlot6B": "7",
+          "HeaderTileSlot6C": "0",
+          "HeaderTileSlot6D": "0"
+         }
+        },
+        {
+         "id": "AddOns",
+         "name": "Add-ons (time, last session, achievements, HowLongToBeat, scores)",
+         "locKey": "LOCHNDFsPresetInfoCardsAddOns",
+         "constants": {
+          "HeaderTileSlot1": "1",
+          "HeaderTileSlot1B": "9",
+          "HeaderTileSlot1C": "0",
+          "HeaderTileSlot1D": "0",
+          "HeaderTileSlot2": "2",
+          "HeaderTileSlot2B": "10",
+          "HeaderTileSlot2C": "0",
+          "HeaderTileSlot2D": "0",
+          "HeaderTileSlot3": "4",
+          "HeaderTileSlot3B": "0",
+          "HeaderTileSlot3C": "0",
+          "HeaderTileSlot3D": "0",
+          "HeaderTileSlot4": "25",
+          "HeaderTileSlot4B": "0",
+          "HeaderTileSlot4C": "0",
+          "HeaderTileSlot4D": "0",
+          "HeaderTileSlot5": "6",
+          "HeaderTileSlot5B": "0",
+          "HeaderTileSlot5C": "0",
+          "HeaderTileSlot5D": "0",
+          "HeaderTileSlot6": "3",
+          "HeaderTileSlot6B": "0",
           "HeaderTileSlot6C": "0",
           "HeaderTileSlot6D": "0"
          }
@@ -452,6 +1202,72 @@
        "titleKey": "LOCHNDFsOptButtonCornerRadius",
        "description": "Roundness of buttons and menu entries.",
        "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsChipCornerRadius",
+       "keys": [
+        "FsChipCornerRadius"
+       ],
+       "title": "Chip corners",
+       "titleKey": "LOCHNDFsOptChipCornerRadius",
+       "description": "Roundness of the genre and tag chips on the details page.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsControlCornerRadius",
+       "keys": [
+        "FsControlCornerRadius"
+       ],
+       "title": "Input corners",
+       "titleKey": "LOCHNDFsOptControlCornerRadius",
+       "description": "Roundness of text fields and the entries of selection lists.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsPopupCornerRadius",
+       "keys": [
+        "FsPopupCornerRadius"
+       ],
+       "title": "Popup menu corners",
+       "titleKey": "LOCHNDFsOptPopupCornerRadius",
+       "description": "Roundness of the game menu.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsGlassFillOpacity",
+       "keys": [
+        "FsGlassFillOpacity"
+       ],
+       "title": "Panel glass",
+       "titleKey": "LOCHNDFsOptGlassFillOpacity",
+       "description": "How opaque the menus and dialogs are (lower lets the game show through).",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsPopupShadowOpacity",
+       "keys": [
+        "FsPopupShadowOpacity"
+       ],
+       "title": "Popup shadow",
+       "titleKey": "LOCHNDFsOptPopupShadowOpacity",
+       "description": "Strength of the shadow under the menus (0 = none.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsBackgroundDarkness",
+       "keys": [
+        "FsBackgroundDarkness"
+       ],
+       "title": "Background darkness",
+       "titleKey": "LOCHNDFsOptBackgroundDarkness",
+       "description": "How much the artwork behind the lists is darkened (1 = the console look; lower shows more of the artwork).",
+       "choices": []
       }
      ]
     }
@@ -460,10 +1276,193 @@
   {
    "id": "advanced",
    "title": "Advanced",
-   "groups": []
+   "groups": [
+    {
+     "id": "layout-of-the-home-page",
+     "title": "Layout of the home page",
+     "controls": [
+      {
+       "kind": "thickness",
+       "id": "FsSafeInset",
+       "keys": [
+        "FsSafeInset"
+       ],
+       "title": "Safe area",
+       "titleKey": "LOCHNDFsOptSafeInset",
+       "description": "Margin kept from the screen border by every text edge of the home and details pages (left, top, right, bottom). A TV crops the border of the picture: raise it.",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsShelfInset",
+       "keys": [
+        "FsShelfInset"
+       ],
+       "title": "Margin of the row of covers",
+       "titleKey": "LOCHNDFsOptShelfInset",
+       "description": "Margin of the row of covers (horizontal layout): the safe area minus about 85, so the first cover lines up with the title. The Safe area preset sets both.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsRowHeight",
+       "keys": [
+        "FsRowHeight"
+       ],
+       "title": "Height of the row of covers",
+       "titleKey": "LOCHNDFsOptRowHeight",
+       "description": "Height of the band that holds the row of covers (horizontal layout): the card size follows it. Change FsHeroMargin with it (about 30 more).",
+       "choices": []
+      },
+      {
+       "kind": "thickness",
+       "id": "FsHeroMargin",
+       "keys": [
+        "FsHeroMargin"
+       ],
+       "title": "Room above the covers",
+       "titleKey": "LOCHNDFsOptHeroMargin",
+       "description": "Space between the bottom of the screen and the title block (left, top, right, bottom); the bottom value is about the row height plus 30.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsHeroTitleSize",
+       "keys": [
+        "FsHeroTitleSize"
+       ],
+       "title": "Title size (home page)",
+       "titleKey": "LOCHNDFsOptHeroTitleSize",
+       "description": "Size of the selected game name above the covers.",
+       "choices": []
+      },
+      {
+       "kind": "slider",
+       "id": "FsHeroLineSize",
+       "keys": [
+        "FsHeroLineSize"
+       ],
+       "title": "Facts size (home page)",
+       "titleKey": "LOCHNDFsOptHeroLineSize",
+       "description": "Size of the genres, platforms and time line under the title (24 or more reads from a TV couch).",
+       "choices": []
+      },
+      {
+       "kind": "choice",
+       "id": "FsHeroVisibility",
+       "keys": [
+        "FsHeroVisibility"
+       ],
+       "title": "Show the title block",
+       "titleKey": "LOCHNDFsOptHeroVisibility",
+       "description": "Visible = the selected game name and facts above the covers; Collapsed = the covers alone.",
+       "choices": [
+        {
+         "id": "Visible",
+         "name": "Visible",
+         "locKey": null,
+         "constants": {}
+        },
+        {
+         "id": "Collapsed",
+         "name": "Hidden",
+         "locKey": null,
+         "constants": {}
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "add-on-integrations",
+     "title": "Add-on integrations",
+     "controls": [
+      {
+       "kind": "choice",
+       "id": "FsDetailsVideoVisibility",
+       "keys": [
+        "FsDetailsVideoVisibility"
+       ],
+       "title": "Trailer behind the details page",
+       "titleKey": "LOCHNDFsOptDetailsVideoOn",
+       "description": "Plays the trailer of Extra Metadata Loader behind the game page, when the add-on has one. Collapsed = the artwork only (lighter).",
+       "choices": [
+        {
+         "id": "Visible",
+         "name": "Visible",
+         "locKey": null,
+         "constants": {}
+        },
+        {
+         "id": "Collapsed",
+         "name": "Hidden",
+         "locKey": null,
+         "constants": {}
+        }
+       ]
+      },
+      {
+       "kind": "choice",
+       "id": "FsStatusChipsVisibility",
+       "keys": [
+        "FsStatusChipsVisibility"
+       ],
+       "title": "Status chips in the top bar",
+       "titleKey": "LOCHNDFsOptStatusChipsOn",
+       "description": "Controller battery, Wi-Fi, volume and the game that is running, from Controller Session Manager, MoData, Audio Switcher and Now Playing. Each chip only shows when its add-on has something to say.",
+       "choices": [
+        {
+         "id": "Visible",
+         "name": "Visible",
+         "locKey": null,
+         "constants": {}
+        },
+        {
+         "id": "Collapsed",
+         "name": "Hidden",
+         "locKey": null,
+         "constants": {}
+        }
+       ]
+      },
+      {
+       "kind": "choice",
+       "id": "FsLibraryFactsVisibility",
+       "keys": [
+        "FsLibraryFactsVisibility"
+       ],
+       "title": "Library facts and suggestion (Aniki Helper)",
+       "titleKey": "LOCHNDFsOptLibraryFactsOn",
+       "description": "Shows the suggested game and this month in numbers next to the title, from the optional Aniki Helper add-on. Nothing shows without it.",
+       "choices": [
+        {
+         "id": "Visible",
+         "name": "Visible",
+         "locKey": null,
+         "constants": {}
+        },
+        {
+         "id": "Collapsed",
+         "name": "Hidden",
+         "locKey": null,
+         "constants": {}
+        }
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "constants": [
+  {
+   "key": "FsBackgroundDarkness",
+   "type": "Double",
+   "default": "1",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
   {
    "key": "FsButtonCornerRadius",
    "type": "CornerRadius",
@@ -483,10 +1482,27 @@
    "min": 0.0
   },
   {
+   "key": "FsChipCornerRadius",
+   "type": "CornerRadius",
+   "default": "12",
+   "min": 0.0
+  },
+  {
+   "key": "FsControlCornerRadius",
+   "type": "CornerRadius",
+   "default": "8",
+   "min": 0.0
+  },
+  {
    "key": "FsCoverCornerRadius",
    "type": "CornerRadius",
    "default": "22",
    "min": 0.0
+  },
+  {
+   "key": "FsDetailsVideoVisibility",
+   "type": "Visibility",
+   "default": "Visible"
   },
   {
    "key": "FsFocusGlowBlur",
@@ -511,6 +1527,14 @@
    "min": 0.0
   },
   {
+   "key": "FsGlassFillOpacity",
+   "type": "Double",
+   "default": "0.92",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
+  {
    "key": "FsGlassRimOpacity",
    "type": "Double",
    "default": "1",
@@ -519,10 +1543,108 @@
    "step": 0.05
   },
   {
+   "key": "FsHeroLineSize",
+   "type": "Double",
+   "default": "28",
+   "min": 16.0,
+   "max": 40.0,
+   "step": 1.0
+  },
+  {
+   "key": "FsHeroMargin",
+   "type": "Thickness",
+   "default": "0,0,0,500"
+  },
+  {
+   "key": "FsHeroTitleSize",
+   "type": "Double",
+   "default": "72",
+   "min": 36.0,
+   "max": 120.0,
+   "step": 2.0
+  },
+  {
+   "key": "FsHeroVisibility",
+   "type": "Visibility",
+   "default": "Visible"
+  },
+  {
+   "key": "FsLibraryFactsVisibility",
+   "type": "Visibility",
+   "default": "Visible"
+  },
+  {
+   "key": "FsMotionOn",
+   "type": "Boolean",
+   "default": "True"
+  },
+  {
    "key": "FsPanelCornerRadius",
    "type": "CornerRadius",
    "default": "24",
    "min": 0.0
+  },
+  {
+   "key": "FsPillCornerRadius",
+   "type": "CornerRadius",
+   "default": "40",
+   "min": 0.0
+  },
+  {
+   "key": "FsPillRingCornerRadius",
+   "type": "CornerRadius",
+   "default": "42",
+   "min": 0.0
+  },
+  {
+   "key": "FsPopupCornerRadius",
+   "type": "CornerRadius",
+   "default": "20",
+   "min": 0.0
+  },
+  {
+   "key": "FsPopupShadowOpacity",
+   "type": "Double",
+   "default": "0.55",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.05
+  },
+  {
+   "key": "FsRowHeight",
+   "type": "Double",
+   "default": "470",
+   "min": 300.0,
+   "max": 640.0,
+   "step": 10.0
+  },
+  {
+   "key": "FsSafeInset",
+   "type": "Thickness",
+   "default": "110,0,110,0",
+   "min": 0.0
+  },
+  {
+   "key": "FsShelfInset",
+   "type": "Thickness",
+   "default": "25,0,25,0",
+   "min": 0.0
+  },
+  {
+   "key": "FsSideRightCornerRadius",
+   "type": "CornerRadius",
+   "default": "0,24,24,0",
+   "min": 0.0
+  },
+  {
+   "key": "FsSoundOn",
+   "type": "Boolean",
+   "default": "True"
+  },
+  {
+   "key": "FsStatusChipsVisibility",
+   "type": "Visibility",
+   "default": "Visible"
   },
   {
    "key": "FsTileCornerRadius",
@@ -533,7 +1655,7 @@
   {
    "key": "FsTileGlassOpacity",
    "type": "Double",
-   "default": "1",
+   "default": "0.5",
    "min": 0.0,
    "max": 1.0,
    "step": 0.05
@@ -678,16 +1800,16 @@
   }
  ],
  "dependents": {
-  "TextColor": [
+  "FsGlassFillOpacity": [
    {
-    "resource": "TextBrush",
-    "property": "Color"
+    "resource": "OverlayMenuBackgroundBrush",
+    "property": "Opacity"
    }
   ],
-  "TextColorDark": [
+  "FsTileGlassOpacity": [
    {
-    "resource": "TextBrushDark",
-    "property": "Color"
+    "resource": "FsTileFillBrush",
+    "property": "Opacity"
    }
   ],
   "GlyphColor": [
@@ -703,34 +1825,6 @@
   "GlyphLightColor": [
    {
     "resource": "GlyphLightBrush",
-    "property": "Color"
-   }
-  ],
-  "ControlBackgroundColor": [
-   {
-    "resource": "ControlBackgroundBrush",
-    "property": "Color"
-   }
-  ],
-  "ControlBackgroundColorDark": [
-   {
-    "resource": "ControlBackgroundDarkBrush",
-    "property": "Color"
-   },
-   {
-    "resource": "CheckBoxCheckMarkBkBrush",
-    "property": "Color"
-   }
-  ],
-  "SelectionLightColor": [
-   {
-    "resource": "SelectionLightBrush",
-    "property": "Color"
-   }
-  ],
-  "OverlayColor": [
-   {
-    "resource": "OverlayBrush",
     "property": "Color"
    }
   ]

@@ -16,10 +16,10 @@
                                 Visibility="{Binding ElementName=PART_ControlGameView, Path=Visibility}">
                             <Border.Style>
                                 <Style TargetType="Border">
-                                    <Setter Property="BorderThickness" Value="1,0,0,0" />
+                                    <Setter Property="BorderThickness" Value="2.5,0,0,0" />
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Settings GridViewDetailsPosition}" Value="Left">
-                                            <Setter Property="BorderThickness" Value="0,0,1,0" />
+                                            <Setter Property="BorderThickness" Value="0,0,2.5,0" />
                                         </DataTrigger>
                                         <DataTrigger Binding="{Settings ShowPanelSeparators}" Value="False">
                                             <Setter Property="BorderThickness" Value="0" />
@@ -27,7 +27,8 @@
                                     </Style.Triggers>
                                 </Style>
                             </Border.Style>
-                            <GridViewGameOverview x:Name="PART_ControlGameView" Width="{Settings GrdiDetailsWitdh}" />
+                            <!-- MinWidth: below ~440 the three metadata columns and the Play / stats row of the panel are cut (measured at 350) -->
+                            <GridViewGameOverview x:Name="PART_ControlGameView" Width="{Settings GrdiDetailsWitdh}" MinWidth="440" />
                         </Border>
                         <Grid DockPanel.Dock="Left">
                             <Grid.RowDefinitions>
@@ -63,10 +64,13 @@
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-                            <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="1">
-                                <Label Content="{DynamicResource LOCZoomLabel}" Margin="10,0,10,0"/>
-                                <SliderWithPopup x:Name="PART_SliderZoom" />
-                            </StackPanel>
+                            <!-- Zoom bar: GridViewShowZoomSlider hides it (collapsed, not removed: Playnite finds the slider by name) -->
+                            <Grid Grid.Row="1" Style="{DynamicResource SectionToggleGrid}" Tag="{DynamicResource GridViewShowZoomSlider}">
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <Label Content="{DynamicResource LOCZoomLabel}" Margin="10,0,10,0"/>
+                                    <SliderWithPopup x:Name="PART_SliderZoom" />
+                                </StackPanel>
+                            </Grid>
                         </Grid>
                     </DockPanel>
                 </ControlTemplate>

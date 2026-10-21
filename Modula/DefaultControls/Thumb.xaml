@@ -14,10 +14,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Grid Background="Transparent">
-                        <Border x:Name="Bar" HorizontalAlignment="Center" VerticalAlignment="Stretch" MinHeight="14"
+                        <Border x:Name="Bar" HorizontalAlignment="Center" VerticalAlignment="Stretch" MinHeight="14" ClipToBounds="True" Opacity="{DynamicResource ScrollbarThumbOpacity}"
                                 Width="{DynamicResource ScrollbarThumbWidth}"
                                 CornerRadius="8" Background="{TemplateBinding Background}"
-                                BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource GlassRimThickness}" />
+                                BorderBrush="{DynamicResource GlassRimBrush}" BorderThickness="{DynamicResource ScrollbarThumbRim}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

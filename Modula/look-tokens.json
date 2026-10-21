@@ -1,0 +1,103 @@
+{
+  "generatedBy": "tools/sync_tokens.py",
+  "sharedGroups": [
+    "Accent",
+    "Corners",
+    "Glass",
+    "WindowDarkness",
+    "ColorProfile"
+  ],
+  "tokens": {
+    "accent": {
+      "type": "Color",
+      "constants": [
+        "GlyphColor"
+      ]
+    },
+    "radius_card": {
+      "type": "CornerRadius",
+      "constants": [
+        "HeroCardCornerRadius"
+      ]
+    },
+    "radius_panel": {
+      "type": "CornerRadius",
+      "constants": [
+        "SectionCornerRadius"
+      ]
+    },
+    "radius_tile": {
+      "type": "CornerRadius",
+      "constants": [
+        "HeaderTileCornerRadius"
+      ]
+    },
+    "radius_button": {
+      "type": "CornerRadius",
+      "constants": [
+        "HeroButtonCornerRadius"
+      ]
+    },
+    "radius_cover": {
+      "type": "CornerRadius",
+      "constants": [
+        "HeroCoverCornerRadius"
+      ]
+    },
+    "radius_chip": {
+      "type": "CornerRadius",
+      "constants": [
+        "HeroChipCornerRadius"
+      ]
+    },
+    "radius_control": {
+      "type": "CornerRadius",
+      "constants": [
+        "ControlCornerRadius"
+      ]
+    },
+    "radius_popup": {
+      "type": "CornerRadius",
+      "constants": [
+        "PopupCornerRadius"
+      ]
+    },
+    "glass_rim": {
+      "type": "Double",
+      "constants": [
+        "SectionGlassBorderOpacity"
+      ]
+    },
+    "glass_fill": {
+      "type": "Double",
+      "constants": [
+        "SectionGlassOpacity",
+        "ChipGlassOpacity"
+      ]
+    },
+    "tile_glass": {
+      "type": "Double",
+      "constants": [
+        "HeaderTileBackgroundOpacity"
+      ]
+    },
+    "glow": {
+      "type": "Double",
+      "constants": [
+        "GlassGlowOpacity"
+      ]
+    },
+    "popup_shadow": {
+      "type": "Double",
+      "constants": [
+        "GlassPopupShadowOpacity"
+      ]
+    },
+    "background_darkness": {
+      "type": "Double",
+      "constants": [
+        "WindowGlassScrimOpacity"
+      ]
+    }
+  }
+}
