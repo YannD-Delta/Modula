@@ -177,6 +177,49 @@
     </Style>
 
 
+    <!-- ImageRotater hosts. The add-on draws rotating, animated or video artwork itself; the theme only gives it a place. A host is shown only when
+         the option UseImageRotater allows it AND the add-on says it renders that artwork (its own switch), so nothing is drawn twice or without the add-on. -->
+    <Style TargetType="ContentControl" x:Key="ImageRotaterBackgroundHost">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Visibility" Value="Collapsed" />
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[UseImageRotater], FallbackValue=True, TargetNullValue=True}" Value="True" />
+                    <Condition Binding="{PluginSettings Plugin=ImageRotater, Path=EnableBackgroundImage, FallbackValue=False}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Visibility" Value="Visible" />
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="ContentControl" x:Key="ImageRotaterCoverHost">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    </Style>
+
+    <!-- The same gate for a rounded cover: a Grid that wraps the host and a mask (the add-on's control is rectangular) -->
+    <Style TargetType="Grid" x:Key="ImageRotaterCoverHostGrid">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="Visibility" Value="Collapsed" />
+        <Style.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{PluginSettings Plugin=LayoutStudio, Path=Options[UseImageRotater], FallbackValue=True, TargetNullValue=True}" Value="True" />
+                    <Condition Binding="{PluginSettings Plugin=ImageRotater, Path=EnableCoverImage, FallbackValue=False}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Visibility" Value="Visible" />
+            </MultiDataTrigger>
+        </Style.Triggers>
+    </Style>
+
     <Style TargetType="ContentControl" x:Key="ControlPanelBoolTagToVisibility">
         <Setter Property="Visibility" Value="Visible" />
         <Style.Triggers>

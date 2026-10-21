@@ -85,11 +85,11 @@
                             <Setter Property="Visibility" Value="Visible" TargetName="CheckIcon" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource GlyphLightBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
                             <Setter Property="Visibility" Value="Visible" TargetName="BorderFocus" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource GlyphLightBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
                             <Setter Property="Visibility" Value="Visible" TargetName="BorderFocus" />
                         </Trigger>
                     </ControlTemplate.Triggers>

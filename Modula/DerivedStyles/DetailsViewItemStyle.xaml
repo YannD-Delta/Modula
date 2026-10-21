@@ -19,7 +19,7 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="True">
-                            <Setter Property="Foreground" Value="#f1f7ff" />
+                            <Setter Property="Foreground" Value="{DynamicResource LibraryDetailsViewInstalledForegroundBrush}" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="False">
                             <Setter Property="Foreground" Value="{DynamicResource LibraryDetailsViewNotInstalledForegroundBrush}" />

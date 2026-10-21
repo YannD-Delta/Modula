@@ -714,6 +714,171 @@ Presets:
                     WindowBackgroundGradientColor2:
                         Type: Color
                         Value: '#05060D'
+    Typography:
+        Name: 'Typography (fonts, weights and text size)'
+        LocKey: LOCHNDPresetTypography
+        Presets:
+            Default:
+                Name: 'Console (Segoe UI Variable, steady weights)'
+                LocKey: LOCHNDPresetTypographyDefault
+                NeedRestart: True
+            Industrial:
+                Name: 'Industrial (Bahnschrift, DIN-like)'
+                LocKey: LOCHNDPresetTypographyIndustrial
+                Preview: 'Presets\Previews\Typography_Industrial.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Industrial.xaml'
+            Humanist:
+                Name: 'Humanist (Candara, soft and open)'
+                LocKey: LOCHNDPresetTypographyHumanist
+                Preview: 'Presets\Previews\Typography_Humanist.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Humanist.xaml'
+                Constants:
+                    FontSize:
+                        Type: Double
+                        Value: '15'
+                    FontSizeLarge:
+                        Type: Double
+                        Value: '16'
+                    FontSizeSmall:
+                        Type: Double
+                        Value: '13'
+            Quiet:
+                Name: 'Quiet sans (Corbel, calm and clear)'
+                LocKey: LOCHNDPresetTypographyQuiet
+                Preview: 'Presets\Previews\Typography_Quiet.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Quiet.xaml'
+                Constants:
+                    FontSize:
+                        Type: Double
+                        Value: '15'
+                    FontSizeLarge:
+                        Type: Double
+                        Value: '16'
+                    FontSizeSmall:
+                        Type: Double
+                        Value: '13'
+            Editorial:
+                Name: 'Editorial serif (Georgia)'
+                LocKey: LOCHNDPresetTypographyEditorial
+                Preview: 'Presets\Previews\Typography_Editorial.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Editorial.xaml'
+                Constants:
+                    FontSize:
+                        Type: Double
+                        Value: '13'
+                    FontSizeLarge:
+                        Type: Double
+                        Value: '14'
+                    FontSizeSmall:
+                        Type: Double
+                        Value: '12'
+            Book:
+                Name: 'Book (Constantia, warm serif)'
+                LocKey: LOCHNDPresetTypographyBook
+                Preview: 'Presets\Previews\Typography_Book.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Book.xaml'
+                Constants:
+                    FontSize:
+                        Type: Double
+                        Value: '15'
+                    FontSizeLarge:
+                        Type: Double
+                        Value: '16'
+                    FontSizeSmall:
+                        Type: Double
+                        Value: '12'
+            Friendly:
+                Name: 'Friendly (Trebuchet MS)'
+                LocKey: LOCHNDPresetTypographyFriendly
+                Preview: 'Presets\Previews\Typography_Friendly.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Friendly.xaml'
+            Wide:
+                Name: 'Wide and clear (Verdana)'
+                LocKey: LOCHNDPresetTypographyWide
+                Preview: 'Presets\Previews\Typography_Wide.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Wide.xaml'
+                Constants:
+                    FontSize:
+                        Type: Double
+                        Value: '13'
+                    FontSizeLarge:
+                        Type: Double
+                        Value: '14'
+                    FontSizeSmall:
+                        Type: Double
+                        Value: '11'
+            Dense:
+                Name: 'Dense (Tahoma, tight UI font)'
+                LocKey: LOCHNDPresetTypographyDense
+                Preview: 'Presets\Previews\Typography_Dense.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Dense.xaml'
+                Constants:
+                    FontSize:
+                        Type: Double
+                        Value: '13'
+                    FontSizeLarge:
+                        Type: Double
+                        Value: '14'
+                    FontSizeSmall:
+                        Type: Double
+                        Value: '12'
+            Mono:
+                Name: 'Mono (Cascadia Mono, console)'
+                LocKey: LOCHNDPresetTypographyMono
+                Preview: 'Presets\Previews\Typography_Mono.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Mono.xaml'
+                Constants:
+                    FontSize:
+                        Type: Double
+                        Value: '13'
+                    FontSizeLarge:
+                        Type: Double
+                        Value: '14'
+                    FontSizeSmall:
+                        Type: Double
+                        Value: '11'
+            Compact:
+                Name: 'Compact (Calibri)'
+                LocKey: LOCHNDPresetTypographyCompact
+                Preview: 'Presets\Previews\Typography_Compact.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Compact.xaml'
+                Constants:
+                    FontSize:
+                        Type: Double
+                        Value: '15'
+                    FontSizeLarge:
+                        Type: Double
+                        Value: '17'
+                    FontSizeSmall:
+                        Type: Double
+                        Value: '13'
+            Airy:
+                Name: 'Airy light (Segoe UI Variable, light titles)'
+                LocKey: LOCHNDPresetTypographyAiry
+                Preview: 'Presets\Previews\Typography_Airy.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Typography\Airy.xaml'
     Density:
         Name: 'Spacing (chips, sections, list, tiles)'
         LocKey: LOCHNDPresetDensity
@@ -1835,6 +2000,436 @@ Presets:
                 NeedRestart: True
                 Files:
                     - 'Presets\Colors\TokyoNight.xaml'
+            Paper:
+                Name: 'Paper (warm cream, brick and teal)'
+                LocKey: LOCHNDPresetColorProfilePaper
+                Preview: 'Presets\Previews\ColorProfile_Paper.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Paper.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#A8432A'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#DAD4C8'
+                    HeroBaseColor:
+                        Type: Color
+                        Value: '#F4ECDD'
+                    HeroCoverBorderColor:
+                        Type: Color
+                        Value: '#332A2017'
+                    HeroShadeColor:
+                        Type: Color
+                        Value: '#F4ECDD'
+                    HeroTintLightColor:
+                        Type: Color
+                        Value: '#FFFFFF'
+                    HeroTitleShadowColor:
+                        Type: Color
+                        Value: '#FAF6EE'
+                    PageGlassScrimColor:
+                        Type: Color
+                        Value: '#F4ECDD'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#A8432A'
+                    SidebarIconActivePadOpacity:
+                        Type: Double
+                        Value: '0.6'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#2A2017'
+                    SidebarIconHalo:
+                        Type: Boolean
+                        Value: 'False'
+                    SidebarIconPadOpacity:
+                        Type: Double
+                        Value: '0.35'
+                    WindowGlassScrimColor:
+                        Type: Color
+                        Value: '#F4ECDD'
+            Mist:
+                Name: 'Mist (cool blue-grey, deep blue)'
+                LocKey: LOCHNDPresetColorProfileMist
+                Preview: 'Presets\Previews\ColorProfile_Mist.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Mist.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#1D4ED8'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#D0D5DA'
+                    HeroBaseColor:
+                        Type: Color
+                        Value: '#E6ECF3'
+                    HeroCoverBorderColor:
+                        Type: Color
+                        Value: '#3314202E'
+                    HeroShadeColor:
+                        Type: Color
+                        Value: '#E6ECF3'
+                    HeroTintLightColor:
+                        Type: Color
+                        Value: '#FFFFFF'
+                    HeroTitleShadowColor:
+                        Type: Color
+                        Value: '#F2F6F9'
+                    PageGlassScrimColor:
+                        Type: Color
+                        Value: '#E6ECF3'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#1D4ED8'
+                    SidebarIconActivePadOpacity:
+                        Type: Double
+                        Value: '0.6'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#14202E'
+                    SidebarIconHalo:
+                        Type: Boolean
+                        Value: 'False'
+                    SidebarIconPadOpacity:
+                        Type: Double
+                        Value: '0.35'
+                    WindowGlassScrimColor:
+                        Type: Color
+                        Value: '#E6ECF3'
+            Sand:
+                Name: 'Sand (beige, amber and olive)'
+                LocKey: LOCHNDPresetColorProfileSand
+                Preview: 'Presets\Previews\ColorProfile_Sand.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Sand.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#A04A0B'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#D7CBB3'
+                    HeroBaseColor:
+                        Type: Color
+                        Value: '#EADBBE'
+                    HeroCoverBorderColor:
+                        Type: Color
+                        Value: '#3333250F'
+                    HeroShadeColor:
+                        Type: Color
+                        Value: '#EADBBE'
+                    HeroTintLightColor:
+                        Type: Color
+                        Value: '#FFFFFF'
+                    HeroTitleShadowColor:
+                        Type: Color
+                        Value: '#F4EDDE'
+                    PageGlassScrimColor:
+                        Type: Color
+                        Value: '#EADBBE'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#A04A0B'
+                    SidebarIconActivePadOpacity:
+                        Type: Double
+                        Value: '0.6'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#33250F'
+                    SidebarIconHalo:
+                        Type: Boolean
+                        Value: 'False'
+                    SidebarIconPadOpacity:
+                        Type: Double
+                        Value: '0.35'
+                    WindowGlassScrimColor:
+                        Type: Color
+                        Value: '#EADBBE'
+            Mint:
+                Name: 'Mint (pastel green, emerald)'
+                LocKey: LOCHNDPresetColorProfileMint
+                Preview: 'Presets\Previews\ColorProfile_Mint.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Mint.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#047857'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#CED9D3'
+                    HeroBaseColor:
+                        Type: Color
+                        Value: '#E1F2E8'
+                    HeroCoverBorderColor:
+                        Type: Color
+                        Value: '#330F2A1E'
+                    HeroShadeColor:
+                        Type: Color
+                        Value: '#E1F2E8'
+                    HeroTintLightColor:
+                        Type: Color
+                        Value: '#FFFFFF'
+                    HeroTitleShadowColor:
+                        Type: Color
+                        Value: '#F0F8F4'
+                    PageGlassScrimColor:
+                        Type: Color
+                        Value: '#E1F2E8'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#047857'
+                    SidebarIconActivePadOpacity:
+                        Type: Double
+                        Value: '0.6'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#0F2A1E'
+                    SidebarIconHalo:
+                        Type: Boolean
+                        Value: 'False'
+                    SidebarIconPadOpacity:
+                        Type: Double
+                        Value: '0.35'
+                    WindowGlassScrimColor:
+                        Type: Color
+                        Value: '#E1F2E8'
+            Blush:
+                Name: 'Blush (soft pink, raspberry)'
+                LocKey: LOCHNDPresetColorProfileBlush
+                Preview: 'Presets\Previews\ColorProfile_Blush.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Blush.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#BE185D'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#DED1D4'
+                    HeroBaseColor:
+                        Type: Color
+                        Value: '#F8E7EA'
+                    HeroCoverBorderColor:
+                        Type: Color
+                        Value: '#333A1D26'
+                    HeroShadeColor:
+                        Type: Color
+                        Value: '#F8E7EA'
+                    HeroTintLightColor:
+                        Type: Color
+                        Value: '#FFFFFF'
+                    HeroTitleShadowColor:
+                        Type: Color
+                        Value: '#FCF3F4'
+                    PageGlassScrimColor:
+                        Type: Color
+                        Value: '#F8E7EA'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#BE185D'
+                    SidebarIconActivePadOpacity:
+                        Type: Double
+                        Value: '0.6'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#3A1D26'
+                    SidebarIconHalo:
+                        Type: Boolean
+                        Value: 'False'
+                    SidebarIconPadOpacity:
+                        Type: Double
+                        Value: '0.35'
+                    WindowGlassScrimColor:
+                        Type: Color
+                        Value: '#F8E7EA'
+            Lilac:
+                Name: 'Lilac (pale violet, indigo)'
+                LocKey: LOCHNDPresetColorProfileLilac
+                Preview: 'Presets\Previews\ColorProfile_Lilac.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Lilac.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#6D28D9'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#D4D0DD'
+                    HeroBaseColor:
+                        Type: Color
+                        Value: '#EAE6F6'
+                    HeroCoverBorderColor:
+                        Type: Color
+                        Value: '#33231A3D'
+                    HeroShadeColor:
+                        Type: Color
+                        Value: '#EAE6F6'
+                    HeroTintLightColor:
+                        Type: Color
+                        Value: '#FFFFFF'
+                    HeroTitleShadowColor:
+                        Type: Color
+                        Value: '#F4F2FA'
+                    PageGlassScrimColor:
+                        Type: Color
+                        Value: '#EAE6F6'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#6D28D9'
+                    SidebarIconActivePadOpacity:
+                        Type: Double
+                        Value: '0.6'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#231A3D'
+                    SidebarIconHalo:
+                        Type: Boolean
+                        Value: 'False'
+                    SidebarIconPadOpacity:
+                        Type: Double
+                        Value: '0.35'
+                    WindowGlassScrimColor:
+                        Type: Color
+                        Value: '#EAE6F6'
+            Monochrome:
+                Name: 'Monochrome (black on white, one red)'
+                LocKey: LOCHNDPresetColorProfileMonochrome
+                Preview: 'Presets\Previews\ColorProfile_Monochrome.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Monochrome.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#C40000'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#D6D6D6'
+                    HeroBaseColor:
+                        Type: Color
+                        Value: '#F5F5F5'
+                    HeroCoverBorderColor:
+                        Type: Color
+                        Value: '#33000000'
+                    HeroShadeColor:
+                        Type: Color
+                        Value: '#F5F5F5'
+                    HeroTintLightColor:
+                        Type: Color
+                        Value: '#FFFFFF'
+                    HeroTitleShadowColor:
+                        Type: Color
+                        Value: '#FAFAFA'
+                    PageGlassScrimColor:
+                        Type: Color
+                        Value: '#F5F5F5'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#C40000'
+                    SidebarIconActivePadOpacity:
+                        Type: Double
+                        Value: '0.6'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#000000'
+                    SidebarIconHalo:
+                        Type: Boolean
+                        Value: 'False'
+                    SidebarIconPadOpacity:
+                        Type: Double
+                        Value: '0.35'
+                    WindowGlassScrimColor:
+                        Type: Color
+                        Value: '#F5F5F5'
+            DeepTeal:
+                Name: 'Deep teal (blue-green night, coral)'
+                LocKey: LOCHNDPresetColorProfileDeepTeal
+                Preview: 'Presets\Previews\ColorProfile_DeepTeal.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\DeepTeal.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#FF8A65'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#081E21'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#FF8A65'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#F0FAF8'
+            Wine:
+                Name: 'Wine (bordeaux, gold)'
+                LocKey: LOCHNDPresetColorProfileWine
+                Preview: 'Presets\Previews\ColorProfile_Wine.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Wine.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#E3B45B'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#210C14'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#E3B45B'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#FBF2F4'
+            Terminal:
+                Name: 'Terminal (black, phosphor green)'
+                LocKey: LOCHNDPresetColorProfileTerminal
+                Preview: 'Presets\Previews\ColorProfile_Terminal.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Terminal.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#39E75F'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#070F08'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#39E75F'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#D5FAD7'
+            Dusk:
+                Name: 'Dusk (deep plum, orange sunset)'
+                LocKey: LOCHNDPresetColorProfileDusk
+                Preview: 'Presets\Previews\ColorProfile_Dusk.png'
+                NeedRestart: True
+                Files:
+                    - 'Presets\Colors\Dusk.xaml'
+                Constants:
+                    AchievementBarColor:
+                        Type: Color
+                        Value: '#FFA040'
+                    AchievementBarTrackColor:
+                        Type: Color
+                        Value: '#180F28'
+                    SidebarIconActiveColor:
+                        Type: Color
+                        Value: '#FFA040'
+                    SidebarIconColor:
+                        Type: Color
+                        Value: '#F8F4FD'
     Accent:
         Name: 'Accent color'
         LocKey: LOCHNDPresetAccent
@@ -5621,6 +6216,771 @@ Presets:
                     HeaderTileSlot12:
                         Type: Int32
                         Value: '21'
+    # BEGIN generated backdrop presets
+    Backdrop:
+        Name: 'Generated backdrop (a colour, a gradient or soft circles instead of the game artwork)'
+        LocKey: LOCHNDPresetBackdrop
+        Presets:
+            Default:
+                Name: 'Game artwork (default)'
+                LocKey: LOCHNDPresetBackdropDefault
+                Preview: 'Presets\Previews\PageBackground_Default.png'
+            Mist:
+                Name: 'Mist (soft blue-grey gradient)'
+                LocKey: LOCHNDPresetBackdropMist
+                Preview: 'Presets\Previews\Backdrop_Mist.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '2'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF3F5266'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF60788F'
+                    BackdropColor3:
+                        Type: Color
+                        Value: '#FF86A0B8'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '120'
+                    BackdropMidpoint:
+                        Type: Double
+                        Value: '0.55'
+            Sunset:
+                Name: 'Sunset (violet to orange glow)'
+                LocKey: LOCHNDPresetBackdropSunset
+                Preview: 'Presets\Previews\Backdrop_Sunset.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '4'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF241638'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF6B2A5A'
+                    BackdropColor3:
+                        Type: Color
+                        Value: '#FFE0733A'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '100'
+                    BackdropMidpoint:
+                        Type: Double
+                        Value: '0.6'
+                    BackdropHardness:
+                        Type: Double
+                        Value: '0'
+                    BackdropBlobCount:
+                        Type: Double
+                        Value: '4'
+                    BackdropBlob1X:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob1Y:
+                        Type: Double
+                        Value: '0.25'
+                    BackdropBlob1Size:
+                        Type: Double
+                        Value: '1.3'
+                    BackdropBlob1Opacity:
+                        Type: Double
+                        Value: '0.55'
+                    BackdropBlob1Color:
+                        Type: Color
+                        Value: '#FFFF8A4C'
+                    BackdropBlob2X:
+                        Type: Double
+                        Value: '-0.3'
+                    BackdropBlob2Y:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob2Size:
+                        Type: Double
+                        Value: '1.1'
+                    BackdropBlob2Opacity:
+                        Type: Double
+                        Value: '0.45'
+                    BackdropBlob2Color:
+                        Type: Color
+                        Value: '#FFE0486A'
+                    BackdropBlob3X:
+                        Type: Double
+                        Value: '0.0'
+                    BackdropBlob3Y:
+                        Type: Double
+                        Value: '-0.3'
+                    BackdropBlob3Size:
+                        Type: Double
+                        Value: '1.0'
+                    BackdropBlob3Opacity:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob3Color:
+                        Type: Color
+                        Value: '#FF7B3FA0'
+                    BackdropBlob4X:
+                        Type: Double
+                        Value: '-0.4'
+                    BackdropBlob4Y:
+                        Type: Double
+                        Value: '-0.2'
+                    BackdropBlob4Size:
+                        Type: Double
+                        Value: '0.7'
+                    BackdropBlob4Opacity:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob4Color:
+                        Type: Color
+                        Value: '#FFB04A8A'
+            Ocean:
+                Name: 'Ocean (deep blue and teal)'
+                LocKey: LOCHNDPresetBackdropOcean
+                Preview: 'Presets\Previews\Backdrop_Ocean.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '4'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF04202F'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF0B4A66'
+                    BackdropColor3:
+                        Type: Color
+                        Value: '#FF1C8A93'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '150'
+                    BackdropMidpoint:
+                        Type: Double
+                        Value: '0.65'
+                    BackdropHardness:
+                        Type: Double
+                        Value: '0'
+                    BackdropBlobCount:
+                        Type: Double
+                        Value: '3'
+                    BackdropBlob1X:
+                        Type: Double
+                        Value: '-0.3'
+                    BackdropBlob1Y:
+                        Type: Double
+                        Value: '-0.25'
+                    BackdropBlob1Size:
+                        Type: Double
+                        Value: '1.2'
+                    BackdropBlob1Opacity:
+                        Type: Double
+                        Value: '0.4'
+                    BackdropBlob1Color:
+                        Type: Color
+                        Value: '#FF1FA0B0'
+                    BackdropBlob2X:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob2Y:
+                        Type: Double
+                        Value: '0.2'
+                    BackdropBlob2Size:
+                        Type: Double
+                        Value: '1.0'
+                    BackdropBlob2Opacity:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob2Color:
+                        Type: Color
+                        Value: '#FF2A6FB0'
+                    BackdropBlob3X:
+                        Type: Double
+                        Value: '0.05'
+                    BackdropBlob3Y:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob3Size:
+                        Type: Double
+                        Value: '0.8'
+                    BackdropBlob3Opacity:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob3Color:
+                        Type: Color
+                        Value: '#FF35C2C2'
+            Paper:
+                Name: 'Paper (warm parchment with fine dots)'
+                LocKey: LOCHNDPresetBackdropPaper
+                Preview: 'Presets\Previews\Backdrop_Paper.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '2'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF4D4036'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF6B5A47'
+                    BackdropColor3:
+                        Type: Color
+                        Value: '#FF8C7860'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '110'
+                    BackdropMidpoint:
+                        Type: Double
+                        Value: '0.5'
+                    BackdropPatternKind:
+                        Type: Int32
+                        Value: '1'
+                    BackdropPatternOpacity:
+                        Type: Double
+                        Value: '0.07'
+                    BackdropPatternScale:
+                        Type: Double
+                        Value: '14'
+                    BackdropPatternColor:
+                        Type: Color
+                        Value: '#FFFFFFFF'
+            Mint:
+                Name: 'Mint (cool greens)'
+                LocKey: LOCHNDPresetBackdropMint
+                Preview: 'Presets\Previews\Backdrop_Mint.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '4'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF0B2420'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF123C36'
+                    BackdropThirdColor:
+                        Type: Boolean
+                        Value: 'False'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '90'
+                    BackdropHardness:
+                        Type: Double
+                        Value: '0.05'
+                    BackdropBlobCount:
+                        Type: Double
+                        Value: '4'
+                    BackdropBlob1X:
+                        Type: Double
+                        Value: '-0.25'
+                    BackdropBlob1Y:
+                        Type: Double
+                        Value: '-0.1'
+                    BackdropBlob1Size:
+                        Type: Double
+                        Value: '1.1'
+                    BackdropBlob1Opacity:
+                        Type: Double
+                        Value: '0.45'
+                    BackdropBlob1Color:
+                        Type: Color
+                        Value: '#FF2DB58F'
+                    BackdropBlob2X:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob2Y:
+                        Type: Double
+                        Value: '0.2'
+                    BackdropBlob2Size:
+                        Type: Double
+                        Value: '1.0'
+                    BackdropBlob2Opacity:
+                        Type: Double
+                        Value: '0.4'
+                    BackdropBlob2Color:
+                        Type: Color
+                        Value: '#FF3FD0A8'
+                    BackdropBlob3X:
+                        Type: Double
+                        Value: '0.1'
+                    BackdropBlob3Y:
+                        Type: Double
+                        Value: '-0.35'
+                    BackdropBlob3Size:
+                        Type: Double
+                        Value: '0.8'
+                    BackdropBlob3Opacity:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob3Color:
+                        Type: Color
+                        Value: '#FF7AE0C0'
+                    BackdropBlob4X:
+                        Type: Double
+                        Value: '-0.4'
+                    BackdropBlob4Y:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob4Size:
+                        Type: Double
+                        Value: '0.7'
+                    BackdropBlob4Opacity:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob4Color:
+                        Type: Color
+                        Value: '#FF1F8F7A'
+            Dusk:
+                Name: 'Dusk (violet, blue and teal circles)'
+                LocKey: LOCHNDPresetBackdropDusk
+                Preview: 'Presets\Previews\Backdrop_Dusk.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '4'
+            StudioBlack:
+                Name: 'Studio black (a soft light from above)'
+                LocKey: LOCHNDPresetBackdropStudioBlack
+                Preview: 'Presets\Previews\Backdrop_StudioBlack.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '3'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF23252B'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF040405'
+                    BackdropThirdColor:
+                        Type: Boolean
+                        Value: 'False'
+                    BackdropCenterX:
+                        Type: Double
+                        Value: '0'
+                    BackdropCenterY:
+                        Type: Double
+                        Value: '-0.25'
+                    BackdropRadialRadius:
+                        Type: Double
+                        Value: '1.1'
+            Candy:
+                Name: 'Candy (bright circles on plum)'
+                LocKey: LOCHNDPresetBackdropCandy
+                Preview: 'Presets\Previews\Backdrop_Candy.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '4'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF2B1240'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF4A1E5E'
+                    BackdropColor3:
+                        Type: Color
+                        Value: '#FF7A2A7A'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '45'
+                    BackdropMidpoint:
+                        Type: Double
+                        Value: '0.6'
+                    BackdropHardness:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlobCount:
+                        Type: Double
+                        Value: '5'
+                    BackdropBlob1X:
+                        Type: Double
+                        Value: '-0.3'
+                    BackdropBlob1Y:
+                        Type: Double
+                        Value: '-0.2'
+                    BackdropBlob1Size:
+                        Type: Double
+                        Value: '0.8'
+                    BackdropBlob1Opacity:
+                        Type: Double
+                        Value: '0.7'
+                    BackdropBlob1Color:
+                        Type: Color
+                        Value: '#FFFF4FA3'
+                    BackdropBlob2X:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob2Y:
+                        Type: Double
+                        Value: '-0.15'
+                    BackdropBlob2Size:
+                        Type: Double
+                        Value: '0.7'
+                    BackdropBlob2Opacity:
+                        Type: Double
+                        Value: '0.6'
+                    BackdropBlob2Color:
+                        Type: Color
+                        Value: '#FF37D5E8'
+                    BackdropBlob3X:
+                        Type: Double
+                        Value: '0.1'
+                    BackdropBlob3Y:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob3Size:
+                        Type: Double
+                        Value: '0.9'
+                    BackdropBlob3Opacity:
+                        Type: Double
+                        Value: '0.55'
+                    BackdropBlob3Color:
+                        Type: Color
+                        Value: '#FFFFD84D'
+                    BackdropBlob4X:
+                        Type: Double
+                        Value: '-0.38'
+                    BackdropBlob4Y:
+                        Type: Double
+                        Value: '0.28'
+                    BackdropBlob4Size:
+                        Type: Double
+                        Value: '0.5'
+                    BackdropBlob4Opacity:
+                        Type: Double
+                        Value: '0.5'
+                    BackdropBlob4Color:
+                        Type: Color
+                        Value: '#FFA66BFF'
+                    BackdropBlob5X:
+                        Type: Double
+                        Value: '0.42'
+                    BackdropBlob5Y:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob5Size:
+                        Type: Double
+                        Value: '0.45'
+                    BackdropBlob5Opacity:
+                        Type: Double
+                        Value: '0.5'
+                    BackdropBlob5Color:
+                        Type: Color
+                        Value: '#FFFF7A59'
+            Aurora:
+                Name: 'Aurora (big soft green, blue and violet glows)'
+                LocKey: LOCHNDPresetBackdropAurora
+                Preview: 'Presets\Previews\Backdrop_Aurora.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '4'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF020E18'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF06202C'
+                    BackdropColor3:
+                        Type: Color
+                        Value: '#FF0B3A3A'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '90'
+                    BackdropMidpoint:
+                        Type: Double
+                        Value: '0.7'
+                    BackdropHardness:
+                        Type: Double
+                        Value: '0'
+                    BackdropBlobCount:
+                        Type: Double
+                        Value: '4'
+                    BackdropBlob1X:
+                        Type: Double
+                        Value: '-0.1'
+                    BackdropBlob1Y:
+                        Type: Double
+                        Value: '-0.1'
+                    BackdropBlob1Size:
+                        Type: Double
+                        Value: '1.6'
+                    BackdropBlob1Opacity:
+                        Type: Double
+                        Value: '0.55'
+                    BackdropBlob1Color:
+                        Type: Color
+                        Value: '#FF1FD39A'
+                    BackdropBlob2X:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob2Y:
+                        Type: Double
+                        Value: '0.15'
+                    BackdropBlob2Size:
+                        Type: Double
+                        Value: '1.4'
+                    BackdropBlob2Opacity:
+                        Type: Double
+                        Value: '0.45'
+                    BackdropBlob2Color:
+                        Type: Color
+                        Value: '#FF3F7FE0'
+                    BackdropBlob3X:
+                        Type: Double
+                        Value: '-0.35'
+                    BackdropBlob3Y:
+                        Type: Double
+                        Value: '0.2'
+                    BackdropBlob3Size:
+                        Type: Double
+                        Value: '1.3'
+                    BackdropBlob3Opacity:
+                        Type: Double
+                        Value: '0.4'
+                    BackdropBlob3Color:
+                        Type: Color
+                        Value: '#FF8B4FD8'
+                    BackdropBlob4X:
+                        Type: Double
+                        Value: '0.2'
+                    BackdropBlob4Y:
+                        Type: Double
+                        Value: '-0.3'
+                    BackdropBlob4Size:
+                        Type: Double
+                        Value: '1.0'
+                    BackdropBlob4Opacity:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob4Color:
+                        Type: Color
+                        Value: '#FF2FE0C0'
+            Ember:
+                Name: 'Ember (a warm glow in the corner)'
+                LocKey: LOCHNDPresetBackdropEmber
+                Preview: 'Presets\Previews\Backdrop_Ember.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '3'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF6A2410'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF120807'
+                    BackdropThirdColor:
+                        Type: Boolean
+                        Value: 'False'
+                    BackdropCenterX:
+                        Type: Double
+                        Value: '0.25'
+                    BackdropCenterY:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropRadialRadius:
+                        Type: Double
+                        Value: '1.3'
+            Lavender:
+                Name: 'Lavender (soft violet gradient)'
+                LocKey: LOCHNDPresetBackdropLavender
+                Preview: 'Presets\Previews\Backdrop_Lavender.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '2'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF2D2745'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF4E3F75'
+                    BackdropColor3:
+                        Type: Color
+                        Value: '#FF8A6FB0'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '45'
+                    BackdropMidpoint:
+                        Type: Double
+                        Value: '0.5'
+            Blueprint:
+                Name: 'Blueprint (navy with a fine grid)'
+                LocKey: LOCHNDPresetBackdropBlueprint
+                Preview: 'Presets\Previews\Backdrop_Blueprint.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '1'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF0F2640'
+                    BackdropThirdColor:
+                        Type: Boolean
+                        Value: 'False'
+                    BackdropPatternKind:
+                        Type: Int32
+                        Value: '2'
+                    BackdropPatternOpacity:
+                        Type: Double
+                        Value: '0.09'
+                    BackdropPatternScale:
+                        Type: Double
+                        Value: '30'
+                    BackdropPatternColor:
+                        Type: Color
+                        Value: '#FF9CC8FF'
+            BokehNight:
+                Name: 'Bokeh night (small crisp lights)'
+                LocKey: LOCHNDPresetBackdropBokehNight
+                Preview: 'Presets\Previews\Backdrop_BokehNight.png'
+                Constants:
+                    BackdropMode:
+                        Type: Int32
+                        Value: '4'
+                    BackdropColor1:
+                        Type: Color
+                        Value: '#FF080C1A'
+                    BackdropColor2:
+                        Type: Color
+                        Value: '#FF151A33'
+                    BackdropThirdColor:
+                        Type: Boolean
+                        Value: 'False'
+                    BackdropAngle:
+                        Type: Double
+                        Value: '120'
+                    BackdropHardness:
+                        Type: Double
+                        Value: '0.6'
+                    BackdropBlobCount:
+                        Type: Double
+                        Value: '8'
+                    BackdropBlob1X:
+                        Type: Double
+                        Value: '-0.38'
+                    BackdropBlob1Y:
+                        Type: Double
+                        Value: '-0.25'
+                    BackdropBlob1Size:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob1Opacity:
+                        Type: Double
+                        Value: '0.4'
+                    BackdropBlob1Color:
+                        Type: Color
+                        Value: '#FFFFB347'
+                    BackdropBlob2X:
+                        Type: Double
+                        Value: '0.1'
+                    BackdropBlob2Y:
+                        Type: Double
+                        Value: '-0.32'
+                    BackdropBlob2Size:
+                        Type: Double
+                        Value: '0.25'
+                    BackdropBlob2Opacity:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob2Color:
+                        Type: Color
+                        Value: '#FF4FC3F7'
+                    BackdropBlob3X:
+                        Type: Double
+                        Value: '0.38'
+                    BackdropBlob3Y:
+                        Type: Double
+                        Value: '-0.15'
+                    BackdropBlob3Size:
+                        Type: Double
+                        Value: '0.4'
+                    BackdropBlob3Opacity:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob3Color:
+                        Type: Color
+                        Value: '#FFE0509A'
+                    BackdropBlob4X:
+                        Type: Double
+                        Value: '-0.15'
+                    BackdropBlob4Y:
+                        Type: Double
+                        Value: '0.05'
+                    BackdropBlob4Size:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob4Opacity:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob4Color:
+                        Type: Color
+                        Value: '#FF4FC3F7'
+                    BackdropBlob5X:
+                        Type: Double
+                        Value: '0.25'
+                    BackdropBlob5Y:
+                        Type: Double
+                        Value: '0.12'
+                    BackdropBlob5Size:
+                        Type: Double
+                        Value: '0.22'
+                    BackdropBlob5Opacity:
+                        Type: Double
+                        Value: '0.4'
+                    BackdropBlob5Color:
+                        Type: Color
+                        Value: '#FFFFB347'
+                    BackdropBlob6X:
+                        Type: Double
+                        Value: '-0.4'
+                    BackdropBlob6Y:
+                        Type: Double
+                        Value: '0.25'
+                    BackdropBlob6Size:
+                        Type: Double
+                        Value: '0.28'
+                    BackdropBlob6Opacity:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob6Color:
+                        Type: Color
+                        Value: '#FFE0509A'
+                    BackdropBlob7X:
+                        Type: Double
+                        Value: '0.05'
+                    BackdropBlob7Y:
+                        Type: Double
+                        Value: '0.33'
+                    BackdropBlob7Size:
+                        Type: Double
+                        Value: '0.38'
+                    BackdropBlob7Opacity:
+                        Type: Double
+                        Value: '0.3'
+                    BackdropBlob7Color:
+                        Type: Color
+                        Value: '#FF7E8BFF'
+                    BackdropBlob8X:
+                        Type: Double
+                        Value: '0.42'
+                    BackdropBlob8Y:
+                        Type: Double
+                        Value: '0.34'
+                    BackdropBlob8Size:
+                        Type: Double
+                        Value: '0.26'
+                    BackdropBlob8Opacity:
+                        Type: Double
+                        Value: '0.35'
+                    BackdropBlob8Color:
+                        Type: Color
+                        Value: '#FF4FC3F7'
+    # END generated backdrop presets
 
 Variables:
     HeaderWindowGlass:
@@ -5658,7 +7018,7 @@ Variables:
         Title: 'Filter and explorer panels: glass frost'
         LocKey: LOCHNDOptSidePanelFrostOpacity
         Type: Double
-        Default: '0.1'
+        Default: '0'
         Description: 'A light glass fill over the filter panel and the explorer panel, like the sections. 0 = none (the panel keeps only its dark tint, set in Background and glass).'
         Slider:
             Min: '0'
@@ -5669,6 +7029,595 @@ Variables:
         LocKey: LOCHNDTipSidePanelFrostOpacity
         Type: Thickness
         Default: '0'
+    # BEGIN generated backdrop options
+    HeaderGeneratedBackdrop:
+        Title: 'Generated backdrop'
+        LocKey: LOCHNDHeaderGeneratedBackdrop
+        Type: Header
+    BackdropMode:
+        Title: 'Backdrop of the window'
+        LocKey: LOCHNDOptBackdropMode
+        Type: Int32
+        Default: '0'
+        Description: '0 = the game artwork (default), 1 = one colour, 2 = linear gradient, 3 = radial gradient, 4 = soft circles.'
+    HelpBackdropMode:
+        Title: '0 = the game artwork (default), 1 = one colour, 2 = linear gradient, 3 = radial gradient, 4 = soft circles.'
+        LocKey: LOCHNDTipBackdropMode
+        Type: Thickness
+        Default: '0'
+    BackdropSeed:
+        Title: 'Backdrop seed'
+        LocKey: LOCHNDOptBackdropSeed
+        Type: Int32
+        Default: '1'
+        Description: 'The number the Randomize button used: the same seed, harmony and style always give the same backdrop.'
+    HelpBackdropSeed:
+        Title: 'The number the Randomize button used: the same seed, harmony and style always give the same backdrop.'
+        LocKey: LOCHNDTipBackdropSeed
+        Type: Thickness
+        Default: '0'
+    BackdropFallbackOnly:
+        Title: 'Use the backdrop only for games without artwork'
+        LocKey: LOCHNDOptBackdropFallbackOnly
+        Type: Boolean
+        Default: 'False'
+        Description: 'The game artwork stays behind the window; the generated backdrop shows when a game has none.'
+    HelpBackdropFallbackOnly:
+        Title: 'The game artwork stays behind the window; the generated backdrop shows when a game has none.'
+        LocKey: LOCHNDTipBackdropFallbackOnly
+        Type: Thickness
+        Default: '0'
+    BackdropColor1:
+        Title: 'Colour 1 (start, or the one colour)'
+        LocKey: LOCHNDOptBackdropColor1
+        Type: Color
+        Default: '#FF14182B'
+    BackdropColor2:
+        Title: 'Colour 2 (end of the gradient)'
+        LocKey: LOCHNDOptBackdropColor2
+        Type: Color
+        Default: '#FF26204A'
+    BackdropColor3:
+        Title: 'Colour 3 (third colour of the gradient)'
+        LocKey: LOCHNDOptBackdropColor3
+        Type: Color
+        Default: '#FF3B2A64'
+    BackdropAngle:
+        Title: 'Gradient: angle'
+        LocKey: LOCHNDOptBackdropAngle
+        Type: Double
+        Default: '135'
+        Description: '0 = left to right, 90 = top to bottom.'
+        Slider:
+            Min: '0'
+            Max: '360'
+            Step: '5'
+    HelpBackdropAngle:
+        Title: '0 = left to right, 90 = top to bottom.'
+        LocKey: LOCHNDTipBackdropAngle
+        Type: Thickness
+        Default: '0'
+    BackdropMidpoint:
+        Title: 'Gradient: where colour 3 starts'
+        LocKey: LOCHNDOptBackdropMidpoint
+        Type: Double
+        Default: '0.55'
+        Slider:
+            Min: '0.05'
+            Max: '0.95'
+            Step: '0.01'
+    BackdropThirdColor:
+        Title: 'Gradient: use colour 3'
+        LocKey: LOCHNDOptBackdropThirdColor
+        Type: Boolean
+        Default: 'True'
+        Description: 'Off = a two-colour gradient.'
+    HelpBackdropThirdColor:
+        Title: 'Off = a two-colour gradient.'
+        LocKey: LOCHNDTipBackdropThirdColor
+        Type: Thickness
+        Default: '0'
+    BackdropBlobCount:
+        Title: 'Circles: how many'
+        LocKey: LOCHNDOptBackdropBlobCount
+        Type: Double
+        Default: '5'
+        Description: 'From 0 to 8. The circles come from the table of the eight circles below, in order.'
+        Slider:
+            Min: '0'
+            Max: '8'
+            Step: '1'
+    HelpBackdropBlobCount:
+        Title: 'From 0 to 8. The circles come from the table of the eight circles below, in order.'
+        LocKey: LOCHNDTipBackdropBlobCount
+        Type: Thickness
+        Default: '0'
+    BackdropBlobScale:
+        Title: 'Circles: size of all'
+        LocKey: LOCHNDOptBackdropBlobScale
+        Type: Double
+        Default: '1'
+        Slider:
+            Min: '0.2'
+            Max: '3'
+            Step: '0.05'
+    BackdropSpread:
+        Title: 'Circles: spread (zoom of the whole arrangement)'
+        LocKey: LOCHNDOptBackdropSpread
+        Type: Double
+        Default: '1'
+        Description: 'Under 1 pulls the circles together, over 1 pushes them to the edges (and makes them bigger).'
+        Slider:
+            Min: '0.5'
+            Max: '2'
+            Step: '0.05'
+    HelpBackdropSpread:
+        Title: 'Under 1 pulls the circles together, over 1 pushes them to the edges (and makes them bigger).'
+        LocKey: LOCHNDTipBackdropSpread
+        Type: Thickness
+        Default: '0'
+    BackdropBlobOpacityScale:
+        Title: 'Circles: opacity of all'
+        LocKey: LOCHNDOptBackdropBlobOpacityScale
+        Type: Double
+        Default: '1'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropHardness:
+        Title: 'Circles: edge hardness'
+        LocKey: LOCHNDOptBackdropHardness
+        Type: Double
+        Default: '0.1'
+        Description: '0 = very soft glow, near 1 = a crisp disc.'
+        Slider:
+            Min: '0'
+            Max: '0.95'
+            Step: '0.01'
+    HelpBackdropHardness:
+        Title: '0 = very soft glow, near 1 = a crisp disc.'
+        LocKey: LOCHNDTipBackdropHardness
+        Type: Thickness
+        Default: '0'
+    BackdropDarkness:
+        Title: 'Backdrop: darkness'
+        LocKey: LOCHNDOptBackdropDarkness
+        Type: Double
+        Default: '0'
+        Description: 'A black veil over the generated backdrop only (the artwork keeps its own darkness).'
+        Slider:
+            Min: '0'
+            Max: '0.9'
+            Step: '0.01'
+    HelpBackdropDarkness:
+        Title: 'A black veil over the generated backdrop only (the artwork keeps its own darkness).'
+        LocKey: LOCHNDTipBackdropDarkness
+        Type: Thickness
+        Default: '0'
+    BackdropRadialRadius:
+        Title: 'Radial gradient: size'
+        LocKey: LOCHNDOptBackdropRadialRadius
+        Type: Double
+        Default: '1.4'
+        Slider:
+            Min: '0.3'
+            Max: '2.5'
+            Step: '0.05'
+    BackdropCenterX:
+        Title: 'Radial gradient: centre, horizontal'
+        LocKey: LOCHNDOptBackdropCenterX
+        Type: Double
+        Default: '0'
+        Description: '0 = the middle of the window, -0.5 = the left edge, 0.5 = the right edge.'
+        Slider:
+            Min: '-0.5'
+            Max: '0.5'
+            Step: '0.01'
+    HelpBackdropCenterX:
+        Title: '0 = the middle of the window, -0.5 = the left edge, 0.5 = the right edge.'
+        LocKey: LOCHNDTipBackdropCenterX
+        Type: Thickness
+        Default: '0'
+    BackdropCenterY:
+        Title: 'Radial gradient: centre, vertical'
+        LocKey: LOCHNDOptBackdropCenterY
+        Type: Double
+        Default: '0'
+        Slider:
+            Min: '-0.5'
+            Max: '0.5'
+            Step: '0.01'
+    BackdropPatternKind:
+        Title: 'Pattern over the backdrop'
+        LocKey: LOCHNDOptBackdropPatternKind
+        Type: Int32
+        Default: '0'
+        Description: '0 = none, 1 = dots, 2 = grid, 3 = diagonal lines.'
+    HelpBackdropPatternKind:
+        Title: '0 = none, 1 = dots, 2 = grid, 3 = diagonal lines.'
+        LocKey: LOCHNDTipBackdropPatternKind
+        Type: Thickness
+        Default: '0'
+    BackdropPatternOpacity:
+        Title: 'Pattern: strength'
+        LocKey: LOCHNDOptBackdropPatternOpacity
+        Type: Double
+        Default: '0.08'
+        Slider:
+            Min: '0'
+            Max: '0.5'
+            Step: '0.01'
+    BackdropPatternScale:
+        Title: 'Pattern: size of one tile'
+        LocKey: LOCHNDOptBackdropPatternScale
+        Type: Double
+        Default: '24'
+        Slider:
+            Min: '6'
+            Max: '120'
+            Step: '1'
+    BackdropPatternColor:
+        Title: 'Pattern: colour'
+        LocKey: LOCHNDOptBackdropPatternColor
+        Type: Color
+        Default: '#FFFFFFFF'
+    BackdropAspect:
+        Title: 'Circles: window shape (width / height)'
+        LocKey: LOCHNDOptBackdropAspect
+        Type: Double
+        Default: '1.78'
+        Description: 'Keeps the circles round: 1.78 for a 16:9 screen, 1.6 for 16:10, 2.33 for 21:9.'
+        Slider:
+            Min: '1'
+            Max: '3'
+            Step: '0.01'
+    HelpBackdropAspect:
+        Title: 'Keeps the circles round: 1.78 for a 16:9 screen, 1.6 for 16:10, 2.33 for 21:9.'
+        LocKey: LOCHNDTipBackdropAspect
+        Type: Thickness
+        Default: '0'
+    BackdropBlob1X:
+        Title: 'Circle 1: horizontal position'
+        LocKey: LOCHNDOptBackdropBlob1X
+        Type: Double
+        Default: '-0.28'
+        Description: '0 = the middle of the window, -0.5 = the left edge, 0.5 = the right edge.'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    HelpBackdropBlob1X:
+        Title: '0 = the middle of the window, -0.5 = the left edge, 0.5 = the right edge.'
+        LocKey: LOCHNDTipBackdropBlob1X
+        Type: Thickness
+        Default: '0'
+    BackdropBlob1Y:
+        Title: 'Circle 1: vertical position'
+        LocKey: LOCHNDOptBackdropBlob1Y
+        Type: Double
+        Default: '-0.18'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob1Size:
+        Title: 'Circle 1: size'
+        LocKey: LOCHNDOptBackdropBlob1Size
+        Type: Double
+        Default: '1.1'
+        Description: 'The width of the circle, in window widths (1 = as wide as the window).'
+        Slider:
+            Min: '0.05'
+            Max: '2.5'
+            Step: '0.01'
+    HelpBackdropBlob1Size:
+        Title: 'The width of the circle, in window widths (1 = as wide as the window).'
+        LocKey: LOCHNDTipBackdropBlob1Size
+        Type: Thickness
+        Default: '0'
+    BackdropBlob1Opacity:
+        Title: 'Circle 1: opacity'
+        LocKey: LOCHNDOptBackdropBlob1Opacity
+        Type: Double
+        Default: '0.55'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropBlob1Color:
+        Title: 'Circle 1: colour'
+        LocKey: LOCHNDOptBackdropBlob1Color
+        Type: Color
+        Default: '#FF5B3FA0'
+    BackdropBlob2X:
+        Title: 'Circle 2: horizontal position'
+        LocKey: LOCHNDOptBackdropBlob2X
+        Type: Double
+        Default: '0.3'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob2Y:
+        Title: 'Circle 2: vertical position'
+        LocKey: LOCHNDOptBackdropBlob2Y
+        Type: Double
+        Default: '-0.12'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob2Size:
+        Title: 'Circle 2: size'
+        LocKey: LOCHNDOptBackdropBlob2Size
+        Type: Double
+        Default: '0.9'
+        Slider:
+            Min: '0.05'
+            Max: '2.5'
+            Step: '0.01'
+    BackdropBlob2Opacity:
+        Title: 'Circle 2: opacity'
+        LocKey: LOCHNDOptBackdropBlob2Opacity
+        Type: Double
+        Default: '0.5'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropBlob2Color:
+        Title: 'Circle 2: colour'
+        LocKey: LOCHNDOptBackdropBlob2Color
+        Type: Color
+        Default: '#FF2E7DAF'
+    BackdropBlob3X:
+        Title: 'Circle 3: horizontal position'
+        LocKey: LOCHNDOptBackdropBlob3X
+        Type: Double
+        Default: '0.05'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob3Y:
+        Title: 'Circle 3: vertical position'
+        LocKey: LOCHNDOptBackdropBlob3Y
+        Type: Double
+        Default: '0.28'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob3Size:
+        Title: 'Circle 3: size'
+        LocKey: LOCHNDOptBackdropBlob3Size
+        Type: Double
+        Default: '1.2'
+        Slider:
+            Min: '0.05'
+            Max: '2.5'
+            Step: '0.01'
+    BackdropBlob3Opacity:
+        Title: 'Circle 3: opacity'
+        LocKey: LOCHNDOptBackdropBlob3Opacity
+        Type: Double
+        Default: '0.5'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropBlob3Color:
+        Title: 'Circle 3: colour'
+        LocKey: LOCHNDOptBackdropBlob3Color
+        Type: Color
+        Default: '#FF8A3F7A'
+    BackdropBlob4X:
+        Title: 'Circle 4: horizontal position'
+        LocKey: LOCHNDOptBackdropBlob4X
+        Type: Double
+        Default: '-0.35'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob4Y:
+        Title: 'Circle 4: vertical position'
+        LocKey: LOCHNDOptBackdropBlob4Y
+        Type: Double
+        Default: '0.25'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob4Size:
+        Title: 'Circle 4: size'
+        LocKey: LOCHNDOptBackdropBlob4Size
+        Type: Double
+        Default: '0.8'
+        Slider:
+            Min: '0.05'
+            Max: '2.5'
+            Step: '0.01'
+    BackdropBlob4Opacity:
+        Title: 'Circle 4: opacity'
+        LocKey: LOCHNDOptBackdropBlob4Opacity
+        Type: Double
+        Default: '0.45'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropBlob4Color:
+        Title: 'Circle 4: colour'
+        LocKey: LOCHNDOptBackdropBlob4Color
+        Type: Color
+        Default: '#FF3F5FB0'
+    BackdropBlob5X:
+        Title: 'Circle 5: horizontal position'
+        LocKey: LOCHNDOptBackdropBlob5X
+        Type: Double
+        Default: '0.4'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob5Y:
+        Title: 'Circle 5: vertical position'
+        LocKey: LOCHNDOptBackdropBlob5Y
+        Type: Double
+        Default: '0.3'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob5Size:
+        Title: 'Circle 5: size'
+        LocKey: LOCHNDOptBackdropBlob5Size
+        Type: Double
+        Default: '0.7'
+        Slider:
+            Min: '0.05'
+            Max: '2.5'
+            Step: '0.01'
+    BackdropBlob5Opacity:
+        Title: 'Circle 5: opacity'
+        LocKey: LOCHNDOptBackdropBlob5Opacity
+        Type: Double
+        Default: '0.4'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropBlob5Color:
+        Title: 'Circle 5: colour'
+        LocKey: LOCHNDOptBackdropBlob5Color
+        Type: Color
+        Default: '#FF2E9C94'
+    BackdropBlob6X:
+        Title: 'Circle 6: horizontal position'
+        LocKey: LOCHNDOptBackdropBlob6X
+        Type: Double
+        Default: '0.0'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob6Y:
+        Title: 'Circle 6: vertical position'
+        LocKey: LOCHNDOptBackdropBlob6Y
+        Type: Double
+        Default: '-0.35'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob6Size:
+        Title: 'Circle 6: size'
+        LocKey: LOCHNDOptBackdropBlob6Size
+        Type: Double
+        Default: '0.6'
+        Slider:
+            Min: '0.05'
+            Max: '2.5'
+            Step: '0.01'
+    BackdropBlob6Opacity:
+        Title: 'Circle 6: opacity'
+        LocKey: LOCHNDOptBackdropBlob6Opacity
+        Type: Double
+        Default: '0.35'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropBlob6Color:
+        Title: 'Circle 6: colour'
+        LocKey: LOCHNDOptBackdropBlob6Color
+        Type: Color
+        Default: '#FF7A57C2'
+    BackdropBlob7X:
+        Title: 'Circle 7: horizontal position'
+        LocKey: LOCHNDOptBackdropBlob7X
+        Type: Double
+        Default: '-0.1'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob7Y:
+        Title: 'Circle 7: vertical position'
+        LocKey: LOCHNDOptBackdropBlob7Y
+        Type: Double
+        Default: '0.0'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob7Size:
+        Title: 'Circle 7: size'
+        LocKey: LOCHNDOptBackdropBlob7Size
+        Type: Double
+        Default: '0.5'
+        Slider:
+            Min: '0.05'
+            Max: '2.5'
+            Step: '0.01'
+    BackdropBlob7Opacity:
+        Title: 'Circle 7: opacity'
+        LocKey: LOCHNDOptBackdropBlob7Opacity
+        Type: Double
+        Default: '0.3'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropBlob7Color:
+        Title: 'Circle 7: colour'
+        LocKey: LOCHNDOptBackdropBlob7Color
+        Type: Color
+        Default: '#FF4F86C6'
+    BackdropBlob8X:
+        Title: 'Circle 8: horizontal position'
+        LocKey: LOCHNDOptBackdropBlob8X
+        Type: Double
+        Default: '0.2'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob8Y:
+        Title: 'Circle 8: vertical position'
+        LocKey: LOCHNDOptBackdropBlob8Y
+        Type: Double
+        Default: '0.05'
+        Slider:
+            Min: '-0.7'
+            Max: '0.7'
+            Step: '0.01'
+    BackdropBlob8Size:
+        Title: 'Circle 8: size'
+        LocKey: LOCHNDOptBackdropBlob8Size
+        Type: Double
+        Default: '0.5'
+        Slider:
+            Min: '0.05'
+            Max: '2.5'
+            Step: '0.01'
+    BackdropBlob8Opacity:
+        Title: 'Circle 8: opacity'
+        LocKey: LOCHNDOptBackdropBlob8Opacity
+        Type: Double
+        Default: '0.3'
+        Slider:
+            Min: '0'
+            Max: '1'
+            Step: '0.01'
+    BackdropBlob8Color:
+        Title: 'Circle 8: colour'
+        LocKey: LOCHNDOptBackdropBlob8Color
+        Type: Color
+        Default: '#FFB05A8C'
+    # END generated backdrop options
     HeaderTopPanel:
         Title: 'Top panel and sidebar'
         LocKey: LOCHNDHeaderTopPanel
@@ -5693,6 +7642,39 @@ Variables:
     HelpTopPanelShowCollectorLevel:
         Title: 'Collection level of your library, with its progress. Click to open the achievements overview.'
         LocKey: LOCHNDTipTopPanelShowCollectorLevel
+        Type: Thickness
+        Default: '0'
+    TopPanelShowNowPlaying:
+        Title: 'Running game chip (Now Playing or Back To Game)'
+        LocKey: LOCHNDOptTopPanelShowNowPlaying
+        Type: Boolean
+        Default: 'True'
+        Description: 'While a game runs, a chip in the top bar shows its icon, name and session time; a click brings the game back to the front. With Back To Game instead, a plain Back to game button. It only exists with one of those add-ons.'
+    HelpTopPanelShowNowPlaying:
+        Title: 'While a game runs, a chip in the top bar shows its icon, name and session time; a click brings the game back to the front. With Back To Game instead, a plain Back to game button. It only exists with one of those add-ons.'
+        LocKey: LOCHNDTipTopPanelShowNowPlaying
+        Type: Thickness
+        Default: '0'
+    NowPlayingShowCloseButton:
+        Title: 'Close button on the Now Playing chip'
+        LocKey: LOCHNDOptNowPlayingShowCloseButton
+        Type: Boolean
+        Default: 'False'
+        Description: 'Adds a small button on the Now Playing chip that closes the running game (the add-on asks first, see its own settings). Off by default so a game is never closed by a stray click.'
+    HelpNowPlayingShowCloseButton:
+        Title: 'Adds a small button on the Now Playing chip that closes the running game (the add-on asks first, see its own settings). Off by default so a game is never closed by a stray click.'
+        LocKey: LOCHNDTipNowPlayingShowCloseButton
+        Type: Thickness
+        Default: '0'
+    TopPanelShowLibraryOverview:
+        Title: 'Library overview button (AnikiHelper)'
+        LocKey: LOCHNDOptTopPanelShowLibraryOverview
+        Type: Boolean
+        Default: 'True'
+        Description: 'A top bar button that opens a card with the size of your library, your play time, the game of the month, a suggestion, the most played games, the completion states and the sources. It only exists with the AnikiHelper plugin.'
+    HelpTopPanelShowLibraryOverview:
+        Title: 'A top bar button that opens a card with the size of your library, your play time, the game of the month, a suggestion, the most played games, the completion states and the sources. It only exists with the AnikiHelper plugin.'
+        LocKey: LOCHNDTipTopPanelShowLibraryOverview
         Type: Thickness
         Default: '0'
     TopPanelAutoHide:
@@ -5750,6 +7732,57 @@ Variables:
             Min: '24'
             Max: '64'
             Step: '1'
+    SidebarIconColor:
+        Title: 'Sidebar icons: color'
+        LocKey: LOCHNDOptSidebarIconColor
+        Type: Color
+        Default: '#F2F2F2'
+        Description: 'Color of the sidebar icons. Near white keeps them readable over any artwork. Icons that are pictures supplied by add-ons keep their own colors.'
+    SidebarIconActiveColor:
+        Title: 'Sidebar icons: color of the selected one'
+        LocKey: LOCHNDOptSidebarIconActiveColor
+        Type: Color
+        Default: '#FFB350'
+    SidebarIconPadOpacity:
+        Title: 'Sidebar icons: dark pad'
+        LocKey: LOCHNDOptSidebarIconPadOpacity
+        Type: Double
+        Default: '0.25'
+        Description: 'A very light dark square behind each icon so it stands out from a bright artwork. 0 = no pad.'
+        Slider:
+            Min: '0'
+            Max: '0.8'
+            Step: '0.01'
+    SidebarIconActivePadOpacity:
+        Title: 'Sidebar icons: dark pad of the selected one'
+        LocKey: LOCHNDOptSidebarIconActivePadOpacity
+        Type: Double
+        Default: '0.5'
+        Slider:
+            Min: '0'
+            Max: '0.9'
+            Step: '0.01'
+    SidebarIconHalo:
+        Title: 'Sidebar icons: dark halo'
+        LocKey: LOCHNDOptSidebarIconHalo
+        Type: Boolean
+        Default: 'True'
+        Description: 'A tight dark outline around each icon, for contrast on a bright artwork.'
+    HelpSidebarIconColor:
+        Title: 'Color of the sidebar icons. Near white keeps them readable over any artwork. Icons that are pictures supplied by add-ons keep their own colors.'
+        LocKey: LOCHNDTipSidebarIconColor
+        Type: Thickness
+        Default: '0'
+    HelpSidebarIconPadOpacity:
+        Title: 'A very light dark square behind each icon so it stands out from a bright artwork. 0 = no pad.'
+        LocKey: LOCHNDTipSidebarIconPadOpacity
+        Type: Thickness
+        Default: '0'
+    HelpSidebarIconHalo:
+        Title: 'A tight dark outline around each icon, for contrast on a bright artwork.'
+        LocKey: LOCHNDTipSidebarIconHalo
+        Type: Thickness
+        Default: '0'
     HeaderHero:
         Title: 'Details view - artwork header (Dune)'
         LocKey: LOCHNDHeaderHero
@@ -6065,6 +8098,358 @@ Variables:
         LocKey: LOCHNDTipInfoPanelShowSource
         Type: Thickness
         Default: '0'
+    DetailsViewShowSectionHeaders:
+        Title: 'Section headers: show'
+        LocKey: LOCHNDOptDetailsViewShowSectionHeaders
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar above every section of the game page. Turn it off to have no header at all: the sections keep their place and spacing and stay open (there is nothing to click to fold them).'
+    HelpDetailsViewShowSectionHeaders:
+        Title: 'Shows the title bar above every section of the game page. Turn it off to have no header at all: the sections keep their place and spacing and stay open (there is nothing to click to fold them).'
+        LocKey: LOCHNDTipDetailsViewShowSectionHeaders
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowNotesHeader:
+        Title: 'Section header: show for Play Notes'
+        LocKey: LOCHNDOptDetailsViewShowNotesHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Play Notes section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowNotesHeader:
+        Title: 'Shows the title bar of the Play Notes section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowNotesHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowGenresHeader:
+        Title: 'Section header: show for Genres'
+        LocKey: LOCHNDOptDetailsViewShowGenresHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Genres section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowGenresHeader:
+        Title: 'Shows the title bar of the Genres section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowGenresHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowCategoriesHeader:
+        Title: 'Section header: show for Categories'
+        LocKey: LOCHNDOptDetailsViewShowCategoriesHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Categories section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowCategoriesHeader:
+        Title: 'Shows the title bar of the Categories section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowCategoriesHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowFeaturesHeader:
+        Title: 'Section header: show for Features'
+        LocKey: LOCHNDOptDetailsViewShowFeaturesHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Features section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowFeaturesHeader:
+        Title: 'Shows the title bar of the Features section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowFeaturesHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowTagsHeader:
+        Title: 'Section header: show for Tags'
+        LocKey: LOCHNDOptDetailsViewShowTagsHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Tags section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowTagsHeader:
+        Title: 'Shows the title bar of the Tags section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowTagsHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowNewsViewerHeader:
+        Title: 'Section header: show for News Viewer'
+        LocKey: LOCHNDOptDetailsViewShowNewsViewerHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the News Viewer section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowNewsViewerHeader:
+        Title: 'Shows the title bar of the News Viewer section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowNewsViewerHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowVideoHeader:
+        Title: 'Section header: show for Video'
+        LocKey: LOCHNDOptDetailsViewShowVideoHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Video section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowVideoHeader:
+        Title: 'Shows the title bar of the Video section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowVideoHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowGameActivityHeader:
+        Title: 'Section header: show for GameActivity'
+        LocKey: LOCHNDOptDetailsViewShowGameActivityHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the GameActivity section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowGameActivityHeader:
+        Title: 'Shows the title bar of the GameActivity section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowGameActivityHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowCheckDlcHeader:
+        Title: 'Section header: show for CheckDlc'
+        LocKey: LOCHNDOptDetailsViewShowCheckDlcHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the CheckDlc section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowCheckDlcHeader:
+        Title: 'Shows the title bar of the CheckDlc section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowCheckDlcHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowGameRelationsHeader:
+        Title: 'Section header: show for Game Relations'
+        LocKey: LOCHNDOptDetailsViewShowGameRelationsHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Game Relations section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowGameRelationsHeader:
+        Title: 'Shows the title bar of the Game Relations section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowGameRelationsHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowWebHeader:
+        Title: 'Section header: show for Web Explorer'
+        LocKey: LOCHNDOptDetailsViewShowWebHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Web Explorer section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowWebHeader:
+        Title: 'Shows the title bar of the Web Explorer section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowWebHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowHowLongToBeatHeader:
+        Title: 'Section header: show for HowLongToBeat'
+        LocKey: LOCHNDOptDetailsViewShowHowLongToBeatHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the HowLongToBeat section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowHowLongToBeatHeader:
+        Title: 'Shows the title bar of the HowLongToBeat section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowHowLongToBeatHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowAchievementsHeader:
+        Title: 'Section header: show for Achievements'
+        LocKey: LOCHNDOptDetailsViewShowAchievementsHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Achievements section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowAchievementsHeader:
+        Title: 'Shows the title bar of the Achievements section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowAchievementsHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowSteamScreenshotsHeader:
+        Title: 'Section header: show for Steam Screenshots'
+        LocKey: LOCHNDOptDetailsViewShowSteamScreenshotsHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Steam Screenshots section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowSteamScreenshotsHeader:
+        Title: 'Shows the title bar of the Steam Screenshots section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowSteamScreenshotsHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowScreenshotUtilitiesHeader:
+        Title: 'Section header: show for Screenshot Utilities'
+        LocKey: LOCHNDOptDetailsViewShowScreenshotUtilitiesHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Screenshot Utilities section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowScreenshotUtilitiesHeader:
+        Title: 'Shows the title bar of the Screenshot Utilities section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowScreenshotUtilitiesHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowPlayerActivitiesHeader:
+        Title: 'Section header: show for Player Activities'
+        LocKey: LOCHNDOptDetailsViewShowPlayerActivitiesHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Player Activities section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowPlayerActivitiesHeader:
+        Title: 'Shows the title bar of the Player Activities section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowPlayerActivitiesHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowVndbHeader:
+        Title: 'Section header: show for VNDB Nexus'
+        LocKey: LOCHNDOptDetailsViewShowVndbHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the VNDB Nexus section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowVndbHeader:
+        Title: 'Shows the title bar of the VNDB Nexus section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowVndbHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowScreenshotsVisualizerHeader:
+        Title: 'Section header: show for ScreenshotsVisualizer'
+        LocKey: LOCHNDOptDetailsViewShowScreenshotsVisualizerHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the ScreenshotsVisualizer section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowScreenshotsVisualizerHeader:
+        Title: 'Shows the title bar of the ScreenshotsVisualizer section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowScreenshotsVisualizerHeader
+        Type: Thickness
+        Default: '0'
+    DetailsViewShowReviewViewerHeader:
+        Title: 'Section header: show for Review Viewer'
+        LocKey: LOCHNDOptDetailsViewShowReviewViewerHeader
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the title bar of the Review Viewer section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+    HelpDetailsViewShowReviewViewerHeader:
+        Title: 'Shows the title bar of the Review Viewer section (it also needs the global option "Section headers: show"). Without it the section stays open and its body keeps its place.'
+        LocKey: LOCHNDTipDetailsViewShowReviewViewerHeader
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowRecentActivity:
+        Title: 'Information panel: show recent activity'
+        LocKey: LOCHNDOptInfoPanelShowRecentActivity
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the recent activity row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowRecentActivity:
+        Title: 'Shows the recent activity row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowRecentActivity
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowAdded:
+        Title: 'Information panel: show date added'
+        LocKey: LOCHNDOptInfoPanelShowAdded
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the date added row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowAdded:
+        Title: 'Shows the date added row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowAdded
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowLibrary:
+        Title: 'Information panel: show library'
+        LocKey: LOCHNDOptInfoPanelShowLibrary
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the library row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowLibrary:
+        Title: 'Shows the library row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowLibrary
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowPublishers:
+        Title: 'Information panel: show publisher'
+        LocKey: LOCHNDOptInfoPanelShowPublishers
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the publisher row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowPublishers:
+        Title: 'Shows the publisher row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowPublishers
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowInstallDirectory:
+        Title: 'Information panel: show install directory'
+        LocKey: LOCHNDOptInfoPanelShowInstallDirectory
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the install directory row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowInstallDirectory:
+        Title: 'Shows the install directory row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowInstallDirectory
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowSeries:
+        Title: 'Information panel: show series'
+        LocKey: LOCHNDOptInfoPanelShowSeries
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the series row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowSeries:
+        Title: 'Shows the series row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowSeries
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowRegions:
+        Title: 'Information panel: show region'
+        LocKey: LOCHNDOptInfoPanelShowRegions
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the region row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowRegions:
+        Title: 'Shows the region row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowRegions
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowVersion:
+        Title: 'Information panel: show version'
+        LocKey: LOCHNDOptInfoPanelShowVersion
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the version row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowVersion:
+        Title: 'Shows the version row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowVersion
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowUserScore:
+        Title: 'Information panel: show user score'
+        LocKey: LOCHNDOptInfoPanelShowUserScore
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the user score row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowUserScore:
+        Title: 'Shows the user score row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowUserScore
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowCommunityScore:
+        Title: 'Information panel: show community score'
+        LocKey: LOCHNDOptInfoPanelShowCommunityScore
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the community score row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowCommunityScore:
+        Title: 'Shows the community score row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowCommunityScore
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowCriticScore:
+        Title: 'Information panel: show critic score'
+        LocKey: LOCHNDOptInfoPanelShowCriticScore
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the critic score row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowCriticScore:
+        Title: 'Shows the critic score row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowCriticScore
+        Type: Thickness
+        Default: '0'
+    InfoPanelShowAgeRatings:
+        Title: 'Information panel: show age rating'
+        LocKey: LOCHNDOptInfoPanelShowAgeRatings
+        Type: Boolean
+        Default: 'True'
+        Description: 'Shows the age rating row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+    HelpInfoPanelShowAgeRatings:
+        Title: 'Shows the age rating row in the information panel. Turn it off to hide it; the panel closes up with no gap, and disappears when every row is off.'
+        LocKey: LOCHNDTipInfoPanelShowAgeRatings
+        Type: Thickness
+        Default: '0'
     HeaderHeroMusic:
         Title: 'Details view - artwork header: music player'
         LocKey: LOCHNDHeaderHeroMusic
@@ -6078,6 +8463,17 @@ Variables:
     HelpHeroShowMusicPlayer:
         Title: 'The UniPlaySong player (cover, title, previous, play, next) in the banner, off by default (UniPlaySong already adds play/pause/next to the top bar). It only shows while a game music plays.'
         LocKey: LOCHNDTipHeroShowMusicPlayer
+        Type: Thickness
+        Default: '0'
+    UseImageRotater:
+        Title: 'Use ImageRotater for the banner artwork'
+        LocKey: LOCHNDOptUseImageRotater
+        Type: Boolean
+        Default: 'True'
+        Description: 'Lets the ImageRotater add-on draw rotating, animated or video covers and backgrounds on the game page (banner background, banner cover) and in the Grid view. Nothing changes without the add-on, or for a game it has no artwork for.'
+    HelpUseImageRotater:
+        Title: 'Lets the ImageRotater add-on draw rotating, animated or video covers and backgrounds on the game page (banner background, banner cover) and in the Grid view. Nothing changes without the add-on, or for a game it has no artwork for.'
+        LocKey: LOCHNDTipUseImageRotater
         Type: Thickness
         Default: '0'
     HeaderHeroPlayers:
@@ -6346,59 +8742,158 @@ Variables:
         LocKey: LOCHNDOptHeroChipBreakAvgFps
         Type: Boolean
         Default: 'False'
-    HeroChipsOrderGame:
-        Title: 'Order: date, platforms, source'
-        LocKey: LOCHNDOptHeroChipsOrderGame
-        Type: Double
+    HeroChipOrderReleaseDate:
+        Title: 'Order: Release date'
+        LocKey: LOCHNDOptHeroChipOrderReleaseDate
+        Type: Int32
         Default: '0'
         Slider:
             Min: '0'
-            Max: '5'
+            Max: '16'
             Step: '1'
-    HeroChipsOrderClassification:
-        Title: 'Order: genres, categories, features, tags'
-        LocKey: LOCHNDOptHeroChipsOrderClassification
-        Type: Double
+    HeroChipOrderPlatforms:
+        Title: 'Order: Platforms'
+        LocKey: LOCHNDOptHeroChipOrderPlatforms
+        Type: Int32
         Default: '1'
         Slider:
             Min: '0'
-            Max: '5'
+            Max: '16'
             Step: '1'
-    HeroChipsOrderStudio:
-        Title: 'Order: developers, status, score'
-        LocKey: LOCHNDOptHeroChipsOrderStudio
-        Type: Double
+    HeroChipOrderSource:
+        Title: 'Order: Source'
+        LocKey: LOCHNDOptHeroChipOrderSource
+        Type: Int32
         Default: '2'
         Slider:
             Min: '0'
-            Max: '5'
+            Max: '16'
             Step: '1'
-    HeroChipsOrderHltb:
-        Title: 'Order: HowLongToBeat'
-        LocKey: LOCHNDOptHeroChipsOrderHltb
-        Type: Double
+    HeroChipOrderGenres:
+        Title: 'Order: Genres'
+        LocKey: LOCHNDOptHeroChipOrderGenres
+        Type: Int32
         Default: '3'
         Slider:
             Min: '0'
-            Max: '5'
+            Max: '16'
             Step: '1'
-    HeroChipsOrderAchievements:
-        Title: 'Order: achievements'
-        LocKey: LOCHNDOptHeroChipsOrderAchievements
-        Type: Double
+    HeroChipOrderCategories:
+        Title: 'Order: Categories'
+        LocKey: LOCHNDOptHeroChipOrderCategories
+        Type: Int32
         Default: '4'
         Slider:
             Min: '0'
-            Max: '5'
+            Max: '16'
             Step: '1'
-    HeroChipsOrderActivity:
-        Title: 'Order: GameActivity'
-        LocKey: LOCHNDOptHeroChipsOrderActivity
-        Type: Double
+    HeroChipOrderFeatures:
+        Title: 'Order: Features'
+        LocKey: LOCHNDOptHeroChipOrderFeatures
+        Type: Int32
         Default: '5'
         Slider:
             Min: '0'
-            Max: '5'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderTags:
+        Title: 'Order: Tags'
+        LocKey: LOCHNDOptHeroChipOrderTags
+        Type: Int32
+        Default: '6'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderDevelopers:
+        Title: 'Order: Developers'
+        LocKey: LOCHNDOptHeroChipOrderDevelopers
+        Type: Int32
+        Default: '7'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderCompletionStatus:
+        Title: 'Order: Completion status'
+        LocKey: LOCHNDOptHeroChipOrderCompletionStatus
+        Type: Int32
+        Default: '8'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderCommunityScore:
+        Title: 'Order: Community score'
+        LocKey: LOCHNDOptHeroChipOrderCommunityScore
+        Type: Int32
+        Default: '9'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderHltb:
+        Title: 'Order: HowLongToBeat'
+        LocKey: LOCHNDOptHeroChipOrderHltb
+        Type: Int32
+        Default: '10'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderAchievements:
+        Title: 'Order: Achievements'
+        LocKey: LOCHNDOptHeroChipOrderAchievements
+        Type: Int32
+        Default: '11'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderLatestAchievement:
+        Title: 'Order: Latest achievement'
+        LocKey: LOCHNDOptHeroChipOrderLatestAchievement
+        Type: Int32
+        Default: '12'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderRareAchievements:
+        Title: 'Order: Rare achievements'
+        LocKey: LOCHNDOptHeroChipOrderRareAchievements
+        Type: Int32
+        Default: '13'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderLastSession:
+        Title: 'Order: Last session'
+        LocKey: LOCHNDOptHeroChipOrderLastSession
+        Type: Int32
+        Default: '14'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderRecentActivity:
+        Title: 'Order: Recent activity'
+        LocKey: LOCHNDOptHeroChipOrderRecentActivity
+        Type: Int32
+        Default: '15'
+        Slider:
+            Min: '0'
+            Max: '16'
+            Step: '1'
+    HeroChipOrderAvgFps:
+        Title: 'Order: Average FPS'
+        LocKey: LOCHNDOptHeroChipOrderAvgFps
+        Type: Int32
+        Default: '16'
+        Slider:
+            Min: '0'
+            Max: '16'
             Step: '1'
     HltbShowOnCover:
         Title: 'HowLongToBeat time on the cover'
@@ -6433,6 +8928,17 @@ Variables:
     HelpLibraryListShowHltb:
         Title: 'HowLongToBeat time at the end of each game in the list. Turn on "view item" in the HowLongToBeat settings.'
         LocKey: LOCHNDTipLibraryListShowHltb
+        Type: Thickness
+        Default: '0'
+    LibraryListShowPlayTime:
+        Title: 'Play time in the game list'
+        LocKey: LOCHNDOptLibraryListShowPlayTime
+        Type: Boolean
+        Default: 'False'
+        Description: 'Your own play time at the end of each game in the list (14h 5m). Off by default.'
+    HelpLibraryListShowPlayTime:
+        Title: 'Your own play time at the end of each game in the list (14h 5m). Off by default.'
+        LocKey: LOCHNDTipLibraryListShowPlayTime
         Type: Thickness
         Default: '0'
     LibraryListShowAchievements:
@@ -6690,6 +9196,15 @@ Variables:
             Min: '0'
             Max: '4'
             Step: '1'
+    DetailsViewTabPlayerActivities:
+        Title: 'Tab: Community (Player Activities)'
+        LocKey: LOCHNDOptDetailsViewTabPlayerActivities
+        Type: Double
+        Default: '4'
+        Slider:
+            Min: '0'
+            Max: '4'
+            Step: '1'
     HeaderHeaderBar:
         Title: 'Details view - header bar'
         LocKey: LOCHNDHeaderHeaderBar
@@ -6832,6 +9347,11 @@ Variables:
         LocKey: LOCHNDOptDetailsViewShowNotesPanel
         Type: Boolean
         Default: 'True'
+    DetailsViewShowLinksPanel:
+        Title: 'Links'
+        LocKey: LOCHNDOptDetailsViewShowLinksPanel
+        Type: Boolean
+        Default: 'True'
     DetailsViewShowNewsPanel:
         Title: 'News Viewer'
         LocKey: LOCHNDOptDetailsViewShowNewsPanel
@@ -6895,6 +9415,11 @@ Variables:
     DetailsViewShowScreenshotUtilitiesPanel:
         Title: 'Screenshot Utilities'
         LocKey: LOCHNDOptDetailsViewShowScreenshotUtilitiesPanel
+        Type: Boolean
+        Default: 'True'
+    DetailsViewShowPlayerActivitiesPanel:
+        Title: 'Player Activities'
+        LocKey: LOCHNDOptDetailsViewShowPlayerActivitiesPanel
         Type: Boolean
         Default: 'True'
     HeaderDetailsExpand:
@@ -7048,6 +9573,11 @@ Variables:
         LocKey: LOCHNDOptDetailsViewExpandScreenshotUtilitiesPanel
         Type: Boolean
         Default: 'False'
+    DetailsViewExpandPlayerActivitiesPanel:
+        Title: 'Player Activities'
+        LocKey: LOCHNDOptDetailsViewExpandPlayerActivitiesPanel
+        Type: Boolean
+        Default: 'False'
     HeaderDetailsColumns:
         Title: 'Details view - sections moved to the right column'
         LocKey: LOCHNDHeaderDetailsColumns
@@ -7086,100 +9616,109 @@ Variables:
         Title: 'Play Notes'
         LocKey: LOCHNDOptDetailsViewSectionOrderNotes
         Type: Int32
+        Default: '1'
+        Slider:
+            Min: '0'
+            Max: '19'
+            Step: '1'
+    DetailsViewSectionOrderLinks:
+        Title: 'Links'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLinks
+        Type: Int32
         Default: '0'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderGenres:
         Title: 'Genres'
         LocKey: LOCHNDOptDetailsViewSectionOrderGenres
         Type: Int32
-        Default: '1'
+        Default: '2'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderCategories:
         Title: 'Categories'
         LocKey: LOCHNDOptDetailsViewSectionOrderCategories
         Type: Int32
-        Default: '2'
+        Default: '3'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderFeatures:
         Title: 'Features'
         LocKey: LOCHNDOptDetailsViewSectionOrderFeatures
         Type: Int32
-        Default: '3'
+        Default: '4'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderTags:
         Title: 'Tags'
         LocKey: LOCHNDOptDetailsViewSectionOrderTags
         Type: Int32
-        Default: '4'
+        Default: '5'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderNewsViewer:
         Title: 'News Viewer'
         LocKey: LOCHNDOptDetailsViewSectionOrderNewsViewer
         Type: Int32
-        Default: '5'
+        Default: '6'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderVideo:
         Title: 'Video'
         LocKey: LOCHNDOptDetailsViewSectionOrderVideo
         Type: Int32
-        Default: '6'
+        Default: '7'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderGameActivity:
         Title: 'GameActivity'
         LocKey: LOCHNDOptDetailsViewSectionOrderGameActivity
         Type: Int32
-        Default: '7'
+        Default: '8'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderCheckDlc:
         Title: 'CheckDlc'
         LocKey: LOCHNDOptDetailsViewSectionOrderCheckDlc
         Type: Int32
-        Default: '8'
+        Default: '9'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderGameRelations:
         Title: 'Game Relations'
         LocKey: LOCHNDOptDetailsViewSectionOrderGameRelations
         Type: Int32
-        Default: '9'
+        Default: '10'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderWeb:
         Title: 'Web Explorer'
         LocKey: LOCHNDOptDetailsViewSectionOrderWeb
         Type: Int32
-        Default: '10'
+        Default: '11'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     HeaderDetailsOrderRight:
         Title: 'Details view - right column order (each number once, 0 to 18)'
@@ -7189,100 +9728,109 @@ Variables:
         Title: 'HowLongToBeat'
         LocKey: LOCHNDOptDetailsViewSectionOrderHowLongToBeat
         Type: Int32
-        Default: '0'
+        Default: '1'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderAchievements:
         Title: 'PlayniteAchievements'
         LocKey: LOCHNDOptDetailsViewSectionOrderAchievements
         Type: Int32
-        Default: '1'
+        Default: '2'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderSteamScreenshots:
         Title: 'Steam Screenshots'
         LocKey: LOCHNDOptDetailsViewSectionOrderSteamScreenshots
         Type: Int32
-        Default: '2'
+        Default: '3'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderVndb:
         Title: 'VNDB Nexus'
         LocKey: LOCHNDOptDetailsViewSectionOrderVndb
         Type: Int32
-        Default: '3'
+        Default: '4'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderScreenshotsVisualizer:
         Title: 'ScreenshotsVisualizer'
         LocKey: LOCHNDOptDetailsViewSectionOrderScreenshotsVisualizer
         Type: Int32
-        Default: '4'
+        Default: '5'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderReviewViewer:
         Title: 'Review Viewer'
         LocKey: LOCHNDOptDetailsViewSectionOrderReviewViewer
         Type: Int32
-        Default: '5'
+        Default: '6'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderScreenshotUtilities:
         Title: 'Screenshot Utilities'
         LocKey: LOCHNDOptDetailsViewSectionOrderScreenshotUtilities
         Type: Int32
-        Default: '6'
+        Default: '7'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
+            Step: '1'
+    DetailsViewSectionOrderPlayerActivities:
+        Title: 'Player Activities'
+        LocKey: LOCHNDOptDetailsViewSectionOrderPlayerActivities
+        Type: Int32
+        Default: '19'
+        Slider:
+            Min: '0'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightGenres:
         Title: 'Genres (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightGenres
         Type: Int32
-        Default: '7'
+        Default: '8'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightCategories:
         Title: 'Categories (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightCategories
         Type: Int32
-        Default: '8'
+        Default: '9'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightFeatures:
         Title: 'Features (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightFeatures
         Type: Int32
-        Default: '9'
+        Default: '10'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightTags:
         Title: 'Tags (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightTags
         Type: Int32
-        Default: '10'
+        Default: '11'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     HeaderDetailsColumnsMore:
         Title: 'Details view - every section can move to the other column'
@@ -7291,6 +9839,11 @@ Variables:
     DetailsViewNotesInRightColumn:
         Title: 'Play Notes in the right column'
         LocKey: LOCHNDOptDetailsViewNotesInRightColumn
+        Type: Boolean
+        Default: 'False'
+    DetailsViewLinksInRightColumn:
+        Title: 'Links in the right column'
+        LocKey: LOCHNDOptDetailsViewLinksInRightColumn
         Type: Boolean
         Default: 'False'
     DetailsViewNewsViewerInRightColumn:
@@ -7358,131 +9911,154 @@ Variables:
         LocKey: LOCHNDOptDetailsViewScreenshotUtilitiesInRightColumn
         Type: Boolean
         Default: 'True'
+    DetailsViewPlayerActivitiesInRightColumn:
+        Title: 'Player Activities in the right column'
+        LocKey: LOCHNDOptDetailsViewPlayerActivitiesInRightColumn
+        Type: Boolean
+        Default: 'True'
     DetailsViewSectionOrderRightNotes:
         Title: 'Play Notes (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightNotes
         Type: Int32
-        Default: '11'
+        Default: '12'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
+            Step: '1'
+    DetailsViewSectionOrderRightLinks:
+        Title: 'Links (when in the right column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderRightLinks
+        Type: Int32
+        Default: '0'
+        Slider:
+            Min: '0'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightNewsViewer:
         Title: 'News Viewer (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightNewsViewer
         Type: Int32
-        Default: '12'
+        Default: '13'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightVideo:
         Title: 'Video (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightVideo
         Type: Int32
-        Default: '13'
+        Default: '14'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightGameActivity:
         Title: 'GameActivity (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightGameActivity
         Type: Int32
-        Default: '14'
+        Default: '15'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightCheckDlc:
         Title: 'CheckDlc (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightCheckDlc
         Type: Int32
-        Default: '15'
+        Default: '16'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightGameRelations:
         Title: 'Game Relations (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightGameRelations
         Type: Int32
-        Default: '16'
+        Default: '17'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderRightWeb:
         Title: 'Web Explorer (when in the right column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderRightWeb
         Type: Int32
-        Default: '17'
+        Default: '18'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderLeftHowLongToBeat:
         Title: 'HowLongToBeat (when in the left column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderLeftHowLongToBeat
         Type: Int32
-        Default: '11'
+        Default: '12'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderLeftAchievements:
         Title: 'PlayniteAchievements (when in the left column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderLeftAchievements
         Type: Int32
-        Default: '12'
+        Default: '13'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderLeftSteamScreenshots:
         Title: 'Steam Screenshots (when in the left column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderLeftSteamScreenshots
         Type: Int32
-        Default: '13'
+        Default: '14'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderLeftVndb:
         Title: 'VNDB Nexus (when in the left column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderLeftVndb
         Type: Int32
-        Default: '14'
+        Default: '15'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderLeftScreenshotsVisualizer:
         Title: 'ScreenshotsVisualizer (when in the left column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderLeftScreenshotsVisualizer
         Type: Int32
-        Default: '15'
+        Default: '16'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderLeftReviewViewer:
         Title: 'Review Viewer (when in the left column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderLeftReviewViewer
         Type: Int32
-        Default: '16'
+        Default: '17'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
             Step: '1'
     DetailsViewSectionOrderLeftScreenshotUtilities:
         Title: 'Screenshot Utilities (when in the left column)'
         LocKey: LOCHNDOptDetailsViewSectionOrderLeftScreenshotUtilities
         Type: Int32
-        Default: '17'
+        Default: '18'
         Slider:
             Min: '0'
-            Max: '18'
+            Max: '19'
+            Step: '1'
+    DetailsViewSectionOrderLeftPlayerActivities:
+        Title: 'Player Activities (when in the left column)'
+        LocKey: LOCHNDOptDetailsViewSectionOrderLeftPlayerActivities
+        Type: Int32
+        Default: '19'
+        Slider:
+            Min: '0'
+            Max: '19'
             Step: '1'
     HeaderDetailsPlugins:
         Title: 'Details view - extension details'
@@ -8495,6 +11071,42 @@ Variables:
             Min: '0'
             Max: '1'
             Step: '0.01'
+    WindowGlassScrimColor:
+        Title: 'Window artwork: veil color'
+        LocKey: LOCHNDOptWindowGlassScrimColor
+        Type: Color
+        Default: '#000000'
+        Description: 'Color of the veil over the window artwork (its strength is the darkness of the window background). Black on a dark profile; a light profile uses a light color so the window stays pastel.'
+    PageGlassScrimColor:
+        Title: 'Game page artwork: veil color'
+        LocKey: LOCHNDOptPageGlassScrimColor
+        Type: Color
+        Default: '#000000'
+        Description: 'Color of the veil over the game page artwork and of the page darkness layer. Black on a dark profile, a light color on a light profile.'
+    HeroShadeColor:
+        Title: 'Banner shade: color'
+        LocKey: LOCHNDOptHeroShadeColor
+        Type: Color
+        Default: '#000000'
+        Description: 'Color of the shade at the bottom of the banner (its strength is the shade preset). Black keeps white buttons readable on bright artwork; a light profile uses a light color.'
+    HeroTintLightColor:
+        Title: 'Banner light tint: color'
+        LocKey: LOCHNDOptHeroTintLightColor
+        Type: Color
+        Default: '#FFFFFF'
+        Description: 'Color of the light tint over the blurred bottom of the banner (its strength is the tint preset).'
+    HeroBaseColor:
+        Title: 'Banner base color'
+        LocKey: LOCHNDOptHeroBaseColor
+        Type: Color
+        Default: '#141414'
+        Description: 'Color behind the banner artwork, seen where the artwork fades out or is missing. Dark on a dark profile, light on a light profile.'
+    HeroTitleShadowColor:
+        Title: 'Banner title: glow color'
+        LocKey: LOCHNDOptHeroTitleShadowColor
+        Type: Color
+        Default: '#000000'
+        Description: 'Color of the soft glow behind the game title on the banner. Black under a white title; white under a dark title (light profiles).'
     PageGlassOpacity:
         Title: 'Game page artwork: opacity'
         LocKey: LOCHNDOptPageGlassOpacity
@@ -8569,6 +11181,21 @@ Variables:
             Min: '0'
             Max: '1'
             Step: '0.05'
+    GridViewCoverTitleOverlay:
+        Title: 'Grid cover: title over the art'
+        LocKey: LOCHNDOptGridViewCoverTitleOverlay
+        Type: Boolean
+        Default: 'False'
+    GridViewCoverTitleOverlayOnHover:
+        Title: 'Grid cover: title only on hover and selection'
+        LocKey: LOCHNDOptGridViewCoverTitleOverlayOnHover
+        Type: Boolean
+        Default: 'False'
+    GridViewShowZoomSlider:
+        Title: 'Grid: zoom slider under the covers'
+        LocKey: LOCHNDOptGridViewShowZoomSlider
+        Type: Boolean
+        Default: 'True'
     HeaderGlassMaterial:
         Title: 'Glass material'
         LocKey: LOCHNDHeaderGlassMaterial

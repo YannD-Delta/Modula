@@ -4,7 +4,8 @@
     "Accent",
     "Corners",
     "Glass",
-    "WindowDarkness"
+    "WindowDarkness",
+    "ColorProfile"
   ],
   "tokens": {
     "accent": {

@@ -28,7 +28,8 @@
                         <Grid>
                         <!-- Frost: the same glass fill as the sections, over the window artwork (SidePanelFrostOpacity, 0 = off) -->
                         <Border Background="{DynamicResource SidePanelFrostBrush}" IsHitTestVisible="False" Panel.ZIndex="-1" />
-                        <DockPanel Background="{TemplateBinding Background}">
+                        <!-- Transparent: the panel's own fill is the Border above (LibraryPanelGlassOpacity), so the quick filters take part in the same background as the game list -->
+                        <DockPanel Background="Transparent">
                             <DockPanel DockPanel.Dock="Top" LastChildFill="True"
                                        Margin="5,8,5,8">
                                 <Button Content="r" FontFamily="Marlett" 
@@ -41,7 +42,7 @@
                             </DockPanel>
                             <ListBox Name="PART_SelectItems"
                                  DockPanel.Dock="Top" Margin="5,0,5,8"                                      
-                                 BorderThickness="0"
+                                 Background="Transparent" BorderThickness="0"
                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                             </ListBox>
                         </DockPanel>

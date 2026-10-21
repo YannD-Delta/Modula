@@ -130,6 +130,9 @@ Presets:
                     FsPanelCornerRadius:
                         Type: CornerRadius
                         Value: '0'
+                    FsSideRightCornerRadius:
+                        Type: CornerRadius
+                        Value: '0,0,0,0'
                     FsTileCornerRadius:
                         Type: CornerRadius
                         Value: '0'
@@ -161,6 +164,9 @@ Presets:
                     FsPanelCornerRadius:
                         Type: CornerRadius
                         Value: '11'
+                    FsSideRightCornerRadius:
+                        Type: CornerRadius
+                        Value: '0,11,11,0'
                     FsTileCornerRadius:
                         Type: CornerRadius
                         Value: '8'
@@ -192,6 +198,9 @@ Presets:
                     FsPanelCornerRadius:
                         Type: CornerRadius
                         Value: '27'
+                    FsSideRightCornerRadius:
+                        Type: CornerRadius
+                        Value: '0,27,27,0'
                     FsTileCornerRadius:
                         Type: CornerRadius
                         Value: '18'
@@ -285,6 +294,133 @@ Presets:
                     FsBackgroundDarkness:
                         Type: Double
                         Value: '1'
+    ColorProfile:
+        Name: 'Color profile'
+        LocKey: LOCHNDFsPresetColorProfile
+        Presets:
+            Default:
+                Name: 'Neon blue night (default)'
+                LocKey: LOCHNDFsPresetColorProfileDefault
+            Liquid:
+                Name: 'Liquid (cool graphite, system blue)'
+                LocKey: LOCHNDFsPresetColorProfileLiquid
+                Files:
+                    - 'Presets\Colors\Liquid.xaml'
+            Midnight:
+                Name: 'Midnight (deep blue)'
+                LocKey: LOCHNDFsPresetColorProfileMidnight
+                Files:
+                    - 'Presets\Colors\Midnight.xaml'
+            Graphite:
+                Name: 'Graphite (neutral greys)'
+                LocKey: LOCHNDFsPresetColorProfileGraphite
+                Files:
+                    - 'Presets\Colors\Graphite.xaml'
+            OledBlack:
+                Name: 'OLED black (true black, ice blue)'
+                LocKey: LOCHNDFsPresetColorProfileOledBlack
+                Files:
+                    - 'Presets\Colors\OledBlack.xaml'
+            DuneSand:
+                Name: 'Dune sand (amber on warm brown)'
+                LocKey: LOCHNDFsPresetColorProfileDuneSand
+                Files:
+                    - 'Presets\Colors\DuneSand.xaml'
+            Ember:
+                Name: 'Ember (warm red)'
+                LocKey: LOCHNDFsPresetColorProfileEmber
+                Files:
+                    - 'Presets\Colors\Ember.xaml'
+            Forest:
+                Name: 'Forest (green)'
+                LocKey: LOCHNDFsPresetColorProfileForest
+                Files:
+                    - 'Presets\Colors\Forest.xaml'
+            Aurora:
+                Name: 'Aurora (teal and violet)'
+                LocKey: LOCHNDFsPresetColorProfileAurora
+                Files:
+                    - 'Presets\Colors\Aurora.xaml'
+            Rose:
+                Name: 'Rose (pink and lilac)'
+                LocKey: LOCHNDFsPresetColorProfileRose
+                Files:
+                    - 'Presets\Colors\Rose.xaml'
+            Violet:
+                Name: 'Violet (purple and pink)'
+                LocKey: LOCHNDFsPresetColorProfileViolet
+                Files:
+                    - 'Presets\Colors\Violet.xaml'
+            Nord:
+                Name: 'Nord (frost blue, arctic grey)'
+                LocKey: LOCHNDFsPresetColorProfileNord
+                Files:
+                    - 'Presets\Colors\Nord.xaml'
+            Catppuccin:
+                Name: 'Catppuccin Mocha (pastel mauve)'
+                LocKey: LOCHNDFsPresetColorProfileCatppuccin
+                Files:
+                    - 'Presets\Colors\Catppuccin.xaml'
+            TokyoNight:
+                Name: 'Tokyo Night (city blue and violet)'
+                LocKey: LOCHNDFsPresetColorProfileTokyoNight
+                Files:
+                    - 'Presets\Colors\TokyoNight.xaml'
+            Paper:
+                Name: 'Paper (warm cream, brick and teal)'
+                LocKey: LOCHNDFsPresetColorProfilePaper
+                Files:
+                    - 'Presets\Colors\Paper.xaml'
+            Mist:
+                Name: 'Mist (cool blue-grey, deep blue)'
+                LocKey: LOCHNDFsPresetColorProfileMist
+                Files:
+                    - 'Presets\Colors\Mist.xaml'
+            Sand:
+                Name: 'Sand (beige, amber and olive)'
+                LocKey: LOCHNDFsPresetColorProfileSand
+                Files:
+                    - 'Presets\Colors\Sand.xaml'
+            Mint:
+                Name: 'Mint (pastel green, emerald)'
+                LocKey: LOCHNDFsPresetColorProfileMint
+                Files:
+                    - 'Presets\Colors\Mint.xaml'
+            Blush:
+                Name: 'Blush (soft pink, raspberry)'
+                LocKey: LOCHNDFsPresetColorProfileBlush
+                Files:
+                    - 'Presets\Colors\Blush.xaml'
+            Lilac:
+                Name: 'Lilac (pale violet, indigo)'
+                LocKey: LOCHNDFsPresetColorProfileLilac
+                Files:
+                    - 'Presets\Colors\Lilac.xaml'
+            Monochrome:
+                Name: 'Monochrome (black on white, one red)'
+                LocKey: LOCHNDFsPresetColorProfileMonochrome
+                Files:
+                    - 'Presets\Colors\Monochrome.xaml'
+            DeepTeal:
+                Name: 'Deep teal (blue-green night, coral)'
+                LocKey: LOCHNDFsPresetColorProfileDeepTeal
+                Files:
+                    - 'Presets\Colors\DeepTeal.xaml'
+            Wine:
+                Name: 'Wine (bordeaux, gold)'
+                LocKey: LOCHNDFsPresetColorProfileWine
+                Files:
+                    - 'Presets\Colors\Wine.xaml'
+            Terminal:
+                Name: 'Terminal (black, phosphor green)'
+                LocKey: LOCHNDFsPresetColorProfileTerminal
+                Files:
+                    - 'Presets\Colors\Terminal.xaml'
+            Dusk:
+                Name: 'Dusk (deep plum, orange sunset)'
+                LocKey: LOCHNDFsPresetColorProfileDusk
+                Files:
+                    - 'Presets\Colors\Dusk.xaml'
 # END tokens:presets
     Glow:
         Name: 'Focus glow'
@@ -320,6 +456,114 @@ Presets:
                     FsFocusGlowBlur:
                         Type: Double
                         Value: '40'
+    Layout:
+        Name: 'Home layout (card size, title size, title on or off)'
+        LocKey: LOCHNDFsPresetLayout
+        Presets:
+            Default:
+                Name: 'Console (title above the shelf)'
+                LocKey: LOCHNDFsPresetLayoutDefault
+            Billboard:
+                Name: 'Billboard (big title, big cards)'
+                LocKey: LOCHNDFsPresetLayoutBillboard
+                Constants:
+                    FsRowHeight:
+                        Type: Double
+                        Value: '540'
+                    FsHeroMargin:
+                        Type: Thickness
+                        Value: '0,0,0,570'
+                    FsHeroTitleSize:
+                        Type: Double
+                        Value: '96'
+                    FsHeroLineSize:
+                        Type: Double
+                        Value: '32'
+            Compact:
+                Name: 'Compact (small title, small cards)'
+                LocKey: LOCHNDFsPresetLayoutCompact
+                Constants:
+                    FsRowHeight:
+                        Type: Double
+                        Value: '390'
+                    FsHeroMargin:
+                        Type: Thickness
+                        Value: '0,0,0,420'
+                    FsHeroTitleSize:
+                        Type: Double
+                        Value: '56'
+                    FsHeroLineSize:
+                        Type: Double
+                        Value: '24'
+            Gallery:
+                Name: 'Gallery (cards only, no title)'
+                LocKey: LOCHNDFsPresetLayoutGallery
+                Constants:
+                    FsRowHeight:
+                        Type: Double
+                        Value: '600'
+                    FsHeroVisibility:
+                        Type: Visibility
+                        Value: 'Collapsed'
+    SafeArea:
+        Name: 'Safe area (margin kept from the screen border)'
+        LocKey: LOCHNDFsPresetSafeArea
+        Presets:
+            Default:
+                Name: 'Standard (110 px)'
+                LocKey: LOCHNDFsPresetSafeAreaDefault
+            Edge:
+                Name: 'Wide (70 px, a monitor)'
+                LocKey: LOCHNDFsPresetSafeAreaEdge
+                Constants:
+                    FsSafeInset:
+                        Type: Thickness
+                        Value: '70,0,70,0'
+                    FsShelfInset:
+                        Type: Thickness
+                        Value: '-15,0,-15,0'
+            Tv:
+                Name: 'TV (170 px, overscan)'
+                LocKey: LOCHNDFsPresetSafeAreaTv
+                Constants:
+                    FsSafeInset:
+                        Type: Thickness
+                        Value: '170,0,170,0'
+                    FsShelfInset:
+                        Type: Thickness
+                        Value: '85,0,85,0'
+    Typography:
+        Name: 'Typography (fonts that ship with Windows)'
+        LocKey: LOCHNDFsPresetTypography
+        Presets:
+            Default:
+                Name: 'Console (Titillium Web, the stock font)'
+                LocKey: LOCHNDFsPresetTypographyDefault
+            Clean:
+                Name: 'Clean (Segoe UI)'
+                LocKey: LOCHNDFsPresetTypographyClean
+                Files:
+                    - 'Presets\Typography\Clean.xaml'
+            Industrial:
+                Name: 'Industrial (Bahnschrift)'
+                LocKey: LOCHNDFsPresetTypographyIndustrial
+                Files:
+                    - 'Presets\Typography\Industrial.xaml'
+            Soft:
+                Name: 'Soft (Corbel)'
+                LocKey: LOCHNDFsPresetTypographySoft
+                Files:
+                    - 'Presets\Typography\Soft.xaml'
+            Editorial:
+                Name: 'Editorial (Georgia, serif)'
+                LocKey: LOCHNDFsPresetTypographyEditorial
+                Files:
+                    - 'Presets\Typography\Editorial.xaml'
+            Terminal:
+                Name: 'Terminal (Consolas, monospaced)'
+                LocKey: LOCHNDFsPresetTypographyTerminal
+                Files:
+                    - 'Presets\Typography\Terminal.xaml'
     Motion:
         Name: 'Motion'
         LocKey: LOCHNDFsPresetMotion
@@ -357,6 +601,9 @@ Presets:
                     FsMotionOn:
                         Type: Boolean
                         Value: 'False'
+                    FsDetailsVideoVisibility:
+                        Type: Visibility
+                        Value: 'Collapsed'
     Sound:
         Name: 'Interface sounds'
         LocKey: LOCHNDFsPresetSound
@@ -745,6 +992,86 @@ Variables:
             Min: '0'
             Max: '1'
             Step: '0.05'
+    HeaderLayout:
+        Title: 'Layout of the home page'
+        LocKey: LOCHNDFsHeaderLayout
+        Type: Header
+    FsSafeInset:
+        Title: 'Safe area'
+        LocKey: LOCHNDFsOptSafeInset
+        Type: Thickness
+        Default: '110,0,110,0'
+        Description: 'Margin kept from the screen border by every text edge of the home and details pages (left, top, right, bottom). A TV crops the border of the picture: raise it.'
+    FsShelfInset:
+        Title: 'Margin of the row of covers'
+        LocKey: LOCHNDFsOptShelfInset
+        Type: Thickness
+        Default: '25,0,25,0'
+        Description: 'Margin of the row of covers (horizontal layout): the safe area minus about 85, so the first cover lines up with the title. The Safe area preset sets both.'
+    FsRowHeight:
+        Title: 'Height of the row of covers'
+        LocKey: LOCHNDFsOptRowHeight
+        Type: Double
+        Default: '470'
+        Description: 'Height of the band that holds the row of covers (horizontal layout): the card size follows it. Change FsHeroMargin with it (about 30 more).'
+        Slider:
+            Min: '300'
+            Max: '640'
+            Step: '10'
+    FsHeroMargin:
+        Title: 'Room above the covers'
+        LocKey: LOCHNDFsOptHeroMargin
+        Type: Thickness
+        Default: '0,0,0,500'
+        Description: 'Space between the bottom of the screen and the title block (left, top, right, bottom); the bottom value is about the row height plus 30.'
+    FsHeroTitleSize:
+        Title: 'Title size (home page)'
+        LocKey: LOCHNDFsOptHeroTitleSize
+        Type: Double
+        Default: '72'
+        Description: 'Size of the selected game name above the covers.'
+        Slider:
+            Min: '36'
+            Max: '120'
+            Step: '2'
+    FsHeroLineSize:
+        Title: 'Facts size (home page)'
+        LocKey: LOCHNDFsOptHeroLineSize
+        Type: Double
+        Default: '28'
+        Description: 'Size of the genres, platforms and time line under the title (24 or more reads from a TV couch).'
+        Slider:
+            Min: '16'
+            Max: '40'
+            Step: '1'
+    FsHeroVisibility:
+        Title: 'Show the title block'
+        LocKey: LOCHNDFsOptHeroVisibility
+        Type: Visibility
+        Default: 'Visible'
+        Description: 'Visible = the selected game name and facts above the covers; Collapsed = the covers alone.'
+    HeaderAddons:
+        Title: 'Add-on integrations'
+        LocKey: LOCHNDFsHeaderAddons
+        Type: Header
+    FsDetailsVideoVisibility:
+        Title: 'Trailer behind the details page'
+        LocKey: LOCHNDFsOptDetailsVideoOn
+        Type: Visibility
+        Default: 'Visible'
+        Description: 'Plays the trailer of Extra Metadata Loader behind the game page, when the add-on has one. Collapsed = the artwork only (lighter).'
+    FsStatusChipsVisibility:
+        Title: 'Status chips in the top bar'
+        LocKey: LOCHNDFsOptStatusChipsOn
+        Type: Visibility
+        Default: 'Visible'
+        Description: 'Controller battery, Wi-Fi, volume and the game that is running, from Controller Session Manager, MoData, Audio Switcher and Now Playing. Each chip only shows when its add-on has something to say.'
+    FsLibraryFactsVisibility:
+        Title: 'Library facts and suggestion (Aniki Helper)'
+        LocKey: LOCHNDFsOptLibraryFactsOn
+        Type: Visibility
+        Default: 'Visible'
+        Description: 'Shows the suggested game and this month in numbers next to the title, from the optional Aniki Helper add-on. Nothing shows without it.'
     HeaderDetails:
         Title: 'Tiles and buttons'
         LocKey: LOCHNDFsHeaderDetails

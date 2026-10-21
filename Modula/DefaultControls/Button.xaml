@@ -414,7 +414,7 @@
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="False">
                 <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Foreground" Value="#80ffffff" />
+                <Setter Property="Foreground" Value="{DynamicResource HeroFavoriteOffBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -623,7 +623,7 @@
                                               TextElement.FontSize="{TemplateBinding FontSize}" TextElement.FontWeight="{TemplateBinding FontWeight}" />
                             <TextBlock Foreground="{DynamicResource TextBrushDarker}" FontSize="{DynamicResource FontSizeSmall}"
                                        VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
-                                       Tag="{DynamicResource LOC_NewsViewer_PlayersInGameViewerControl_InGameCountLabel}"
+                                       Tag="{DynamicResource LOCHNDPlayersCountLabel}"
                                        Text="{Binding Path=Tag, RelativeSource={RelativeSource Self}, StringFormat=' {0}'}"/>
                         </StackPanel>
                     </Border>

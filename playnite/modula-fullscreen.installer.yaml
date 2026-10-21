@@ -1,5 +1,13 @@
 AddonId: 'f0680ff7-f5f3-4338-a545-5eb791243bb6'
 Packages:
+  - Version: 1.1
+    RequiredApiVersion: 2.10.0
+    ReleaseDate: 2026-10-21
+    PackageUrl: https://github.com/YannD-Delta/Modula/releases/download/v3.2/Modula-Fullscreen-1.1.pthm
+    Changelog:
+      - Shares the colour profiles of Modula Desktop (light looks included)
+      - Safe margins, aligned screens, new home layouts and typography presets
+      - Optional integrations: Extra Metadata logo and trailer, Now Playing, Back To Game, status chips, Aniki Helper cards
   - Version: 1.0
     RequiredApiVersion: 2.10.0
     ReleaseDate: 2026-10-19

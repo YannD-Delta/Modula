@@ -33,6 +33,17 @@
                 <ControlTemplate TargetType="{x:Type GameListItem}">
                     <Border BorderThickness="{Settings GridItemMargin}" BorderBrush="{DynamicResource GridItemBackgroundBrush}"
                                 Background="Transparent">
+                        <!-- The frame follows the cover rounding (a square frame around a rounded cover looks unfinished) -->
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="0" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=Mask, Path=Tag}" Value="True">
+                                        <Setter Property="CornerRadius" Value="{DynamicResource GridViewSelectionBorderCornerRadius}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
                         <StackPanel Name="PART_PanelHost" Width="{Settings GridItemWidth}" ToolTip="{Binding DisplayName}" ToolTipService.InitialShowDelay="500" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[GridViewCoverTooltip], FallbackValue={StaticResource GridViewCoverTooltip}, TargetNullValue={StaticResource GridViewCoverTooltip}}" ToolTipService.IsEnabled="{Binding Tag, RelativeSource={RelativeSource Self}}"
                                     d:DataContext="{x:Static DesignMainViewModel.DesignSelectedGameIntance}">
                             <Grid>
@@ -106,15 +117,40 @@
                                     </Grid>
                                 </StackPanel>
 
-                                <Border Background="#99000000" x:Name="TextGameName" Visibility="Collapsed"
+                                <!-- Placeholder for a game without a cover: the theme accent tint over the tile fill, a dashed frame, and the title in the theme text colour
+                                     (no hard-coded black: it has to read on light and on dark colour profiles) -->
+                                <Border x:Name="TextGameName" Visibility="Collapsed"
+                                        Background="{DynamicResource GridViewItemMaskBackgroundBrush}"
                                         CornerRadius="{Binding ElementName=Mask, Path=CornerRadius}">
-                                    <TextBlock Text="{Binding DisplayName}"
-                                               TextWrapping="Wrap" Margin="5"
-                                               Style="{StaticResource BaseTextBlockStyle}"
-                                               TextTrimming="CharacterEllipsis" TextAlignment="Center"
-                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <Grid>
+                                        <Border Background="{DynamicResource GlassSelectionFillBrush}" CornerRadius="{Binding ElementName=Mask, Path=CornerRadius}" />
+                                        <Rectangle Margin="8" RadiusX="6" RadiusY="6" Stroke="{DynamicResource TextBrushDarker}" StrokeThickness="1"
+                                                   StrokeDashArray="3 4" Opacity="0.35" />
+                                        <TextBlock Text="{Binding DisplayName}"
+                                                   TextWrapping="Wrap" Margin="16,14"
+                                                   Style="{StaticResource BaseTextBlockStyle}"
+                                                   Foreground="{DynamicResource TextBrush}" FontWeight="SemiBold"
+                                                   TextTrimming="CharacterEllipsis" TextAlignment="Center"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
                                 </Border>
 
+                                <!-- Title over the art (options GridViewCoverTitleOverlay / ...OnHover): a bottom scrim carrying the name; the white text sits on the dark scrim whatever the colour profile -->
+                                <TextBlock x:Name="TitleOverlayProxy" Visibility="Collapsed" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[GridViewCoverTitleOverlay], FallbackValue={StaticResource GridViewCoverTitleOverlay}, TargetNullValue={StaticResource GridViewCoverTitleOverlay}}" />
+                                <TextBlock x:Name="TitleOverlayHoverProxy" Visibility="Collapsed" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[GridViewCoverTitleOverlayOnHover], FallbackValue={StaticResource GridViewCoverTitleOverlayOnHover}, TargetNullValue={StaticResource GridViewCoverTitleOverlayOnHover}}" />
+                                <Border x:Name="TitleOverlay" Visibility="Collapsed" IsHitTestVisible="False" VerticalAlignment="Bottom"
+                                        CornerRadius="{Binding ElementName=Mask, Path=CornerRadius}">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#00000000" Offset="0" />
+                                            <GradientStop Color="#CC000000" Offset="0.55" />
+                                            <GradientStop Color="#E6000000" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <TextBlock Text="{Binding DisplayName}" Margin="10,28,10,10"
+                                               Style="{StaticResource BaseTextBlockStyle}" Foreground="#FFFFFFFF" FontWeight="SemiBold"
+                                               TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+                                </Border>
                                 <Border Background="#000000" CornerRadius="{Binding ElementName=Mask, Path=CornerRadius}"
                                             x:Name="BorderMouseOver" Visibility="Collapsed" Opacity="0.70" />
                                 <Border x:Name="GlowPlayingBorder" Visibility="Collapsed" Tag="False"
@@ -156,9 +192,6 @@
                                         </Style>
                                     </Border.Style>
                                 </Border>
-                                <Border Background="{DynamicResource CoversButtonsBrush}"
-                                        CornerRadius="{Binding ElementName=Mask, Path=CornerRadius}"
-                                        x:Name="BorderDarkFade" Visibility="Collapsed" />
                                 <StackPanel>
                                     <Border Height="{Binding ElementName=ThemeExtras_Banner, Path=ActualHeight}"
                                             Visibility="{Binding ElementName=ThemeExtras_Banner, Path=Visibility}" />
@@ -238,7 +271,8 @@
                             </Border>
 
                             <DockPanel Width="{Settings GridItemWidth}"
-                                       Visibility="{PluginSettings Plugin=LayoutStudio, Path=Options[GridViewCoverSubtitleVisibility], FallbackValue={StaticResource GridViewCoverSubtitleVisibility}, TargetNullValue={StaticResource GridViewCoverSubtitleVisibility}}">
+                                       Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[GridViewCoverSubtitleVisibility], FallbackValue={StaticResource GridViewCoverSubtitleVisibility}, TargetNullValue={StaticResource GridViewCoverSubtitleVisibility}}"
+                                       Visibility="{Binding Tag, RelativeSource={RelativeSource Self}}">
                                 <TextBlock Text="&#xEEDC;" FontSize="{PluginSettings Plugin=LayoutStudio, Path=Options[FontSizeSmall], FallbackValue={StaticResource FontSizeSmall}, TargetNullValue={StaticResource FontSizeSmall}}"
                                             FontFamily="{StaticResource FontIcoFont}"
                                             TextAlignment="Left" VerticalAlignment="Center"
@@ -303,6 +337,29 @@
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Tag" Value="True" TargetName="GlowPlayingBorder" />
                             <Setter Property="Visibility" Value="Visible" TargetName="GlowPlayingBorder" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=TitleOverlayProxy, Path=Tag}" Value="True" />
+                                <Condition Binding="{Binding ElementName=TitleOverlayHoverProxy, Path=Tag}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" TargetName="TitleOverlay" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=TitleOverlayProxy, Path=Tag}" Value="True" />
+                                <Condition Binding="{Binding ElementName=TitleOverlayHoverProxy, Path=Tag}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" TargetName="TitleOverlay" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=TitleOverlayProxy, Path=Tag}" Value="True" />
+                                <Condition Binding="{Binding ElementName=TitleOverlayHoverProxy, Path=Tag}" Value="True" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Visible" TargetName="TitleOverlay" />
                         </MultiDataTrigger>
                         <DataTrigger Binding="{Settings ShowGridItemBackground}" Value="True">
                             <Setter Property="Padding" Value="2,5,2,5" TargetName="ShowGameName" />

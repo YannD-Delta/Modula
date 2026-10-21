@@ -4,7 +4,8 @@
     "Accent",
     "Corners",
     "Glass",
-    "WindowDarkness"
+    "WindowDarkness",
+    "ColorProfile"
   ],
   "tokens": {
     "accent": {
@@ -32,7 +33,10 @@
       "constants": [
         "FsPanelCornerRadius"
       ],
-      "scale": 1.33
+      "scale": 1.33,
+      "extraShape": {
+        "FsSideRightCornerRadius": "0,{v},{v},0"
+      }
     },
     "radius_tile": {
       "type": "CornerRadius",

@@ -107,7 +107,7 @@
                         <Border Padding="{TemplateBinding Padding}">
                             <TextBlock FontSize="{TemplateBinding FontSize}" FontWeight="{DynamicResource WeightValue}"
                                        Foreground="{TemplateBinding Foreground}"
-                                       Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="NoWrap" />
+                                       Text="{TemplateBinding Content, Converter={StaticResource ObjectToStringConverter}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>

@@ -7,6 +7,7 @@
 ### The Playnite theme that is stunning out of the box, and yours to bend into any shape.
 
 Liquid-glass desktop theme + a PS5-style Fullscreen theme, one look, one set of rules.<br>
+**705 settings** (646 on the desktop, 59 in Fullscreen), **30 ready-made global looks**, 25 colour profiles, 12 fonts: built end to end with [Claude Code](https://claude.com/claude-code).<br>
 Rearrange, resize and recolour everything live with the **[Layout Studio](https://github.com/YannD-Delta/Layout-Studio)** editor.
 
 [![Playnite 10](https://img.shields.io/badge/Playnite-10.x-1f6feb?style=flat-square)](https://playnite.link)
@@ -24,7 +25,7 @@ Rearrange, resize and recolour everything live with the **[Layout Studio](https:
 Most Playnite themes make you choose: pretty or configurable. Modula is built to be both.
 
 - **Sublime by default.** Install it, pick a game: frosted liquid glass, soft glows, the game's own art washing over the page. No setup.
-- **Ultra customisable.** Every section, size, corner, colour and information card is a setting. With Layout Studio you drag sections between columns and watch the real window change while you edit.
+- **Ultra customisable: 705 settings.** Every section, size, corner, colour, font, background and information card is a setting (646 on the desktop, 59 in Fullscreen, 245 choices in 44 preset groups). With Layout Studio you drag sections between columns, generate a background (flat, gradient, soft circles, patterns) and watch the real window change while you edit.
 - **One look on desktop and on the TV.** Modula Desktop and Modula Fullscreen share the same rules: the same accent colours, rounded corners, glow, and the same information cards.
 - **Never an inner scrollbar.** Sections adapt to their content instead of hiding it behind nested scroll areas.
 - **Your add-ons, integrated.** It uses the Playnite add-ons you already have (achievements, HowLongToBeat, activity, music...) and hides what is not installed.
@@ -45,21 +46,36 @@ Most Playnite themes make you choose: pretty or configurable. Modula is built to
 - **Liquid Glass material**: translucent panels with a soft rim, gloss and bloom. Tiles, chips, link buttons and the Play button are the same family, so nothing looks bolted on.
 - **Header cards**: choose which facts show above the description (time played, last played, scores, install size, HowLongToBeat, activity...). Scores are colour-coded by value.
 - **Sections you control**: reorder, hide, collapse or move them to the other column. Every section can switch column, add-on sections included.
-- **Four looks, one switch**: Liquid Glass, Frosted Mono, Neon Night, Flat. Plus spacing (Compact, Comfortable, Airy), corner rounding (Square to Very round), and a **Lite** mode (saves GPU: no glow, no shadows) for when a game is running.
-- **14 colour profiles and 9 accents**, or any `#RRGGBB` of your own.
+- **Thirty looks, one click**: global presets such as Paper Gallery, Graphite Desk, Neon Arcade or Aurora Glass change the whole design at once, and the pieces are still yours to mix: material (Liquid Glass, Frosted Mono, Neon Night, Flat, Lite), spacing (Compact, Comfortable, Airy), corner rounding (Square to Very round), a **Light** profile family and a generated window backdrop.
+- **25 colour profiles (7 of them light) and 9 accents**, 12 font personalities, or any `#RRGGBB` of your own.
 
 <table>
 <tr>
-<td width="25%"><img src="docs/images/desktop-look-default.png" alt="Liquid Glass"></td>
-<td width="25%"><img src="docs/images/desktop-look-frostedmono.png" alt="Frosted Mono"></td>
-<td width="25%"><img src="docs/images/desktop-look-neonnight.png" alt="Neon Night"></td>
-<td width="25%"><img src="docs/images/desktop-look-flat.png" alt="Flat"></td>
+<td width="25%"><img src="docs/images/desktop-look-default.png" alt="Aurora Glass"></td>
+<td width="25%"><img src="docs/images/desktop-look-frostedmono.png" alt="Graphite Desk"></td>
+<td width="25%"><img src="docs/images/desktop-look-neonnight.png" alt="Neon Arcade"></td>
+<td width="25%"><img src="docs/images/desktop-look-flat.png" alt="Paper Gallery"></td>
 </tr>
 <tr>
-<td align="center"><sub>Liquid Glass</sub></td>
-<td align="center"><sub>Frosted Mono</sub></td>
-<td align="center"><sub>Neon Night</sub></td>
-<td align="center"><sub>Flat</sub></td>
+<td align="center"><sub>Aurora Glass</sub></td>
+<td align="center"><sub>Graphite Desk</sub></td>
+<td align="center"><sub>Neon Arcade</sub></td>
+<td align="center"><sub>Paper Gallery</sub></td>
+</tr>
+</table>
+
+Every view is themed: list, grid, grid + details, the explorer panel and the filters, on a light game as on a dark one.
+
+<table>
+<tr>
+<td width="33%"><img src="docs/images/desktop-bright-grid-details.png" alt="Grid and details"></td>
+<td width="33%"><img src="docs/images/desktop-bright-list-explorer.png" alt="List with the explorer panel"></td>
+<td width="33%"><img src="docs/images/desktop-bright-grid-filters.png" alt="Grid with the filter panel"></td>
+</tr>
+<tr>
+<td align="center"><sub>Grid + details</sub></td>
+<td align="center"><sub>List with the explorer</sub></td>
+<td align="center"><sub>Grid with the filters</sub></td>
 </tr>
 </table>
 
@@ -116,6 +132,47 @@ Modula ships its settings through **[Layout Studio](https://github.com/YannD-Del
 </tr>
 </table>
 
+### Global presets: 30 looks in one click
+
+The first page of the editor, **Global preset**, shows a card per ready-made look, each with a picture of the real window. A global preset sets the *whole* look at once (every preset group and every value: colours, material, fonts, density, corners, accent, the generated window backdrop, the hero, the placement of the sections, the information shown); click a card, then click it again to apply it. Your previous profile is saved first. A new profile starts from the default preset, and "Reset all" returns to it.
+
+<img src="docs/images/desktop-presets-sheet.png" alt="The 30 global presets" width="100%">
+
+| Preset | Art direction |
+| --- | --- |
+| Paper Gallery | A warm cream editorial gallery: Georgia type, square thin-ruled frames, a big cover, captions instead of cards, two calm columns. |
+| Mist Studio | Cool grey-blue frosted glass floating over a soft gradient: big round corners, four large cards, a wide main column and a slim side column. |
+| Sand Café | A friendly sand-and-terracotta café: airy spacing, pill chips and buttons, warm blobs of colour behind soft rounded cards. |
+| Mint Garden | Fresh mint and deep green: friendly type, crisp circles over a pale green field, rounded cards and almost all the sections in the right column. |
+| Blush Boutique | A powdery pink boutique: thin plum outlines on a dotted blush field, a very big cover and only the essentials of information. |
+| Lilac Dream | A pastel lavender dream: a radial glow in the window, a soft glowing full-width tinted hero, round cards and two quiet columns without titles. |
+| Newsprint Mono | Black ink on newsprint: a monospace terminal-on-paper page with square hairline boxes on ruled paper, twelve header cards and every information row. |
+| Citrus Pop | High-energy citrus: black ink on white cards over a yellow-lime gradient, one orange accent, chunky pill buttons and eight big header cards. |
+| Obsidian Cinema | True black screening room: a full-width hero with the cover inside, heavy cinematic shade, no chips, no section titles, amber for the one light that matters. |
+| Midnight Terminal | A console in the dark: monospace everywhere, hairline phosphor outlines, square cells on a character grid and every field of the game printed at once. |
+| Wine Cellar | A candle-lit cellar: deep bordeaux gradient, serif type, warm gold edges and two balanced columns of softly rounded cards. |
+| Deep Teal Lab | A clinical lab dashboard: flat deep-teal instrument cards, twelve data tiles, small corners, cyan readouts and the sections stacked in a right-hand rail. |
+| Graphite Desk | A neutral workstation: flat opaque graphite, square corners, compact Tahoma text, a text-only status line and every information row on one dense column. |
+| Ember Forge | A working forge: hot orange on charcoal, hard 3 px edges, a cover framed in amber, outline chips and sparks of ember floating in the dark. |
+| Noir Gold | Old-world luxury: gold hairlines on black, a large book-set cover, almost no chrome, and bokeh of gold dust behind a calm single flow. |
+| Blueprint Grid | An architect's drawing board: cyanotype blue with a white-cyan drafting grid, square cells, drawing-style type and every annotation of the game laid out in two ruled columns. |
+| Neon Arcade | Arcade cabinet at night: black-violet cabinet, hot pink and electric cyan tubes, a full-width marquee banner and score-board cards. |
+| Candy Pop | A sweet-shop window: pastel pink and lilac, turquoise and lemon candy circles, chunky pill shapes and sticker-like chips and cards. |
+| Aurora Glass | Liquid glass over a northern-lights sky: nothing but thin bright rims and blur, a hero that melts into the aurora, section titles left out. |
+| Synth Sunset | Retro-futurist 1985 horizon: a magenta-to-orange sunset with a grid, thick glowing rims, a wide letterbox banner and two even columns. |
+| Bokeh Night | A cinematic night street out of focus: deep navy, warm amber and pink city lights, soft glass, a framed hero and a quiet narrow reading column. |
+| Retro Console | 16-bit console menu: royal-blue screen with a halftone dot grid, thick white window frames, square corners, mono type, primary red and yellow, a big boxed cover. |
+| Pixel Mint | Handheld-colour mood made modern: mint ink and hot coral on dark teal, a pixel grid, flat panels with 2 px outlines and small hard corners. |
+| Storefront Blue | A store-page look: deep desaturated blue, a big banner hero with a large green Play button, a tight list and compact stacked panels in a main column with a slim sidebar. |
+| Launcher Black | A flat black-and-grey launcher: hairline separators, square corners, plain-text chips and tiles, dense type and one white accent, with the content weighted to the left. |
+| Galaxy Violet | A violet social launcher: blurred artwork behind everything, pill buttons and chips, big round corners, tabs over the sections and a friends-style info panel (library, added, recent activity). |
+| Console Blue | A living-room console screen: a blue radial glow, a big cover card, large airy type, very few chips and cards, no section headers and a bare top panel. |
+| Handheld Red | A handheld-first look: bold crimson on dark, big touch-sized buttons and list rows, high-contrast text, a tight full-bleed hero and only the essential sections. |
+| Big Picture Dark | A couch-friendly desktop: an oversized edge-to-edge hero, big type, almost no clutter (no chips, no section headers, few rows), a near-black backdrop with faint blobs and strong focus rings. |
+| Zen Slate | A calm professional slate: airy spacing, soft borderless glass, a centred hero over a single centred column of sections, a quiet dotted backdrop and a discreet accent. |
+
+These are starting points to bend, not locked themes: change anything afterwards and the card says "in use, edited".
+
 Modula also runs without Layout Studio with its default look (the `options.yaml` presets are readable by the Theme Options extension), but you then lose the live editor, the Fullscreen quick menu and the colour rules of the information cards.
 
 ## Install
@@ -134,7 +191,12 @@ Nothing is required: the theme works without any add-on, and each integration hi
 | What Modula shows | Add-on |
 | --- | --- |
 | The editor, presets, colour rules, Fullscreen quick menu | [Layout Studio](https://github.com/YannD-Delta/Layout-Studio) |
-| Game logo, trailer video | [Extra Metadata Loader](https://github.com/darklinkpower/PlayniteExtensionsCollection) |
+| Game logo (banner), trailer video (section; the add-on's own alternative player can sit in the banner) | [Extra Metadata Loader](https://github.com/darklinkpower/PlayniteExtensionsCollection) |
+| Rotating, animated and video covers and backgrounds (banner background, banner cover, Grid view) | [ImageRotater](https://github.com/Mike-Aniki/ImageRotater) |
+| A chip in the top bar while a game runs (its icon, name, session time; a click returns to it), or a plain Back to game button | [Now Playing](https://github.com/jonosellier/NowPlaying), or [Back To Game](https://codeberg.org/ashpynov/BackToGame) |
+| Library overview (top bar button): library numbers, play time, game of the month, a suggested game, most played, completion, sources, latest Steam updates | [AnikiHelper](https://github.com/Mike-Aniki/AnikiHelper) (public data only; nothing of its Fullscreen theme is used) |
+| What your friends played, achieved and finished for this game (section) | [PlayerActivities](https://github.com/Lacro59/playnite-playeractivities-plugin) |
+| The add-on's own notifications (volume and device changes, controller connections) in the theme's colours | [Audio Switcher](https://github.com/Naerian/playnite-nx-audio-switcher), [Controller Manager](https://github.com/Naerian/playnite-nx-session-controller-manager) (they add their own button to the top bar; Modula only ships the colour mapping their "follow the active theme" switch reads) |
 | Achievements: progress bar, latest unlocked, unlocked and locked lists, full list (section and header card) | [Playnite Achievements](https://github.com/justin-delano/PlayniteAchievements) |
 | Time to beat (header card, progress bar, section) | [HowLongToBeat](https://github.com/Lacro59/playnite-howlongtobeat-plugin) |
 | Play time charts and session log, hardware stats (FPS, CPU, GPU, RAM) | [GameActivity](https://github.com/Lacro59/playnite-gameactivity-plugin) |
@@ -155,10 +217,11 @@ Nothing is required: the theme works without any add-on, and each integration hi
 | Library management icons, game update status, Steam shortcuts, system requirement and localization checks | Library Management, Game Update Status, Steam Shortcuts, System Checker, Check Localizations |
 | GOG second-class watcher, duplicate source selector | GogSecondClassWatcher, Duplicate Hider |
 | Per-game music while you browse; an optional player in the banner; a quick toggle in Fullscreen | [UniPlaySong](https://github.com/aHuddini/UniPlaySong) |
-| Interface and event sounds | [Playnite Sounds Mod](https://codeberg.org/ashpynov/PlayniteSoundMod) |
 | Smooth background transitions when the game changes | [Custom Fade Animations](https://github.com/saVantCZ/CustomFadeAnim) |
 | Resolution, refresh rate and HDR when a game starts (handy on a TV) | [Display Manager](https://github.com/Naerian/playnite-nx-display-session) |
 | Playtime trends and rankings | [Playtime Insights](https://github.com/SHINKU1506/PlaytimeInsights) |
+
+That makes 34 add-ons hosted or read by the theme, plus Layout Studio, and 2 more whose notifications follow its colours. Each one hides itself, and takes no room, when it is missing; none is required. Checked on a test bench with the add-on installed: see the CHANGELOG for what was seen working and what was only read from the add-on's documentation.
 
 Every section of the game page above can be moved to the other column from Layout Studio (the extension moves the live block, so the add-on keeps working). The control names come from the theme's source; check each add-on's exact name in Playnite's add-on browser.
 
@@ -194,9 +257,9 @@ These come from a real setup (4K screen, Playnite 10.62, a library of about 1,80
 - Disable library add-ons you do not use. Login errors at start for stores you are not signed in to (Battle.net, EA app) are known Playnite behaviour and harmless.
 - The window glass blur is computed once and cached (about 2 % GPU instead of 13 % while the game list scrolls on the test machine); the glass has a Lite material preset and a "Graphics and performance" page for weaker machines.
 
-### Music and sounds (UniPlaySong, Playnite Sounds Mod)
+### Music (UniPlaySong)
 
-- Use **UniPlaySong** for game music and **Playnite Sounds Mod** only for interface sound effects. Both can play music, so their roles overlap: if you keep both, set Playnite Sounds Mod's music to "never" so two players never fight.
+- Use **UniPlaySong** for game music: it is the one player the theme integrates. Do not run a second music player next to it (Playnite Sounds Mod, for example, has its own music engine and the two would fight).
 - UniPlaySong already adds play, pause and next to Playnite's top bar. The theme's own ready-made player in the game banner (option "Show the music player") is **off by default**; turn it on if you want cover, title and previous/next on the game page.
 - UniPlaySong stores one audio file per game and downloads them from YouTube with yt-dlp and FFmpeg (Deno may be needed). With hundreds or thousands of games, turn automatic download on library update and on install OFF and download music only for the games you care about: music then exists only for chosen games.
 - Cookie source: if downloads fail with "could not read browser cookies", close the browser or change the cookie source (hundreds of failures were seen while the browser held its cookie file locked).
@@ -244,7 +307,7 @@ Playnite lists themes in its built-in add-on browser through [a community databa
 I would love to hear what you think, what breaks, and what you would change.
 
 - Open an [issue](https://github.com/YannD-Delta/Modula/issues) on GitHub for bugs and ideas.
-- Talk to me on Discord: **@yannd_delta** (or open an issue, either is welcome).
+- Talk to me on Discord: **yannd_delta** (or open an issue, either is welcome).
 ## Contributing
 
 Issues and pull requests are welcome. Before sending a change to a theme, run the lint:

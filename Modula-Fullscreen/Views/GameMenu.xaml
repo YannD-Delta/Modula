@@ -28,7 +28,7 @@
 
     <!-- A hairline under the title instead of a dark box: the box showed square corners over the rounded panel -->
     <DataTemplate x:Key="GameMenuHeaderTemplate">
-        <Border BorderBrush="#33FFFFFF" BorderThickness="0,0,0,1">
+        <Border BorderBrush="{DynamicResource FsHairlineBrush}" BorderThickness="0,0,0,1">
             <TextBlock Text="{Binding Name}"
                        Style="{DynamicResource GameMenuHeaderText}" />
         </Border>

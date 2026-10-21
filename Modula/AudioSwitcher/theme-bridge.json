@@ -1,0 +1,14 @@
+{
+  "Notification": {
+    "Background": "PopupBackgroundBrush",
+    "Gradient": "PopupBorderBrush",
+    "Text": "TextBrush",
+    "SecondaryText": "TextBrushDarker",
+    "Accent": "GlyphBrush",
+    "Border": "PopupBorderBrush",
+    "Warning": "WarningBrush",
+    "TextStyle": "BaseTextBlockStyle",
+    "TitleStyle": "BaseTextBlockStyle",
+    "MessageStyle": "BaseTextBlockStyle"
+  }
+}

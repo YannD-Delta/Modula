@@ -52,7 +52,7 @@
                             <Setter Property="Visibility" Value="Hidden" TargetName="BorderStandard" />
                         </Trigger>
                         <Trigger Property="Tag" Value="{StaticResource True}">
-                            <Setter Property="Foreground" Value="{DynamicResource GlyphLightBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -75,7 +75,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
         <Style.Triggers>
             <Trigger Property="Tag" Value="{StaticResource True}">
-                <Setter Property="Foreground" Value="{DynamicResource GlyphLightBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -120,7 +120,7 @@
                 <ControlTemplate TargetType="{x:Type Filters}">
                     <!-- Glass side panel: the same fill and lit edge as the menus; never a scrollbar -->
                     <Border Background="{DynamicResource OverlayMenuBackgroundBrush}" BorderBrush="{DynamicResource FsPanelRimBrush}" BorderThickness="0,1,1,1"
-                            CornerRadius="0,24,24,0" MinWidth="{DynamicResource FilterPanelWidth}">
+                            CornerRadius="{DynamicResource FsSideRightCornerRadius}" MinWidth="{DynamicResource FilterPanelWidth}">
                         <ItemsControlEx x:Name="PART_ItemsHost" Focusable="False"
                                         KeyboardNavigation.DirectionalNavigation="Once">
                             <ItemsControl.ItemsPanel>

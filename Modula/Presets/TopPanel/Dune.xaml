@@ -202,6 +202,9 @@
                                         </StackPanel>
                                     </Button>
                                 </Grid>
+                                <!-- Add-on chips (Now Playing, AnikiHelper library overview): each one hides itself, and takes no room, without its add-on -->
+                                <ContentControl Style="{DynamicResource TopPanelNowPlayingChip}" />
+                                <ContentControl Style="{DynamicResource TopPanelLibraryOverview}" />
                                 <StackPanel x:Name="PART_PanelMainItems" Orientation="Horizontal" VerticalAlignment="Stretch" Margin="4,6,0,6" />
                                 <Border Width="1" Height="20" Margin="8,0,0,0" Background="{DynamicResource PanelSeparatorBrush}" VerticalAlignment="Center" />
                                 <CheckBox x:Name="PART_ToggleFilter" ToolTip="{DynamicResource LOCFilters}" Margin="8,0,0,0"

@@ -35,6 +35,11 @@
                             <!-- Per-game badges: each row gets its own game from Playnite -->
                             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,4,0"
                                         TextElement.FontSize="{PluginSettings Plugin=LayoutStudio, Path=Options[FontSizeSmall], FallbackValue={StaticResource FontSizeSmall}, TargetNullValue={StaticResource FontSizeSmall}}">
+                                <!-- your own play time (not the HowLongToBeat story time below): off by default -->
+                                <Grid Style="{DynamicResource SectionToggleGrid}" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[LibraryListShowPlayTime], FallbackValue={StaticResource LibraryListShowPlayTime}, TargetNullValue={StaticResource LibraryListShowPlayTime}}">
+                                    <TextBlock Text="{Binding Playtime, Mode=OneWay, Converter={StaticResource PlayTimeToStringConverter}, IsAsync=True}" Margin="8,0,0,0" Opacity="0.75"
+                                               VerticalAlignment="Center" Foreground="{DynamicResource TextBrushDarker}" />
+                                </Grid>
                                 <Grid Style="{DynamicResource SectionToggleGrid}" Tag="{PluginSettings Plugin=LayoutStudio, Path=Options[LibraryListShowHltb], FallbackValue={StaticResource LibraryListShowHltb}, TargetNullValue={StaticResource LibraryListShowHltb}}">
                                     <ContentControl x:Name="HowLongToBeat_PluginViewItem" Margin="8,0,0,0" Opacity="0.75"
                                                     VerticalAlignment="Center" FontSize="{PluginSettings Plugin=LayoutStudio, Path=Options[FontSizeSmall], FallbackValue={StaticResource FontSizeSmall}, TargetNullValue={StaticResource FontSizeSmall}}"
